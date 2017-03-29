@@ -7,7 +7,7 @@
 <ion-header no-border [class.animate]="tabanimate">
 
     <ion-navbar color="bule">
-        <ion-title>回答</ion-title>
+        <ion-title>{{title}}</ion-title>
         <ion-buttons end>
             <button ion-button icon-only>
               <ion-icon name="share"></ion-icon>
@@ -71,8 +71,30 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer [class.footanimate]="tabanimate">
     <ion-toolbar color='fff'>
-        <ion-title>Footer</ion-title>
+        <div class="dv_f">
+            <ion-icon name="happy"></ion-icon>
+            赞同
+        </div>
+        <div class="dv_f">
+            <ion-icon name="sad"></ion-icon>
+            反对
+        </div>
+        <div class="dv_f">
+            <ion-icon name="star-outline"></ion-icon>
+            收藏
+            <!--star-->
+        </div>
+        <div class="dv_f">
+            <ion-icon name="heart-outline"></ion-icon>
+            感谢
+            <!--heart-->
+        </div>
+        <div class="dv_f">
+            <ion-icon name="text"></ion-icon>
+            123
+        </div>
     </ion-toolbar>
+
 </ion-footer>

@@ -31,7 +31,7 @@ export class QuestionPage {
         
         let scrollTop = $event.scrollTop;
 
-        if(scrollTop > 300 ) {
+        if(scrollTop > 250 ) {
           if(!this.tabanimate){
             this.tabanimate = true;
           }

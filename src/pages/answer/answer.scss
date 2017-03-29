@@ -1,6 +1,19 @@
 page-answer {
-    ion-header {
-        transition: top 1000ms cubic-bezier(.19, 1.12, .65, .91);
+    ion-header,
+    .toolbar-title,
+    ion-footer {
+        transition: all 1000ms cubic-bezier(.19, 1.12, .65, .91);
+    }
+    ion-footer {
+        ion-icon {
+            display: block;
+        }
+        .dv_f {
+            float: left;
+            text-align: center;
+            width: 20%;
+            color: #777777;
+        }
     }
     .dv_title {
         width: 100%;
@@ -60,9 +73,12 @@ page-answer {
     .scroll-content {
         margin-top: 0 !important;
         padding-top: 0px;
-        margin-bottom: 5rem !important;
+        margin-bottom: 0 !important;
     }
     .animate {
         top: -90px;
+    }
+    .footanimate {
+        bottom: -78px;
     }
 }

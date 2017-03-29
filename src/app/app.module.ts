@@ -13,6 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 
+import { PublicServe } from '../pages/public.serve';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -44,7 +46,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PublicServe
   ]
 })
 export class AppModule {}

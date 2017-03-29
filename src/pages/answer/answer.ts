@@ -18,6 +18,7 @@ export class AnswerPage {
   tabanimate:boolean = false;
   old_scrollTop = 0;
   _that;
+  title = "回答";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
     this._that = this;
@@ -38,6 +39,11 @@ export class AnswerPage {
           
         }else{
           this.tabanimate = false;
+          if(scrollTop > 100){
+            this.title = "为什么用户几乎一边倒地支持转基因食品？";
+          }else{
+            this.title = "回答";
+          }
         }
         this.old_scrollTop = scrollTop;
         this.ref.detectChanges();
