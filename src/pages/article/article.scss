@@ -1,0 +1,67 @@
+page-article {
+    .scroll-content {
+        margin-top: 0 !important;
+    }
+    .dv_banner {
+        background-size: cover;
+        width: 100%;
+        height: 190px;
+    }
+    .user {
+        width: 100%;
+        height: 65px;
+        padding: 10px;
+        background: #fff;
+        box-shadow: 0 0 4px #c4c6c8;
+        img {
+            width: 45px;
+            height: 45px;
+            border-radius: 99999px;
+            float: left;
+            margin-right: 12px;
+        }
+        .data {
+            float: left;
+            width: 54%;
+            h4,
+            p {
+                margin: 0 !important;
+                font-size: 1.2rem;
+                line-height: 22px;
+            }
+        }
+        .fork {
+            width: 65px;
+            height: 34px;
+            font-size: 1.2rem;
+            line-height: 34px;
+            float: right;
+            border: 1px solid #1e8ae8;
+            color: #1e8ae8;
+            text-align: center;
+            position: relative;
+            top: 5px;
+        }
+    }
+    .dv_content {
+        width: 100%;
+        padding: 3%;
+        h6 {
+            color: #d3c5a1;
+            padding-bottom: 12px;
+        }
+        span {
+            color: #d3c5a1;
+        }
+        ion-row {
+            border-block-end: 1px solid #f3f4f5;
+            margin-bottom: 8px;
+        }
+        .dv_imgs {
+            width: 100%;
+            height: 180px;
+            background-size: cover !important;
+            margin-bottom: 35px;
+        }
+    }
+}

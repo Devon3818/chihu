@@ -11,6 +11,7 @@ import { PersonPage } from '../pages/person/person';
 import { PerhomepagePage } from '../pages/perhomepage/perhomepage';
 import { PerparticularPage } from '../pages/perparticular/perparticular';
 import { MessagesPage } from '../pages/messages/messages';
+import { ArticlePage } from '../pages/article/article';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -33,6 +34,7 @@ import { PublicServe } from '../pages/public.serve';
     PerhomepagePage,
     PerparticularPage,
     MessagesPage,
+    ArticlePage,
   ],
   imports: [
     SuperTabsModule,
@@ -54,6 +56,7 @@ import { PublicServe } from '../pages/public.serve';
     PerhomepagePage,
     PerparticularPage,
     MessagesPage,
+    ArticlePage,
   ],
   providers: [
     StatusBar,

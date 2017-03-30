@@ -2,6 +2,7 @@ import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { NavController, Content } from 'ionic-angular';
 import { AnswerPage } from '../answer/answer';
 import { QuestionPage } from '../question/question';
+import { ArticlePage } from '../article/article';
 
 @Component({
   selector: 'page-home',
@@ -48,6 +49,11 @@ export class HomePage {
     //打开页面
     pushQuestionPage(){
       this.navCtrl.push( QuestionPage );
+    }
+
+    //打开页面
+    pushArticlePage(){
+      this.navCtrl.push( ArticlePage );
     }
 
 }
