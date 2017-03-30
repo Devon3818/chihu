@@ -7,6 +7,10 @@ import { HomePage } from '../pages/home/home';
 import { MorePage } from '../pages/more/more';
 import { AnswerPage } from '../pages/answer/answer';
 import { QuestionPage } from '../pages/question/question';
+import { PersonPage } from '../pages/person/person';
+import { PerhomepagePage } from '../pages/perhomepage/perhomepage';
+import { PerparticularPage } from '../pages/perparticular/perparticular';
+import { MessagesPage } from '../pages/messages/messages';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,6 +29,10 @@ import { PublicServe } from '../pages/public.serve';
     MorePage,
     AnswerPage,
     QuestionPage,
+    PersonPage,
+    PerhomepagePage,
+    PerparticularPage,
+    MessagesPage,
   ],
   imports: [
     SuperTabsModule,
@@ -42,6 +50,10 @@ import { PublicServe } from '../pages/public.serve';
     MorePage,
     AnswerPage,
     QuestionPage,
+    PersonPage,
+    PerhomepagePage,
+    PerparticularPage,
+    MessagesPage,
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { PersonPage } from '../person/person';
 
 /*
   Generated class for the More page.
@@ -17,6 +18,10 @@ export class MorePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MorePage');
+  }
+
+  pushPersonPage(){
+    this.navCtrl.push( PersonPage );
   }
 
 }
