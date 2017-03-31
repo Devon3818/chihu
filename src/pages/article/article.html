@@ -4,9 +4,9 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header no-border>
+<ion-header no-border [class.animate]="tabanimate">
 
-    <ion-navbar color="tran">
+    <ion-navbar color="tran" [class.bule]="tabbule">
         <ion-title>{{title}}</ion-title>
         <ion-buttons end>
             <button ion-button icon-only>
@@ -23,7 +23,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content (ionScroll)="onScroll($event)">
     <section class="dv_banner" style="background: url('http://s1.cdn.xiachufang.com/a7f3a74001ba11e7bc9d0242ac110002_1280w_1024h.jpg@2o_50sh_1pr_1l_660w_90q_1wh') no-repeat center"></section>
     <section class="user">
         <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
@@ -128,6 +128,32 @@
         <p><span>9：</span>出锅前芶稀芡翻炒均匀即可。</p>
         <section class="dv_imgs" style="background: url('http://s2.cdn.xiachufang.com/b6f5f10c01bb11e7947d0242ac110002_1280w_1103h.jpg?imageView2/2/w/250/interlace/1/q/90') no-repeat center"></section>
 
+        <h6>提示：</h6>
+        <section class="dv_tips">
+            <p>w温性提示，把木耳、豆腐放入锅中翻炒均匀，加少量清水和一小勺白糖，稍煮一下入味，最后加入柿子椒翻炒均匀。</p>
+        </section>
+
     </section>
 
 </ion-content>
+
+<ion-footer [class.footanimate]="tabanimate">
+    <ion-toolbar color='fff'>
+        <div class="dv_f">
+            <ion-icon name="text"></ion-icon>
+            123
+        </div>
+        <div class="dv_f">
+            <ion-icon name="star-outline"></ion-icon>
+            收藏
+            <!--star-->
+        </div>
+        <div class="dv_f">
+            <ion-icon name="heart-outline"></ion-icon>
+            感谢
+            <!--heart-->
+        </div>
+
+    </ion-toolbar>
+
+</ion-footer>

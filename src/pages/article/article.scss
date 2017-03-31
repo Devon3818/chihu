@@ -1,6 +1,25 @@
 page-article {
+    ion-header,
+    .toolbar-title,
+    ion-footer,
+    ion-navbar {
+        transition: all 1000ms cubic-bezier(.19, 1.12, .65, .91);
+    }
+    ion-footer {
+        ion-icon {
+            display: block;
+        }
+        .dv_f {
+            float: right;
+            text-align: center;
+            width: 20%;
+            color: #777777;
+        }
+    }
     .scroll-content {
         margin-top: 0 !important;
+        padding-top: 0px;
+        margin-bottom: 0 !important;
     }
     .dv_banner {
         background-size: cover;
@@ -63,5 +82,21 @@ page-article {
             background-size: cover !important;
             margin-bottom: 35px;
         }
+        .dv_tips {
+            width: 100%;
+            background: #f3f4f5;
+            color: #717171;
+            padding: 2%;
+            margin-bottom: 30px;
+        }
+    }
+    .animate {
+        top: -90px;
+    }
+    .bule {
+        background: #1e8ae8 !important;
+    }
+    .footanimate {
+        bottom: -78px;
     }
 }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
-import { ContactPage } from '../contact/contact';
-import { PublicServe } from '../public.serve';
+import { AttentionPage } from '../attention/attention';
+import { InformPage } from '../inform/inform';
+import { SupportPage } from '../support/support';
 
 declare var $:any;
 @Component({
@@ -11,13 +12,13 @@ declare var $:any;
 })
 export class AboutPage {
 
-  page1: any = ContactPage;
-  page2: any = ContactPage;
-  page3: any = ContactPage;
+  page1: any = InformPage;
+  page2: any = SupportPage;
+  page3: any = AttentionPage;
 
   _that;
 
-  constructor(public navCtrl: NavController, public publicServeCtrl: PublicServe) {
+  constructor(public navCtrl: NavController) {
     this._that = this;
   }
 
