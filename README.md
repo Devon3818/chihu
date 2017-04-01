@@ -1,7 +1,7 @@
 # 吃乎（仿知乎部分UI）--后续更新
 
-​![Example](https://github.com/kongdewen1994/chihu/blob/master/chihu.gif)
-​
+![Example](https://github.com/kongdewen1994/chihu/blob/master/chihu.gif)
+
 To use this project:
 
 ```shell
