@@ -16,6 +16,39 @@ page-discover {
             background-size: cover;
         }
     }
+    .swiper-container2 {
+        width: 100%;
+        height: 140px;
+        margin: 7px auto;
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            padding: 4px;
+            img {
+                width: 120px;
+                height: 100px;
+            }
+            p {
+                margin: 0 !important;
+                color: #636363;
+                font-size: 1.4rem;
+            }
+        }
+    }
     .dv_box {
         box-shadow: 0 1px 4px #c4c6c8;
         background: #fff;
@@ -44,7 +77,6 @@ page-discover {
         }
         i {
             font-style: normal;
-            font-size: 0.9rem !important;
         }
         p {
             font-size: 1.5rem !important;
@@ -77,6 +109,9 @@ page-discover {
             line-height: 1.5rem;
             color: #4f5254;
         }
+    }
+    .dv_hot_w .dv_item {
+        margin-bottom: 12px;
     }
     .dv_item {
         width: 100%;

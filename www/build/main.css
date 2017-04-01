@@ -54934,6 +54934,40 @@ page-discover .swiper-container .swiper-slide {
   background-size: cover;
 }
 
+page-discover .swiper-container2 {
+  width: 100%;
+  height: 140px;
+  margin: 7px auto;
+}
+
+page-discover .swiper-container2 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 4px;
+}
+
+page-discover .swiper-container2 .swiper-slide img {
+  width: 120px;
+  height: 100px;
+}
+
+page-discover .swiper-container2 .swiper-slide p {
+  margin: 0 !important;
+  color: #636363;
+  font-size: 1.4rem;
+}
+
 page-discover .dv_box {
   box-shadow: 0 1px 4px #c4c6c8;
   background: #fff;
@@ -54972,7 +55006,6 @@ page-discover ion-list ion-list-header {
 
 page-discover ion-list i {
   font-style: normal;
-  font-size: 0.9rem !important;
 }
 
 page-discover ion-list p {
@@ -55010,6 +55043,10 @@ page-discover .dv_item p {
   font-size: 1.2rem;
   line-height: 1.5rem;
   color: #4f5254;
+}
+
+page-discover .dv_hot_w .dv_item {
+  margin-bottom: 12px;
 }
 
 page-discover .dv_item {
@@ -55155,6 +55192,10 @@ page-home .scroll-content {
 
 page-home .animate {
   top: -90px;
+}
+
+page-inform ion-label {
+  white-space: inherit !important;
 }
 
 page-more .dv_data {
@@ -55486,6 +55527,18 @@ page-question .dv_list .dv_item_bottom p {
   line-height: 38px;
 }
 
+page-support ion-label {
+  white-space: inherit !important;
+}
+
 .tabs-md .tab-button {
   min-height: 5rem;
+}
+
+.tab-button-icon {
+  color: rgba(103, 103, 103, 0.7) !important;
+}
+
+.tab-button[aria-selected=true] .tab-button-icon {
+  color: #387ef5 !important;
 }
