@@ -16,4 +16,4 @@ ionic serve
 
 ```
 
-APK下载:https://github.com/kongdewen1994/chihu/blob/master/android-debug.apk
+APK下载:https://github.com/kongdewen1994/chihu/raw/master/android-debug.apk
