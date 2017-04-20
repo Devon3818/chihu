@@ -3,6 +3,9 @@ import { NavController, Content } from 'ionic-angular';
 import { AnswerPage } from '../answer/answer';
 import { QuestionPage } from '../question/question';
 import { ArticlePage } from '../article/article';
+import { CreateCookTitlePage } from '../create-cook-title/create-cook-title';
+
+
 
 @Component({
   selector: 'page-home',
@@ -54,6 +57,11 @@ export class HomePage {
     //打开页面
     pushArticlePage(){
       this.navCtrl.push( ArticlePage );
+    }
+
+    //创建菜谱
+    CreateCook(){
+      this.navCtrl.push( CreateCookTitlePage );
     }
 
 }

@@ -64,4 +64,7 @@ page-home {
     .animate {
         top: -90px;
     }
+    ion-fab[bottom][edge] {
+        bottom: 22px;
+    }
 }

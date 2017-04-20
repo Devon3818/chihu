@@ -1,0 +1,89 @@
+<!--
+  Generated template for the CreateCookData page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+    <ion-navbar>
+        <ion-title>创建菜谱</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <section class="work_top">
+        <section class="work_banner"></section>
+        <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="写下你的菜谱名吧" />
+    </section>
+    <ion-list-header>
+        心得：
+    </ion-list-header>
+    <ion-textarea placeholder="输入这道美食背后的故事"></ion-textarea>
+    <ion-list-header>
+        用料：
+    </ion-list-header>
+    <section class="dv_food_list">
+        <ion-row>
+            <ion-col>
+                <div>北豆腐</div>
+            </ion-col>
+            <ion-col>
+                <div>一块 (大概380g)</div>
+            </ion-col>
+        </ion-row>
+    </section>
+    <br/>
+    <button (click)="showPrompt();" class="dv_button" ion-button round outline>添加材料</button>
+
+    <ion-list>
+        <ion-list-header>做法：（点击右上角调整顺序，左滑删除）</ion-list-header>
+        <ion-item-group [reorder]="isReordering" (ionItemReorder)="reorderItems($event)">
+
+
+
+
+            <ion-item *ngFor="let item of items; let i=index">
+
+                <section class="imgs" [style.background]="'url(http://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png)'"></section>
+
+                <p>
+                    The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+                </p>
+            </ion-item>
+
+        </ion-item-group>
+    </ion-list>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col width-50>
+                <button class="dv_edit_button" ion-button icon-left round outline>
+                    <ion-icon name="star"></ion-icon>
+                    添加步骤
+                </button>
+            </ion-col>
+            <ion-col width-50>
+                <button (click)="edit()" class="dv_edit_button" ion-button icon-left round outline>
+                    <ion-icon name="reorder"></ion-icon>
+                    调整步骤
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-list-header>
+        Tip：
+    </ion-list-header>
+    <ion-textarea placeholder="温馨提示"></ion-textarea>
+
+    <button class="dv_button" ion-button round outline>发布菜谱</button>
+    <br/>
+    <br/>
+    <br/>
+
+</ion-content>

@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { MorePage } from '../pages/more/more';
 import { AnswerPage } from '../pages/answer/answer';
 import { QuestionPage } from '../pages/question/question';
+import { CreateCookTitlePage } from '../pages/create-cook-title/create-cook-title';
+import { CreateCookDataPage } from '../pages/create-cook-data/create-cook-data';
 import { PersonPage } from '../pages/person/person';
 import { PerhomepagePage } from '../pages/perhomepage/perhomepage';
 import { PerparticularPage } from '../pages/perparticular/perparticular';
@@ -23,6 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 
 import { PublicServe } from '../pages/public.serve';
+
+import { WorkService } from '../service/work_service';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { PublicServe } from '../pages/public.serve';
     AttentionPage,
     InformPage,
     SupportPage,
+    CreateCookTitlePage,
+    CreateCookDataPage,
 
   ],
   imports: [
@@ -70,12 +76,16 @@ import { PublicServe } from '../pages/public.serve';
     AttentionPage,
     InformPage,
     SupportPage,
+    CreateCookTitlePage,
+    CreateCookDataPage,
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PublicServe
+    PublicServe,
+    WorkService
   ]
 })
 export class AppModule {}

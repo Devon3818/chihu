@@ -1,0 +1,80 @@
+<!--
+  Generated template for the CreateCookTitle page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+    <ion-navbar>
+        <ion-title>创建菜谱</ion-title>
+        <ion-buttons end (click)="next();">
+            <ion-title>继续</ion-title>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="写下你的菜谱名吧" />
+
+    <ion-list>
+        <ion-list-header>
+            食谱标签
+        </ion-list-header>
+
+        <ion-item>
+            <ion-label>家常菜</ion-label>
+            <ion-checkbox checked="true"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>快手菜</ion-label>
+            <ion-checkbox color="dark" checked="true"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>下饭菜</ion-label>
+            <ion-checkbox value="cherry" disabled="true"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>素菜</ion-label>
+            <ion-checkbox color="secondary"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>大鱼大肉</ion-label>
+            <ion-checkbox color="danger" checked="true"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>下酒菜</ion-label>
+            <ion-checkbox></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>小清新</ion-label>
+            <ion-checkbox color="energized" checked="true" color="dark"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>创意菜</ion-label>
+            <ion-checkbox color="royal" checked="true"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>减肥</ion-label>
+            <ion-checkbox disabled="true"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>美容</ion-label>
+            <ion-checkbox color="dark" checked="true"></ion-checkbox>
+        </ion-item>
+
+
+    </ion-list>
+
+</ion-content>
