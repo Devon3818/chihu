@@ -9,6 +9,9 @@ import { AnswerPage } from '../pages/answer/answer';
 import { QuestionPage } from '../pages/question/question';
 import { CreateCookTitlePage } from '../pages/create-cook-title/create-cook-title';
 import { CreateCookDataPage } from '../pages/create-cook-data/create-cook-data';
+import { CreateQuestionTypePage } from '../pages/create-question-type/create-question-type';
+import { CreateQuestionTitlePage } from '../pages/create-question-title/create-question-title';
+import { CreateSharePage } from '../pages/create-share/create-share';
 import { PersonPage } from '../pages/person/person';
 import { PerhomepagePage } from '../pages/perhomepage/perhomepage';
 import { PerparticularPage } from '../pages/perparticular/perparticular';
@@ -49,6 +52,9 @@ import { WorkService } from '../service/work_service';
     SupportPage,
     CreateCookTitlePage,
     CreateCookDataPage,
+    CreateQuestionTypePage,
+    CreateQuestionTitlePage,
+    CreateSharePage,
 
   ],
   imports: [
@@ -78,6 +84,9 @@ import { WorkService } from '../service/work_service';
     SupportPage,
     CreateCookTitlePage,
     CreateCookDataPage,
+    CreateQuestionTypePage,
+    CreateQuestionTitlePage,
+    CreateSharePage,
 
   ],
   providers: [

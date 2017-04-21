@@ -4,7 +4,8 @@ import { AnswerPage } from '../answer/answer';
 import { QuestionPage } from '../question/question';
 import { ArticlePage } from '../article/article';
 import { CreateCookTitlePage } from '../create-cook-title/create-cook-title';
-
+import { CreateQuestionTypePage } from '../create-question-type/create-question-type';
+import { CreateSharePage } from '../create-share/create-share';
 
 
 @Component({
@@ -62,6 +63,16 @@ export class HomePage {
     //创建菜谱
     CreateCook(){
       this.navCtrl.push( CreateCookTitlePage );
+    }
+
+    //提问
+    CreateQuestion(){
+      this.navCtrl.push( CreateQuestionTypePage );
+    }
+
+    //分享
+    CreateShare(){
+      this.navCtrl.push( CreateSharePage );
     }
 
 }

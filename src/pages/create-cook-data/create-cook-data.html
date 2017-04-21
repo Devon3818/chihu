@@ -17,7 +17,7 @@
 <ion-content>
 
     <section class="work_top">
-        <section class="work_banner"></section>
+        <section class="work_banner" [style.background]="'url(http://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png)'"></section>
         <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="写下你的菜谱名吧" />
     </section>
     <ion-list-header>
@@ -28,12 +28,12 @@
         用料：
     </ion-list-header>
     <section class="dv_food_list">
-        <ion-row>
+        <ion-row (press)="pressEvent(i)" *ngFor="let food of foods; let i=index">
             <ion-col>
                 <div>北豆腐</div>
             </ion-col>
             <ion-col>
-                <div>一块 (大概380g)</div>
+                <div>2块 (大概380g)</div>
             </ion-col>
         </ion-row>
     </section>
@@ -47,7 +47,7 @@
 
 
 
-            <ion-item *ngFor="let item of items; let i=index">
+            <ion-item (press)="pressEvent(i)" *ngFor="let item of items; let i=index">
 
                 <section class="imgs" [style.background]="'url(http://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png)'"></section>
 
@@ -81,7 +81,7 @@
     </ion-list-header>
     <ion-textarea placeholder="温馨提示"></ion-textarea>
 
-    <button class="dv_button" ion-button round outline>发布菜谱</button>
+    <button (click)="send();" class="dv_button" ion-button round outline>发布菜谱</button>
     <br/>
     <br/>
     <br/>

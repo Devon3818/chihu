@@ -17,6 +17,7 @@ export class CreateCookDataPage {
 
   title = '';
   items = [1,2,3,2];
+  foods = [1,1,1];
   isReordering: boolean = false;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public WorkService: WorkService) {
@@ -56,14 +57,49 @@ export class CreateCookDataPage {
         },
         {
           text: '添加',
-          handler: data => { 
-            alert(data.name);
-            alert(data.len);
+          handler: data => {
+            this.foods.push(1); 
+            //alert(data.name);
+            //alert(data.len);
           }
         }
       ]
     });
     prompt.present();
+  }
+
+  //发布
+  send(){
+    this.navCtrl.popToRoot();
+  }
+
+  //长按删除事件
+  pressEvent(idx){
+    //alert(idx);
+    this.showConfirm();
+  }
+
+  //删除步骤／食材提示
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Use this lightsaber?',
+      message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
   ionViewDidLoad() {

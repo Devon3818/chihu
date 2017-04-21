@@ -54920,8 +54920,8 @@ page-create-cook-data .work_top {
 
 page-create-cook-data .work_top .work_banner {
   width: 100%;
-  height: 17rem;
-  background: tan;
+  height: 20rem;
+  background: #ededed;
 }
 
 page-create-cook-data .work_top .dv_work_title {
@@ -54945,7 +54945,7 @@ page-create-cook-data ion-list-header {
 
 page-create-cook-data .imgs {
   width: 100%;
-  height: 16rem;
+  height: 17rem;
   box-shadow: none !important;
   margin-bottom: 2rem;
   background-repeat: no-repeat;
@@ -54987,6 +54987,24 @@ page-create-cook-title .dv_work_title {
   width: 100%;
   margin: 0 auto;
   border: none;
+}
+
+page-create-question-title textarea {
+  height: 15rem !important;
+}
+
+page-create-question-type ion-list-header {
+  border-top: none !important;
+}
+
+page-create-share textarea {
+  height: 8rem !important;
+}
+
+page-create-share .imgs {
+  width: 6rem;
+  height: 6rem;
+  background-size: cover !important;
 }
 
 page-discover ion-content {
