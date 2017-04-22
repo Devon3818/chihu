@@ -146,6 +146,11 @@ page-discover {
         }
         p {
             line-height: 30px;
+            float: left;
+        }
+        .time {
+            float: right;
+            line-height: 30px;
         }
     }
     .dv_item_banner {
@@ -166,6 +171,20 @@ page-discover {
         color: #c8ced1;
         p {
             line-height: 38px;
+        }
+    }
+    .wrap {
+        width: 100%;
+        overflow: hidden;
+        padding: 10px 0;
+        .imgs {
+            width: 8rem;
+            height: 8rem;
+            margin-right: 10px;
+            float: left;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
         }
     }
 }

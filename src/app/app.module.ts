@@ -12,6 +12,7 @@ import { CreateCookDataPage } from '../pages/create-cook-data/create-cook-data';
 import { CreateQuestionTypePage } from '../pages/create-question-type/create-question-type';
 import { CreateQuestionTitlePage } from '../pages/create-question-title/create-question-title';
 import { CreateSharePage } from '../pages/create-share/create-share';
+import { OpenSharePage } from '../pages/open-share/open-share';
 import { PersonPage } from '../pages/person/person';
 import { PerhomepagePage } from '../pages/perhomepage/perhomepage';
 import { PerparticularPage } from '../pages/perparticular/perparticular';
@@ -55,6 +56,7 @@ import { WorkService } from '../service/work_service';
     CreateQuestionTypePage,
     CreateQuestionTitlePage,
     CreateSharePage,
+    OpenSharePage,
 
   ],
   imports: [
@@ -87,6 +89,7 @@ import { WorkService } from '../service/work_service';
     CreateQuestionTypePage,
     CreateQuestionTitlePage,
     CreateSharePage,
+    OpenSharePage,
 
   ],
   providers: [

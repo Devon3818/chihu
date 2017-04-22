@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AnswerPage } from '../answer/answer';
 import { QuestionPage } from '../question/question';
 import { ArticlePage } from '../article/article';
+import { OpenSharePage } from '../open-share/open-share';
+
 
 /*
   Generated class for the Discover page.
@@ -32,12 +34,12 @@ export class DiscoverPage {
         pagination: '.swiper-pagination',
       });
 
-      this.oSwiper2 = new Swiper('.swiper-container2', {
-        slidesPerView: 3,
-        paginationClickable: true,
-        spaceBetween: 7,
-        freeMode: true
-      });
+      // this.oSwiper2 = new Swiper('.swiper-container2', {
+      //   slidesPerView: 3,
+      //   paginationClickable: true,
+      //   spaceBetween: 7,
+      //   freeMode: true
+      // });
   }
 
   //打开页面
@@ -53,6 +55,11 @@ export class DiscoverPage {
     //打开页面
     pushArticlePage(){
       this.navCtrl.push( ArticlePage );
+    }
+
+    //查看分享
+    pushOpenSharePage(){
+      this.navCtrl.push( OpenSharePage );
     }
 
 }

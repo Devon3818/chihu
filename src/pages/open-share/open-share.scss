@@ -1,0 +1,189 @@
+page-open-share {
+    ion-content {
+        background-color: #f2f4f7 !important;
+        button {
+            border: none !important;
+        }
+        .dv_top_ban {
+            width: 100%;
+            background: #fff;
+            padding: 0 4%;
+            padding-top: 20px;
+            box-shadow: 0 1px 4px #c4c6c8;
+            .tips {
+                display: inline-block;
+                float: left;
+                padding: 6px 12px;
+                background: #eff6fa;
+                border-radius: 99999px;
+                margin-right: 12px;
+                margin-bottom: 13px;
+                color: #298cde;
+            }
+            .wrap {
+                width: 100%;
+                overflow: hidden;
+                padding: 0;
+                .imgs {
+                    width: 8rem;
+                    height: 8rem;
+                    margin-right: 10px;
+                    float: left;
+                    background-size: cover !important;
+                    background-position: center center !important;
+                    background-repeat: no-repeat !important;
+                }
+            }
+            h2 {
+                clear: both;
+                display: block;
+                font-size: 1.9rem;
+                line-height: 2.4rem;
+            }
+            p {
+                color: #676767;
+                margin-bottom: 14px !important;
+            }
+            .button {
+                height: 2.6rem !important;
+            }
+            .dv_hot_q {
+                margin-bottom: 12px;
+                background: #fff;
+            }
+            .dv_hot_w .dv_item_2 {
+                margin-bottom: 12px;
+            }
+            .dv_item_2 {
+                width: 100%;
+                background: #fff;
+                margin-bottom: 0px;
+                overflow: hidden;
+                h6 {
+                    font-size: 1.6rem;
+                    line-height: 2rem;
+                    margin: 12px 0;
+                }
+                p {
+                    margin: 0;
+                    font-size: 1.2rem;
+                    line-height: 1.5rem;
+                    color: #4f5254;
+                }
+            }
+            .dv_item_head {
+                width: 100%;
+                height: 30px;
+                color: #c8ced1;
+                img {
+                    float: left;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 99999px;
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+                p {
+                    line-height: 30px;
+                    float: left;
+                }
+                .time {
+                    float: right;
+                    line-height: 30px;
+                }
+            }
+            .dv_item_banner {
+                width: 100%;
+                height: 150px;
+                background-size: cover;
+                margin-top: 6px;
+            }
+            .dv_item_bottom {
+                line-height: 36px;
+                color: #c8ced1;
+                p {
+                    line-height: 38px;
+                }
+            }
+            .dv_item_bottom {
+                line-height: 36px;
+                color: #c8ced1;
+                p {
+                    line-height: 38px;
+                }
+            }
+        }
+    }
+    .item {
+        background: transparent !important;
+        border: none !important;
+        margin-bottom: 0 !important;
+    }
+    ion-list {
+        margin-bottom: 0 !important;
+    }
+    ion-title {
+        transition: all 800ms cubic-bezier(.19, 1.12, .65, .91);
+        opacity: 0;
+        p {
+            font-size: 1rem !important;
+            margin: 0 !important;
+            color: #dadada;
+        }
+    }
+    .animate {
+        opacity: 1;
+    }
+    .dv_list {
+        width: 100%;
+        .dv_item {
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 1px 4px #c4c6c8;
+            margin-bottom: 8px;
+            padding: 2% 3.5%;
+            overflow: hidden;
+            h6 {
+                font-size: 1.6rem;
+                line-height: 2rem;
+                margin: 12px 0;
+            }
+            p {
+                margin: 0;
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+                color: #4f5254;
+            }
+        }
+        .dv_item_head {
+            width: 100%;
+            height: 30px;
+            color: #c8ced1;
+            margin-bottom: 8px;
+            img {
+                float: left;
+                width: 30px;
+                height: 30px;
+                border-radius: 99999px;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            p {
+                line-height: 30px;
+            }
+        }
+        .dv_item_banner {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            margin-top: 6px;
+        }
+        .dv_item_bottom {
+            line-height: 36px;
+            color: #c8ced1;
+            p {
+                line-height: 38px;
+            }
+        }
+    }
+}
