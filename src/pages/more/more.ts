@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { PersonPage } from '../person/person';
+import { FocusPage } from '../focus/focus';
+import { CollectPage } from '../collect/collect';
+import { MySharePage } from '../my-share/my-share';
 
 /*
   Generated class for the More page.
@@ -22,6 +25,18 @@ export class MorePage {
 
   pushPersonPage(){
     this.navCtrl.push( PersonPage );
+  }
+
+  pushFocusPage(){
+    this.navCtrl.push( FocusPage );
+  }
+
+  pushCollectPage(){
+    this.navCtrl.push( CollectPage );
+  }
+
+  pushMySharePage(){
+    this.navCtrl.push( MySharePage );
   }
 
 }

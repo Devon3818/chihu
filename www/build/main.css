@@ -54908,6 +54908,149 @@ page-article .footanimate {
   bottom: -78px;
 }
 
+page-chat ion-content .scroll-content {
+  background-color: #f5f5f5;
+}
+
+page-chat ion-footer {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  height: 55px;
+}
+
+page-chat .line-breaker {
+  white-space: pre-line;
+}
+
+page-chat .input-wrap {
+  padding: 0 5px;
+}
+
+page-chat .input-wrap ion-textarea {
+  position: static;
+}
+
+page-chat .input-wrap ion-col.col {
+  padding: 0;
+}
+
+page-chat .input-wrap button {
+  width: 100%;
+  height: 55px;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+page-chat .input-wrap textarea {
+  border-bottom: 1px #387ef5;
+  border-style: solid;
+}
+
+page-chat .message-wrap {
+  padding: 0 10px;
+}
+
+page-chat .message-wrap .message {
+  position: relative;
+  padding: 10px 0;
+}
+
+page-chat .message-wrap .message .user-img {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+}
+
+page-chat .message-wrap .message .msg-detail {
+  width: 100%;
+  min-height: 60px;
+}
+
+page-chat .message-wrap .message .msg-detail p {
+  margin: 0;
+}
+
+page-chat .message-wrap .message .msg-detail .msg-info p {
+  font-size: .8em;
+  color: #888;
+}
+
+page-chat .message-wrap .message .msg-detail .msg-content {
+  position: relative;
+  margin-top: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+page-chat .message-wrap .message .msg-detail .msg-content span.triangle {
+  background-color: #fff;
+  border-radius: 2px;
+  height: 8px;
+  width: 8px;
+  display: block;
+  border-style: solid;
+  border-color: #ddd;
+  border-width: 1px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+page-chat .message-wrap .message.left .msg-content {
+  background-color: #fff;
+}
+
+page-chat .message-wrap .message.left .msg-detail {
+  padding-left: 60px;
+}
+
+page-chat .message-wrap .message.left .user-img {
+  position: absolute;
+  left: 0;
+}
+
+page-chat .message-wrap .message.left .msg-content span.triangle {
+  border-top-width: 0;
+  border-right-width: 0;
+  left: -5px;
+  top: 12px;
+}
+
+page-chat .message-wrap .message.right .msg-detail {
+  padding-right: 60px;
+}
+
+page-chat .message-wrap .message.right .msg-detail .msg-info {
+  text-align: right;
+}
+
+page-chat .message-wrap .message.right .user-img {
+  position: absolute;
+  right: 0;
+}
+
+page-chat .message-wrap .message.right ion-spinner {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+}
+
+page-chat .message-wrap .message.right .msg-content {
+  background-color: #387ef5;
+  color: #fff;
+}
+
+page-chat .message-wrap .message.right .msg-content span.triangle {
+  background-color: #387ef5;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  right: -5px;
+  top: 12px;
+}
+
 page-contact .over .scroll-content {
   height: 100% !important;
   overflow: hidden !important;
@@ -55143,28 +55286,6 @@ page-discover .dv_hot_w .dv_item {
   margin-bottom: 12px;
 }
 
-page-discover .dv_item {
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 1px 4px #c4c6c8;
-  margin-bottom: 0px;
-  padding: 2% 3.5%;
-  overflow: hidden;
-}
-
-page-discover .dv_item h6 {
-  font-size: 1.6rem;
-  line-height: 2rem;
-  margin: 12px 0;
-}
-
-page-discover .dv_item p {
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  color: #4f5254;
-}
-
 page-discover .dv_item_head {
   width: 100%;
   height: 30px;
@@ -55361,6 +55482,104 @@ page-more ion-list {
 
 page-more .item-md {
   color: #797979 !important;
+}
+
+page-my-share .dv_hot_q {
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px #c4c6c8;
+  background: #fff;
+}
+
+page-my-share .dv_item {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 1px 4px #c4c6c8;
+  margin-bottom: 8px;
+  padding: 2% 3.5%;
+  overflow: hidden;
+}
+
+page-my-share .dv_item h6 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin: 12px 0;
+}
+
+page-my-share .dv_item p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: #4f5254;
+}
+
+page-my-share .dv_hot_w .dv_item {
+  margin-bottom: 12px;
+}
+
+page-my-share .dv_item_head {
+  width: 100%;
+  height: 30px;
+  color: #c8ced1;
+}
+
+page-my-share .dv_item_head img {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 99999px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+page-my-share .dv_item_head p {
+  line-height: 30px;
+  float: left;
+}
+
+page-my-share .dv_item_head .time {
+  float: right;
+  line-height: 30px;
+}
+
+page-my-share .dv_item_banner {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  margin-top: 6px;
+}
+
+page-my-share .dv_item_bottom {
+  line-height: 36px;
+  color: #c8ced1;
+}
+
+page-my-share .dv_item_bottom p {
+  line-height: 38px;
+}
+
+page-my-share .dv_item_bottom {
+  line-height: 36px;
+  color: #c8ced1;
+}
+
+page-my-share .dv_item_bottom p {
+  line-height: 38px;
+}
+
+page-my-share .wrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+page-my-share .wrap .imgs {
+  width: 8rem;
+  height: 8rem;
+  margin-right: 10px;
+  float: left;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 }
 
 page-open-share ion-content {

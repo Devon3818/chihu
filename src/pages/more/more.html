@@ -24,17 +24,17 @@
 
     <ion-list no-border>
 
-        <ion-item>
+        <ion-item (click)="pushFocusPage();">
             <ion-icon name='eye' item-left color="h"></ion-icon>
             我的关注
         </ion-item>
-        <ion-item>
+        <ion-item (click)="pushCollectPage();">
             <ion-icon name='star' item-left color="h"></ion-icon>
             我的收藏
         </ion-item>
-        <ion-item>
+        <ion-item (click)="pushMySharePage();">
             <ion-icon name='document' item-left color="h"></ion-icon>
-            我的草稿
+            我的分享
         </ion-item>
         <ion-item>
             <ion-icon name='time' item-left color="h"></ion-icon>

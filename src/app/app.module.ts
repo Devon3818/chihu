@@ -13,6 +13,12 @@ import { CreateQuestionTypePage } from '../pages/create-question-type/create-que
 import { CreateQuestionTitlePage } from '../pages/create-question-title/create-question-title';
 import { CreateSharePage } from '../pages/create-share/create-share';
 import { OpenSharePage } from '../pages/open-share/open-share';
+import { FocusPage } from '../pages/focus/focus';
+import { CollectPage } from '../pages/collect/collect';
+import { MySharePage } from '../pages/my-share/my-share';
+import { ChatPage } from '../pages/chat/chat';
+import { FocusQuestionPage } from '../pages/focus-question/focus-question';
+import { FocusUserPage } from '../pages/focus-user/focus-user';
 import { PersonPage } from '../pages/person/person';
 import { PerhomepagePage } from '../pages/perhomepage/perhomepage';
 import { PerparticularPage } from '../pages/perparticular/perparticular';
@@ -57,6 +63,12 @@ import { WorkService } from '../service/work_service';
     CreateQuestionTitlePage,
     CreateSharePage,
     OpenSharePage,
+    FocusPage,
+    FocusQuestionPage,
+    FocusUserPage,
+    CollectPage,
+    MySharePage,
+    ChatPage,
 
   ],
   imports: [
@@ -90,6 +102,12 @@ import { WorkService } from '../service/work_service';
     CreateQuestionTitlePage,
     CreateSharePage,
     OpenSharePage,
+    FocusPage,
+    FocusQuestionPage,
+    FocusUserPage,
+    CollectPage,
+    MySharePage,
+    ChatPage,
 
   ],
   providers: [
