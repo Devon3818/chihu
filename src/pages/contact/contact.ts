@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
-import { PublicServe } from '../public.serve';
 
 @Component({
   selector: 'page-contact',
@@ -9,10 +7,8 @@ import { PublicServe } from '../public.serve';
 })
 export class ContactPage {
 
-  _that;
+  constructor(public navCtrl: NavController) {
 
-  constructor(public navCtrl: NavController, public publicServeCtrl: PublicServe) {
-    
   }
 
 }

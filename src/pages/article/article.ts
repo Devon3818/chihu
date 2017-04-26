@@ -1,17 +1,18 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
-/*
-  Generated class for the Article page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+/**
+ * Generated class for the Article page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
 @Component({
   selector: 'page-article',
-  templateUrl: 'article.html'
+  templateUrl: 'article.html',
 })
-export class ArticlePage {
+export class Article {
 
   @ViewChild(Content) content: Content;
 
@@ -23,7 +24,7 @@ export class ArticlePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {}
 
   ionViewDidLoad() {
-    this.content.enableScrollListener();
+    this.content.enableJsScroll();
   }
 
   onScroll($event: any){

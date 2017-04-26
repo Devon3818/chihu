@@ -1,31 +1,32 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
-import { PersonPage } from '../person/person';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Person } from '../person/person';
 
-/*
-  Generated class for the FocusUser page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+/**
+ * Generated class for the FocusUser page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
 @Component({
   selector: 'page-focus-user',
-  templateUrl: 'focus-user.html'
+  templateUrl: 'focus-user.html',
 })
-export class FocusUserPage {
+export class FocusUser {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
+  rootNavCtrl: NavController;
 
-  //打开ta资料
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.rootNavCtrl = navParams.get('rootNavCtrl');
+  }
+
   pushPersonPage(){
-    let modal = this.modalCtrl.create(PersonPage,{
-      
-    });
-    modal.present();
+    this.rootNavCtrl.push( Person );
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FocusUserPage');
+    console.log('ionViewDidLoad FocusUser');
   }
 
 }

@@ -1,27 +1,28 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { WorkService } from '../../service/work_service';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
-/*
-  Generated class for the CreateCookData page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+/**
+ * Generated class for the CreateCookData page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
 @Component({
   selector: 'page-create-cook-data',
-  templateUrl: 'create-cook-data.html'
+  templateUrl: 'create-cook-data.html',
 })
-export class CreateCookDataPage {
+export class CreateCookData {
 
   title = '';
   items = [1,2,3,2];
   foods = [1,1,1];
   isReordering: boolean = false;
+  sphide:boolean = false;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public WorkService: WorkService) {
-    this.title = this.WorkService._title;
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
+    //this.title = this.WorkService._title;
     //this.showPrompt();
   }
 
@@ -32,6 +33,7 @@ export class CreateCookDataPage {
   }
 
   edit() {
+    this.sphide = !this.sphide;
     this.isReordering = !this.isReordering;
   }
 
@@ -103,7 +105,7 @@ export class CreateCookDataPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateCookDataPage');
+    console.log('ionViewDidLoad CreateCookData');
   }
 
 }

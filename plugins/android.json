@@ -8,22 +8,28 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.chihu562907"
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.chihu562907"
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.chihu562907"
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.chihu562907"
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.chihu562907"
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.chihu562907"
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         }
     },
     "dependent_plugins": {}

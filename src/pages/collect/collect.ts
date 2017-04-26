@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Collect page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+/**
+ * Generated class for the Collect page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
 @Component({
   selector: 'page-collect',
-  templateUrl: 'collect.html'
+  templateUrl: 'collect.html',
 })
-export class CollectPage {
+export class Collect {
 
   items = [
     'Pokémon Yellow',
@@ -33,10 +34,11 @@ export class CollectPage {
     'Halo'
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CollectPage');
+    console.log('ionViewDidLoad Collect');
   }
 
 }

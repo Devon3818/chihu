@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Attention page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+/**
+ * Generated class for the Attention page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
 @Component({
   selector: 'page-attention',
-  templateUrl: 'attention.html'
+  templateUrl: 'attention.html',
 })
-export class AttentionPage {
+export class Attention {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AttentionPage');
+    console.log('ionViewDidLoad Attention');
   }
 
 }

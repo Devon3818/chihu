@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
-import { QuestionPage } from '../question/question';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Question } from '../question/question';
 
-/*
-  Generated class for the FocusQuestion page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+/**
+ * Generated class for the FocusQuestion page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
 @Component({
   selector: 'page-focus-question',
-  templateUrl: 'focus-question.html'
+  templateUrl: 'focus-question.html',
 })
-export class FocusQuestionPage {
+export class FocusQuestion {
+
+  rootNavCtrl: NavController;
 
   items = [
     'Pokémon Yellow',
@@ -33,20 +36,17 @@ export class FocusQuestionPage {
     'GTA',
     'Halo'
   ];
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
 
-  //打开页面
-    pushQuestionPage(){
-      
-      let modal = this.modalCtrl.create(QuestionPage,{
-      
-    });
-    modal.present();
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.rootNavCtrl = navParams.get('rootNavCtrl');
+  }
+
+  pushQuestionPage(){
+    this.rootNavCtrl.push( Question );
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FocusQuestionPage');
+    console.log('ionViewDidLoad FocusQuestion');
   }
 
 }

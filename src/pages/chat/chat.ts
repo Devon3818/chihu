@@ -1,12 +1,19 @@
 import {Component, ViewChild, ChangeDetectorRef} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Events, Content, TextInput } from 'ionic-angular';
 
+/**
+ * Generated class for the Chat page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
 @Component({
   selector: 'page-chat',
-  templateUrl: 'chat.html'
+  templateUrl: 'chat.html',
 })
-export class ChatPage {
+export class Chat {
 
   @ViewChild(Content) content: Content;
   @ViewChild('chat_input') messageInput: TextInput;

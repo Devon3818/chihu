@@ -1,13 +1,17 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { NavController, Content } from 'ionic-angular';
+import { IonicPage, NavController, Content } from 'ionic-angular';
+import { AboutPage } from '../about/about';
+import { Storage } from '@ionic/storage';
+import { Headers, Http } from '@angular/http';
 import { AnswerPage } from '../answer/answer';
-import { QuestionPage } from '../question/question';
-import { ArticlePage } from '../article/article';
-import { CreateCookTitlePage } from '../create-cook-title/create-cook-title';
-import { CreateQuestionTypePage } from '../create-question-type/create-question-type';
-import { CreateSharePage } from '../create-share/create-share';
+import { Question } from '../question/question';
+import { Article } from '../article/article';
+import { CreateCookTitle } from '../create-cook-title/create-cook-title';
+import { CreateQuestionType } from '../create-question-type/create-question-type';
+import { CreateShare } from '../create-share/create-share';
 
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,63 +20,79 @@ export class HomePage {
 
   @ViewChild(Content) content: Content;
 
-  tabanimate:boolean = false;
+  tabanimate: boolean = false;
   old_scrollTop = 0;
   new_scrollTop = 0;
   _that;
   
-  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef) {
-    this._that = this;
+  constructor(public http: Http, public navCtrl: NavController,storage: Storage,public ref: ChangeDetectorRef) {
+      this._that = this;
+    storage.ready().then(() => {
+
+       // set a key/value
+       storage.set('name', 'Max');
+
+       // Or to get a key/value pair
+       storage.get('age').then((val) => {
+         //alert('Your age is:  '+ val);
+       })
+     });
+  }
+
+  push(){
+    this.navCtrl.push(AboutPage);
   }
 
   ionViewDidLoad() {
-      this.content.enableScrollListener();
+    this.content.enableJsScroll();
   }
 
-  onScroll($event: any){
-        
-        let scrollTop = $event.scrollTop;
+  onScroll($event: any) {
 
-        if(scrollTop > 50 && (this.old_scrollTop - scrollTop) < 0 ) {
-          if(!this.tabanimate){
-            this.tabanimate = true;
-          }
-          
-        }else{
-          this.tabanimate = false;
-        }
-        this.old_scrollTop = scrollTop;
-        this.ref.detectChanges();
-    }
+    let scrollTop = $event.scrollTop;
 
-    //打开页面
-    pushAnswerPage(){
-      this.navCtrl.push( AnswerPage );
-    }
+    if (scrollTop > 50 && (this.old_scrollTop - scrollTop) < 0) {
+      if (!this.tabanimate) {
+        this.tabanimate = true;
+      }
 
-    //打开页面
-    pushQuestionPage(){
-      this.navCtrl.push( QuestionPage );
+    } else {
+      this.tabanimate = false;
     }
+    this.old_scrollTop = scrollTop;
+    this.ref.detectChanges();
+  }
 
-    //打开页面
-    pushArticlePage(){
-      this.navCtrl.push( ArticlePage );
-    }
+  //打开页面
+  pushAnswerPage() {
+    this.navCtrl.push(AnswerPage);
+  }
 
-    //创建菜谱
-    CreateCook(){
-      this.navCtrl.push( CreateCookTitlePage );
-    }
+  //打开页面
+  pushQuestionPage() {
+    this.navCtrl.push(Question);
+  }
 
-    //提问
-    CreateQuestion(){
-      this.navCtrl.push( CreateQuestionTypePage );
-    }
+  //打开页面
+  pushArticlePage() {
+    this.navCtrl.push(Article);
+  }
 
-    //分享
-    CreateShare(){
-      this.navCtrl.push( CreateSharePage );
-    }
+  //创建菜谱
+  CreateCook() {
+    this.navCtrl.push(CreateCookTitle);
+  }
+
+  //提问
+  CreateQuestion() {
+    
+    this.navCtrl.push(CreateQuestionType);
+  }
+
+  //分享
+  CreateShare() {
+    
+    this.navCtrl.push(CreateShare);
+  }
 
 }

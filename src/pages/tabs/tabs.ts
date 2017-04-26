@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-
+import { IonicPage } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { AboutPage } from '../about/about';
-import { MorePage } from '../more/more';
-import { MessagesPage } from '../messages/messages';
-import { DiscoverPage } from '../discover/discover';
+import { DiscoverPage } from '../discover-page/discover-page';
+import { MorePage } from '../more-page/more-page';
+import { MessagesPage } from '../messages-page/messages-page';
+import { BroadcastPage } from '../broadcast-page/broadcast-page';
 
+@IonicPage()
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
+
   tab1Root: any = HomePage;
   tab2Root: any = DiscoverPage;
-  tab3Root: any = AboutPage;
+  tab3Root: any = BroadcastPage;
   tab4Root: any = MessagesPage;
   tab5Root: any = MorePage;
 

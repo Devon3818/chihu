@@ -1,5 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 /*
   Generated class for the Answer page.
@@ -7,6 +7,7 @@ import { NavController, NavParams, Content } from 'ionic-angular';
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+@IonicPage()
 @Component({
   selector: 'page-answer',
   templateUrl: 'answer.html'
@@ -25,7 +26,7 @@ export class AnswerPage {
   }
 
   ionViewDidLoad() {
-    this.content.enableScrollListener();
+    this.content.enableJsScroll();
   }
 
   onScroll($event: any){

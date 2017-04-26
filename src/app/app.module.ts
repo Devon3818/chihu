@@ -1,121 +1,94 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { MorePage } from '../pages/more/more';
-import { AnswerPage } from '../pages/answer/answer';
-import { QuestionPage } from '../pages/question/question';
-import { CreateCookTitlePage } from '../pages/create-cook-title/create-cook-title';
-import { CreateCookDataPage } from '../pages/create-cook-data/create-cook-data';
-import { CreateQuestionTypePage } from '../pages/create-question-type/create-question-type';
-import { CreateQuestionTitlePage } from '../pages/create-question-title/create-question-title';
-import { CreateSharePage } from '../pages/create-share/create-share';
-import { OpenSharePage } from '../pages/open-share/open-share';
-import { FocusPage } from '../pages/focus/focus';
-import { CollectPage } from '../pages/collect/collect';
-import { MySharePage } from '../pages/my-share/my-share';
-import { ChatPage } from '../pages/chat/chat';
-import { FocusQuestionPage } from '../pages/focus-question/focus-question';
-import { FocusUserPage } from '../pages/focus-user/focus-user';
-import { PersonPage } from '../pages/person/person';
-import { PerhomepagePage } from '../pages/perhomepage/perhomepage';
-import { PerparticularPage } from '../pages/perparticular/perparticular';
-import { MessagesPage } from '../pages/messages/messages';
-import { ArticlePage } from '../pages/article/article';
-import { DiscoverPage } from '../pages/discover/discover';
-import { AttentionPage } from '../pages/attention/attention';
-import { InformPage } from '../pages/inform/inform';
-import { SupportPage } from '../pages/support/support';
-import { TabsPage } from '../pages/tabs/tabs';
+
+import { HomeModule } from '../pages/home/home.module';
+import { TabsModule } from '../pages/tabs/tabs.module';
+
+
+import { DiscoverPageModule } from '../pages/discover-page/discover-page.module';
+import { MorePageModule } from '../pages/more-page/more-page.module';
+import { MessagesPageModule } from '../pages/messages-page/messages-page.module';
+import { BroadcastPageModule } from '../pages/broadcast-page/broadcast-page.module';
+import { AnswerModule } from '../pages/answer/answer.module';
+import { QuestionModule } from '../pages/question/question.module';
+import { ArticleModule } from '../pages/article/article.module';
+import { AttentionModule } from '../pages/attention/attention.module';
+import { InformModule } from '../pages/inform/inform.module';
+import { SupportModule } from '../pages/support/support.module';
+import { OpenShareModule } from '../pages/open-share/open-share.module';
+import { ChatModule } from '../pages/chat/chat.module';
+import { PersonModule } from '../pages/person/person.module';
+import { PerhomeModule } from '../pages/perhome/perhome.module';
+import { PerparticularModule } from '../pages/perparticular/perparticular.module';
+import { FocusModule } from '../pages/focus/focus.module';
+import { FocusQuestionModule } from '../pages/focus-question/focus-question.module';
+import { FocusUserModule } from '../pages/focus-user/focus-user.module';
+import { CollectModule } from '../pages/collect/collect.module';
+import { MyShareModule } from '../pages/my-share/my-share.module';
+import { CreateCookTitleModule } from '../pages/create-cook-title/create-cook-title.module';
+import { CreateQuestionTitleModule } from '../pages/create-question-title/create-question-title.module';
+import { CreateQuestionTypeModule } from '../pages/create-question-type/create-question-type.module';
+import { CreateShareModule } from '../pages/create-share/create-share.module';
+import { CreateCookDataModule } from '../pages/create-cook-data/create-cook-data.module';
+
+import { HttpModule } from '@angular/http';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 import { SuperTabsModule } from 'ionic2-super-tabs';
-
-import { PublicServe } from '../pages/public.serve';
-
-import { WorkService } from '../service/work_service';
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
-    MorePage,
-    AnswerPage,
-    QuestionPage,
-    PersonPage,
-    PerhomepagePage,
-    PerparticularPage,
-    MessagesPage,
-    ArticlePage,
-    DiscoverPage,
-    AttentionPage,
-    InformPage,
-    SupportPage,
-    CreateCookTitlePage,
-    CreateCookDataPage,
-    CreateQuestionTypePage,
-    CreateQuestionTitlePage,
-    CreateSharePage,
-    OpenSharePage,
-    FocusPage,
-    FocusQuestionPage,
-    FocusUserPage,
-    CollectPage,
-    MySharePage,
-    ChatPage,
-
+    MyApp
   ],
   imports: [
-    SuperTabsModule,
+    BrowserModule,
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages:true
-    })
+    }),
+    IonicStorageModule.forRoot(),
+    SuperTabsModule.forRoot(),
+    DiscoverPageModule,
+    MessagesPageModule,
+    BroadcastPageModule,
+    MorePageModule,
+    AnswerModule,
+    QuestionModule,
+    ArticleModule,
+    AttentionModule,
+    InformModule,
+    SupportModule,
+    OpenShareModule,
+    ChatModule,
+    PersonModule,
+    PerhomeModule,
+    PerparticularModule,
+    FocusModule,
+    FocusQuestionModule,
+    FocusUserModule,
+    CollectModule,
+    MyShareModule,
+    CreateCookTitleModule,
+    CreateQuestionTitleModule,
+    CreateQuestionTypeModule,
+    CreateShareModule,
+    CreateCookDataModule,
+    TabsModule,
+    HomeModule,
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
-    MorePage,
-    AnswerPage,
-    QuestionPage,
-    PersonPage,
-    PerhomepagePage,
-    PerparticularPage,
-    MessagesPage,
-    ArticlePage,
-    DiscoverPage,
-    AttentionPage,
-    InformPage,
-    SupportPage,
-    CreateCookTitlePage,
-    CreateCookDataPage,
-    CreateQuestionTypePage,
-    CreateQuestionTitlePage,
-    CreateSharePage,
-    OpenSharePage,
-    FocusPage,
-    FocusQuestionPage,
-    FocusUserPage,
-    CollectPage,
-    MySharePage,
-    ChatPage,
-
+    MyApp
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PublicServe,
-    WorkService
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

@@ -1,19 +1,20 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
-/*
-  Generated class for the OpenShare page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+/**
+ * Generated class for the OpenShare page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
 declare var PhotoSwipe: any;
 declare var PhotoSwipeUI_Default: any;
+@IonicPage()
 @Component({
   selector: 'page-open-share',
-  templateUrl: 'open-share.html'
+  templateUrl: 'open-share.html',
 })
-export class OpenSharePage {
+export class OpenShare {
 
   @ViewChild(Content) content: Content;
 
@@ -70,7 +71,7 @@ export class OpenSharePage {
   }
 
   ionViewDidLoad() {
-    this.content.enableScrollListener();
+    this.content.enableJsScroll();
   }
 
   onScroll($event: any){

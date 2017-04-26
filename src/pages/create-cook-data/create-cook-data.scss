@@ -52,4 +52,19 @@ page-create-cook-data {
         width: 90%;
         margin: 0 auto;
     }
+    ion-item-group {
+        position: relative;
+        .sp {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 9999999;
+        }
+        .sp_hide {
+            display: none;
+        }
+    }
 }

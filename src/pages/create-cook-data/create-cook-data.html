@@ -44,7 +44,7 @@
         <ion-list-header>做法：（点击右上角调整顺序，左滑删除）</ion-list-header>
         <ion-item-group [reorder]="isReordering" (ionItemReorder)="reorderItems($event)">
 
-
+            <div class="sp" [class.sp_hide]="sphide"></div>
 
 
             <ion-item (press)="pressEvent(i)" *ngFor="let item of items; let i=index">
