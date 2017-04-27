@@ -7,79 +7,80 @@ declare var SHA1: any;
 @Injectable()
 export class ImService {
 
-    public headers: Headers;
+  public headers: Headers;
 
-    //融云配置变量
-    public rand: any;
-    public now: any;
-    public token: any;
+  //融云配置变量
+  public rand: any;
+  public now: any;
+  public token: any;
 
-    constructor(public http: Http) {
-        RongIMClient.init("pwe86ga5p2uh6");
-        this.init();
-    }
+  constructor(public http: Http) {
+    RongIMClient.init("pwe86ga5p2uh6");
+    this.init();
+  }
+  
 
-    init() {
+  init() {
 
-        var _that = this;
+    var _that = this;
 
-        RongIMClient.setConnectionStatusListener({
-            onChanged: function (status) {
-                switch (status) {
-                    //链接成功
-                    case RongIMLib.ConnectionStatus.CONNECTED:
-                        alert('链接成功');
-                        
-                        break;
-                    //正在链接
-                    case RongIMLib.ConnectionStatus.CONNECTING:
-                        alert('正在链接');
-                        break;
-                    //重新链接
-                    case RongIMLib.ConnectionStatus.DISCONNECTED:
-                        console.log('断开连接');
-                        break;
-                    //其他设备登录
-                    case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
-                        console.log('其他设备登录');
-                        break;
-                    //网络不可用
-                    case RongIMLib.ConnectionStatus.NETWORK_UNAVAILABLE:
-                        alert('网络不可用');
-                        break;
-                }
-            }
-        });
+    RongIMClient.setConnectionStatusListener({
+      onChanged: function (status) {
+        switch (status) {
+          //链接成功
+          case RongIMLib.ConnectionStatus.CONNECTED:
+            alert('链接成功');
+            _that.clearConversations();
+            break;
+          //正在链接
+          case RongIMLib.ConnectionStatus.CONNECTING:
+            alert('正在链接');
+            break;
+          //重新链接
+          case RongIMLib.ConnectionStatus.DISCONNECTED:
+            console.log('断开连接');
+            break;
+          //其他设备登录
+          case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
+            console.log('其他设备登录');
+            break;
+          //网络不可用
+          case RongIMLib.ConnectionStatus.NETWORK_UNAVAILABLE:
+            alert('网络不可用');
+            break;
+        }
+      }
+    });
 
-        this.setOnReceiveMessageListener();
-    }
+    this.setOnReceiveMessageListener();
+  }
 
-    // 消息监听器
-    setOnReceiveMessageListener() {
+  // 消息监听器
+  setOnReceiveMessageListener() {
 
-        var _that = this;
+    var _that = this;
 
-        RongIMClient.setOnReceiveMessageListener({
-            // 接收到的消息
-            onReceived: function (message) {
-                // 判断消息类型
-                switch (message.messageType) {
-                    case RongIMClient.MessageType.TextMessage:
-                        // 发送的消息内容将会被打印
-                        alert(message.content.content);
-                        //_that.sendTextMessage();
-                        
-                        break;
+    RongIMClient.setOnReceiveMessageListener({
+      // 接收到的消息
+      onReceived: function (message) {
+        // 判断消息类型
+        switch (message.messageType) {
+          case RongIMClient.MessageType.TextMessage:
+            // 发送的消息内容将会被打印
+            alert(message.content.content);
+            //_that.sendTextMessage();
 
-                    default:
-                    // 自定义消息
-                    // do something...
-                }
-            }
-        });
-    }
+            break;
 
-    //生成token
+          default:
+          // 自定义消息
+          // do something...
+        }
+      }
+    });
+  }
+
+  //生成token
   gettoken(_id: any, _name: any) {
 
     var time = (Date.now() / 1000);
@@ -150,6 +151,8 @@ export class ImService {
         alert(JSON.stringify(data));
         //=> data {messageUId:"消息唯一Id",timestamp:"发送消息时间戳"}
         alert("SendTextMessage Successfully");
+        
+        //this.getConversationList();
       },
       onError: function (errorcode) {
         alert("SendTextMessage,errorcode:" + errorcode);
@@ -157,16 +160,27 @@ export class ImService {
     });
   }
 
-  getConversationList(){
-      RongIMClient.getInstance().getConversationList({
-   onSuccess: function(list) {
-      //list 会话列表
-      alert(JSON.stringify(list));
-   },
-   onError: function(error) {
-     //GetConversationList error
-   }
- },null);
+  getConversationList() {
+    RongIMClient.getInstance().getConversationList({
+      onSuccess: function (list) {
+        //list 会话列表
+        alert(JSON.stringify(list));
+      },
+      onError: function (error) {
+        //GetConversationList error
+      }
+    }, null);
+  }
+
+  //断开链接
+  disconnect(){
+    RongIMClient.getInstance().disconnect();
+    alert("断开融云链接");
+  }
+
+  //清除会话列表
+  clearConversations(){
+    
   }
 
 }

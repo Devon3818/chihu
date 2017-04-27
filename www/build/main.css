@@ -55420,6 +55420,43 @@ page-inform ion-label {
   white-space: inherit !important;
 }
 
+page-login .dv_logo {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 999999px;
+  margin: 0 auto 4rem;
+}
+
+page-login ion-content {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+page-login ion-content .other_login {
+  text-align: center;
+  padding-top: 3rem;
+  color: #6f7171;
+}
+
+page-login ion-content .qqlogin {
+  margin-bottom: 1rem;
+}
+
+page-messages-page .dv_unreadMessageCount {
+  background: red !important;
+  border-radius: 9999999px !important;
+  color: #fff !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  line-height: 2rem !important;
+  text-align: center !important;
+}
+
+page-messages-page ion-note {
+  font-size: 1rem !important;
+}
+
 page-more-page .dv_data {
   width: 100%;
   background: #fff;

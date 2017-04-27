@@ -6,9 +6,13 @@ import { Headers, Http } from '@angular/http';
 import { AnswerPage } from '../answer/answer';
 import { Question } from '../question/question';
 import { Article } from '../article/article';
+import { Login } from '../login/login';
 import { CreateCookTitle } from '../create-cook-title/create-cook-title';
 import { CreateQuestionType } from '../create-question-type/create-question-type';
 import { CreateShare } from '../create-share/create-share';
+import { ImService } from '../../service/im.service';
+import { UserService } from '../../service/user.service';
+
 
 
 @IonicPage()
@@ -25,18 +29,9 @@ export class HomePage {
   new_scrollTop = 0;
   _that;
   
-  constructor(public http: Http, public navCtrl: NavController,storage: Storage,public ref: ChangeDetectorRef) {
+  constructor(public http: Http, public navCtrl: NavController,storage: Storage,public ref: ChangeDetectorRef,public ImService: ImService,public UserService: UserService) {
       this._that = this;
-    storage.ready().then(() => {
-
-       // set a key/value
-       storage.set('name', 'Max');
-
-       // Or to get a key/value pair
-       storage.get('age').then((val) => {
-         //alert('Your age is:  '+ val);
-       })
-     });
+    
   }
 
   push(){
@@ -80,19 +75,26 @@ export class HomePage {
 
   //创建菜谱
   CreateCook() {
-    this.navCtrl.push(CreateCookTitle);
+    this.checkLogin( CreateCookTitle )
   }
 
   //提问
   CreateQuestion() {
-    
-    this.navCtrl.push(CreateQuestionType);
+    this.checkLogin(CreateQuestionType);
   }
 
   //分享
   CreateShare() {
-    
-    this.navCtrl.push(CreateShare);
+    this.checkLogin(CreateShare);
+  }
+
+  //检查登录状态
+  checkLogin(page){
+    if(this.UserService._user.id){
+      this.navCtrl.push( page );
+    }else{
+      this.navCtrl.push( Login );
+    }
   }
 
 }

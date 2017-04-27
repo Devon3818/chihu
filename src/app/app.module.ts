@@ -23,6 +23,7 @@ import { PersonModule } from '../pages/person/person.module';
 import { PerhomeModule } from '../pages/perhome/perhome.module';
 import { PerparticularModule } from '../pages/perparticular/perparticular.module';
 import { FocusModule } from '../pages/focus/focus.module';
+import { LoginModule } from '../pages/login/login.module';
 import { FocusQuestionModule } from '../pages/focus-question/focus-question.module';
 import { FocusUserModule } from '../pages/focus-user/focus-user.module';
 import { CollectModule } from '../pages/collect/collect.module';
@@ -40,6 +41,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { SuperTabsModule } from 'ionic2-super-tabs';
+
+import { WorkService } from '../service/work_service';
+import { ImService } from '../service/im.service';
+import { UserService } from '../service/user.service';
 
 @NgModule({
   declarations: [
@@ -79,6 +84,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     CreateCookDataModule,
     TabsModule,
     HomeModule,
+    LoginModule,
     HttpModule,
   ],
   bootstrap: [IonicApp],
@@ -88,7 +94,10 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WorkService,
+    ImService,
+    UserService,
   ]
 })
 export class AppModule {}

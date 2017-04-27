@@ -1,6 +1,7 @@
 import {Component, ViewChild, ChangeDetectorRef} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Events, Content, TextInput } from 'ionic-angular';
+import { ImService } from '../../service/im.service';
 
 /**
  * Generated class for the Chat page.
@@ -27,6 +28,7 @@ export class Chat {
       public navParams: NavParams,
       public events: Events,
       public ref: ChangeDetectorRef,
+      public ImService: ImService
   ) {}
 
 
@@ -36,6 +38,7 @@ export class Chat {
   }
 
     sendMsg(){
+        this.ImService.sendTextMessage("1122","Tomy$Devon$这是一条我发的信息,这是一条我发的信息,这是一条我发的信息$1111");
         this.pushNewMsg();      
         this.messageInput.setFocus();
     }

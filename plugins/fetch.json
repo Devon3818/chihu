@@ -62,5 +62,15 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-qqsdk": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-qqsdk"
+        },
+        "is_top_level": true,
+        "variables": {
+            "QQ_APP_ID": "1105594635"
+        }
     }
 }

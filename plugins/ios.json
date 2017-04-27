@@ -30,6 +30,10 @@
         },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "cordova-plugin-qqsdk": {
+            "QQ_APP_ID": "1105594635",
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         }
     },
     "dependent_plugins": {}

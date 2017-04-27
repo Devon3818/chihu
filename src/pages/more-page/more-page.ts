@@ -4,6 +4,7 @@ import { Person } from '../person/person';
 import { Focus } from '../focus/focus';
 import { Collect } from '../collect/collect';
 import { MyShare } from '../my-share/my-share';
+import { UserService } from '../../service/user.service';
 
 /**
  * Generated class for the MorePage page.
@@ -18,7 +19,7 @@ import { MyShare } from '../my-share/my-share';
 })
 export class MorePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
   }
 
   pushPerson(){
@@ -35,6 +36,11 @@ export class MorePage {
 
   pushMySharePage(){
     this.navCtrl.push( MyShare );
+  }
+
+  clear(){
+    this.UserService.clearStorage();
+    alert("清除用户缓存成功！");
   }
 
   ionViewDidLoad() {

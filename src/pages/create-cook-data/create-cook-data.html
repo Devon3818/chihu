@@ -8,7 +8,11 @@
 
     <ion-navbar>
         <ion-title>创建菜谱</ion-title>
-
+        <ion-buttons end>
+            <button (click)="edit()" ion-button icon-only>
+              <ion-icon name="reorder"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
@@ -41,7 +45,7 @@
     <button (click)="showPrompt();" class="dv_button" ion-button round outline>添加材料</button>
 
     <ion-list>
-        <ion-list-header>做法：（点击右上角调整顺序，左滑删除）</ion-list-header>
+        <ion-list-header>做法：（ 长按删除 ）</ion-list-header>
         <ion-item-group [reorder]="isReordering" (ionItemReorder)="reorderItems($event)">
 
             <div class="sp" [class.sp_hide]="sphide"></div>

@@ -1,3 +1,14 @@
 page-messages-page {
-
+    .dv_unreadMessageCount {
+        background: red !important;
+        border-radius: 9999999px !important;
+        color: #fff !important;
+        width: 2rem !important;
+        height: 2rem !important;
+        line-height: 2rem !important;
+        text-align: center !important;
+    }
+    ion-note {
+        font-size: 1rem !important;
+    }
 }
