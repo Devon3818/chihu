@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chat } from '../chat/chat';
+import { UserService } from '../../service/user.service';
 
 /**
  * Generated class for the MessagesPage page.
@@ -18,7 +19,7 @@ export class MessagesPage {
 
   list: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     
   }
 
@@ -33,7 +34,9 @@ export class MessagesPage {
   }
 
   ionViewDidEnter() {
-    this.getConversationList();
+    if(this.UserService._user.id){
+      this.getConversationList();
+    }
   }
 
   getConversationList() {

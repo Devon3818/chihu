@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
+import { Regist } from '../regist/regist';
 
 /**
  * Generated class for the Login page.
@@ -19,6 +20,11 @@ export class Login {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService, public http: Http) {
 
+  }
+
+  //注册
+  regist(){
+    this.navCtrl.push( Regist );
   }
 
   QQinit() {
@@ -56,7 +62,7 @@ export class Login {
       .subscribe((res) => {
         alert(JSON.stringify(res.json()));
         var sex = res.json()['gender'] == "男" ? 0 : 1;
-        _that.UserService.setUser( res.json()['nickname'], accessToken, sex, res.json()['figureurl_2'] );
+        _that.UserService.setUser( res.json()['nickname'], accessToken, res.json()['figureurl_2'], sex );
       });
 
   }

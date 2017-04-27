@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { Collect } from './collect';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { Collect } from './collect';
   ],
   imports: [
     IonicPageModule.forChild(Collect),
+    SuperTabsModule
   ],
   exports: [
     Collect

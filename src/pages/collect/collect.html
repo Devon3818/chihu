@@ -14,9 +14,9 @@
 
 
 <ion-content>
-    <ion-list inset>
-        <button (click)="pushQuestionPage();" ion-item *ngFor="let item of items">
-    {{ item }}
-  </button>
-    </ion-list>
+    <super-tabs height="100%" selectedTabIndex="0" tabColor="light" toolbarColor="light" indicatorColor="light" toolbarBackground="bule" sliderColor="light">
+        <super-tab [root]="page1" title="收藏的问题"></super-tab>
+        <super-tab [root]="page2" title="收藏的作品"></super-tab>
+
+    </super-tabs>
 </ion-content>

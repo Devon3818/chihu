@@ -29,12 +29,12 @@ export class ImService {
         switch (status) {
           //链接成功
           case RongIMLib.ConnectionStatus.CONNECTED:
-            alert('链接成功');
+            //alert('链接成功');
             _that.clearConversations();
             break;
           //正在链接
           case RongIMLib.ConnectionStatus.CONNECTING:
-            alert('正在链接');
+            //alert('正在链接');
             break;
           //重新链接
           case RongIMLib.ConnectionStatus.DISCONNECTED:

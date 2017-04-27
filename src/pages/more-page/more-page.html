@@ -15,9 +15,9 @@
 
 <ion-content class="content">
     <section class="dv_data" (click)="pushPerson();">
-        <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
+        <img [src]="mimg" />
         <section class="dv_name_wrap">
-            <h5>Devon</h5>
+            <h5>{{name}}</h5>
             <p>查看或编辑个人主页</p>
         </section>
     </section>
@@ -38,19 +38,19 @@
         </ion-item>
         <ion-item>
             <ion-icon name='time' item-left color="h"></ion-icon>
-            最近浏览
+            我的提问
         </ion-item>
         <ion-item>
             <ion-icon name='bookmarks' item-left color="h"></ion-icon>
-            我的书架
+            我的作品
         </ion-item>
         <ion-item>
             <ion-icon name='play' item-left color="h"></ion-icon>
-            我的live
+            我的评论
         </ion-item>
         <ion-item (click)="clear();">
             <ion-icon name='school' item-left color="h"></ion-icon>
-            我的值乎
+            设置
         </ion-item>
     </ion-list>
 </ion-content>

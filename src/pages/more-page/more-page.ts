@@ -4,6 +4,7 @@ import { Person } from '../person/person';
 import { Focus } from '../focus/focus';
 import { Collect } from '../collect/collect';
 import { MyShare } from '../my-share/my-share';
+import { Login } from '../login/login';
 import { UserService } from '../../service/user.service';
 
 /**
@@ -19,28 +20,51 @@ import { UserService } from '../../service/user.service';
 })
 export class MorePage {
 
+  name:any='';
+  mimg:any='';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+    this.init();
+  }
+
+  init(){
+    this.name = this.UserService._user.name;
+    this.mimg = this.UserService._user.img;
+  }
+
+  ionViewDidEnter() {
+    this.init();
   }
 
   pushPerson(){
-    this.navCtrl.push( Person );
+    this.checkLogin( Person );
   }
 
   pushFocusPage(){
-    this.navCtrl.push( Focus );
+    this.checkLogin( Focus );
   }
 
   pushCollectPage(){
-    this.navCtrl.push( Collect );
+    this.checkLogin( Collect );
   }
 
   pushMySharePage(){
-    this.navCtrl.push( MyShare );
+    this.checkLogin( MyShare );
   }
 
   clear(){
     this.UserService.clearStorage();
     alert("清除用户缓存成功！");
+  }
+
+  //检查登录状态
+  checkLogin(page){
+    //alert(this.UserService._user.id);
+    if(this.UserService._user.id){
+      this.navCtrl.push( page );
+    }else{
+      this.navCtrl.push( Login );
+    }
   }
 
   ionViewDidLoad() {

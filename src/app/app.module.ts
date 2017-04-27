@@ -24,9 +24,12 @@ import { PerhomeModule } from '../pages/perhome/perhome.module';
 import { PerparticularModule } from '../pages/perparticular/perparticular.module';
 import { FocusModule } from '../pages/focus/focus.module';
 import { LoginModule } from '../pages/login/login.module';
+import { RegistModule } from '../pages/regist/regist.module';
 import { FocusQuestionModule } from '../pages/focus-question/focus-question.module';
 import { FocusUserModule } from '../pages/focus-user/focus-user.module';
 import { CollectModule } from '../pages/collect/collect.module';
+import { CollectQuestionModule } from '../pages/collect-question/collect-question.module';
+import { CollectWorkModule } from '../pages/collect-work/collect-work.module';
 import { MyShareModule } from '../pages/my-share/my-share.module';
 import { CreateCookTitleModule } from '../pages/create-cook-title/create-cook-title.module';
 import { CreateQuestionTitleModule } from '../pages/create-question-title/create-question-title.module';
@@ -85,6 +88,9 @@ import { UserService } from '../service/user.service';
     TabsModule,
     HomeModule,
     LoginModule,
+    RegistModule,
+    CollectQuestionModule,
+    CollectWorkModule,
     HttpModule,
   ],
   bootstrap: [IonicApp],
