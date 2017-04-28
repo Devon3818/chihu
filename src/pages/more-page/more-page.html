@@ -36,11 +36,11 @@
             <ion-icon name='document' item-left color="h"></ion-icon>
             我的分享
         </ion-item>
-        <ion-item>
+        <ion-item (click)="pushMyQuestionPage();">
             <ion-icon name='time' item-left color="h"></ion-icon>
             我的提问
         </ion-item>
-        <ion-item>
+        <ion-item (click)="pushMyWorkPage();">
             <ion-icon name='bookmarks' item-left color="h"></ion-icon>
             我的作品
         </ion-item>
@@ -48,7 +48,7 @@
             <ion-icon name='play' item-left color="h"></ion-icon>
             我的评论
         </ion-item>
-        <ion-item (click)="clear();">
+        <ion-item (click)="pushSettingPage();">
             <ion-icon name='school' item-left color="h"></ion-icon>
             设置
         </ion-item>

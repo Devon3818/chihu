@@ -4,7 +4,10 @@ import { Person } from '../person/person';
 import { Focus } from '../focus/focus';
 import { Collect } from '../collect/collect';
 import { MyShare } from '../my-share/my-share';
+import { MyQuestion } from '../my-question/my-question';
+import { MyWork } from '../my-work/my-work';
 import { Login } from '../login/login';
+import { Setting } from '../setting/setting';
 import { UserService } from '../../service/user.service';
 
 /**
@@ -50,6 +53,18 @@ export class MorePage {
 
   pushMySharePage(){
     this.checkLogin( MyShare );
+  }
+
+  pushMyQuestionPage(){
+    this.checkLogin( MyQuestion );
+  }
+
+  pushMyWorkPage(){
+    this.checkLogin( MyWork );
+  }
+
+  pushSettingPage(){
+    this.navCtrl.push( Setting );
   }
 
   clear(){

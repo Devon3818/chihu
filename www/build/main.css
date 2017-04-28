@@ -55722,6 +55722,67 @@ page-my-share .wrap .imgs {
   background-repeat: no-repeat !important;
 }
 
+page-my-work ion-content {
+  background-color: #f2f4f7 !important;
+}
+
+page-my-work .dv_item {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 1px 4px #c4c6c8;
+  margin-bottom: 8px;
+  padding: 2% 3.5%;
+  overflow: hidden;
+}
+
+page-my-work .dv_item h6 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin: 12px 0;
+}
+
+page-my-work .dv_item p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: #4f5254;
+}
+
+page-my-work .dv_item_head {
+  width: 100%;
+  height: 30px;
+  color: #c8ced1;
+}
+
+page-my-work .dv_item_head img {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 99999px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+page-my-work .dv_item_head p {
+  line-height: 30px;
+}
+
+page-my-work .dv_item_banner {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  margin-top: 6px;
+}
+
+page-my-work .dv_item_bottom {
+  line-height: 36px;
+  color: #c8ced1;
+}
+
+page-my-work .dv_item_bottom p {
+  line-height: 38px;
+}
+
 page-open-share ion-content {
   background-color: #f2f4f7 !important;
 }
@@ -56237,6 +56298,21 @@ page-regist .dv_logo {
 page-regist ion-content {
   overflow: hidden !important;
   height: 100% !important;
+}
+
+page-setting ion-label {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+page-setting .logout {
+  text-align: center !important;
+  color: red !important;
+}
+
+page-setting .logout ion-label {
+  text-align: center !important;
+  color: red !important;
 }
 
 page-support ion-label {

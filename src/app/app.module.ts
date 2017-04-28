@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+
 import { HomeModule } from '../pages/home/home.module';
 import { TabsModule } from '../pages/tabs/tabs.module';
 
@@ -24,6 +25,7 @@ import { PerhomeModule } from '../pages/perhome/perhome.module';
 import { PerparticularModule } from '../pages/perparticular/perparticular.module';
 import { FocusModule } from '../pages/focus/focus.module';
 import { LoginModule } from '../pages/login/login.module';
+import { SettingModule } from '../pages/setting/setting.module';
 import { RegistModule } from '../pages/regist/regist.module';
 import { FocusQuestionModule } from '../pages/focus-question/focus-question.module';
 import { FocusUserModule } from '../pages/focus-user/focus-user.module';
@@ -31,6 +33,8 @@ import { CollectModule } from '../pages/collect/collect.module';
 import { CollectQuestionModule } from '../pages/collect-question/collect-question.module';
 import { CollectWorkModule } from '../pages/collect-work/collect-work.module';
 import { MyShareModule } from '../pages/my-share/my-share.module';
+import { MyWorkModule } from '../pages/my-work/my-work.module';
+import { MyQuestionModule } from '../pages/my-question/my-question.module';
 import { CreateCookTitleModule } from '../pages/create-cook-title/create-cook-title.module';
 import { CreateQuestionTitleModule } from '../pages/create-question-title/create-question-title.module';
 import { CreateQuestionTypeModule } from '../pages/create-question-type/create-question-type.module';
@@ -42,6 +46,7 @@ import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppVersion } from '@ionic-native/app-version';
 import { IonicStorageModule } from '@ionic/storage';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 
@@ -91,6 +96,9 @@ import { UserService } from '../service/user.service';
     RegistModule,
     CollectQuestionModule,
     CollectWorkModule,
+    MyQuestionModule,
+    MyWorkModule,
+    SettingModule,
     HttpModule,
   ],
   bootstrap: [IonicApp],
@@ -100,6 +108,7 @@ import { UserService } from '../service/user.service';
   providers: [
     StatusBar,
     SplashScreen,
+    AppVersion,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WorkService,
     ImService,

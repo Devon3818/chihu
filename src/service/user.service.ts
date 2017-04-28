@@ -18,7 +18,7 @@ export class UserService {
         this._user = this._init;
         this.storage.ready().then(() => {
             
-            this.storageGet();
+            //this.storageGet();
            
         });
     }

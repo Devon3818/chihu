@@ -72,5 +72,13 @@
         "variables": {
             "QQ_APP_ID": "1105594635"
         }
+    },
+    "cordova-plugin-app-version": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-app-version"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
