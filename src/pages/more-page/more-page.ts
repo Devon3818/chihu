@@ -40,27 +40,33 @@ export class MorePage {
   }
 
   pushPerson(){
-    this.checkLogin( Person );
+    //this.checkLogin( Person );
+    this.navCtrl.push( Person );
   }
 
   pushFocusPage(){
-    this.checkLogin( Focus );
+    //this.checkLogin( Focus );
+    this.navCtrl.push( Focus );
   }
 
   pushCollectPage(){
-    this.checkLogin( Collect );
+    //this.checkLogin( Collect );
+    this.navCtrl.push( Collect );
   }
 
   pushMySharePage(){
-    this.checkLogin( MyShare );
+    //this.checkLogin( MyShare );
+    this.navCtrl.push( MyShare );
   }
 
   pushMyQuestionPage(){
-    this.checkLogin( MyQuestion );
+    //this.checkLogin( MyQuestion );
+    this.navCtrl.push( MyQuestion );
   }
 
   pushMyWorkPage(){
-    this.checkLogin( MyWork );
+    //this.checkLogin( MyWork );
+    this.navCtrl.push( MyWork );
   }
 
   pushSettingPage(){

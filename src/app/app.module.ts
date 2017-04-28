@@ -47,6 +47,7 @@ import { HttpModule } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppVersion } from '@ionic-native/app-version';
+import { Camera } from '@ionic-native/camera';
 import { IonicStorageModule } from '@ionic/storage';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 
@@ -109,6 +110,7 @@ import { UserService } from '../service/user.service';
     StatusBar,
     SplashScreen,
     AppVersion,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WorkService,
     ImService,

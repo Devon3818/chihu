@@ -37,7 +37,17 @@
         },
         "cordova-plugin-app-version": {
             "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "com.synconset.imagepicker": {
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        }
+    }
 }

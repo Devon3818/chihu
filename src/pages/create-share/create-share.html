@@ -19,11 +19,8 @@
 <ion-content padding>
     <ion-textarea placeholder="这一刻的想法..."></ion-textarea>
 
-    <ion-row>
-        <ion-col>
-            <div class="imgs" [style.background]="'url(assets/icon/addimg.png)'"></div>
-        </ion-col>
+    <div *ngFor="let item of items" class="imgs" [style.background]="'url('+ item +')'"></div>
 
-    </ion-row>
+    <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs" [style.background]="'url(assets/icon/addimg.png)'"></div>
 
 </ion-content>

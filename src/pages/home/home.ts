@@ -75,17 +75,20 @@ export class HomePage {
 
   //创建菜谱
   CreateCook() {
-    this.checkLogin( CreateCookTitle )
+    //this.checkLogin( CreateCookTitle )
+    this.navCtrl.push( CreateCookTitle );
   }
 
   //提问
   CreateQuestion() {
-    this.checkLogin(CreateQuestionType);
+    //this.checkLogin(CreateQuestionType);
+    this.navCtrl.push( CreateQuestionType );
   }
 
   //分享
   CreateShare() {
-    this.checkLogin(CreateShare);
+    //this.checkLogin(CreateShare);
+    this.navCtrl.push( CreateShare );
   }
 
   //检查登录状态
