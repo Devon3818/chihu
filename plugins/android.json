@@ -43,6 +43,14 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "XWALK_VERSION": "23+",
+            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+            "XWALK_MODE": "embedded",
+            "XWALK_MULTIPLEAPK": "true",
+            "PACKAGE_NAME": "com.ionicframework.chihu221601"
         }
     },
     "dependent_plugins": {
