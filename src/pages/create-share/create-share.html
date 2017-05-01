@@ -19,7 +19,7 @@
 <ion-content padding>
     <ion-textarea placeholder="这一刻的想法..."></ion-textarea>
 
-    <div *ngFor="let item of items" class="imgs" [style.background]="'url('+ item +')'"></div>
+    <div (press)="pressEvent(i)" *ngFor="let item of items; let i=index" class="imgs" [style.background]="'url('+ item +')'"></div>
 
     <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs" [style.background]="'url(assets/icon/addimg.png)'"></div>
 

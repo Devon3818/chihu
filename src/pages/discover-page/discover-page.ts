@@ -38,4 +38,13 @@ export class DiscoverPage {
       this.navCtrl.push( OpenShare );
     }
 
+    doInfinite(infiniteScroll) {
+    //alert('Begin async operation');
+
+    setTimeout(() => {
+
+      infiniteScroll.complete();
+    }, 3000);
+  }
+
 }

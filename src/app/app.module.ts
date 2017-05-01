@@ -34,6 +34,7 @@ import { CollectQuestionModule } from '../pages/collect-question/collect-questio
 import { CollectWorkModule } from '../pages/collect-work/collect-work.module';
 import { MyShareModule } from '../pages/my-share/my-share.module';
 import { MyWorkModule } from '../pages/my-work/my-work.module';
+import { WorkItemModule } from '../pages/work-item/work-item.module';
 import { MyQuestionModule } from '../pages/my-question/my-question.module';
 import { CreateCookTitleModule } from '../pages/create-cook-title/create-cook-title.module';
 import { CreateQuestionTitleModule } from '../pages/create-question-title/create-question-title.module';
@@ -100,6 +101,7 @@ import { UserService } from '../service/user.service';
     MyQuestionModule,
     MyWorkModule,
     SettingModule,
+    WorkItemModule,
     HttpModule,
   ],
   bootstrap: [IonicApp],

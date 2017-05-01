@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CreateCookData } from '../create-cook-data/create-cook-data';
+import { WorkService } from '../../service/work_service';
 
 /**
  * Generated class for the CreateCookTitle page.
@@ -17,12 +18,12 @@ export class CreateCookTitle {
 
   title = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public WorkService: WorkService) {
   }
 
   //继续
   next(){
-    //this.WorkService._title = this.title;
+    this.WorkService._title = this.title;
     //alert(this.WorkService._title);
     this.navCtrl.push( CreateCookData );
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 
 /**
@@ -18,11 +18,43 @@ export class CreateShare {
   ishide = false;
   items = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, private camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, private camera: Camera, public alertCtrl: AlertController) {
   }
 
   send() {
     this.navCtrl.popToRoot();
+  }
+
+  //长按删除事件
+  pressEvent(idx) {
+    //alert(idx);
+    this.showConfirm(idx);
+  }
+
+  //删除提示
+  showConfirm(idx) {
+    let confirm = this.alertCtrl.create({
+      title: '提示',
+      message: '是否删除此照片?',
+      buttons: [
+        {
+          text: '在想想',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: '确定',
+          handler: () => {
+            this.items.splice(idx, 1);
+            if (this.items.length < 3) {
+              this.ishide = false;
+            }
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
   presentActionSheet() {
@@ -66,9 +98,9 @@ export class CreateShare {
       sourceType: type,
       correctOrientation: true,
     }).then((imageData) => {
-      alert(imageData);
-      _that.items.push( imageData );
-      if(_that.items.length >=3 ){
+      //alert(imageData);
+      _that.items.push(imageData);
+      if (_that.items.length >= 3) {
         _that.ishide = true;
       }
     }, (err) => {

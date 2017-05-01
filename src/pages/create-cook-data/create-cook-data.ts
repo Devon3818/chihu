@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
+import { Camera } from '@ionic-native/camera';
+import { WorkService } from '../../service/work_service';
+import { WorkItem } from '../work-item/work-item'
 
 /**
  * Generated class for the CreateCookData page.
@@ -16,14 +18,24 @@ import { AlertController } from 'ionic-angular';
 export class CreateCookData {
 
   title = '';
-  items = [1,2,3,2];
-  foods = [1,1,1];
+  items = [];
+  foods = [];
+  items2 = [1,2,3,4];
   isReordering: boolean = false;
   sphide:boolean = false;
+  banner = "assets/icon/work_banner.png";
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
-    //this.title = this.WorkService._title;
-    //this.showPrompt();
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public WorkService: WorkService) {
+    this.title = this.WorkService._title;
+    this.init();
+  }
+
+  init(){
+    this.items = this.WorkService._item;
+  }
+
+  ionViewDidEnter() {
+    this.init();
   }
 
   reorderItems(indexes) {
@@ -102,6 +114,68 @@ export class CreateCookData {
       ]
     });
     confirm.present();
+  }
+
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: '图片来源',
+      buttons: [
+        {
+          text: '相册',
+          icon: 'images',
+          handler: () => {
+            this.seleImgType(0);
+          }
+        },
+        {
+          text: '相机',
+          icon: 'camera',
+          handler: () => {
+            this.seleImgType(1);
+          }
+        },
+        {
+          text: '取消',
+          role: 'cancel',
+          ionic: 'close',
+          handler: () => {
+            //console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+    actionSheet.present();
+  }
+
+  //成品图片
+  seleImgType(type) {
+    var _that = this;
+    this.camera.getPicture({
+      quality: 90,
+      allowEdit: true,
+      sourceType: type,
+      correctOrientation: true,
+    }).then((imageData) => {
+      //alert(imageData);
+      _that.banner = imageData;
+    }, (err) => {
+      // Handle error
+    });
+  }
+
+  //添加步骤
+  addItem(){
+    this.navCtrl.push( WorkItem, {
+      idx: -1
+    } );
+  }
+
+  //修改步骤信息
+  editItem(idx){
+    this.navCtrl.push( WorkItem, {
+      idx: idx
+    } );
   }
 
   ionViewDidLoad() {
