@@ -32,12 +32,12 @@
         <div *ngIf="item.type == '0'" (click)="pushAnswerPage( item._id, item.uid, item.type );">
             <p>{{item.text}}</p>
             <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
+                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>
             </section>
         </div>
         <p *ngIf="item.type == '1'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.text}}</p>
         <section *ngIf="item.type == '1'" class="dv_item_bottom">
-            <p>4.7K 赞同 • 677评论 • 关注问题</p>
+            <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>
         </section>
     </section>
 

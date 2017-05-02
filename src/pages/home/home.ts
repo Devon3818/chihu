@@ -74,6 +74,7 @@ export class HomePage {
         {text:'再倒入之前兑好的酱汁（酱汁中可以加入3汤匙的清水），再次翻炒均匀',img:'http://s2.cdn.xiachufang.com/6b9cc3ec8c6911e6b87c0242ac110003_220w_149h.jpg?imageView2/2/w/300/interlace/1/q/90',width:'220',height:'149'},
         {text:'少许淀粉加水兑好勾薄芡后即可装起享用',img:'http://s1.cdn.xiachufang.com/6c01ab7c8c6911e6a9a10242ac110002_224w_148h.jpg@2o_50sh_1pr_1l_300w_90q_1wh',width:'224',height:'148'},
       ],
+      mark: {think:123,collect:324,cont:56},
       tip:  "1、步骤中提到的比例为大约，具体请根据个人口味稍作调整，要以自己喜欢的口感为准。 2、豆瓣酱一定要炒出红油再倒入肉丝，要不油色会相差比较远，亮泽度也会较差 3、酱汁提前兑好，在肉丝下锅炒均匀后立即可以倒入锅中，避免临时找酱汁引起遗漏 4、整个菜只需要很少的盐，只有在腌制肉丝的时候放一点点，因为酱油比较咸，豆瓣酱也咸，泡椒、香醋都有盐分 5、勾芡别太厚重，吃起来会腻，因为有酸，甜咸鲜味，搭配很均衡，所以，这道菜虽然看着红油很亮，其实并不太辣。",
       type: "1"
     },
@@ -86,6 +87,7 @@ export class HomePage {
       workbanner: "http://s2.cdn.xiachufang.com/b89670e8873311e6a9a10242ac110002_690w_459h.jpg?imageView2/2/w/660/interlace/1/q/90",
       text: "鱼香肉丝怎么做？辣中带酸，酸中带甜，甜中带咸，咸中又带鲜……味道丰富而不杂腻！恰似女儿心，捉摸不透，又飘忽不定，似近又远，偶尔火辣又偶尔羞涩……",
       time: "10-10",
+      mark: {think:123,collect:324,cont:56},
       type: "0"
     },
     {
@@ -131,6 +133,7 @@ export class HomePage {
         {text:'再倒入之前兑好的酱汁（酱汁中可以加入3汤匙的清水），再次翻炒均匀',img:'http://s2.cdn.xiachufang.com/6b9cc3ec8c6911e6b87c0242ac110003_220w_149h.jpg?imageView2/2/w/300/interlace/1/q/90',width:'220',height:'149'},
         {text:'少许淀粉加水兑好勾薄芡后即可装起享用',img:'http://s1.cdn.xiachufang.com/6c01ab7c8c6911e6a9a10242ac110002_224w_148h.jpg@2o_50sh_1pr_1l_300w_90q_1wh',width:'224',height:'148'},
       ],
+      mark: {think:123,collect:324,cont:56},
       tip:  "1、步骤中提到的比例为大约，具体请根据个人口味稍作调整，要以自己喜欢的口感为准。 2、豆瓣酱一定要炒出红油再倒入肉丝，要不油色会相差比较远，亮泽度也会较差 3、酱汁提前兑好，在肉丝下锅炒均匀后立即可以倒入锅中，避免临时找酱汁引起遗漏 4、整个菜只需要很少的盐，只有在腌制肉丝的时候放一点点，因为酱油比较咸，豆瓣酱也咸，泡椒、香醋都有盐分 5、勾芡别太厚重，吃起来会腻，因为有酸，甜咸鲜味，搭配很均衡，所以，这道菜虽然看着红油很亮，其实并不太辣。",
       type: "1"
     },
@@ -143,6 +146,7 @@ export class HomePage {
       workbanner: "http://s2.cdn.xiachufang.com/b89670e8873311e6a9a10242ac110002_690w_459h.jpg?imageView2/2/w/660/interlace/1/q/90",
       text: "鱼香肉丝怎么做？辣中带酸，酸中带甜，甜中带咸，咸中又带鲜……味道丰富而不杂腻！恰似女儿心，捉摸不透，又飘忽不定，似近又远，偶尔火辣又偶尔羞涩……",
       time: "10-10",
+      mark: {think:123,collect:324,cont:56},
       type: "0"
     },
     {
@@ -188,6 +192,7 @@ export class HomePage {
         {text:'再倒入之前兑好的酱汁（酱汁中可以加入3汤匙的清水），再次翻炒均匀',img:'http://s2.cdn.xiachufang.com/6b9cc3ec8c6911e6b87c0242ac110003_220w_149h.jpg?imageView2/2/w/300/interlace/1/q/90',width:'220',height:'149'},
         {text:'少许淀粉加水兑好勾薄芡后即可装起享用',img:'http://s1.cdn.xiachufang.com/6c01ab7c8c6911e6a9a10242ac110002_224w_148h.jpg@2o_50sh_1pr_1l_300w_90q_1wh',width:'224',height:'148'},
       ],
+      mark: {think:123,collect:324,cont:56},
       tip:  "1、步骤中提到的比例为大约，具体请根据个人口味稍作调整，要以自己喜欢的口感为准。 2、豆瓣酱一定要炒出红油再倒入肉丝，要不油色会相差比较远，亮泽度也会较差 3、酱汁提前兑好，在肉丝下锅炒均匀后立即可以倒入锅中，避免临时找酱汁引起遗漏 4、整个菜只需要很少的盐，只有在腌制肉丝的时候放一点点，因为酱油比较咸，豆瓣酱也咸，泡椒、香醋都有盐分 5、勾芡别太厚重，吃起来会腻，因为有酸，甜咸鲜味，搭配很均衡，所以，这道菜虽然看着红油很亮，其实并不太辣。",
       type: "1"
     },
@@ -200,6 +205,7 @@ export class HomePage {
       workbanner: "http://s2.cdn.xiachufang.com/b89670e8873311e6a9a10242ac110002_690w_459h.jpg?imageView2/2/w/660/interlace/1/q/90",
       text: "鱼香肉丝怎么做？辣中带酸，酸中带甜，甜中带咸，咸中又带鲜……味道丰富而不杂腻！恰似女儿心，捉摸不透，又飘忽不定，似近又远，偶尔火辣又偶尔羞涩……",
       time: "10-10",
+      mark: {think:123,collect:324,cont:56},
       type: "0"
     }
   ];

@@ -129,6 +129,7 @@ var HomePage = (function () {
                     { text: '再倒入之前兑好的酱汁（酱汁中可以加入3汤匙的清水），再次翻炒均匀', img: 'http://s2.cdn.xiachufang.com/6b9cc3ec8c6911e6b87c0242ac110003_220w_149h.jpg?imageView2/2/w/300/interlace/1/q/90', width: '220', height: '149' },
                     { text: '少许淀粉加水兑好勾薄芡后即可装起享用', img: 'http://s1.cdn.xiachufang.com/6c01ab7c8c6911e6a9a10242ac110002_224w_148h.jpg@2o_50sh_1pr_1l_300w_90q_1wh', width: '224', height: '148' },
                 ],
+                mark: { think: 123, collect: 324, cont: 56 },
                 tip: "1、步骤中提到的比例为大约，具体请根据个人口味稍作调整，要以自己喜欢的口感为准。 2、豆瓣酱一定要炒出红油再倒入肉丝，要不油色会相差比较远，亮泽度也会较差 3、酱汁提前兑好，在肉丝下锅炒均匀后立即可以倒入锅中，避免临时找酱汁引起遗漏 4、整个菜只需要很少的盐，只有在腌制肉丝的时候放一点点，因为酱油比较咸，豆瓣酱也咸，泡椒、香醋都有盐分 5、勾芡别太厚重，吃起来会腻，因为有酸，甜咸鲜味，搭配很均衡，所以，这道菜虽然看着红油很亮，其实并不太辣。",
                 type: "1"
             },
@@ -141,6 +142,7 @@ var HomePage = (function () {
                 workbanner: "http://s2.cdn.xiachufang.com/b89670e8873311e6a9a10242ac110002_690w_459h.jpg?imageView2/2/w/660/interlace/1/q/90",
                 text: "鱼香肉丝怎么做？辣中带酸，酸中带甜，甜中带咸，咸中又带鲜……味道丰富而不杂腻！恰似女儿心，捉摸不透，又飘忽不定，似近又远，偶尔火辣又偶尔羞涩……",
                 time: "10-10",
+                mark: { think: 123, collect: 324, cont: 56 },
                 type: "0"
             },
             {
@@ -186,6 +188,7 @@ var HomePage = (function () {
                     { text: '再倒入之前兑好的酱汁（酱汁中可以加入3汤匙的清水），再次翻炒均匀', img: 'http://s2.cdn.xiachufang.com/6b9cc3ec8c6911e6b87c0242ac110003_220w_149h.jpg?imageView2/2/w/300/interlace/1/q/90', width: '220', height: '149' },
                     { text: '少许淀粉加水兑好勾薄芡后即可装起享用', img: 'http://s1.cdn.xiachufang.com/6c01ab7c8c6911e6a9a10242ac110002_224w_148h.jpg@2o_50sh_1pr_1l_300w_90q_1wh', width: '224', height: '148' },
                 ],
+                mark: { think: 123, collect: 324, cont: 56 },
                 tip: "1、步骤中提到的比例为大约，具体请根据个人口味稍作调整，要以自己喜欢的口感为准。 2、豆瓣酱一定要炒出红油再倒入肉丝，要不油色会相差比较远，亮泽度也会较差 3、酱汁提前兑好，在肉丝下锅炒均匀后立即可以倒入锅中，避免临时找酱汁引起遗漏 4、整个菜只需要很少的盐，只有在腌制肉丝的时候放一点点，因为酱油比较咸，豆瓣酱也咸，泡椒、香醋都有盐分 5、勾芡别太厚重，吃起来会腻，因为有酸，甜咸鲜味，搭配很均衡，所以，这道菜虽然看着红油很亮，其实并不太辣。",
                 type: "1"
             },
@@ -198,6 +201,7 @@ var HomePage = (function () {
                 workbanner: "http://s2.cdn.xiachufang.com/b89670e8873311e6a9a10242ac110002_690w_459h.jpg?imageView2/2/w/660/interlace/1/q/90",
                 text: "鱼香肉丝怎么做？辣中带酸，酸中带甜，甜中带咸，咸中又带鲜……味道丰富而不杂腻！恰似女儿心，捉摸不透，又飘忽不定，似近又远，偶尔火辣又偶尔羞涩……",
                 time: "10-10",
+                mark: { think: 123, collect: 324, cont: 56 },
                 type: "0"
             },
             {
@@ -243,6 +247,7 @@ var HomePage = (function () {
                     { text: '再倒入之前兑好的酱汁（酱汁中可以加入3汤匙的清水），再次翻炒均匀', img: 'http://s2.cdn.xiachufang.com/6b9cc3ec8c6911e6b87c0242ac110003_220w_149h.jpg?imageView2/2/w/300/interlace/1/q/90', width: '220', height: '149' },
                     { text: '少许淀粉加水兑好勾薄芡后即可装起享用', img: 'http://s1.cdn.xiachufang.com/6c01ab7c8c6911e6a9a10242ac110002_224w_148h.jpg@2o_50sh_1pr_1l_300w_90q_1wh', width: '224', height: '148' },
                 ],
+                mark: { think: 123, collect: 324, cont: 56 },
                 tip: "1、步骤中提到的比例为大约，具体请根据个人口味稍作调整，要以自己喜欢的口感为准。 2、豆瓣酱一定要炒出红油再倒入肉丝，要不油色会相差比较远，亮泽度也会较差 3、酱汁提前兑好，在肉丝下锅炒均匀后立即可以倒入锅中，避免临时找酱汁引起遗漏 4、整个菜只需要很少的盐，只有在腌制肉丝的时候放一点点，因为酱油比较咸，豆瓣酱也咸，泡椒、香醋都有盐分 5、勾芡别太厚重，吃起来会腻，因为有酸，甜咸鲜味，搭配很均衡，所以，这道菜虽然看着红油很亮，其实并不太辣。",
                 type: "1"
             },
@@ -255,6 +260,7 @@ var HomePage = (function () {
                 workbanner: "http://s2.cdn.xiachufang.com/b89670e8873311e6a9a10242ac110002_690w_459h.jpg?imageView2/2/w/660/interlace/1/q/90",
                 text: "鱼香肉丝怎么做？辣中带酸，酸中带甜，甜中带咸，咸中又带鲜……味道丰富而不杂腻！恰似女儿心，捉摸不透，又飘忽不定，似近又远，偶尔火辣又偶尔羞涩……",
                 time: "10-10",
+                mark: { think: 123, collect: 324, cont: 56 },
                 type: "0"
             }
         ];
@@ -376,7 +382,7 @@ __decorate([
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/'<ion-header [class.animate]="tabanimate">\n    <ion-navbar color="bule">\n\n        <ion-searchbar placeholder="搜索"></ion-searchbar>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="content" (touchend)="ontouchend($event)" (touchmove)="ontouchmove($event)" (touchstart)="ontouchstart($event)" (ionScroll)="onScroll($event)">\n\n    <span class="dv_load" [class.dv_load_tran]="spanisload" [style.top]="loadX">\n        <span class="ouro">\n            <span class="left">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    <span class="right">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    </span>\n    </span>\n\n    <!--重复-->\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p *ngIf="item.type == \'0\'">{{item.name}} 回答了问题</p>\n            <p *ngIf="item.type == \'1\'">{{item.name}} 分享的作品</p>\n        </section>\n        <section *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );" class="dv_item_banner" [style.background]="\'url(\'+item.workbanner+\')\'"></section>\n        <h6 *ngIf="item.type == \'0\'" (click)="pushQuestionPage( item._id, item.uid, item.type );">{{item.title}}</h6>\n        <h6 *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.title}}</h6>\n        <div *ngIf="item.type == \'0\'" (click)="pushAnswerPage( item._id, item.uid, item.type );">\n            <p>{{item.text}}</p>\n            <section class="dv_item_bottom">\n                <p>4.7K 赞同 • 677评论 • 关注问题</p>\n            </section>\n        </div>\n        <p *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.text}}</p>\n        <section *ngIf="item.type == \'1\'" class="dv_item_bottom">\n            <p>4.7K 赞同 • 677评论 • 关注问题</p>\n        </section>\n    </section>\n\n    <!--发布按钮-->\n    <ion-fab right bottom edge #327eff>\n        <button ion-fab><ion-icon name="arrow-dropup"></ion-icon></button>\n        <ion-fab-list side="top">\n            <button (click)="CreateQuestion()" ion-fab><ion-icon name="help"></ion-icon></button>\n            <button (click)="CreateShare()" ion-fab><ion-icon name="images"></ion-icon></button>\n            <button (click)="CreateCook()" ion-fab><ion-icon name="clipboard"></ion-icon></button>\n        </ion-fab-list>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/'<ion-header [class.animate]="tabanimate">\n    <ion-navbar color="bule">\n\n        <ion-searchbar placeholder="搜索"></ion-searchbar>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="content" (touchend)="ontouchend($event)" (touchmove)="ontouchmove($event)" (touchstart)="ontouchstart($event)" (ionScroll)="onScroll($event)">\n\n    <span class="dv_load" [class.dv_load_tran]="spanisload" [style.top]="loadX">\n        <span class="ouro">\n            <span class="left">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    <span class="right">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    </span>\n    </span>\n\n    <!--重复-->\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p *ngIf="item.type == \'0\'">{{item.name}} 回答了问题</p>\n            <p *ngIf="item.type == \'1\'">{{item.name}} 分享的作品</p>\n        </section>\n        <section *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );" class="dv_item_banner" [style.background]="\'url(\'+item.workbanner+\')\'"></section>\n        <h6 *ngIf="item.type == \'0\'" (click)="pushQuestionPage( item._id, item.uid, item.type );">{{item.title}}</h6>\n        <h6 *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.title}}</h6>\n        <div *ngIf="item.type == \'0\'" (click)="pushAnswerPage( item._id, item.uid, item.type );">\n            <p>{{item.text}}</p>\n            <section class="dv_item_bottom">\n                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n            </section>\n        </div>\n        <p *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.text}}</p>\n        <section *ngIf="item.type == \'1\'" class="dv_item_bottom">\n            <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n        </section>\n    </section>\n\n    <!--发布按钮-->\n    <ion-fab right bottom edge #327eff>\n        <button ion-fab><ion-icon name="arrow-dropup"></ion-icon></button>\n        <ion-fab-list side="top">\n            <button (click)="CreateQuestion()" ion-fab><ion-icon name="help"></ion-icon></button>\n            <button (click)="CreateShare()" ion-fab><ion-icon name="images"></ion-icon></button>\n            <button (click)="CreateCook()" ion-fab><ion-icon name="clipboard"></ion-icon></button>\n        </ion-fab-list>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_4__service_im_service__["a" /* ImService */], __WEBPACK_IMPORTED_MODULE_5__service_user_service__["a" /* UserService */]])
 ], HomePage);

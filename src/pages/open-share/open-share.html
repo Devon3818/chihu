@@ -11,7 +11,7 @@
     <ion-navbar color="bule">
         <ion-title [class.animate]="tabanimate">
             {{title}}
-            <p>123 个回答</p>
+            <p>{{data.mark.like}} 个点赞</p>
         </ion-title>
         <ion-buttons end>
             <button ion-button icon-only>
@@ -36,33 +36,29 @@
 
         <section class="dv_item_2">
             <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon 分享了心情</p>
-                <span class="time">昨天 3:30</span>
+                <img [src]="data.userimg" />
+                <p>{{data.name}} 分享了心情</p>
+                <span class="time">{{data.time}}</span>
             </section>
 
             <section class="wrap">
-                <div (click)="pswpElementInit(1);" class="imgs" [style.background]="'url(http://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png)'"></div>
-
-                <div (click)="pswpElementInit(2);" class="imgs" [style.background]="'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)'"></div>
-
-                <div (click)="pswpElementInit(3);" class="imgs" [style.background]="'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)'"></div>
+                <div *ngFor="let item of data.img; let i=index" (click)="pswpElementInit(i);" class="imgs" [style.background]="'url('+item.src+')'"></div>
             </section>
 
         </section>
 
-        <p>警方介入核实 最新消息：北京地铁男子辱骂两名女子</p>
+        <p>{{data.text}}</p>
         <ion-row>
             <ion-col>
                 <button ion-button icon-left clear small>
                   <ion-icon name="eye"></ion-icon>
-                  <div>7147</div>
+                  <div>{{data.mark.like}}</div>
                 </button>
             </ion-col>
             <ion-col>
                 <button ion-button icon-left clear small>
                   <ion-icon name="text"></ion-icon>
-                  <div>123</div>
+                  <div>{{data.mark.cont}}</div>
                 </button>
             </ion-col>
             <ion-col center text-center>
@@ -76,7 +72,7 @@
 
     <ion-list>
         <ion-list-header>
-            123 个回答
+            {{data.mark.cont}} 个评论
         </ion-list-header>
     </ion-list>
 
