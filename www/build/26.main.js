@@ -1,14 +1,14 @@
 webpackJsonp([26],{
 
-/***/ 339:
+/***/ 325:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_cook_title__ = __webpack_require__(377);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateCookTitleModule", function() { return CreateCookTitleModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_question_type__ = __webpack_require__(379);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateQuestionTypeModule", function() { return CreateQuestionTypeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CreateCookTitleModule = (function () {
-    function CreateCookTitleModule() {
+var CreateQuestionTypeModule = (function () {
+    function CreateQuestionTypeModule() {
     }
-    return CreateCookTitleModule;
+    return CreateQuestionTypeModule;
 }());
-CreateCookTitleModule = __decorate([
+CreateQuestionTypeModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__create_cook_title__["a" /* CreateCookTitle */],
+            __WEBPACK_IMPORTED_MODULE_2__create_question_type__["a" /* CreateQuestionType */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_cook_title__["a" /* CreateCookTitle */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_question_type__["a" /* CreateQuestionType */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__create_cook_title__["a" /* CreateCookTitle */]
+            __WEBPACK_IMPORTED_MODULE_2__create_question_type__["a" /* CreateQuestionType */]
         ]
     })
-], CreateCookTitleModule);
+], CreateQuestionTypeModule);
 
-//# sourceMappingURL=create-cook-title.module.js.map
+//# sourceMappingURL=create-question-type.module.js.map
 
 /***/ }),
 
-/***/ 377:
+/***/ 379:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_work_service__ = __webpack_require__(254);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCookTitle; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateQuestionType; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,40 +59,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Generated class for the CreateCookTitle page.
+ * Generated class for the CreateQuestionType page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var CreateCookTitle = (function () {
-    function CreateCookTitle(navCtrl, navParams, WorkService) {
+var CreateQuestionType = (function () {
+    function CreateQuestionType(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.WorkService = WorkService;
-        this.title = '';
     }
-    //继续
-    CreateCookTitle.prototype.next = function () {
-        this.WorkService._title = this.title;
-        //alert(this.WorkService._title);
-        this.navCtrl.push('CreateCookData');
+    CreateQuestionType.prototype.next = function () {
+        this.navCtrl.push('CreateQuestionTitle');
     };
-    CreateCookTitle.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CreateCookTitle');
+    CreateQuestionType.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CreateQuestionType');
     };
-    return CreateCookTitle;
+    return CreateQuestionType;
 }());
-CreateCookTitle = __decorate([
+CreateQuestionType = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-create-cook-title',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-title/create-cook-title.html"*/'<!--\n  Generated template for the CreateCookTitle page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar>\n        <ion-title>创建菜谱</ion-title>\n        <ion-buttons end (click)="next();">\n            <ion-title>继续</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="写下你的菜谱名吧" />\n\n    <ion-list>\n        <ion-list-header>\n            食谱标签\n        </ion-list-header>\n\n        <ion-item>\n            <ion-label>家常菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>快手菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下饭菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>素菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>大鱼大肉</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下酒菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>小清新</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>创意菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>减肥</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>美容</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-title/create-cook-title.html"*/,
+        selector: 'page-create-question-type',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-question-type/create-question-type.html"*/'<!--\n  Generated template for the CreateQuestionType page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>提问</ion-title>\n        <ion-buttons end (click)="next();">\n            <ion-title>下一步</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list-header>\n        问题标签\n    </ion-list-header>\n    <ion-list>\n\n\n        <ion-item>\n            <ion-label>家常菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>快手菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下饭菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>素菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>大鱼大肉</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下酒菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>小清新</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>创意菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>减肥</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>美容</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-question-type/create-question-type.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_work_service__["a" /* WorkService */]])
-], CreateCookTitle);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+], CreateQuestionType);
 
-//# sourceMappingURL=create-cook-title.js.map
+//# sourceMappingURL=create-question-type.js.map
 
 /***/ })
 

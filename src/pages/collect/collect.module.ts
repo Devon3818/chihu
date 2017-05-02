@@ -9,6 +9,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
   ],
   imports: [
     IonicPageModule.forChild(Collect),
+    SuperTabsModule.forRoot(),
     SuperTabsModule
   ],
   exports: [

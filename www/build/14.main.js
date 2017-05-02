@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 352:
+/***/ 339:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__my_question__ = __webpack_require__(390);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyQuestionModule", function() { return MyQuestionModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__open_share__ = __webpack_require__(393);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OpenShareModule", function() { return OpenShareModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MyQuestionModule = (function () {
-    function MyQuestionModule() {
+var OpenShareModule = (function () {
+    function OpenShareModule() {
     }
-    return MyQuestionModule;
+    return OpenShareModule;
 }());
-MyQuestionModule = __decorate([
+OpenShareModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__my_question__["a" /* MyQuestion */],
+            __WEBPACK_IMPORTED_MODULE_2__open_share__["a" /* OpenShare */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__my_question__["a" /* MyQuestion */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__open_share__["a" /* OpenShare */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__my_question__["a" /* MyQuestion */]
+            __WEBPACK_IMPORTED_MODULE_2__open_share__["a" /* OpenShare */]
         ]
     })
-], MyQuestionModule);
+], OpenShareModule);
 
-//# sourceMappingURL=my-question.module.js.map
+//# sourceMappingURL=open-share.module.js.map
 
 /***/ }),
 
-/***/ 390:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyQuestion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OpenShare; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,53 +59,83 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the MyQuestion page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var MyQuestion = (function () {
-    function MyQuestion(navCtrl, navParams) {
+var OpenShare = (function () {
+    function OpenShare(navCtrl, navParams, ref) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.items = [
-            'Pokémon Yellow',
-            'Super Metroid',
-            'Mega Man X',
-            'The Legend of Zelda',
-            'Pac-Man',
-            'Super Mario World',
-            'Street Fighter II',
-            'Half Life',
-            'Final Fantasy VII',
-            'Star Fox',
-            'Tetris',
-            'Donkey Kong III',
-            'GoldenEye 007',
-            'Doom',
-            'Fallout',
-            'GTA',
-            'Halo'
-        ];
+        this.ref = ref;
+        this.title = 'Devon 分享了心情';
+        this.tabanimate = false;
+        this.gallery = null;
+        this.pswpElement = null;
+        this._that = this;
     }
-    MyQuestion.prototype.pushQuestionPage = function () {
-        this.navCtrl.push('Question');
+    //点击图片查看
+    OpenShare.prototype.pswpElementInit = function (ind) {
+        if (this.pswpElement == null) {
+            this.pswpElement = document.querySelectorAll('.pswp')[0];
+        }
+        // build items array
+        var items = [
+            {
+                src: "http://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png",
+                w: 592,
+                h: 396,
+                title: "我的分享说明..."
+            },
+            {
+                src: "http://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png",
+                w: 592,
+                h: 396,
+                title: "我的分享说明..."
+            },
+            {
+                src: "http://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png",
+                w: 592,
+                h: 396,
+                title: "我的分享说明..."
+            }
+        ];
+        // define options (if needed)
+        var options = {
+            // optionName: 'option value'
+            // for example:
+            index: ind * 1 // start at first slide
+        };
+        // Initializes and opens PhotoSwipe
+        this.gallery = new PhotoSwipe(this.pswpElement, PhotoSwipeUI_Default, items, options);
+        this.gallery.init();
     };
-    MyQuestion.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad MyQuestion');
+    OpenShare.prototype.ionViewDidLoad = function () {
+        this.content.enableJsScroll();
     };
-    return MyQuestion;
+    OpenShare.prototype.onScroll = function ($event) {
+        var scrollTop = $event.scrollTop;
+        if (scrollTop > 250) {
+            if (!this.tabanimate) {
+                this.tabanimate = true;
+            }
+        }
+        else {
+            this.tabanimate = false;
+        }
+        this.ref.detectChanges();
+    };
+    return OpenShare;
 }());
-MyQuestion = __decorate([
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Content */])
+], OpenShare.prototype, "content", void 0);
+OpenShare = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-my-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/my-question/my-question.html"*/'<!--\n  Generated template for the MyQuestion page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar color="bule">\n        <ion-title>我的提问</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <ion-list inset>\n        <button (click)="pushQuestionPage();" ion-item *ngFor="let item of items">\n    {{ item }}\n  </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/my-question/my-question.html"*/,
+        selector: 'page-open-share',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/open-share/open-share.html"*/'<!--\n  Generated template for the Question page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title [class.animate]="tabanimate">\n            {{title}}\n            <p>123 个回答</p>\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="share"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n<ion-content class="content" (ionScroll)="onScroll($event)">\n\n    <section class="dv_top_ban">\n\n        <section class="dv_item_2">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon 分享了心情</p>\n                <span class="time">昨天 3:30</span>\n            </section>\n\n            <section class="wrap">\n                <div (click)="pswpElementInit(1);" class="imgs" [style.background]="\'url(http://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png)\'"></div>\n\n                <div (click)="pswpElementInit(2);" class="imgs" [style.background]="\'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)\'"></div>\n\n                <div (click)="pswpElementInit(3);" class="imgs" [style.background]="\'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)\'"></div>\n            </section>\n\n        </section>\n\n        <p>警方介入核实 最新消息：北京地铁男子辱骂两名女子</p>\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="eye"></ion-icon>\n                  <div>7147</div>\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="text"></ion-icon>\n                  <div>123</div>\n                </button>\n            </ion-col>\n            <ion-col center text-center>\n                <button ion-button outline>点赞</button>\n            </ion-col>\n            <ion-col center text-center>\n                <button ion-button outline>评论</button>\n            </ion-col>\n        </ion-row>\n    </section>\n\n    <ion-list>\n        <ion-list-header>\n            123 个回答\n        </ion-list-header>\n    </ion-list>\n\n    <section class="dv_list">\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n    </section>\n\n</ion-content>\n\n\n\n<!-- Root element of PhotoSwipe. Must have class pswp. -->\n<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">\n\n    <!-- Background of PhotoSwipe. \n         It\'s a separate element as animating opacity is faster than rgba(). -->\n    <div class="pswp__bg"></div>\n\n    <!-- Slides wrapper with overflow:hidden. -->\n    <div class="pswp__scroll-wrap">\n\n        <!-- Container that holds slides. \n            PhotoSwipe keeps only 3 of them in the DOM to save memory.\n            Don\'t modify these 3 pswp__item elements, data is added later on. -->\n        <div class="pswp__container">\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n        </div>\n\n        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->\n        <div class="pswp__ui pswp__ui--hidden">\n\n            <div class="pswp__top-bar">\n\n                <!--  Controls are self-explanatory. Order can be changed. -->\n\n                <div class="pswp__counter"></div>\n\n                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>\n\n                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>\n\n                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->\n                <!-- element will get class pswp__preloader--active when preloader is running -->\n                <div class="pswp__preloader">\n                    <div class="pswp__preloader__icn">\n                        <div class="pswp__preloader__cut">\n                            <div class="pswp__preloader__donut"></div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">\n                <div class="pswp__share-tooltip"></div>\n            </div>\n\n            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">\n            </button>\n\n            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">\n            </button>\n\n            <div class="pswp__caption">\n                <div class="pswp__caption__center"></div>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/open-share/open-share.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], MyQuestion);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */]])
+], OpenShare);
 
-//# sourceMappingURL=my-question.js.map
+//# sourceMappingURL=open-share.js.map
 
 /***/ })
 

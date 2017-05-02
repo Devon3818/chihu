@@ -1,15 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 358:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__person__ = __webpack_require__(396);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__ = __webpack_require__(252);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PersonModule", function() { return PersonModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__work_item__ = __webpack_require__(402);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkItemModule", function() { return WorkItemModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,38 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var PersonModule = (function () {
-    function PersonModule() {
+var WorkItemModule = (function () {
+    function WorkItemModule() {
     }
-    return PersonModule;
+    return WorkItemModule;
 }());
-PersonModule = __decorate([
+WorkItemModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__person__["a" /* Person */],
+            __WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__person__["a" /* Person */]),
-            __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__["a" /* SuperTabsModule */]
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__person__["a" /* Person */]
+            __WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */]
         ]
     })
-], PersonModule);
+], WorkItemModule);
 
-//# sourceMappingURL=person.module.js.map
+//# sourceMappingURL=work-item.module.js.map
 
 /***/ }),
 
-/***/ 396:
+/***/ 402:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Person; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_work_service__ = __webpack_require__(247);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkItem; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,48 +60,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Generated class for the Person page.
+ * Generated class for the WorkItem page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var Person = (function () {
-    function Person(navCtrl, navParams, ref) {
+var WorkItem = (function () {
+    function WorkItem(navCtrl, navParams, WorkService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.ref = ref;
-        this.page1 = 'Perhome';
-        this.page2 = 'Perparticular';
-        this.old_scrollTop = 0;
-        this.maxtop = 0;
-        this.opacity = 1;
+        this.WorkService = WorkService;
+        this.idx = 0;
+        this.banner = 'assets/icon/work_item.png';
+        this.text = '';
+        this.idx = this.navParams.get('idx');
+        if (this.idx != -1) {
+            this.banner = this.WorkService._item[this.idx]['imgsrc'];
+            this.text = this.WorkService._item[this.idx]['text'];
+        }
     }
-    Person.prototype.ionViewDidLoad = function () {
-        this.content.enableJsScroll();
+    WorkItem.prototype.send = function () {
+        this.WorkService._item.push({
+            imgsrc: this.banner,
+            text: this.text
+        });
+        this.navCtrl.pop();
     };
-    Person.prototype.ionViewDidEnter = function () {
-        this.content.enableJsScroll();
+    WorkItem.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad WorkItem');
     };
-    Person.prototype.onScroll = function ($event) {
-        var scrollTop = $event.scrollTop;
-        this.ref.detectChanges();
-    };
-    return Person;
+    return WorkItem;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */])
-], Person.prototype, "content", void 0);
-Person = __decorate([
+WorkItem = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-person',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/person/person.html"*/'<!--\n  Generated template for the Person page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar color="bule">\n        <ion-title>Devon</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="text"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content (ionScroll)="onScroll($event)">\n    <section class="dv_top_ban">\n        <div [style.opacity]="opacity">\n            <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n            <h2>Devon</h2>\n        </div>\n    </section>\n\n    <super-tabs height="100%" tabColor="light" toolbarColor="light" toolbarBackground="bule" sliderColor="light">\n        <super-tab [root]="page1" title="个人主页"></super-tab>\n        <super-tab [root]="page2" title="详细信息"></super-tab>\n    </super-tabs>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/person/person.html"*/,
+        selector: 'page-work-item',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/work-item/work-item.html"*/'<!--\n  Generated template for the WorkItem page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>步骤详情</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <section class="work_top">\n        <section (click)="presentActionSheet();" class="work_banner" [style.background]="\'url(\'+ banner +\')\'"></section>\n        <ion-textarea [(ngModel)]="text" placeholder="输入这道美食的详细步骤"></ion-textarea>\n    </section>\n    <button (click)="send();" class="dv_button" ion-button icon-left round outline>确定</button>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/work-item/work-item.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */]])
-], Person);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_work_service__["a" /* WorkService */]])
+], WorkItem);
 
-//# sourceMappingURL=person.js.map
+//# sourceMappingURL=work-item.js.map
 
 /***/ })
 

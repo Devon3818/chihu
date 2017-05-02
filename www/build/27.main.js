@@ -1,15 +1,14 @@
 webpackJsonp([27],{
 
-/***/ 337:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__collect__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__ = __webpack_require__(252);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectModule", function() { return CollectModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_question_title__ = __webpack_require__(378);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateQuestionTitleModule", function() { return CreateQuestionTitleModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,38 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var CollectModule = (function () {
-    function CollectModule() {
+var CreateQuestionTitleModule = (function () {
+    function CreateQuestionTitleModule() {
     }
-    return CollectModule;
+    return CreateQuestionTitleModule;
 }());
-CollectModule = __decorate([
+CreateQuestionTitleModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__collect__["a" /* Collect */],
+            __WEBPACK_IMPORTED_MODULE_2__create_question_title__["a" /* CreateQuestionTitle */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__collect__["a" /* Collect */]),
-            __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__["a" /* SuperTabsModule */]
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_question_title__["a" /* CreateQuestionTitle */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__collect__["a" /* Collect */]
+            __WEBPACK_IMPORTED_MODULE_2__create_question_title__["a" /* CreateQuestionTitle */]
         ]
     })
-], CollectModule);
+], CreateQuestionTitleModule);
 
-//# sourceMappingURL=collect.module.js.map
+//# sourceMappingURL=create-question-title.module.js.map
 
 /***/ }),
 
-/***/ 375:
+/***/ 378:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Collect; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateQuestionTitle; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,32 +60,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the Collect page.
+ * Generated class for the CreateQuestionTitle page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var Collect = (function () {
-    function Collect(navCtrl, navParams) {
+var CreateQuestionTitle = (function () {
+    function CreateQuestionTitle(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.page1 = 'CollectQuestion';
-        this.page2 = 'CollectWork';
     }
-    Collect.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad Collect');
+    CreateQuestionTitle.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CreateQuestionTitle');
     };
-    return Collect;
+    return CreateQuestionTitle;
 }());
-Collect = __decorate([
+CreateQuestionTitle = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-collect',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect/collect.html"*/'<!--\n  Generated template for the Collect page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar color="bule">\n        <ion-title>我的收藏</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <super-tabs height="100%" selectedTabIndex="0" tabColor="light" toolbarColor="light" indicatorColor="light" toolbarBackground="bule" sliderColor="light">\n        <super-tab [root]="page1" title="收藏的问题"></super-tab>\n        <super-tab [root]="page2" title="收藏的作品"></super-tab>\n\n    </super-tabs>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect/collect.html"*/,
+        selector: 'page-create-question-title',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-question-title/create-question-title.html"*/'<!--\n  Generated template for the CreateQuestionTitle page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>提问</ion-title>\n        <ion-buttons end (click)="send();">\n            <ion-title>提交</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n\n        <ion-item>\n            <ion-input type="text" placeholder="请输入标题"></ion-input>\n        </ion-item>\n        <br/>\n        <ion-textarea placeholder="添加内容的补充说明..."></ion-textarea>\n    </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-question-title/create-question-title.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], Collect);
+], CreateQuestionTitle);
 
-//# sourceMappingURL=collect.js.map
+//# sourceMappingURL=create-question-title.js.map
 
 /***/ })
 

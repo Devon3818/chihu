@@ -1,14 +1,14 @@
 webpackJsonp([28],{
 
-/***/ 336:
+/***/ 323:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__collect_work__ = __webpack_require__(374);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectWorkModule", function() { return CollectWorkModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_cook_title__ = __webpack_require__(377);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateCookTitleModule", function() { return CreateCookTitleModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CollectWorkModule = (function () {
-    function CollectWorkModule() {
+var CreateCookTitleModule = (function () {
+    function CreateCookTitleModule() {
     }
-    return CollectWorkModule;
+    return CreateCookTitleModule;
 }());
-CollectWorkModule = __decorate([
+CreateCookTitleModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */],
+            __WEBPACK_IMPORTED_MODULE_2__create_cook_title__["a" /* CreateCookTitle */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_cook_title__["a" /* CreateCookTitle */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */]
+            __WEBPACK_IMPORTED_MODULE_2__create_cook_title__["a" /* CreateCookTitle */]
         ]
     })
-], CollectWorkModule);
+], CreateCookTitleModule);
 
-//# sourceMappingURL=collect-work.module.js.map
+//# sourceMappingURL=create-cook-title.module.js.map
 
 /***/ }),
 
-/***/ 374:
+/***/ 377:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CollectWork; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_work_service__ = __webpack_require__(247);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCookTitle; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,54 +60,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Generated class for the CollectWork page.
+ * Generated class for the CreateCookTitle page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var CollectWork = (function () {
-    function CollectWork(navCtrl, navParams) {
+var CreateCookTitle = (function () {
+    function CreateCookTitle(navCtrl, navParams, WorkService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.items = [
-            'Pokémon Yellow',
-            'Super Metroid',
-            'Mega Man X',
-            'The Legend of Zelda',
-            'Pac-Man',
-            'Super Mario World',
-            'Street Fighter II',
-            'Half Life',
-            'Final Fantasy VII',
-            'Star Fox',
-            'Tetris',
-            'Donkey Kong III',
-            'GoldenEye 007',
-            'Doom',
-            'Fallout',
-            'GTA',
-            'Halo'
-        ];
-        this.rootNavCtrl = navParams.get('rootNavCtrl');
+        this.WorkService = WorkService;
+        this.title = '';
     }
-    CollectWork.prototype.pushArticlePage = function () {
-        this.rootNavCtrl.push('Article');
+    //继续
+    CreateCookTitle.prototype.next = function () {
+        this.WorkService._title = this.title;
+        //alert(this.WorkService._title);
+        this.navCtrl.push('CreateCookData');
     };
-    CollectWork.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CollectWork');
+    CreateCookTitle.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CreateCookTitle');
     };
-    return CollectWork;
+    return CreateCookTitle;
 }());
-CollectWork = __decorate([
+CreateCookTitle = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-collect-work',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-work/collect-work.html"*/'<!--\n  Generated template for the CollectWork page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n            <p>Devon 分享了作品</p>\n        </section>\n        <section (click)="pushArticlePage();" class="dv_item_banner" style="background: url(\'http://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png\') no-repeat center"></section>\n        <h6 (click)="pushArticlePage();">很多it大牛在我这个年龄时已经很厉害了，我该怎么做才能变成他们那样的人？</h6>\n\n        <p (click)="pushArticlePage();">我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>\n        <section class="dv_item_bottom">\n            <p>4.7K 赞同 • 677评论 • 关注问题</p>\n        </section>\n    </section>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-work/collect-work.html"*/,
+        selector: 'page-create-cook-title',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-title/create-cook-title.html"*/'<!--\n  Generated template for the CreateCookTitle page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar>\n        <ion-title>创建菜谱</ion-title>\n        <ion-buttons end (click)="next();">\n            <ion-title>继续</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="写下你的菜谱名吧" />\n\n    <ion-list>\n        <ion-list-header>\n            食谱标签\n        </ion-list-header>\n\n        <ion-item>\n            <ion-label>家常菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>快手菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下饭菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>素菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>大鱼大肉</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下酒菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>小清新</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>创意菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>减肥</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>美容</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-title/create-cook-title.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], CollectWork);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_work_service__["a" /* WorkService */]])
+], CreateCookTitle);
 
-//# sourceMappingURL=collect-work.js.map
+//# sourceMappingURL=create-cook-title.js.map
 
 /***/ })
 
