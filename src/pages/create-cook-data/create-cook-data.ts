@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { WorkService } from '../../service/work_service';
-import { WorkItem } from '../work-item/work-item'
 
 /**
  * Generated class for the CreateCookData page.
@@ -166,14 +165,14 @@ export class CreateCookData {
 
   //添加步骤
   addItem(){
-    this.navCtrl.push( WorkItem, {
+    this.navCtrl.push( 'WorkItem', {
       idx: -1
     } );
   }
 
   //修改步骤信息
   editItem(idx){
-    this.navCtrl.push( WorkItem, {
+    this.navCtrl.push( 'WorkItem', {
       idx: idx
     } );
   }

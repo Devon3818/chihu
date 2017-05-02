@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Attention } from '../attention/attention';
-import { Inform } from '../inform/inform';
-import { Support } from '../support/support';
-
 
 /**
  * Generated class for the BroadcastPage page.
@@ -18,9 +14,9 @@ import { Support } from '../support/support';
 })
 export class BroadcastPage {
 
-  page1: any = Inform;
-  page2: any = Support;
-  page3: any = Attention;
+  page1: any = 'Inform';
+  page2: any = 'Support';
+  page3: any = 'Attention';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

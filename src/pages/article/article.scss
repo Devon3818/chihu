@@ -22,7 +22,8 @@ page-article {
         margin-bottom: 0 !important;
     }
     .dv_banner {
-        background-size: cover;
+        background-size: cover !important;
+        background-position: center center !important;
         width: 100%;
         height: 190px;
     }
@@ -80,6 +81,7 @@ page-article {
             width: 100%;
             height: 180px;
             background-size: cover !important;
+            background-position: center center !important;
             margin-bottom: 35px;
         }
         .dv_tips {

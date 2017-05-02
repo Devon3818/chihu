@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AnswerPage } from '../answer/answer';
-import { Question } from '../question/question';
 
 /**
  * Generated class for the CollectQuestion page.
@@ -43,11 +41,11 @@ export class CollectQuestion {
   }
 
   pushQuestionPage(){
-    this.rootNavCtrl.push( Question );
+    this.rootNavCtrl.push( 'Question' );
   }
 
   pushAnswerPage(){
-    this.rootNavCtrl.push( AnswerPage );
+    this.rootNavCtrl.push( 'AnswerPage' );
   }
 
   ionViewDidLoad() {

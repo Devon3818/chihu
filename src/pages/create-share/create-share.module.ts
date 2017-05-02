@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CreateShare } from './create-share';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,9 @@ import { CreateShare } from './create-share';
   ],
   exports: [
     CreateShare
+  ],
+  providers: [
+    Camera
   ]
 })
 export class CreateShareModule {}

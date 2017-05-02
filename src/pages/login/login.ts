@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
-import { Regist } from '../regist/regist';
 
 /**
  * Generated class for the Login page.
@@ -24,7 +23,7 @@ export class Login {
 
   //注册
   regist(){
-    this.navCtrl.push( Regist );
+    this.navCtrl.push( 'Regist' );
   }
 
   QQinit() {

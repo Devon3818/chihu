@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Question } from '../question/question';
 
 /**
  * Generated class for the MyQuestion page.
@@ -39,7 +38,7 @@ export class MyQuestion {
   }
 
   pushQuestionPage(){
-    this.navCtrl.push( Question );
+    this.navCtrl.push( 'Question' );
   }
 
   ionViewDidLoad() {

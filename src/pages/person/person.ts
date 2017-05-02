@@ -1,7 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
-import { Perhome } from '../perhome/perhome';
-import { Perparticular } from '../perparticular/perparticular';
 
 /**
  * Generated class for the Person page.
@@ -18,8 +16,8 @@ export class Person {
 
   @ViewChild(Content) content: Content;
 
-  page1: any = Perhome;
-  page2: any = Perparticular;
+  page1: any = 'Perhome';
+  page2: any = 'Perparticular';
   old_scrollTop = 0;
   maxtop = 0;
   _that;

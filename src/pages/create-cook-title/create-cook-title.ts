@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CreateCookData } from '../create-cook-data/create-cook-data';
 import { WorkService } from '../../service/work_service';
 
 /**
@@ -25,7 +24,7 @@ export class CreateCookTitle {
   next(){
     this.WorkService._title = this.title;
     //alert(this.WorkService._title);
-    this.navCtrl.push( CreateCookData );
+    this.navCtrl.push( 'CreateCookData' );
   }
 
   ionViewDidLoad() {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { OpenShare } from '../open-share/open-share';
 
 /**
  * Generated class for the MyShare page.
@@ -24,7 +23,7 @@ export class MyShare {
 
   //查看分享
   pushOpenSharePage() {
-    this.navCtrl.push(OpenShare);
+    this.navCtrl.push('OpenShare');
   }
 
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Article } from '../article/article';
 
 /**
  * Generated class for the MyWork page.
@@ -39,7 +38,7 @@ export class MyWork {
   }
 
   pushArticlePage(){
-    this.navCtrl.push( Article );
+    this.navCtrl.push( 'Article' );
   }
 
   ionViewDidLoad() {

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CollectQuestion } from '../collect-question/collect-question';
-import { CollectWork } from '../collect-work/collect-work';
 
 /**
  * Generated class for the Collect page.
@@ -16,8 +14,8 @@ import { CollectWork } from '../collect-work/collect-work';
 })
 export class Collect {
 
-  page1: any = CollectQuestion;
-  page2: any = CollectWork;
+  page1: any = 'CollectQuestion';
+  page2: any = 'CollectWork';
 
   
 

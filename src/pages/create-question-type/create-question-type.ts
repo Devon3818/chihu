@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CreateQuestionTitle } from '../create-question-title/create-question-title';
 
 /**
  * Generated class for the CreateQuestionType page.
@@ -19,7 +18,7 @@ export class CreateQuestionType {
   }
 
   next(){
-    this.navCtrl.push( CreateQuestionTitle );
+    this.navCtrl.push( 'CreateQuestionTitle' );
   }
 
   ionViewDidLoad() {

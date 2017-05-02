@@ -54779,7 +54779,8 @@ page-article .scroll-content {
 }
 
 page-article .dv_banner {
-  background-size: cover;
+  background-size: cover !important;
+  background-position: center center !important;
   width: 100%;
   height: 190px;
 }
@@ -54849,6 +54850,7 @@ page-article .dv_content .dv_imgs {
   width: 100%;
   height: 180px;
   background-size: cover !important;
+  background-position: center center !important;
   margin-bottom: 35px;
 }
 
@@ -55479,7 +55481,7 @@ page-home ion-content {
 page-home ion-content .dv_load {
   width: 5rem;
   height: 5rem;
-  background: #0dc5c1;
+  background: #fff;
   display: block;
   position: absolute;
   left: calc( 50% - 2.5rem);
@@ -55535,7 +55537,8 @@ page-home .dv_item_head p {
 page-home .dv_item_banner {
   width: 100%;
   height: 150px;
-  background-size: cover;
+  background-size: cover !important;
+  background-position: center center !important;
   margin-top: 6px;
 }
 
@@ -56360,7 +56363,7 @@ page-question ion-content .dv_top_ban {
   width: 100%;
   background: #fff;
   padding: 0 4%;
-  padding-top: 20px;
+  padding-top: 2px;
   box-shadow: 0 1px 4px #c4c6c8;
 }
 

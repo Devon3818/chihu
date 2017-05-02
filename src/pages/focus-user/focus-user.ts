@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Person } from '../person/person';
 
 /**
  * Generated class for the FocusUser page.
@@ -22,7 +21,7 @@ export class FocusUser {
   }
 
   pushPersonPage(){
-    this.rootNavCtrl.push( Person );
+    this.rootNavCtrl.push( 'Person' );
   }
 
   ionViewDidLoad() {

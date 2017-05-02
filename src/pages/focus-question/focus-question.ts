@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Question } from '../question/question';
 
 /**
  * Generated class for the FocusQuestion page.
@@ -42,7 +41,7 @@ export class FocusQuestion {
   }
 
   pushQuestionPage(){
-    this.rootNavCtrl.push( Question );
+    this.rootNavCtrl.push( 'Question' );
   }
 
   ionViewDidLoad() {

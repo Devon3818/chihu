@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Chat } from '../chat/chat';
 import { UserService } from '../../service/user.service';
 
 /**
@@ -26,7 +25,7 @@ export class MessagesPage {
   pushChatPage(targetId, targetName) {
     alert(targetId);
     alert(targetName);
-    this.navCtrl.push(Chat);
+    this.navCtrl.push('Chat');
   }
 
   ionViewDidLoad() {

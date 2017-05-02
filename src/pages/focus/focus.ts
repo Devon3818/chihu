@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FocusQuestion } from '../focus-question/focus-question';
-import { FocusUser } from '../focus-user/focus-user';
 
 /**
  * Generated class for the Focus page.
@@ -16,8 +14,8 @@ import { FocusUser } from '../focus-user/focus-user';
 })
 export class Focus {
 
-  page1: any = FocusQuestion;
-  page2: any = FocusUser;
+  page1: any = 'FocusQuestion';
+  page2: any = 'FocusUser';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

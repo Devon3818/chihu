@@ -26,45 +26,19 @@
 <ion-content (ionScroll)="onScroll($event)">
 
     <section class="dv_title">
-        <h2>为什么用户几乎一边倒地支持转基因食品？</h2>
+        <h2>{{data.title}}</h2>
         <section class="user">
-            <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-            <section class="data">
-                <h4>Devon</h4>
-                <p>web前端开发工程师</p>
+            <img (click)="pushPersonPage();" src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
+            <section (click)="pushPersonPage();" class="data">
+                <h4>{{data.name}}</h4>
+                <p>发布于：{{data.time}}</p>
             </section>
             <section class="fork">＋ 关注</section>
         </section>
     </section>
 
     <section class="dv_content">
-        <p>我的感觉和题注相反：中科院的科研实力非常之强，有钱、有设备、有牛人，而且这几年国家拼命往科研里砸钱，中科院的项目、资金和牛人，都越来越多。</p>
-        <p>1. 从宏观的角度讲，中科院发表高水平论文的数量多。多到什么程度呢？世界第六，亚洲第一。</p>
-        <p>根据上个月Nature刚刚发布的"Nature Publishing Index 2013 (Asia-Pacific)"，在全世界，中科院发表Nature研究型论文及其子刊的指数（Nature Publishing Index, 缩写为NPI或CC），仅排在哈佛、MIT、斯坦福、美国国家卫生研究院、德国马普所之后，排名世界第六，高于法国CNRS、日本东京大学、牛津、剑桥。（引自Nature Publishing Group） 作者：menz 链接：https://www.zhihu.com/question/19996611/answer/24586702
-            来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-        <p>在亚洲，中科院的NPI指数排名第一，高于东京大学，且远远高于日本理化研究所（就是小保方晴子那个所）、京都大学、大阪大学、昆士兰大学、新加坡国立大学等。（引自Institution rankings）</p>
-        <p>如果按国家来比较，日本以NPI指数290.01排在亚洲第一，中国的NPI指数为245.19，排在第二。澳大利亚、韩国、新加坡分列三、四、五位，NPI指数分别为103.76、66.89、41.52。且中国的增长速度最（引自2013 Nature Publishing Index）。 作者：menz 链接：https://www.zhihu.com/question/19996611/answer/24586702 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-        <p>但中国的研究效率（每一千个科研人员创造的NPI指数）较低。</p>
-        <p>我的感觉和题注相反：中科院的科研实力非常之强，有钱、有设备、有牛人，而且这几年国家拼命往科研里砸钱，中科院的项目、资金和牛人，都越来越多。</p>
-        <p>1. 从宏观的角度讲，中科院发表高水平论文的数量多。多到什么程度呢？世界第六，亚洲第一。</p>
-        <p>根据上个月Nature刚刚发布的"Nature Publishing Index 2013 (Asia-Pacific)"，在全世界，中科院发表Nature研究型论文及其子刊的指数（Nature Publishing Index, 缩写为NPI或CC），仅排在哈佛、MIT、斯坦福、美国国家卫生研究院、德国马普所之后，排名世界第六，高于法国CNRS、日本东京大学、牛津、剑桥。（引自Nature Publishing Group） 作者：menz 链接：https://www.zhihu.com/question/19996611/answer/24586702
-            来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-        <p>在亚洲，中科院的NPI指数排名第一，高于东京大学，且远远高于日本理化研究所（就是小保方晴子那个所）、京都大学、大阪大学、昆士兰大学、新加坡国立大学等。（引自Institution rankings）</p>
-        <p>如果按国家来比较，日本以NPI指数290.01排在亚洲第一，中国的NPI指数为245.19，排在第二。澳大利亚、韩国、新加坡分列三、四、五位，NPI指数分别为103.76、66.89、41.52。且中国的增长速度最（引自2013 Nature Publishing Index）。 作者：menz 链接：https://www.zhihu.com/question/19996611/answer/24586702 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-        <p>但中国的研究效率（每一千个科研人员创造的NPI指数）较低。</p>
-        <p>我的感觉和题注相反：中科院的科研实力非常之强，有钱、有设备、有牛人，而且这几年国家拼命往科研里砸钱，中科院的项目、资金和牛人，都越来越多。</p>
-        <p>1. 从宏观的角度讲，中科院发表高水平论文的数量多。多到什么程度呢？世界第六，亚洲第一。</p>
-        <p>根据上个月Nature刚刚发布的"Nature Publishing Index 2013 (Asia-Pacific)"，在全世界，中科院发表Nature研究型论文及其子刊的指数（Nature Publishing Index, 缩写为NPI或CC），仅排在哈佛、MIT、斯坦福、美国国家卫生研究院、德国马普所之后，排名世界第六，高于法国CNRS、日本东京大学、牛津、剑桥。（引自Nature Publishing Group） 作者：menz 链接：https://www.zhihu.com/question/19996611/answer/24586702
-            来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-        <p>在亚洲，中科院的NPI指数排名第一，高于东京大学，且远远高于日本理化研究所（就是小保方晴子那个所）、京都大学、大阪大学、昆士兰大学、新加坡国立大学等。（引自Institution rankings）</p>
-        <p>如果按国家来比较，日本以NPI指数290.01排在亚洲第一，中国的NPI指数为245.19，排在第二。澳大利亚、韩国、新加坡分列三、四、五位，NPI指数分别为103.76、66.89、41.52。且中国的增长速度最（引自2013 Nature Publishing Index）。 作者：menz 链接：https://www.zhihu.com/question/19996611/answer/24586702 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-        <p>但中国的研究效率（每一千个科研人员创造的NPI指数）较低。</p>
+        <p>{{data.text}}</p>
 
     </section>
 

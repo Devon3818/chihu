@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Person } from '../person/person';
-import { Focus } from '../focus/focus';
-import { Collect } from '../collect/collect';
-import { MyShare } from '../my-share/my-share';
-import { MyQuestion } from '../my-question/my-question';
-import { MyWork } from '../my-work/my-work';
-import { Login } from '../login/login';
-import { Setting } from '../setting/setting';
 import { UserService } from '../../service/user.service';
 
 /**
@@ -41,36 +33,36 @@ export class MorePage {
 
   pushPerson(){
     //this.checkLogin( Person );
-    this.navCtrl.push( Person );
+    this.navCtrl.push( 'Person' );
   }
 
   pushFocusPage(){
     //this.checkLogin( Focus );
-    this.navCtrl.push( Focus );
+    this.navCtrl.push( 'Focus' );
   }
 
   pushCollectPage(){
     //this.checkLogin( Collect );
-    this.navCtrl.push( Collect );
+    this.navCtrl.push( 'Collect' );
   }
 
   pushMySharePage(){
     //this.checkLogin( MyShare );
-    this.navCtrl.push( MyShare );
+    this.navCtrl.push( 'MyShare' );
   }
 
   pushMyQuestionPage(){
     //this.checkLogin( MyQuestion );
-    this.navCtrl.push( MyQuestion );
+    this.navCtrl.push( 'MyQuestion' );
   }
 
   pushMyWorkPage(){
     //this.checkLogin( MyWork );
-    this.navCtrl.push( MyWork );
+    this.navCtrl.push( 'MyWork' );
   }
 
   pushSettingPage(){
-    this.navCtrl.push( Setting );
+    this.navCtrl.push( 'Setting' );
   }
 
   clear(){
@@ -84,7 +76,7 @@ export class MorePage {
     if(this.UserService._user.id){
       this.navCtrl.push( page );
     }else{
-      this.navCtrl.push( Login );
+      this.navCtrl.push( 'Login' );
     }
   }
 
