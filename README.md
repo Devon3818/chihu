@@ -1,6 +1,4 @@
-# 吃乎（仿知乎部分UI）--后续更新
-
-![Example](https://github.com/kongdewen1994/chihu/blob/master/chihu.gif)
+# 吃乎 --后续更新
 
 To use this project:
 
