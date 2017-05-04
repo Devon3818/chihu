@@ -92,7 +92,7 @@ var HomePage = (function () {
     HomePage.prototype.getdata = function () {
         var _this = this;
         var url = "http://www.devonhello.com/chihu/home";
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         this.http.post(url, "len=1", {
             headers: headers
@@ -149,18 +149,18 @@ var HomePage = (function () {
     };
     //创建菜谱
     HomePage.prototype.CreateCook = function () {
-        //this.checkLogin( CreateCookTitle )
-        this.navCtrl.push('CreateCookTitle');
+        this.checkLogin('CreateCookTitle');
+        //this.navCtrl.push('Login');
     };
     //提问
     HomePage.prototype.CreateQuestion = function () {
-        //this.checkLogin(CreateQuestionType);
-        this.navCtrl.push('CreateQuestionType');
+        this.checkLogin('CreateQuestionType');
+        //this.navCtrl.push('CreateQuestionType');
     };
     //分享
     HomePage.prototype.CreateShare = function () {
-        //this.checkLogin(CreateShare);
-        this.navCtrl.push('CreateShare');
+        this.checkLogin('CreateShare');
+        //this.navCtrl.push('CreateShare');
     };
     //检查登录状态
     HomePage.prototype.checkLogin = function (page) {
@@ -220,7 +220,7 @@ HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/'<ion-header [class.animate]="tabanimate">\n    <ion-navbar color="bule">\n\n        <ion-searchbar placeholder="搜索"></ion-searchbar>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="content" (touchend)="ontouchend($event)" (touchmove)="ontouchmove($event)" (touchstart)="ontouchstart($event)" (ionScroll)="onScroll($event)">\n\n    <span class="dv_load" [class.dv_load_tran]="spanisload" [style.top]="loadX">\n        <span class="ouro">\n            <span class="left">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    <span class="right">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    </span>\n    </span>\n\n    <!--重复-->\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p *ngIf="item.type == \'0\'">{{item.name}} 回答了问题</p>\n            <p *ngIf="item.type == \'1\'">{{item.name}} 分享的作品</p>\n        </section>\n        <section *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );" class="dv_item_banner" [style.background]="\'url(\'+item.workbanner+\')\'"></section>\n        <h6 *ngIf="item.type == \'0\'" (click)="pushQuestionPage( item._id, item.uid, item.type );">{{item.title}}</h6>\n        <h6 *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.title}}</h6>\n        <div *ngIf="item.type == \'0\'" (click)="pushAnswerPage( item._id, item.uid, item.type );">\n            <p>{{item.text}}</p>\n            <section class="dv_item_bottom">\n                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n            </section>\n        </div>\n        <p *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.text}}</p>\n        <section *ngIf="item.type == \'1\'" class="dv_item_bottom">\n            <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n        </section>\n    </section>\n\n    <!--发布按钮-->\n    <ion-fab right bottom edge #327eff>\n        <button ion-fab><ion-icon name="arrow-dropup"></ion-icon></button>\n        <ion-fab-list side="top">\n            <button (click)="CreateQuestion()" ion-fab><ion-icon name="help"></ion-icon></button>\n            <button (click)="CreateShare()" ion-fab><ion-icon name="images"></ion-icon></button>\n            <button (click)="CreateCook()" ion-fab><ion-icon name="clipboard"></ion-icon></button>\n        </ion-fab-list>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_4__service_im_service__["a" /* ImService */], __WEBPACK_IMPORTED_MODULE_5__service_user_service__["a" /* UserService */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_4__service_im_service__["a" /* ImService */], __WEBPACK_IMPORTED_MODULE_5__service_user_service__["a" /* UserService */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map

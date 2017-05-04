@@ -55454,7 +55454,8 @@ page-discover-page .wrap {
 page-discover-page .wrap .imgs {
   width: 8rem;
   height: 8rem;
-  margin-right: 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
   float: left;
   background-size: cover !important;
   background-position: center center !important;
@@ -56013,7 +56014,8 @@ page-open-share ion-content .dv_top_ban .wrap {
 page-open-share ion-content .dv_top_ban .wrap .imgs {
   width: 8rem;
   height: 8rem;
-  margin-right: 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
   float: left;
   background-size: cover !important;
   background-position: center center !important;

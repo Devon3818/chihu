@@ -1,5 +1,5 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, Platform } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 
 /**
@@ -21,6 +21,7 @@ export class Article {
   @ViewChild(Content) content: Content;
 
   title = '';
+  isopenimg:boolean = false;
   tabanimate: boolean = false;
   tabbule: boolean = false;
   old_scrollTop = 0;
@@ -31,10 +32,18 @@ export class Article {
   uid;
   data: any = {};
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
+  constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
     this._id = this.navParams.get("_id");
     this.uid = this.navParams.get("uid");
     this.getdata();
+    this.plt.registerBackButtonAction(():any =>{
+      if(this.isopenimg){
+        this.gallery.close();
+        return false;
+      }else{
+        return this.navCtrl.pop();
+      }
+    },0)
     
   }
 
@@ -91,6 +100,8 @@ export class Article {
     if (this.pswpElement == null) {
       this.pswpElement = document.querySelectorAll('.pswp')[0];
     }
+
+    var _that = this;
     var items: any = [];
 
     // define options (if needed)
@@ -112,7 +123,11 @@ export class Article {
 
     // Initializes and opens PhotoSwipe
     this.gallery = new PhotoSwipe(this.pswpElement, PhotoSwipeUI_Default, items, options);
+    this.gallery.listen('close', function () {
+      _that.isopenimg = false;
+    });
     this.gallery.init();
+    this.isopenimg = true;
 
 
   } 
