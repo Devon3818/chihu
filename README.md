@@ -9,10 +9,9 @@ To use this project:
 git clone https://github.com/kongdewen1994/chihu.git
 
 cd chihu
-
 npm i
-
-ionic serve
+ionic platform add android
+ionic build android
 
 ＃＃To ensure normal operation of the project, please install the plugins in plugins directory
 
