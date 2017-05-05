@@ -85,25 +85,23 @@ export class HomePage {
   }
 
   //打开页面
-  pushAnswerPage( _id, uid, type ) {
+  pushAnswerPage( _id ) {
     this.navCtrl.push('AnswerPage',{
-      _id: _id,
-      uid: uid,
-      type: type
+      _id: _id
     });
   }
 
   //打开页面
-  pushQuestionPage() {
-    this.navCtrl.push('Question');
+  pushQuestionPage(_id) {
+    this.navCtrl.push('Question',{
+      _id: _id
+    });
   }
 
   //打开页面
-  pushArticlePage( _id, uid, type ) {
+  pushArticlePage( _id ) {
     this.navCtrl.push('Article',{
-      _id: _id,
-      uid: uid,
-      type: type
+      _id: _id
     });
   }
 
@@ -127,6 +125,7 @@ export class HomePage {
 
   //检查登录状态
   checkLogin(page) {
+    
     if (this.UserService._user.id) {
       this.navCtrl.push(page);
     } else {
@@ -178,6 +177,10 @@ export class HomePage {
     }
     this.checkload = false;
 
+  }
+
+  ionViewDidEnter(){
+    
   }
 
 }

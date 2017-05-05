@@ -55,7 +55,7 @@ TabsModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_toolbar_super_tabs_toolbar__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__super_tabs_container_super_tabs_container__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_super_tabs_controller__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent__ = __webpack_require__(245);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__ = __webpack_require__(358);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__);
@@ -1265,7 +1265,7 @@ exports.Scheduler = Scheduler;
 "use strict";
 
 var Observable_1 = __webpack_require__(11);
-var merge_1 = __webpack_require__(245);
+var merge_1 = __webpack_require__(246);
 Observable_1.Observable.merge = merge_1.merge;
 //# sourceMappingURL=merge.js.map
 
@@ -1682,6 +1682,7 @@ exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_user_service__ = __webpack_require__(244);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1694,23 +1695,85 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var TabsPage = (function () {
-    function TabsPage() {
+
+var TabsPage = TabsPage_1 = (function () {
+    function TabsPage(navCtrl, platform, UserService, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.platform = platform;
+        this.UserService = UserService;
+        this.toastCtrl = toastCtrl;
+        this.backButtonPressed = false;
+        this.itimer = null;
         this.tab1Root = 'HomePage';
         this.tab2Root = 'DiscoverPage';
         this.tab3Root = 'BroadcastPage';
         this.tab4Root = 'MessagesPage';
         this.tab5Root = 'MorePage';
+        this.pageBack();
     }
+    TabsPage.prototype.pageBack = function () {
+        var _this = this;
+        this.platform.registerBackButtonAction(function () {
+            if (_this.UserService.isopenimg) {
+                _this.UserService.galleryOBJ.close();
+                _this.UserService.isopenimg = false;
+                return false;
+            }
+            var activeVC = _this.navCtrl.getActive();
+            var page = activeVC.instance;
+            page.tabs;
+            if (!(page instanceof TabsPage_1)) {
+                if (!_this.navCtrl.canGoBack()) {
+                    return _this.showExit();
+                }
+                return _this.navCtrl.pop();
+            }
+            var tabs = page.tabs;
+            var activeNav = tabs.getSelected();
+            if (!activeNav.canGoBack()) {
+                return _this.showExit();
+            }
+            return activeNav.pop();
+        }, 101);
+    };
+    //双击退出提示框
+    TabsPage.prototype.showExit = function () {
+        var _that = this;
+        if (this.backButtonPressed) {
+            this.platform.exitApp();
+        }
+        else {
+            this.presentToast();
+            this.backButtonPressed = true;
+            if (this.itimer) {
+                clearTimeout(this.itimer);
+            }
+            this.itimer = setTimeout(function () {
+                _that.backButtonPressed = false;
+            }, 2000);
+        }
+    };
+    TabsPage.prototype.presentToast = function () {
+        var toast = this.toastCtrl.create({
+            message: '再次点击返回退出APP',
+            duration: 2000
+        });
+        toast.present();
+    };
     return TabsPage;
 }());
-TabsPage = __decorate([
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])('myTabs'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Tabs */])
+], TabsPage.prototype, "tabs", void 0);
+TabsPage = TabsPage_1 = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/'<ion-tabs color="fff">\n    <ion-tab color="tabc" [root]="tab1Root" tabIcon="list-box"></ion-tab>\n    <ion-tab color="tabc" [root]="tab2Root" tabIcon="aperture"></ion-tab>\n    <ion-tab color="tabc" [root]="tab3Root" tabIcon="notifications"></ion-tab>\n    <ion-tab color="tabc" [root]="tab4Root" tabIcon="chatbubbles"></ion-tab>\n    <ion-tab color="tabc" [root]="tab5Root" tabIcon="list"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/'<ion-tabs #myTabs color="fff">\n    <ion-tab color="tabc" [root]="tab1Root" tabIcon="list-box"></ion-tab>\n    <ion-tab color="tabc" [root]="tab2Root" tabIcon="aperture"></ion-tab>\n    <ion-tab color="tabc" [root]="tab3Root" tabIcon="notifications"></ion-tab>\n    <ion-tab color="tabc" [root]="tab4Root" tabIcon="chatbubbles"></ion-tab>\n    <ion-tab color="tabc" [root]="tab5Root" tabIcon="list"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */]])
 ], TabsPage);
 
+var TabsPage_1;
 //# sourceMappingURL=tabs.js.map
 
 /***/ })

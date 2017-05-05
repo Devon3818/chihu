@@ -45,13 +45,13 @@
             <ion-col>
                 <button ion-button icon-left clear small>
                   <ion-icon name="eye"></ion-icon>
-                  <div>7147</div>
+                  <div>{{data.fork}}</div>
                 </button>
             </ion-col>
             <ion-col>
                 <button ion-button icon-left clear small>
                   <ion-icon name="text"></ion-icon>
-                  <div>123</div>
+                  <div>{{data.answer}}</div>
                 </button>
             </ion-col>
             <ion-col center text-center>
@@ -62,143 +62,24 @@
 
     <ion-list>
         <ion-list-header>
-            123 个回答
+            {{data.answer}} 个回答
         </ion-list-header>
     </ion-list>
 
     <section class="dv_list">
         <!--重复-->
-        <section class="dv_item">
+        <section class="dv_item" *ngFor="let item of list">
             <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
+                <img [src]="item.userimg" />
+                <p>{{item.name}}</p>
             </section>
 
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
+            <p (click)="pushAnswerPage( item._id );">{{item.dec}}</p>
+            <section (click)="pushAnswerPage( item._id );" class="dv_item_bottom">
+                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>
             </section>
         </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
 
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
-            </section>
-        </section>
     </section>
 
 </ion-content>

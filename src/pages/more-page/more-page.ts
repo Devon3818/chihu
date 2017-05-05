@@ -37,28 +37,28 @@ export class MorePage {
   }
 
   pushFocusPage(){
-    //this.checkLogin( Focus );
-    this.navCtrl.push( 'Focus' );
+    this.checkLogin( 'Focus' );
+    //this.navCtrl.push( 'Focus' );
   }
 
   pushCollectPage(){
-    //this.checkLogin( Collect );
-    this.navCtrl.push( 'Collect' );
+    this.checkLogin( 'Collect' );
+    //this.navCtrl.push( 'Collect' );
   }
 
   pushMySharePage(){
-    //this.checkLogin( MyShare );
-    this.navCtrl.push( 'MyShare' );
+    this.checkLogin( 'MyShare' );
+    //this.navCtrl.push( 'MyShare' );
   }
 
   pushMyQuestionPage(){
-    //this.checkLogin( MyQuestion );
-    this.navCtrl.push( 'MyQuestion' );
+    this.checkLogin( 'MyQuestion' );
+    //this.navCtrl.push( 'MyQuestion' );
   }
 
   pushMyWorkPage(){
-    //this.checkLogin( MyWork );
-    this.navCtrl.push( 'MyWork' );
+    this.checkLogin( 'MyWork' );
+    //this.navCtrl.push( 'MyWork' );
   }
 
   pushSettingPage(){

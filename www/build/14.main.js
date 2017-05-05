@@ -48,6 +48,7 @@ OpenShareModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(244);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OpenShare; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -61,16 +62,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var OpenShare = (function () {
-    function OpenShare(plt, http, navCtrl, navParams, ref) {
-        var _this = this;
+    function OpenShare(plt, http, navCtrl, navParams, ref, UserService) {
         this.plt = plt;
         this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.ref = ref;
+        this.UserService = UserService;
         this.title = '';
-        this.isopenimg = false;
         this.tabanimate = false;
         this.gallery = null;
         this.pswpElement = null;
@@ -87,15 +88,6 @@ var OpenShare = (function () {
         this._that = this;
         this._id = this.navParams.get('_id');
         this.getdata();
-        this.plt.registerBackButtonAction(function () {
-            if (_this.isopenimg) {
-                _this.gallery.close();
-                return false;
-            }
-            else {
-                return _this.navCtrl.pop();
-            }
-        }, 0);
     }
     OpenShare.prototype.getdata = function () {
         var _this = this;
@@ -136,10 +128,13 @@ var OpenShare = (function () {
         // Initializes and opens PhotoSwipe
         this.gallery = new PhotoSwipe(this.pswpElement, PhotoSwipeUI_Default, items, options);
         this.gallery.listen('close', function () {
-            _that.isopenimg = false;
+            if (_that.UserService.isopenimg) {
+                _that.UserService.isopenimg = false;
+            }
         });
         this.gallery.init();
-        this.isopenimg = true;
+        this.UserService.galleryOBJ = this.gallery;
+        this.UserService.isopenimg = true;
     };
     OpenShare.prototype.ionViewDidLoad = function () {
         this.content.enableJsScroll();
@@ -156,18 +151,24 @@ var OpenShare = (function () {
         }
         this.ref.detectChanges();
     };
+    OpenShare.prototype.ionViewDidLeave = function () {
+        var _this = this;
+        this.plt.registerBackButtonAction(function () {
+            return _this.navCtrl.pop();
+        }, 0);
+    };
     return OpenShare;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Content */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */])
 ], OpenShare.prototype, "content", void 0);
 OpenShare = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
         selector: 'page-open-share',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/open-share/open-share.html"*/'<!--\n  Generated template for the Question page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title [class.animate]="tabanimate">\n            {{title}}\n            <p>{{data.mark.like}} 个点赞</p>\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="share"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n<ion-content class="content" (ionScroll)="onScroll($event)">\n\n    <section class="dv_top_ban">\n\n        <section class="dv_item_2">\n            <section class="dv_item_head">\n                <img [src]="data.userimg" />\n                <p>{{data.name}} 分享了心情</p>\n                <span class="time">{{data.time}}</span>\n            </section>\n\n            <section class="wrap">\n                <div *ngFor="let item of data.img; let i=index" (click)="pswpElementInit(i);" class="imgs" [style.background]="\'url(\'+item.src+\')\'"></div>\n            </section>\n\n        </section>\n\n        <p>{{data.text}}</p>\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="eye"></ion-icon>\n                  <div>{{data.mark.like}}</div>\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="text"></ion-icon>\n                  <div>{{data.mark.cont}}</div>\n                </button>\n            </ion-col>\n            <ion-col center text-center>\n                <button ion-button outline>点赞</button>\n            </ion-col>\n            <ion-col center text-center>\n                <button ion-button outline>评论</button>\n            </ion-col>\n        </ion-row>\n    </section>\n\n    <ion-list>\n        <ion-list-header>\n            {{data.mark.cont}} 个评论\n        </ion-list-header>\n    </ion-list>\n\n    <section class="dv_list">\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n        <!--重复-->\n        <section class="dv_item">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p>会话列表</p>\n            </section>\n        </section>\n    </section>\n\n</ion-content>\n\n\n\n<!-- Root element of PhotoSwipe. Must have class pswp. -->\n<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">\n\n    <!-- Background of PhotoSwipe. \n         It\'s a separate element as animating opacity is faster than rgba(). -->\n    <div class="pswp__bg"></div>\n\n    <!-- Slides wrapper with overflow:hidden. -->\n    <div class="pswp__scroll-wrap">\n\n        <!-- Container that holds slides. \n            PhotoSwipe keeps only 3 of them in the DOM to save memory.\n            Don\'t modify these 3 pswp__item elements, data is added later on. -->\n        <div class="pswp__container">\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n        </div>\n\n        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->\n        <div class="pswp__ui pswp__ui--hidden">\n\n            <div class="pswp__top-bar">\n\n                <!--  Controls are self-explanatory. Order can be changed. -->\n\n                <div class="pswp__counter"></div>\n\n                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>\n\n                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>\n\n                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->\n                <!-- element will get class pswp__preloader--active when preloader is running -->\n                <div class="pswp__preloader">\n                    <div class="pswp__preloader__icn">\n                        <div class="pswp__preloader__cut">\n                            <div class="pswp__preloader__donut"></div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">\n                <div class="pswp__share-tooltip"></div>\n            </div>\n\n            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">\n            </button>\n\n            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">\n            </button>\n\n            <div class="pswp__caption">\n                <div class="pswp__caption__center"></div>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/open-share/open-share.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
 ], OpenShare);
 
 //# sourceMappingURL=open-share.js.map

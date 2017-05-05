@@ -26,16 +26,16 @@
             <p *ngIf="item.type == '0'">{{item.name}} 回答了问题</p>
             <p *ngIf="item.type == '1'">{{item.name}} 分享的作品</p>
         </section>
-        <section *ngIf="item.type == '1'" (click)="pushArticlePage( item._id, item.uid, item.type );" class="dv_item_banner" [style.background]="'url('+item.workbanner+')'"></section>
-        <h6 *ngIf="item.type == '0'" (click)="pushQuestionPage( item._id, item.uid, item.type );">{{item.title}}</h6>
-        <h6 *ngIf="item.type == '1'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.title}}</h6>
-        <div *ngIf="item.type == '0'" (click)="pushAnswerPage( item._id, item.uid, item.type );">
-            <p>{{item.text}}</p>
+        <section *ngIf="item.type == '1'" (click)="pushArticlePage( item._id );" class="dv_item_banner" [style.background]="'url('+item.workbanner+')'"></section>
+        <h6 *ngIf="item.type == '0'" (click)="pushQuestionPage( item.answerid );">{{item.title}}</h6>
+        <h6 *ngIf="item.type == '1'" (click)="pushArticlePage( item._id );">{{item.title}}</h6>
+        <div *ngIf="item.type == '0'" (click)="pushAnswerPage( item._id );">
+            <p>{{item.dec}}</p>
             <section class="dv_item_bottom">
                 <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>
             </section>
         </div>
-        <p *ngIf="item.type == '1'" (click)="pushArticlePage( item._id, item.uid, item.type );">{{item.text}}</p>
+        <p *ngIf="item.type == '1'" (click)="pushArticlePage( item._id );">{{item.text}}</p>
         <section *ngIf="item.type == '1'" class="dv_item_bottom">
             <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>
         </section>

@@ -104,12 +104,12 @@ var Chat = (function () {
     return Chat;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Content */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */])
 ], Chat.prototype, "content", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])('chat_input'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* TextInput */])
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["y" /* TextInput */])
 ], Chat.prototype, "messageInput", void 0);
 Chat = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
@@ -118,7 +118,7 @@ Chat = __decorate([
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["z" /* Events */],
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */],
         __WEBPACK_IMPORTED_MODULE_2__service_im_service__["a" /* ImService */]])
 ], Chat);
