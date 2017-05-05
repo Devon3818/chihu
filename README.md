@@ -1,5 +1,7 @@
 # 吃乎 --后续更新
 
+![Example](https://github.com/kongdewen1994/chihu/blob/master/chihu.gif)
+
 To use this project:
 
 ```shell
