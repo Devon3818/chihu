@@ -1,15 +1,15 @@
 webpackJsonp([3],{
 
-/***/ 321:
+/***/ 327:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__collect__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__ = __webpack_require__(355);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectModule", function() { return CollectModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__discover_page__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__ = __webpack_require__(356);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DiscoverPageModule", function() { return DiscoverPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,32 +20,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CollectModule = (function () {
-    function CollectModule() {
+var DiscoverPageModule = (function () {
+    function DiscoverPageModule() {
     }
-    return CollectModule;
+    return DiscoverPageModule;
 }());
-CollectModule = __decorate([
+DiscoverPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__collect__["a" /* Collect */],
+            __WEBPACK_IMPORTED_MODULE_2__discover_page__["a" /* DiscoverPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__collect__["a" /* Collect */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__discover_page__["a" /* DiscoverPage */]),
             __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__["a" /* SuperTabsModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__["a" /* SuperTabsModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__collect__["a" /* Collect */]
+            __WEBPACK_IMPORTED_MODULE_2__discover_page__["a" /* DiscoverPage */]
         ]
     })
-], CollectModule);
+], DiscoverPageModule);
 
-//# sourceMappingURL=collect.module.js.map
+//# sourceMappingURL=discover-page.module.js.map
 
 /***/ }),
 
-/***/ 349:
+/***/ 350:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53,14 +53,14 @@ CollectModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_toolbar_super_tabs_toolbar__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__super_tabs_container_super_tabs_container__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_super_tabs_controller__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_toolbar_super_tabs_toolbar__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__super_tabs_container_super_tabs_container__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_super_tabs_controller__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent__ = __webpack_require__(245);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__ = __webpack_require__(359);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTabs; });
 
@@ -121,12 +121,17 @@ var SuperTabs = (function () {
         else if (this._app) {
             this._app._setRootNav(this);
         }
+        var obsToMerge = [
+            __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].fromEvent(window, 'orientationchange'),
+            __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].fromEvent(window, 'resize')
+        ];
         if (viewCtrl) {
             viewCtrl._setContent(this);
             viewCtrl._setContentRef(el);
+            obsToMerge.push(viewCtrl.didEnter);
         }
         // re-adjust the height of the slider when the orientation changes
-        this.watches.push(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].merge(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].fromEvent(window, 'orientationchange'), __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].fromEvent(window, 'resize'))
+        this.watches.push(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].merge.apply(this, obsToMerge)
             .debounceTime(10)
             .subscribe(function () {
             _this.updateTabWidth();
@@ -317,11 +322,18 @@ var SuperTabs = (function () {
      */
     SuperTabs.prototype.onTabChange = function (index) {
         if (index <= this._tabs.length) {
-            this._tabs[this.selectedTabIndex].getActive()._didLeave();
-            this._tabs[index].getActive()._didEnter();
+            var currentTab = this.getActiveTab();
+            var activeView = currentTab.getActive();
+            activeView._willLeave(false);
+            activeView._didLeave();
             this.selectedTabIndex = index;
             this.linker.navChange('switch');
             this.refreshTabStates();
+            activeView = this.getActiveTab().getActive();
+            if (activeView) {
+                activeView._willEnter();
+                activeView._didEnter();
+            }
             this.tabSelect.emit({
                 index: index,
                 id: this._tabs[index].tabId
@@ -340,7 +352,10 @@ var SuperTabs = (function () {
     };
     SuperTabs.prototype.refreshTabStates = function () {
         var _this = this;
-        this._tabs.forEach(function (tab, i) { return tab.setActive(i === _this.selectedTabIndex); });
+        this._tabs.forEach(function (tab, i) {
+            tab.setActive(i === _this.selectedTabIndex);
+            tab.load(Math.abs(_this.selectedTabIndex - i) < 2);
+        });
     };
     SuperTabs.prototype.updateTabWidth = function () {
         this.tabsContainer.tabWidth = this.el.nativeElement.offsetWidth;
@@ -365,6 +380,12 @@ var SuperTabs = (function () {
         iw = this.toolbar.indicatorWidth, // indicator width
         ip = this.toolbar.indicatorPosition, // indicatorPosition
         sp = this.toolbar.segmentPosition; // segment position
+        if (this.toolbar.segmentWidth <= mw) {
+            if (this.toolbar.segmentPosition !== 0) {
+                this.toolbar.setSegmentPosition(0, animate);
+            }
+            return;
+        }
         var pos;
         if (ip + iw + (mw / 2 - iw / 2) > mw + sp) {
             // we need to move the segment container to the left
@@ -434,6 +455,9 @@ var SuperTabs = (function () {
     SuperTabs.prototype.getTabById = function (tabId) {
         return this._tabs.find(function (tab) { return tab.tabId === tabId; });
     };
+    SuperTabs.prototype.getActiveTab = function () {
+        return this._tabs[this.selectedTabIndex];
+    };
     SuperTabs.prototype.getElementRef = function () { return this.el; };
     SuperTabs.prototype.initPane = function () { return true; };
     SuperTabs.prototype.paneChanged = function () { };
@@ -481,7 +505,7 @@ var superTabsIds = -1;
 
 /***/ }),
 
-/***/ 350:
+/***/ 351:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -569,14 +593,14 @@ SuperTabsController.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 351:
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_transitions_transition_controller__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_super_tabs__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_super_tabs__ = __webpack_require__(350);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTab; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -594,13 +618,14 @@ var __extends = (this && this.__extends) || (function () {
 
 var SuperTab = (function (_super) {
     __extends(SuperTab, _super);
-    function SuperTab(parent, app, config, plt, keyboard, el, zone, rnd, cfr, gestureCtrl, transCtrl, linker, _dom, cd) {
-        var _this = _super.call(this, parent, app, config, plt, keyboard, el, zone, rnd, cfr, gestureCtrl, transCtrl, linker, _dom) || this;
+    function SuperTab(parent, app, config, plt, keyboard, el, zone, rnd, cfr, gestureCtrl, transCtrl, errorHandler, linker, _dom, cd) {
+        var _this = _super.call(this, parent, app, config, plt, keyboard, el, zone, rnd, cfr, gestureCtrl, transCtrl, linker, _dom, errorHandler) || this;
         _this.linker = linker;
         _this._dom = _dom;
         _this.cd = cd;
         _this.badge = 0;
-        _this.active = true;
+        _this.loaded = false;
+        _this.init = new Promise(function (resolve) { return _this.initResolve = resolve; });
         return _this;
     }
     Object.defineProperty(SuperTab.prototype, "tabTitle", {
@@ -649,19 +674,27 @@ var SuperTab = (function (_super) {
         this.parent.addTab(this);
     };
     SuperTab.prototype.ngAfterViewInit = function () {
-        this.push(this.root, this.rootParams, { animate: false });
+        this.initResolve();
     };
     SuperTab.prototype.ngOnDestroy = function () {
         this.destroy();
     };
     SuperTab.prototype.setActive = function (active) {
-        if (active && !this.active) {
+        if (active) {
             this.cd.reattach();
-            // TODO check if you need to detect changes manually
-            // this.cd.detectChanges();
+            this.cd.detectChanges();
         }
-        else if (!active && this.active) {
+        else if (!active) {
             this.cd.detach();
+        }
+    };
+    SuperTab.prototype.load = function (load) {
+        var _this = this;
+        if (load && !this.loaded) {
+            this.init.then(function () {
+                _this.push(_this.root, _this.rootParams, { animate: false });
+                _this.loaded = true;
+            });
         }
     };
     SuperTab.prototype.setBadge = function (value) {
@@ -702,6 +735,7 @@ SuperTab.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ComponentFactoryResolver */], },
     { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* GestureController */], },
     { type: __WEBPACK_IMPORTED_MODULE_2_ionic_angular_transitions_transition_controller__["a" /* TransitionController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* ErrorHandler */], },
     { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* DeepLinker */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
     { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* DomController */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], },
@@ -720,13 +754,13 @@ SuperTab.propDecorators = {
 
 /***/ }),
 
-/***/ 352:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__super_tabs_pan_gesture__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__super_tabs_pan_gesture__ = __webpack_require__(355);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTabsContainer; });
 
 
@@ -815,9 +849,6 @@ var SuperTabsContainer = (function () {
     SuperTabsContainer.prototype.calculateContainerWidth = function () {
         this.containerWidth = this.tabWidth * this.tabsCount;
     };
-    SuperTabsContainer.prototype.setHeight = function (height) {
-        this.rnd.setStyle(this.el.nativeElement, 'height', height + 'px');
-    };
     SuperTabsContainer.prototype.setContainerWidth = function () {
         this.rnd.setStyle(this.container.nativeElement, 'width', this.containerWidth + 'px');
     };
@@ -883,13 +914,13 @@ SuperTabsContainer.propDecorators = {
 
 /***/ }),
 
-/***/ 353:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__super_tabs_pan_gesture__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__super_tabs_pan_gesture__ = __webpack_require__(355);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTabsToolbar; });
 
 
@@ -1004,7 +1035,7 @@ var SuperTabsToolbar = (function () {
 SuperTabsToolbar.decorators = [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */], args: [{
                 selector: 'super-tabs-toolbar',
-                template: "\n    <ion-toolbar [color]=\"color\" mode=\"md\" [class.scroll-tabs]=\"scrollTabs\">\n      <div class=\"tab-buttons-container\" #tabButtonsContainer>\n        <div *ngIf=\"tabsPlacement === 'bottom'\" class=\"indicator {{ 'button-md-' + indicatorColor }}\" #indicator></div>\n        <ion-segment [color]=\"tabsColor\" [(ngModel)]=\"selectedTab\" mode=\"md\">\n          <ion-segment-button text-wrap *ngFor=\"let tab of tabs; let i = index\" [value]=\"i\" (ionSelect)=\"selectedTab !== i && onTabSelect(i)\">\n            <ion-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\"></ion-icon>\n            {{tab.title}}\n            <span [hidden]=\"tab.badge <= 0\" class=\"badge {{ 'badge-md-' + badgeColor }}\">{{tab.badge}}</span>\n          </ion-segment-button>\n        </ion-segment>\n        <div *ngIf=\"tabsPlacement === 'top'\" class=\"indicator {{ 'button-md-' + indicatorColor }}\" #indicator></div>\n      </div>\n    </ion-toolbar>",
+                template: "\n    <ion-toolbar [color]=\"color\" mode=\"md\" [class.scroll-tabs]=\"scrollTabs\">\n      <div class=\"tab-buttons-container\" #tabButtonsContainer>\n        <div *ngIf=\"tabsPlacement === 'bottom'\" class=\"indicator {{ 'button-md-' + indicatorColor }}\" #indicator></div>\n        <ion-segment [color]=\"tabsColor\" [(ngModel)]=\"selectedTab\" mode=\"md\">\n          <ion-segment-button *ngFor=\"let tab of tabs; let i = index\" [value]=\"i\" (ionSelect)=\"selectedTab !== i && onTabSelect(i)\">\n            <ion-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\"></ion-icon>\n            {{tab.title}}\n            <span [hidden]=\"tab.badge <= 0\" class=\"badge {{ 'badge-md-' + badgeColor }}\">{{tab.badge}}</span>\n          </ion-segment-button>\n        </ion-segment>\n        <div *ngIf=\"tabsPlacement === 'top'\" class=\"indicator {{ 'button-md-' + indicatorColor }}\" #indicator></div>\n      </div>\n    </ion-toolbar>\n  ",
                 encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ViewEncapsulation */].None
             },] },
 ];
@@ -1034,7 +1065,7 @@ SuperTabsToolbar.propDecorators = {
 
 /***/ }),
 
-/***/ 354:
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1128,17 +1159,17 @@ var SuperTabsPanGesture = (function () {
 
 /***/ }),
 
-/***/ 355:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_super_tab_super_tab__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_super_tab_super_tab__ = __webpack_require__(352);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_super_tabs_super_tabs__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_super_tabs_super_tabs__ = __webpack_require__(350);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_super_tabs_controller__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_super_tabs_controller__ = __webpack_require__(351);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_module__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_module__ = __webpack_require__(357);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__super_tabs_module__["a"]; });
 
 
@@ -1148,17 +1179,17 @@ var SuperTabsPanGesture = (function () {
 
 /***/ }),
 
-/***/ 356:
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_super_tab_super_tab__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_super_tabs_super_tabs__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_super_tabs_controller__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_super_tabs_toolbar_super_tabs_toolbar__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_super_tabs_container_super_tabs_container__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_super_tab_super_tab__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_super_tabs_super_tabs__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_super_tabs_controller__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_super_tabs_toolbar_super_tabs_toolbar__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_super_tabs_container_super_tabs_container__ = __webpack_require__(353);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTabsModule; });
 
 
@@ -1204,7 +1235,7 @@ SuperTabsModule.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 357:
+/***/ 358:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1260,7 +1291,7 @@ exports.Scheduler = Scheduler;
 
 /***/ }),
 
-/***/ 358:
+/***/ 359:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1272,19 +1303,19 @@ Observable_1.Observable.merge = merge_1.merge;
 
 /***/ }),
 
-/***/ 359:
+/***/ 360:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(11);
-var debounceTime_1 = __webpack_require__(360);
+var debounceTime_1 = __webpack_require__(361);
 Observable_1.Observable.prototype.debounceTime = debounceTime_1.debounceTime;
 //# sourceMappingURL=debounceTime.js.map
 
 /***/ }),
 
-/***/ 360:
+/***/ 361:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1295,7 +1326,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(31);
-var async_1 = __webpack_require__(364);
+var async_1 = __webpack_require__(365);
 /**
  * Emits a value from the source Observable only after a particular time span
  * has passed without another source emission.
@@ -1407,7 +1438,7 @@ function dispatchNext(subscriber) {
 
 /***/ }),
 
-/***/ 361:
+/***/ 362:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1458,7 +1489,7 @@ exports.Action = Action;
 
 /***/ }),
 
-/***/ 362:
+/***/ 363:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1469,7 +1500,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var root_1 = __webpack_require__(32);
-var Action_1 = __webpack_require__(361);
+var Action_1 = __webpack_require__(362);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -1607,7 +1638,7 @@ exports.AsyncAction = AsyncAction;
 
 /***/ }),
 
-/***/ 363:
+/***/ 364:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1617,7 +1648,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Scheduler_1 = __webpack_require__(357);
+var Scheduler_1 = __webpack_require__(358);
 var AsyncScheduler = (function (_super) {
     __extends(AsyncScheduler, _super);
     function AsyncScheduler() {
@@ -1665,25 +1696,25 @@ exports.AsyncScheduler = AsyncScheduler;
 
 /***/ }),
 
-/***/ 364:
+/***/ 365:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var AsyncAction_1 = __webpack_require__(362);
-var AsyncScheduler_1 = __webpack_require__(363);
+var AsyncAction_1 = __webpack_require__(363);
+var AsyncScheduler_1 = __webpack_require__(364);
 exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
 //# sourceMappingURL=async.js.map
 
 /***/ }),
 
-/***/ 375:
+/***/ 382:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Collect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DiscoverPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1696,32 +1727,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the Collect page.
+ * Generated class for the DiscoverPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var Collect = (function () {
-    function Collect(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.page1 = 'CollectQuestion';
-        this.page2 = 'CollectWork';
+var DiscoverPage = (function () {
+    function DiscoverPage() {
+        this.page1 = 'AllDiscover';
+        this.page2 = 'ForkDiscover';
     }
-    Collect.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad Collect');
-    };
-    return Collect;
+    return DiscoverPage;
 }());
-Collect = __decorate([
+DiscoverPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-collect',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect/collect.html"*/'<!--\n  Generated template for the Collect page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar color="bule">\n        <ion-title>我的收藏</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <super-tabs height="100%" selectedTabIndex="0" tabColor="light" toolbarColor="light" indicatorColor="light" toolbarBackground="bule" sliderColor="light">\n        <super-tab [root]="page1" title="收藏的问题"></super-tab>\n        <super-tab [root]="page2" title="收藏的作品"></super-tab>\n\n    </super-tabs>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect/collect.html"*/,
+        selector: 'page-discover-page',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/discover-page/discover-page.html"*/'<!--\n  Generated template for the Discover page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n\n    <super-tabs height="100%" tabColor="light" toolbarColor="light" toolbarBackground="bule" sliderColor="light">\n        <super-tab [root]="page1" title="分享"></super-tab>\n        <super-tab [root]="page2" title="我关注的"></super-tab>\n    </super-tabs>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/discover-page/discover-page.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], Collect);
+    __metadata("design:paramtypes", [])
+], DiscoverPage);
 
-//# sourceMappingURL=collect.js.map
+//# sourceMappingURL=discover-page.js.map
 
 /***/ })
 

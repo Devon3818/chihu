@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Headers, Http } from '@angular/http';
 
 /**
  * Generated class for the MyShare page.
@@ -14,7 +15,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MyShare {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  data: any = [];
+
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+    this.getdata();
+  }
+
+  getdata() {
+    let url = "http://www.devonhello.com/chihu/my_share";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "id=1", {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        this.data = res.json();
+      });
   }
 
   ionViewDidLoad() {
@@ -22,8 +41,11 @@ export class MyShare {
   }
 
   //查看分享
-  pushOpenSharePage() {
-    this.navCtrl.push('OpenShare');
+  pushOpenSharePage(_id) {
+
+    this.navCtrl.push('OpenShare', {
+      _id: _id
+    });
   }
 
 }

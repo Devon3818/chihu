@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Headers, Http } from '@angular/http';
 
 /**
  * Generated class for the CollectQuestion page.
@@ -14,38 +15,42 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CollectQuestion {
 
-  items = [
-    'Pokémon Yellow',
-    'Super Metroid',
-    'Mega Man X',
-    'The Legend of Zelda',
-    'Pac-Man',
-    'Super Mario World',
-    'Street Fighter II',
-    'Half Life',
-    'Final Fantasy VII',
-    'Star Fox',
-    'Tetris',
-    'Donkey Kong III',
-    'GoldenEye 007',
-    'Doom',
-    'Fallout',
-    'GTA',
-    'Halo'
-  ];
+  items = [];
 
   rootNavCtrl: NavController;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
+    this.getdata();
   }
 
-  pushQuestionPage(){
-    this.rootNavCtrl.push( 'Question' );
+  getdata(){
+    let url = "http://www.devonhello.com/chihu/my_collect_question";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "id=1", {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        this.items = this.items.concat(res.json());
+      });
   }
 
-  pushAnswerPage(){
-    this.rootNavCtrl.push( 'AnswerPage' );
+
+  pushQuestionPage( _id ){
+    this.rootNavCtrl.push('Question',{
+      _id: _id
+    });
+  }
+
+  //打开页面
+  pushAnswerPage( _id ) {
+    this.rootNavCtrl.push('AnswerPage',{
+      _id: _id
+    });
   }
 
   ionViewDidLoad() {

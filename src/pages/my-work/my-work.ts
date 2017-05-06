@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Headers, Http } from '@angular/http';
 
 /**
  * Generated class for the MyWork page.
@@ -14,31 +15,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MyWork {
 
-  items = [
-    'Pokémon Yellow',
-    'Super Metroid',
-    'Mega Man X',
-    'The Legend of Zelda',
-    'Pac-Man',
-    'Super Mario World',
-    'Street Fighter II',
-    'Half Life',
-    'Final Fantasy VII',
-    'Star Fox',
-    'Tetris',
-    'Donkey Kong III',
-    'GoldenEye 007',
-    'Doom',
-    'Fallout',
-    'GTA',
-    'Halo'
-  ];
+  items = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+    this.getdata();
   }
 
-  pushArticlePage(){
-    this.navCtrl.push( 'Article' );
+  getdata(){
+    let url = "http://www.devonhello.com/chihu/my_work";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "id=1", {
+      headers: headers
+    })
+      .subscribe((res) => {
+        alert(JSON.stringify(res.json()));
+        
+        this.items = res.json();
+        alert(this.items.length);
+      });
+  }
+
+  pushArticlePage( _id ) {
+    this.navCtrl.push('Article',{
+      _id: _id
+    });
   }
 
   ionViewDidLoad() {

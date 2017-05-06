@@ -16,77 +16,25 @@
 <ion-content>
 
     <section class="dv_hot_q dv_hot_w">
+
         <!--重复-->
-        <section class="dv_item" (click)="pushOpenSharePage();">
+        <section *ngFor="let item of data" class="dv_item" (click)="pushOpenSharePage( item._id );">
             <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon 分享了心情</p>
-                <span class="time">昨天 3:30</span>
+                <img [src]="item.userimg" />
+                <p>{{item.name}} 分享了心情</p>
+                <span class="time">{{item.time}}</span>
             </section>
 
             <section class="wrap">
-                <div class="imgs" [style.background]="'url(http://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png)'"></div>
-
-                <div class="imgs" [style.background]="'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)'"></div>
-
-                <div class="imgs" [style.background]="'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)'"></div>
+                <div *ngFor="let item2 of item.img" class="imgs" [style.background]="'url('+item2.src+')'"></div>
             </section>
 
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
+            <p>{{item.text}}</p>
             <section class="dv_item_bottom">
-                <p>4.7K 赞同 • 677评论 • 关注问题</p>
+                <p>{{item.mark.like}} 点赞 • {{item.mark.cont}} 评论</p>
             </section>
         </section>
 
-        <!--重复-->
-        <section class="dv_item" (click)="pushOpenSharePage();">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon 分享了心情</p>
-                <span class="time">昨天 3:30</span>
-            </section>
-            <section class="wrap">
-                <div class="imgs" [style.background]="'url(http://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png)'"></div>
-            </section>
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 点赞 • 677评论</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item" (click)="pushOpenSharePage();">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon 分享了心情</p>
-                <span class="time">昨天 3:30</span>
-            </section>
-            <section class="wrap">
-                <div class="imgs" [style.background]="'url(http://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png)'"></div>
-
-                <div class="imgs" [style.background]="'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)'"></div>
-            </section>
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 点赞 • 677评论</p>
-            </section>
-        </section>
-
-        <!--重复-->
-        <section class="dv_item" (click)="pushOpenSharePage();">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon 分享了作品</p>
-            </section>
-            <section class="wrap">
-                <div class="imgs" [style.background]="'url(http://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png)'"></div>
-
-                <div class="imgs" [style.background]="'url(https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100)'"></div>
-            </section>
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。我该怎么做才能变成他们那样的人我该怎么做才能变成他们那样的人...</p>
-            <section class="dv_item_bottom">
-                <p>4.7K 点赞 • 677评论</p>
-            </section>
-        </section>
     </section>
 
 </ion-content>

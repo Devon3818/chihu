@@ -1,14 +1,15 @@
 webpackJsonp([6],{
 
-/***/ 322:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_cook_data__ = __webpack_require__(376);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateCookDataModule", function() { return CreateCookDataModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_share__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(366);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateShareModule", function() { return CreateShareModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,30 +19,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CreateCookDataModule = (function () {
-    function CreateCookDataModule() {
+
+var CreateShareModule = (function () {
+    function CreateShareModule() {
     }
-    return CreateCookDataModule;
+    return CreateShareModule;
 }());
-CreateCookDataModule = __decorate([
+CreateShareModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__create_cook_data__["a" /* CreateCookData */],
+            __WEBPACK_IMPORTED_MODULE_2__create_share__["a" /* CreateShare */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_cook_data__["a" /* CreateCookData */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_share__["a" /* CreateShare */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__create_cook_data__["a" /* CreateCookData */]
+            __WEBPACK_IMPORTED_MODULE_2__create_share__["a" /* CreateShare */]
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]
         ]
     })
-], CreateCookDataModule);
+], CreateShareModule);
 
-//# sourceMappingURL=create-cook-data.module.js.map
+//# sourceMappingURL=create-share.module.js.map
 
 /***/ }),
 
-/***/ 365:
+/***/ 366:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -215,15 +220,14 @@ var Camera = (function (_super) {
 
 /***/ }),
 
-/***/ 376:
+/***/ 381:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_work_service__ = __webpack_require__(247);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCookData; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(366);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateShare; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -236,111 +240,57 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Generated class for the CreateCookData page.
+ * Generated class for the CreateShare page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var CreateCookData = (function () {
-    function CreateCookData(navCtrl, alertCtrl, navParams, camera, actionSheetCtrl, WorkService) {
+var CreateShare = (function () {
+    function CreateShare(navCtrl, navParams, actionSheetCtrl, camera, alertCtrl) {
         this.navCtrl = navCtrl;
-        this.alertCtrl = alertCtrl;
         this.navParams = navParams;
-        this.camera = camera;
         this.actionSheetCtrl = actionSheetCtrl;
-        this.WorkService = WorkService;
-        this.title = '';
+        this.camera = camera;
+        this.alertCtrl = alertCtrl;
+        this.ishide = false;
         this.items = [];
-        this.foods = [];
-        this.items2 = [1, 2, 3, 4];
-        this.isReordering = false;
-        this.sphide = false;
-        this.banner = "assets/icon/work_banner.png";
-        this.title = this.WorkService._title;
-        this.init();
     }
-    CreateCookData.prototype.init = function () {
-        this.items = this.WorkService._item;
-    };
-    CreateCookData.prototype.ionViewDidEnter = function () {
-        this.init();
-    };
-    CreateCookData.prototype.reorderItems = function (indexes) {
-        var element = this.items[indexes.from];
-        this.items.splice(indexes.from, 1);
-        this.items.splice(indexes.to, 0, element);
-    };
-    CreateCookData.prototype.edit = function () {
-        this.sphide = !this.sphide;
-        this.isReordering = !this.isReordering;
-    };
-    CreateCookData.prototype.showPrompt = function () {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
-            title: '食材',
-            message: "输入你要添加的材料和用量，例如：鸡蛋，一只",
-            inputs: [
-                {
-                    name: 'name',
-                    placeholder: '材料：如鸡蛋'
-                },
-                {
-                    name: 'len',
-                    placeholder: '用量：如一只'
-                },
-            ],
-            buttons: [
-                {
-                    text: '取消',
-                    handler: function (data) {
-                    }
-                },
-                {
-                    text: '添加',
-                    handler: function (data) {
-                        _this.foods.push(1);
-                        //alert(data.name);
-                        //alert(data.len);
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    };
-    //发布
-    CreateCookData.prototype.send = function () {
+    CreateShare.prototype.send = function () {
         this.navCtrl.popToRoot();
     };
     //长按删除事件
-    CreateCookData.prototype.pressEvent = function (idx) {
+    CreateShare.prototype.pressEvent = function (idx) {
         //alert(idx);
-        this.showConfirm();
+        this.showConfirm(idx);
     };
-    //删除步骤／食材提示
-    CreateCookData.prototype.showConfirm = function () {
+    //删除提示
+    CreateShare.prototype.showConfirm = function (idx) {
+        var _this = this;
         var confirm = this.alertCtrl.create({
-            title: 'Use this lightsaber?',
-            message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+            title: '提示',
+            message: '是否删除此照片?',
             buttons: [
                 {
-                    text: 'Disagree',
+                    text: '在想想',
                     handler: function () {
                         console.log('Disagree clicked');
                     }
                 },
                 {
-                    text: 'Agree',
+                    text: '确定',
                     handler: function () {
-                        console.log('Agree clicked');
+                        _this.items.splice(idx, 1);
+                        if (_this.items.length < 3) {
+                            _this.ishide = false;
+                        }
                     }
                 }
             ]
         });
         confirm.present();
     };
-    CreateCookData.prototype.presentActionSheet = function () {
+    CreateShare.prototype.presentActionSheet = function () {
         var _this = this;
         var actionSheet = this.actionSheetCtrl.create({
             title: '图片来源',
@@ -372,7 +322,7 @@ var CreateCookData = (function () {
         actionSheet.present();
     };
     //成品图片
-    CreateCookData.prototype.seleImgType = function (type) {
+    CreateShare.prototype.seleImgType = function (type) {
         var _that = this;
         this.camera.getPicture({
             quality: 90,
@@ -381,37 +331,28 @@ var CreateCookData = (function () {
             correctOrientation: true,
         }).then(function (imageData) {
             //alert(imageData);
-            _that.banner = imageData;
+            _that.items.push(imageData);
+            if (_that.items.length >= 3) {
+                _that.ishide = true;
+            }
         }, function (err) {
             // Handle error
         });
     };
-    //添加步骤
-    CreateCookData.prototype.addItem = function () {
-        this.navCtrl.push('WorkItem', {
-            idx: -1
-        });
+    CreateShare.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CreateShare');
     };
-    //修改步骤信息
-    CreateCookData.prototype.editItem = function (idx) {
-        this.navCtrl.push('WorkItem', {
-            idx: idx
-        });
-    };
-    CreateCookData.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CreateCookData');
-    };
-    return CreateCookData;
+    return CreateShare;
 }());
-CreateCookData = __decorate([
+CreateShare = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-create-cook-data',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-data/create-cook-data.html"*/'<!--\n  Generated template for the CreateCookData page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar>\n        <ion-title>创建菜谱</ion-title>\n        <ion-buttons end>\n            <button (click)="edit()" ion-button icon-only>\n              <ion-icon name="reorder"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n    <section class="work_top">\n        <section (click)="presentActionSheet();" class="work_banner" [style.background]="\'url(\'+ banner +\')\'"></section>\n        <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="写下你的菜谱名吧" />\n    </section>\n    <ion-list-header>\n        心得：\n    </ion-list-header>\n    <ion-textarea placeholder="输入这道美食背后的故事"></ion-textarea>\n    <ion-list-header>\n        用料：\n    </ion-list-header>\n    <section class="dv_food_list">\n        <ion-row (press)="pressEvent(i)" *ngFor="let food of foods; let i=index">\n            <ion-col>\n                <div>北豆腐</div>\n            </ion-col>\n            <ion-col>\n                <div>2块 (大概380g)</div>\n            </ion-col>\n        </ion-row>\n    </section>\n    <br/>\n    <button (click)="showPrompt();" class="dv_button" ion-button round outline>添加材料</button>\n\n    <ion-list>\n        <ion-list-header>做法：（ 点击编辑步骤后，长按可删除 ）</ion-list-header>\n        <ion-item-group [reorder]="isReordering" (ionItemReorder)="reorderItems($event)">\n\n            <div class="sp" [class.sp_hide]="sphide"></div>\n\n            <ion-item (press)="pressEvent(i)" (click)="editItem(i)" *ngFor="let item of items; let i=index">\n\n                <section class="imgs" [style.background]="\'url(\'+ item.imgsrc +\')\'"></section>\n\n                <p>\n                    {{item.text}}\n                </p>\n            </ion-item>\n\n\n        </ion-item-group>\n    </ion-list>\n\n    <ion-grid>\n        <ion-row>\n            <ion-col width-50>\n                <button (click)="addItem();" class="dv_edit_button" ion-button icon-left round outline>\n                    <ion-icon name="star"></ion-icon>\n                    添加步骤\n                </button>\n            </ion-col>\n            <ion-col width-50>\n                <button (click)="edit()" class="dv_edit_button" ion-button icon-left round outline>\n                    <ion-icon name="reorder"></ion-icon>\n                    编辑步骤\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n\n    <ion-list-header>\n        Tip：\n    </ion-list-header>\n    <ion-textarea placeholder="温馨提示"></ion-textarea>\n\n    <button (click)="send();" class="dv_button" ion-button round outline>发布菜谱</button>\n    <br/>\n    <br/>\n    <br/>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-data/create-cook-data.html"*/,
+        selector: 'page-create-share',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/'<!--\n  Generated template for the CreateShare page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>分享</ion-title>\n        <ion-buttons end (click)="send();">\n            <ion-title>发送</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-textarea placeholder="这一刻的想法..."></ion-textarea>\n\n    <div (press)="pressEvent(i)" *ngFor="let item of items; let i=index" class="imgs" [style.background]="\'url(\'+ item +\')\'"></div>\n\n    <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs" [style.background]="\'url(assets/icon/addimg.png)\'"></div>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_3__service_work_service__["a" /* WorkService */]])
-], CreateCookData);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* AlertController */]])
+], CreateShare);
 
-//# sourceMappingURL=create-cook-data.js.map
+//# sourceMappingURL=create-share.js.map
 
 /***/ })
 

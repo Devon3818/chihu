@@ -1,14 +1,14 @@
 webpackJsonp([9],{
 
-/***/ 346:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__support__ = __webpack_require__(400);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportModule", function() { return SupportModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__work_item__ = __webpack_require__(404);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkItemModule", function() { return WorkItemModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SupportModule = (function () {
-    function SupportModule() {
+var WorkItemModule = (function () {
+    function WorkItemModule() {
     }
-    return SupportModule;
+    return WorkItemModule;
 }());
-SupportModule = __decorate([
+WorkItemModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__support__["a" /* Support */],
+            __WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__support__["a" /* Support */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__support__["a" /* Support */]
+            __WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */]
         ]
     })
-], SupportModule);
+], WorkItemModule);
 
-//# sourceMappingURL=support.module.js.map
+//# sourceMappingURL=work-item.module.js.map
 
 /***/ }),
 
-/***/ 400:
+/***/ 404:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Support; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_work_service__ = __webpack_require__(247);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkItem; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,31 +60,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Generated class for the Support page.
+ * Generated class for the WorkItem page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var Support = (function () {
-    function Support(navCtrl, navParams) {
+var WorkItem = (function () {
+    function WorkItem(navCtrl, navParams, WorkService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.WorkService = WorkService;
+        this.idx = 0;
+        this.banner = 'assets/icon/work_item.png';
+        this.text = '';
+        this.idx = this.navParams.get('idx');
+        if (this.idx != -1) {
+            this.banner = this.WorkService._item[this.idx]['imgsrc'];
+            this.text = this.WorkService._item[this.idx]['text'];
+        }
     }
-    Support.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad Support');
+    WorkItem.prototype.send = function () {
+        this.WorkService._item.push({
+            imgsrc: this.banner,
+            text: this.text
+        });
+        this.navCtrl.pop();
     };
-    return Support;
+    WorkItem.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad WorkItem');
+    };
+    return WorkItem;
 }());
-Support = __decorate([
+WorkItem = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-support',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/support/support.html"*/'<!--\n  Generated template for the Support page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-item>\n            <ion-avatar item-left>\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">\n            </ion-avatar>\n            <h2>Devon</h2>\n            <p>This town ain\'t big enough for the two of us!This town ain\'t big enough for the two of us!</p>\n\n        </ion-item>\n\n        <ion-item>\n            <ion-avatar item-left>\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">\n            </ion-avatar>\n            <h2>Woody</h2>\n            <p>This town ain\'t big enough for the two of us!</p>\n\n        </ion-item>\n        <ion-item>\n            <ion-avatar item-left>\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">\n            </ion-avatar>\n            <h2>Woody</h2>\n            <p>This town ain\'t big enough for the two of us!</p>\n\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/support/support.html"*/,
+        selector: 'page-work-item',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/work-item/work-item.html"*/'<!--\n  Generated template for the WorkItem page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>步骤详情</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <section class="work_top">\n        <section (click)="presentActionSheet();" class="work_banner" [style.background]="\'url(\'+ banner +\')\'"></section>\n        <ion-textarea [(ngModel)]="text" placeholder="输入这道美食的详细步骤"></ion-textarea>\n    </section>\n    <button (click)="send();" class="dv_button" ion-button icon-left round outline>确定</button>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/work-item/work-item.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], Support);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_work_service__["a" /* WorkService */]])
+], WorkItem);
 
-//# sourceMappingURL=support.js.map
+//# sourceMappingURL=work-item.js.map
 
 /***/ })
 

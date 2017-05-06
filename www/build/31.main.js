@@ -1,14 +1,14 @@
 webpackJsonp([31],{
 
-/***/ 318:
+/***/ 319:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(372);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatModule", function() { return ChatModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__collect_question__ = __webpack_require__(374);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectQuestionModule", function() { return CollectQuestionModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ChatModule = (function () {
-    function ChatModule() {
+var CollectQuestionModule = (function () {
+    function CollectQuestionModule() {
     }
-    return ChatModule;
+    return CollectQuestionModule;
 }());
-ChatModule = __decorate([
+CollectQuestionModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* Chat */],
+            __WEBPACK_IMPORTED_MODULE_2__collect_question__["a" /* CollectQuestion */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__chat__["a" /* Chat */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__collect_question__["a" /* CollectQuestion */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* Chat */]
+            __WEBPACK_IMPORTED_MODULE_2__collect_question__["a" /* CollectQuestion */]
         ]
     })
-], ChatModule);
+], CollectQuestionModule);
 
-//# sourceMappingURL=chat.module.js.map
+//# sourceMappingURL=collect-question.module.js.map
 
 /***/ }),
 
-/***/ 372:
+/***/ 374:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_im_service__ = __webpack_require__(105);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Chat; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(103);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CollectQuestion; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,69 +61,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Generated class for the Chat page.
+ * Generated class for the CollectQuestion page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var Chat = (function () {
-    function Chat(navCtrl, navParams, events, ref, ImService) {
+var CollectQuestion = (function () {
+    function CollectQuestion(http, navCtrl, navParams) {
+        this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.events = events;
-        this.ref = ref;
-        this.ImService = ImService;
-        this.msgList = [1, 1, 1, 1];
-        this.editorMsg = '';
-        this.toUserName = "Devon";
+        this.items = [];
+        this.rootNavCtrl = navParams.get('rootNavCtrl');
+        this.getdata();
     }
-    Chat.prototype.ionViewWillLeave = function () {
-        // unsubscribe
-        this.events.unsubscribe('chat:received');
-    };
-    Chat.prototype.sendMsg = function () {
-        this.ImService.sendTextMessage("1122", "Tomy$Devon$这是一条我发的信息,这是一条我发的信息,这是一条我发的信息$1111");
-        this.pushNewMsg();
-        this.messageInput.setFocus();
-    };
-    Chat.prototype.pushNewMsg = function () {
-        this.msgList.push(1);
-        this.editorMsg = '';
-        this.scrollToBottom();
-    };
-    Chat.prototype.scrollToBottom = function () {
+    CollectQuestion.prototype.getdata = function () {
         var _this = this;
-        setTimeout(function () {
-            if (_this.content.scrollToBottom) {
-                _this.content.scrollToBottom();
-            }
-        }, 300);
+        var url = "http://www.devonhello.com/chihu/my_collect_question";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.http.post(url, "id=1", {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            //alert(JSON.stringify(res.json()));
+            _this.items = _this.items.concat(res.json());
+        });
     };
-    return Chat;
+    CollectQuestion.prototype.pushQuestionPage = function (_id) {
+        this.rootNavCtrl.push('Question', {
+            _id: _id
+        });
+    };
+    //打开页面
+    CollectQuestion.prototype.pushAnswerPage = function (_id) {
+        this.rootNavCtrl.push('AnswerPage', {
+            _id: _id
+        });
+    };
+    CollectQuestion.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CollectQuestion');
+    };
+    return CollectQuestion;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */])
-], Chat.prototype, "content", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])('chat_input'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["y" /* TextInput */])
-], Chat.prototype, "messageInput", void 0);
-Chat = __decorate([
+CollectQuestion = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-chat',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/chat/chat.html"*/'<!--\n  Generated template for the Chat page.\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title>{{toUserName}}</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n    <div class="message-wrap">\n\n        <div *ngFor="let msg of msgList" class="message right">\n            <img class="user-img" alt="" src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n            <ion-spinner name="dots" *ngIf="msg.status === \'pending\'"></ion-spinner>\n            <div class="msg-detail">\n                <div class="msg-info">\n                    <p>3:15</p>\n                </div>\n                <div class="msg-content">\n                    <span class="triangle"></span>\n                    <p class="line-breaker ">cordova CLI: 6.4.0 Ionic Framework Version: 3.0.0 Ionic CLI Version: 2.2.1 Ionic App Lib Version: 2.2.0</p>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</ion-content>\n\n<ion-footer no-border>\n    <ion-grid class="input-wrap">\n        <ion-row>\n\n            <ion-col col-10>\n                <ion-textarea #chat_input placeholder="Text Input" [(ngModel)]="editorMsg" (keyup.enter)="sendMsg()" (focus)="scrollToBottom()"></ion-textarea>\n            </ion-col>\n            <ion-col col-2>\n                <button ion-button clear icon-only item-right (click)="sendMsg()">\n          <ion-icon  name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n        </button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-footer>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/chat/chat.html"*/,
+        selector: 'page-collect-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-question/collect-question.html"*/'<!--\n  Generated template for the CollectQuestion page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p>{{item.name}} 回答了问题</p>\n        </section>\n        <h6 (click)="pushQuestionPage( item.answerid );">{{item.title}}</h6>\n        <div (click)="pushAnswerPage( item._id );">\n            <p>{{item.dec}}</p>\n            <section class="dv_item_bottom">\n                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n            </section>\n        </div>\n    </section>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-question/collect-question.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["z" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */],
-        __WEBPACK_IMPORTED_MODULE_2__service_im_service__["a" /* ImService */]])
-], Chat);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+], CollectQuestion);
 
-//# sourceMappingURL=chat.js.map
+//# sourceMappingURL=collect-question.js.map
 
 /***/ })
 

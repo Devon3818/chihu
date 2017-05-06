@@ -15,8 +15,8 @@
 
 <ion-content>
     <ion-list inset>
-        <button (click)="pushQuestionPage();" ion-item *ngFor="let item of items">
-    {{ item }}
-  </button>
+        <button (click)="pushQuestionPage( item._id );" ion-item *ngFor="let item of items">
+            {{ item.title }}
+        </button>
     </ion-list>
 </ion-content>

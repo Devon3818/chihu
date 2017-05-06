@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { A } from './a';
+import { ForkDiscover } from './fork-discover';
 
 @NgModule({
   declarations: [
-    A,
+    ForkDiscover,
   ],
   imports: [
-    IonicPageModule.forChild(A),
+    IonicPageModule.forChild(ForkDiscover),
   ],
   exports: [
-    A
+    ForkDiscover
   ]
 })
-export class AModule {}
+export class ForkDiscoverModule {}

@@ -1,0 +1,77 @@
+<!--
+  Generated template for the AllDiscover page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide" style="background: url('http://s2.cdn.xiachufang.com/5545a57208d411e7947d0242ac110002_1080w_808h.jpg?imageView2/1/w/490/h/260/interlace/1/q/90') no-repeat center"></div>
+            <div class="swiper-slide" style="background: url('http://s2.cdn.xiachufang.com/d93388e0234611e7947d0242ac110002_3264w_2176h.jpg?imageView2/1/w/490/h/260/interlace/1/q/90') no-repeat center"></div>
+            <div class="swiper-slide" style="background: url('http://s1.cdn.xiachufang.com/b69e09c6881f11e6b87c0242ac110003_600w_600h.jpg@2o_50sh_1pr_1l_490w_260h_1c_1e_90q_1wh') no-repeat center"></div>
+            <div class="swiper-slide" style="background: url('http://s2.cdn.xiachufang.com/bbfd36ca235c11e7bc9d0242ac110002_6000w_4000h.jpg?imageView2/1/w/490/h/260/interlace/1/q/90') no-repeat center"></div>
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <section class="dv_box">
+        <div class="dv_items">
+            <i class="iconfont icon-document" color="icon-telephone"></i>
+            <p>专栏</p>
+        </div>
+        <div class="dv_items">
+            <i class="iconfont icon-notebook" color="icon-notebook"></i>
+            <p>文章</p>
+        </div>
+        <div class="dv_items">
+            <i class="iconfont icon-basket" color="icon-shop"></i>
+            <p>商城</p>
+        </div>
+        <div class="dv_items">
+            <i class="iconfont icon-trophy" color="icon-pencil"></i>
+            <p>活动</p>
+        </div>
+    </section>
+
+    <ion-list>
+        <ion-list-header>
+            <p>分享时刻</p>
+            <!--<i style="float: right">查看全部</i>-->
+            <span>分享我们此时此刻的心情...</span>
+        </ion-list-header>
+    </ion-list>
+
+
+    <section class="dv_hot_q dv_hot_w">
+
+        <!--重复-->
+        <section *ngFor="let item of data" class="dv_item" (click)="pushOpenSharePage( item._id );">
+            <section class="dv_item_head">
+                <img [src]="item.userimg" />
+                <p>{{item.name}} 分享了心情</p>
+                <span class="time">{{item.time}}</span>
+            </section>
+
+            <section class="wrap">
+                <div *ngFor="let item2 of item.img" class="imgs" [style.background]="'url('+item2.src+')'"></div>
+            </section>
+
+            <p>{{item.text}}</p>
+            <section class="dv_item_bottom">
+                <p>{{item.mark.like}} 点赞 • {{item.mark.cont}} 评论</p>
+            </section>
+        </section>
+
+
+    </section>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
