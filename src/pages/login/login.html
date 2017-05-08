@@ -23,18 +23,18 @@
 
         <ion-item>
             <ion-label floating>用户：</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="name"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label floating>密码：</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="pass"></ion-input>
         </ion-item>
 
     </ion-list>
 
     <div padding>
-        <button ion-button color="secondary" block>登录</button>
+        <button ion-button color="secondary" (click)="login();" block>登录</button>
     </div>
 
     <div class="other_login">---第三方登录---</div>

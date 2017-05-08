@@ -10,10 +10,9 @@ export class UserService {
     galleryOBJ = null;
 
     public _init: any = {
-        name: "吃乎君",
-        img: "https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100",
-        id: null,
-        sex: null
+        name: "吃乎",
+        userimg: "https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100",
+        _id: null,
 }
     public _user: any;
 
@@ -21,18 +20,15 @@ export class UserService {
         this._user = this._init;
         this.storage.ready().then(() => {
             
-            //this.storageGet();
+            this.storageGet();
            
         });
     }
 
     //更新用户数据,录入缓存
-    setUser(name, id, img, sex) {
+    setUser(obj) {
         //alert("头像："+img);
-        this._user.id = id;
-        this._user.name = name;
-        this._user.img = img;
-        this._user.sex = sex;
+        this._user = obj;
         this.storage.set('user', this._user);
         this.storageGet();
     }
@@ -42,10 +38,10 @@ export class UserService {
         var _that = this;
         _that.storage.get('user').then((val) => {
             
-            if (val && val.id) {
-                //alert(val.name);
+            if (val && val._id) {
+                alert(val.name);
                 _that._user = val;
-                _that.ImService.gettoken(val.id, val.name);
+                //_that.ImService.gettoken(val._id, val.name);
             } else {
                 alert("未登录");
             }
@@ -56,7 +52,7 @@ export class UserService {
 
     //清除缓存
     clearStorage(){
-        this.ImService.disconnect();
+        //this.ImService.disconnect();
         this.storage.clear();
         this._user = this._init;
         //this.Platform.exitApp();

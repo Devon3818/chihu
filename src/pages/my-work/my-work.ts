@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
+import { UserService } from '../../service/user.service';
 
 /**
  * Generated class for the MyWork page.
@@ -17,7 +18,7 @@ export class MyWork {
 
   items = [];
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.getdata();
   }
 
@@ -27,7 +28,7 @@ export class MyWork {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id=1", {
+    this.http.post(url, "id="+this.UserService._user._id, {
       headers: headers
     })
       .subscribe((res) => {

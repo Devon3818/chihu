@@ -17,8 +17,33 @@ declare var QQSDK: any;
 })
 export class Login {
 
+  name: '';
+  pass: '';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService, public http: Http) {
 
+  }
+
+  login(){
+
+    if(!this.name || !this.pass){
+      return true;
+    }
+
+    let url = "http://www.devonhello.com/chihu/login";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "name="+this.name + "&pass="+this.pass, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        alert(JSON.stringify(res.json()));
+        if(res.json()[0]['_id']){
+          this.UserService.setUser( res.json()[0] );
+        }
+      });
   }
 
   //注册
@@ -61,7 +86,7 @@ export class Login {
       .subscribe((res) => {
         alert(JSON.stringify(res.json()));
         var sex = res.json()['gender'] == "男" ? 0 : 1;
-        _that.UserService.setUser( res.json()['nickname'], accessToken, res.json()['figureurl_2'], sex );
+        //_that.UserService.setUser( res.json()['nickname'], accessToken, res.json()['figureurl_2'], sex );
       });
 
   }

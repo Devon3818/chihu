@@ -126,7 +126,7 @@ export class HomePage {
   //检查登录状态
   checkLogin(page) {
     
-    if (this.UserService._user.id) {
+    if (this.UserService._user._id) {
       this.navCtrl.push(page);
     } else {
       this.navCtrl.push('Login');

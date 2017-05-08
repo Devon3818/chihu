@@ -9,28 +9,28 @@
     <section class="dv_ban_top">
         <div class="dv_ban_top_div">
             <p>关注的话题</p>
-            <h2>12</h2>
+            <h2>{{user.forkqus}}</h2>
         </div>
         <div class="dv_ban_top_div">
             <p>我关注的人</p>
-            <h2>12</h2>
+            <h2>{{user.forkuser}}</h2>
         </div>
         <div class="dv_ban_top_div">
             <p>关注我的人</p>
-            <h2>123245</h2>
+            <h2>{{user.fork}}</h2>
         </div>
-        <p>多it大牛在我这个年龄时已经很厉害了，我该怎么做才能变成他们那样的人，我一直在思考</p>
+        <p>{{user.dec}}</p>
         <ion-row>
             <ion-col>
                 <button ion-button icon-left clear small>
                   <ion-icon name="eye"></ion-icon>
-                  <div>7147</div>
+                  <div>{{user.work}}</div>
                 </button>
             </ion-col>
             <ion-col>
                 <button ion-button icon-left clear small>
                   <ion-icon name="text"></ion-icon>
-                  <div>123</div>
+                  <div>{{user.share}}</div>
                 </button>
             </ion-col>
             <ion-col center text-center>
@@ -45,28 +45,28 @@
             <ion-icon name='eye' item-left color="h"></ion-icon>
             性别
             <ion-note item-right>
-                男
+                {{user.sex}}
             </ion-note>
         </ion-item>
         <ion-item>
             <ion-icon name='star' item-left color="h"></ion-icon>
-            学历
+            积分
             <ion-note item-right>
-                大专
+                {{user.integral}}
             </ion-note>
         </ion-item>
         <ion-item>
             <ion-icon name='document' item-left color="h"></ion-icon>
             居住地
             <ion-note item-right>
-                中国
+                {{user.city}}
             </ion-note>
         </ion-item>
         <ion-item>
             <ion-icon name='time' item-left color="h"></ion-icon>
             行业
             <ion-note item-right>
-                计算机
+                {{user.job}}
             </ion-note>
         </ion-item>
 

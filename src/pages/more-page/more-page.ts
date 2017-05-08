@@ -24,7 +24,7 @@ export class MorePage {
 
   init(){
     this.name = this.UserService._user.name;
-    this.mimg = this.UserService._user.img;
+    this.mimg = this.UserService._user.userimg;
   }
 
   ionViewDidEnter() {
@@ -32,33 +32,33 @@ export class MorePage {
   }
 
   pushPerson(){
-    //this.checkLogin( Person );
-    this.navCtrl.push( 'Person' );
+    this.checkLogin( 'Person' );
+    //this.navCtrl.push( 'Person' );
   }
 
   pushFocusPage(){
-    //this.checkLogin( 'Focus' );
-    this.navCtrl.push( 'Focus' );
+    this.checkLogin( 'Focus' );
+    //this.navCtrl.push( 'Focus' );
   }
 
   pushCollectPage(){
-    //this.checkLogin( 'Collect' );
-    this.navCtrl.push( 'Collect' );
+    this.checkLogin( 'Collect' );
+    //this.navCtrl.push( 'Collect' );
   }
 
   pushMySharePage(){
-    //this.checkLogin( 'MyShare' );
-    this.navCtrl.push( 'MyShare' );
+    this.checkLogin( 'MyShare' );
+    //this.navCtrl.push( 'MyShare' );
   }
 
   pushMyQuestionPage(){
-    //this.checkLogin( 'MyQuestion' );
-    this.navCtrl.push( 'MyQuestion' );
+    this.checkLogin( 'MyQuestion' );
+    //this.navCtrl.push( 'MyQuestion' );
   }
 
   pushMyWorkPage(){
-    //this.checkLogin( 'MyWork' );
-    this.navCtrl.push( 'MyWork' );
+    this.checkLogin( 'MyWork' );
+    //this.navCtrl.push( 'MyWork' );
   }
 
   pushSettingPage(){
@@ -73,7 +73,7 @@ export class MorePage {
   //检查登录状态
   checkLogin(page){
     //alert(this.UserService._user.id);
-    if(this.UserService._user.id){
+    if(this.UserService._user._id){
       this.navCtrl.push( page );
     }else{
       this.navCtrl.push( 'Login' );

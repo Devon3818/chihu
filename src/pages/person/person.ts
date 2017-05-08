@@ -1,5 +1,6 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { UserService } from '../../service/user.service';
 
 /**
  * Generated class for the Person page.
@@ -22,9 +23,14 @@ export class Person {
   maxtop = 0;
   _that;
   opacity = 1;
+  name:'';
+  userimg:'';
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
+    this.name = this.UserService._user.name;
+    this.userimg = this.UserService._user.userimg;
+  }
 
   ionViewDidLoad() {
     this.content.enableJsScroll();

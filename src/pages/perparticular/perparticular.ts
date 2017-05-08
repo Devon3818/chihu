@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserService } from '../../service/user.service';
 
 /**
  * Generated class for the Perparticular page.
@@ -14,8 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Perparticular {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  user:any = {}
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+    this.user = this.UserService._user;
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Perparticular');

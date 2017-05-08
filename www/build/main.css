@@ -54859,10 +54859,10 @@ page-all-discover .wrap {
 }
 
 page-all-discover .wrap .imgs {
-  width: 8rem;
-  height: 8rem;
-  margin-right: 7px;
-  margin-bottom: 7px;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
   float: left;
   background-size: cover !important;
   background-position: center center !important;
@@ -55352,6 +55352,112 @@ page-collect-work .dv_item_bottom p {
   line-height: 38px;
 }
 
+page-comments ion-content .scroll-content {
+  background-color: #f5f5f5;
+}
+
+page-comments ion-footer {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  height: 55px;
+}
+
+page-comments .input-wrap {
+  padding: 0 5px;
+}
+
+page-comments .input-wrap ion-textarea {
+  position: static;
+}
+
+page-comments .input-wrap ion-col.col {
+  padding: 0;
+}
+
+page-comments .input-wrap button {
+  width: 100%;
+  height: 55px;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+page-comments .input-wrap textarea {
+  border-bottom: 1px #387ef5;
+  border-style: solid;
+}
+
+page-comments .dv_list {
+  width: 100%;
+}
+
+page-comments .dv_list .dv_item {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 1px 4px #c4c6c8;
+  margin-bottom: 8px;
+  padding: 2% 3.5%;
+  overflow: hidden;
+}
+
+page-comments .dv_list .dv_item h6 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin: 12px 0;
+}
+
+page-comments .dv_list .dv_item p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: #4f5254;
+}
+
+page-comments .dv_list .dv_item_head {
+  width: 100%;
+  height: 30px;
+  color: #c8ced1;
+  margin-bottom: 8px;
+}
+
+page-comments .dv_list .dv_item_head img {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 99999px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+page-comments .dv_list .dv_item_head p {
+  line-height: 30px;
+}
+
+page-comments .dv_list .dv_item_banner {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  margin-top: 6px;
+}
+
+page-comments .dv_list .dv_item_bottom {
+  line-height: 36px;
+  color: #c8ced1;
+  width: 100%;
+  overflow: hidden;
+}
+
+page-comments .dv_list .dv_item_bottom p {
+  line-height: 38px;
+}
+
+page-comments .dv_list .dv_item_bottom .dv_fl {
+  float: left;
+}
+
+page-comments .dv_list .dv_item_bottom .dv_fr {
+  float: right;
+}
+
 page-create-cook-data .work_top {
   width: 100%;
   border-bottom: 1px dashed #eaeaea;
@@ -55562,10 +55668,10 @@ page-fork-discover .wrap {
 }
 
 page-fork-discover .wrap .imgs {
-  width: 8rem;
-  height: 8rem;
-  margin-right: 7px;
-  margin-bottom: 7px;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
   float: left;
   background-size: cover !important;
   background-position: center center !important;
@@ -56122,10 +56228,10 @@ page-open-share ion-content .dv_top_ban .wrap {
 }
 
 page-open-share ion-content .dv_top_ban .wrap .imgs {
-  width: 8rem;
-  height: 8rem;
-  margin-right: 7px;
-  margin-bottom: 7px;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
   float: left;
   background-size: cover !important;
   background-position: center center !important;

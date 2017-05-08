@@ -1,13 +1,13 @@
 webpackJsonp([19],{
 
-/***/ 336:
+/***/ 337:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__more_page__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__more_page__ = __webpack_require__(393);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MorePageModule", function() { return MorePageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +41,7 @@ MorePageModule = __decorate([
 
 /***/ }),
 
-/***/ 391:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -78,34 +78,34 @@ var MorePage = (function () {
     }
     MorePage.prototype.init = function () {
         this.name = this.UserService._user.name;
-        this.mimg = this.UserService._user.img;
+        this.mimg = this.UserService._user.userimg;
     };
     MorePage.prototype.ionViewDidEnter = function () {
         this.init();
     };
     MorePage.prototype.pushPerson = function () {
-        //this.checkLogin( Person );
-        this.navCtrl.push('Person');
+        this.checkLogin('Person');
+        //this.navCtrl.push( 'Person' );
     };
     MorePage.prototype.pushFocusPage = function () {
-        //this.checkLogin( 'Focus' );
-        this.navCtrl.push('Focus');
+        this.checkLogin('Focus');
+        //this.navCtrl.push( 'Focus' );
     };
     MorePage.prototype.pushCollectPage = function () {
-        //this.checkLogin( 'Collect' );
-        this.navCtrl.push('Collect');
+        this.checkLogin('Collect');
+        //this.navCtrl.push( 'Collect' );
     };
     MorePage.prototype.pushMySharePage = function () {
-        //this.checkLogin( 'MyShare' );
-        this.navCtrl.push('MyShare');
+        this.checkLogin('MyShare');
+        //this.navCtrl.push( 'MyShare' );
     };
     MorePage.prototype.pushMyQuestionPage = function () {
-        //this.checkLogin( 'MyQuestion' );
-        this.navCtrl.push('MyQuestion');
+        this.checkLogin('MyQuestion');
+        //this.navCtrl.push( 'MyQuestion' );
     };
     MorePage.prototype.pushMyWorkPage = function () {
-        //this.checkLogin( 'MyWork' );
-        this.navCtrl.push('MyWork');
+        this.checkLogin('MyWork');
+        //this.navCtrl.push( 'MyWork' );
     };
     MorePage.prototype.pushSettingPage = function () {
         this.navCtrl.push('Setting');
@@ -117,7 +117,7 @@ var MorePage = (function () {
     //检查登录状态
     MorePage.prototype.checkLogin = function (page) {
         //alert(this.UserService._user.id);
-        if (this.UserService._user.id) {
+        if (this.UserService._user._id) {
             this.navCtrl.push(page);
         }
         else {

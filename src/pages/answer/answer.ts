@@ -49,6 +49,10 @@ export class AnswerPage {
     this.content.enableJsScroll();
   }
 
+  openComments(){
+    this.navCtrl.push( 'Comments' );
+  }
+
   pushPersonPage(){
     this.navCtrl.push( 'Person' );
   }

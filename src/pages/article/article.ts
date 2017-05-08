@@ -60,6 +60,10 @@ export class Article {
     this.navCtrl.push( 'Person' );
   }
 
+  openComments(){
+    this.navCtrl.push( 'Comments' );
+  }
+
   onScroll($event: any) {
 
     let scrollTop = $event.scrollTop;
