@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserService } from '../../service/user.service';
+import { Headers, Http } from '@angular/http';
 
 /**
  * Generated class for the Regist page.
@@ -14,11 +16,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Regist {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  name: '';
+  pass: '';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService, public http: Http) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Regist');
+  regist(){
+
+    if(!this.name || !this.pass){
+      return true;
+    }
+
+    let url = "http://www.devonhello.com/chihu/register";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "name="+this.name + "&pass="+this.pass, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        if(res.json()[0]['_id']){
+          this.UserService.setUser( res.json()[0] );
+          this.navCtrl.popToRoot();
+        }
+      });
   }
 
 }

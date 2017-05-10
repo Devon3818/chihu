@@ -39,9 +39,10 @@ export class Login {
       headers: headers
     })
       .subscribe((res) => {
-        alert(JSON.stringify(res.json()));
+        //alert(JSON.stringify(res.json()));
         if(res.json()[0]['_id']){
           this.UserService.setUser( res.json()[0] );
+          this.navCtrl.pop();
         }
       });
   }
@@ -68,10 +69,12 @@ export class Login {
         _that = this;
     args.client = QQSDK.ClientType.QQ;//QQSDK.ClientType.QQ,QQSDK.ClientType.TIM;
     QQSDK.ssoLogin(function (result) {
-      alert('token is ' + result.access_token);
-      alert('userid is ' + result.userid);
-      alert('expires_time is ' + new Date(parseInt(result.expires_time)) + ' TimeStamp is ' + result.expires_time);
-      _that.getQQuser(result.access_token, result.userid);
+      if( result.userid ){
+        alert('token is ' + result.access_token);
+        alert('userid is ' + result.userid);
+        alert('expires_time is ' + new Date(parseInt(result.expires_time)) + ' TimeStamp is ' + result.expires_time);
+        _that.getQQuser(result.access_token, result.userid);
+      }
   }, function (failReason) {
       alert(failReason);
     }, args);

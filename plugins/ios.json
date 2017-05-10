@@ -49,11 +49,18 @@
         },
         "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "jpush-phonegap-plugin": {
+            "APP_KEY": "634af50eb57e7339d2dc370b",
+            "PACKAGE_NAME": "com.chihu"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.chihu221601"
+        },
+        "cordova-plugin-jcore": {
+            "PACKAGE_NAME": "com.chihu"
         }
     }
 }

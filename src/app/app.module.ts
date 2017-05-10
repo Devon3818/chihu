@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { WorkService } from '../service/work_service';
 import { ImService } from '../service/im.service';
 import { UserService } from '../service/user.service';
+import { JPushService } from '../service/jPush.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UserService } from '../service/user.service';
     WorkService,
     ImService,
     UserService,
+    JPushService,
   ]
 })
 export class AppModule {}
