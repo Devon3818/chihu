@@ -17,7 +17,7 @@ export class JPushService {
 
   init() {
     var _that = this;
-    
+
     //启动极光推送
     if (window.plugins && window.plugins.jPushPlugin && !this.isInitJP) {
       this.isInitJP = true;
@@ -27,11 +27,11 @@ export class JPushService {
           // 开启
           //设置别名监听
           document.addEventListener("jpush.setTagsWithAlias", (event) => {
-            alert(JSON.stringify(event));
+            //alert(JSON.stringify(event));
           }, false)
           //监听点击状态栏通知
           document.addEventListener("jpush.openNotification", (event) => {
-            alert(JSON.stringify(event));
+            //alert(JSON.stringify(event));
           }, false)
 
         } else {
@@ -43,7 +43,7 @@ export class JPushService {
     }
   }
 
-  jpush_setAlias(Alias){
+  jpush_setAlias(Alias) {
     window.plugins.jPushPlugin.setAlias(Alias);
   }
 

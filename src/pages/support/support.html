@@ -10,30 +10,14 @@
 
     <ion-list>
 
-        <ion-item>
+        <ion-item *ngFor="let item of items">
             <ion-avatar item-left>
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">
+                <img [src]="item.userimg">
             </ion-avatar>
-            <h2>Devon</h2>
-            <p>This town ain't big enough for the two of us!This town ain't big enough for the two of us!</p>
-
-        </ion-item>
-
-        <ion-item>
-            <ion-avatar item-left>
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">
-            </ion-avatar>
-            <h2>Woody</h2>
-            <p>This town ain't big enough for the two of us!</p>
-
-        </ion-item>
-        <ion-item>
-            <ion-avatar item-left>
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">
-            </ion-avatar>
-            <h2>Woody</h2>
-            <p>This town ain't big enough for the two of us!</p>
-
+            <div (click)="open( item.artid, item.type );">
+                <h2>{{item.conttext}}</h2>
+                <p>{{item.title}}</p>
+            </div>
         </ion-item>
 
 

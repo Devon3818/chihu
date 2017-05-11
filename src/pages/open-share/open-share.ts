@@ -62,6 +62,34 @@ export class OpenShare {
       });
   }
 
+  //点赞
+  like(){
+    if (!this.UserService._user._id) {
+      this.navCtrl.push('Login');
+      return true;
+    }
+    if (this.UserService._user._id == this.data['uid']) {
+      alert("不能自己感谢自己");
+      return true;
+    }
+    
+    let url = "http://www.devonhello.com/chihu/thank";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "uid="+this.data['uid']+"&id="+this._id+"&name="+this.UserService._user.name+"&type=2"+"&userimg="+this.UserService._user.userimg+"&artid="+this.data['_id']+"&title="+this
+    .data['text'], {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        if(res.json()['result']['ok']==1){
+          alert("感谢成功");
+        }
+      });
+  }
+
   //点击图片查看
   pswpElementInit(ind) {
     
