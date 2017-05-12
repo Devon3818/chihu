@@ -84,6 +84,10 @@ var Support = (function () {
     };
     Support.prototype.getdata = function () {
         var _this = this;
+        if (!this.UserService._user._id) {
+            this.items = [];
+            return true;
+        }
         var url = "http://www.devonhello.com/chihu/getthank";
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');

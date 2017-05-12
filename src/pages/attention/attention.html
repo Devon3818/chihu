@@ -10,29 +10,13 @@
 
     <ion-list>
 
-        <ion-item>
+        <ion-item *ngFor="let item of items" (click)="pushPerson(item.id);">
             <ion-avatar item-left>
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">
+                <img [src]="item.userimg">
             </ion-avatar>
-            <h2>Woody</h2>
+            <h2>{{item.name}} :➕关注了你</h2>
 
         </ion-item>
-
-        <ion-item>
-            <ion-avatar item-left>
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">
-            </ion-avatar>
-            <h2>Woody</h2>
-
-        </ion-item>
-        <ion-item>
-            <ion-avatar item-left>
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">
-            </ion-avatar>
-            <h2>Woody</h2>
-
-        </ion-item>
-
 
     </ion-list>
 

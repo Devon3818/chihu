@@ -58,6 +58,24 @@ export class AnswerPage {
     this.navCtrl.push( 'Person' );
   }
 
+  //关注
+  fork(){
+    let url = "http://www.devonhello.com/chihu/forkuser";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "uid="+this.data['uid']+"&id="+this._id+"&name="+this.UserService._user.name+"&userimg="+this.UserService._user.userimg, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        if(res.json()['result']['ok']==1){
+          alert("关注成功");
+        }
+      });
+  }
+
   //感谢
   thank(){
     if (!this.UserService._user._id) {

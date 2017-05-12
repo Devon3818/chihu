@@ -29,6 +29,12 @@ export class Support {
   }
 
   getdata() {
+
+    if(!this.UserService._user._id){
+      this.items = [];
+      return true;
+    }
+
     let url = "http://www.devonhello.com/chihu/getthank";
 
     var headers = new Headers();
