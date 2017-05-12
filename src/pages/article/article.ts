@@ -52,6 +52,24 @@ export class Article {
       });
   }
 
+  //关注
+  fork() {
+    let url = "http://www.devonhello.com/chihu/forkuser";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&uname=" + this.data['name'] + "&userimg=" + this.UserService._user.userimg + "&uuserimg=" + this.data['userimg'], {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        if (res.json()['result']['ok'] == 1) {
+          alert("关注成功");
+        }
+      });
+  }
+
   //感谢
   thank(){
     if (!this.UserService._user._id) {

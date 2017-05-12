@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserService } from '../../service/user.service';
+import { Headers, Http } from '@angular/http';
 
 /**
  * Generated class for the FocusUser page.
@@ -14,18 +16,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FocusUser {
 
+  items = [];
   rootNavCtrl: NavController;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
+    this.getdata();
   }
 
-  pushPersonPage(){
-    this.rootNavCtrl.push( 'Person' );
+  getdata(){
+    let url = "http://www.devonhello.com/chihu/myfork";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "id="+this.UserService._user._id, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        this.items = res.json();
+      });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FocusUser');
+  pushPersonPage( _id ){
+    this.rootNavCtrl.push( 'Person', {
+      _id: _id
+    } );
   }
 
 }

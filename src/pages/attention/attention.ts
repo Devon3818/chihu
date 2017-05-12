@@ -15,12 +15,12 @@ import { UserService } from '../../service/user.service';
   templateUrl: 'attention.html',
 })
 export class Attention {
-  
+
   items = [];
   rootNavCtrl: NavController;
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
-  this.rootNavCtrl = navParams.get('rootNavCtrl');
+    this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.getdata();
   }
 
@@ -30,7 +30,7 @@ export class Attention {
 
   getdata() {
 
-    if(!this.UserService._user._id){
+    if (!this.UserService._user._id) {
       this.items = [];
       return true;
     }
@@ -49,10 +49,10 @@ export class Attention {
       });
   }
 
-  pushPerson( _id ){
-    this.rootNavCtrl.push( 'Person', {
+  pushPerson(_id) {
+    this.rootNavCtrl.push('Person', {
       _id: _id
-    } );
+    });
   }
 
 }

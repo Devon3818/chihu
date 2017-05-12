@@ -42,7 +42,7 @@ export class UserService {
         _that.storage.get('user').then((val) => {
 
             if (val && val._id) {
-                alert(val.name);
+                //alert(val.name);
                 _that._user = val;
                 _that.JPushService.jpush_setAlias( val._id+'' );
                 //_that.ImService.gettoken(val._id, val.name);
