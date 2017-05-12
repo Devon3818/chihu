@@ -68,7 +68,7 @@ export class Article {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid="+this.data['uid']+"&id="+this._id+"&name="+this.UserService._user.name+"&type=1"+"&userimg="+this.UserService._user.userimg+"&artid="+this.data['_id']+"&title="+this
+    this.http.post(url, "uid="+this.data['uid']+"&id="+this.UserService._user._id+"&name="+this.UserService._user.name+"&type=1"+"&userimg="+this.UserService._user.userimg+"&artid="+this._id+"&title="+this
     .data['title'], {
       headers: headers
     })
@@ -85,8 +85,10 @@ export class Article {
     this.content.enableJsScroll();
   }
 
-  pushPersonPage(){
-    this.navCtrl.push( 'Person' );
+  pushPersonPage( _id ){
+    this.navCtrl.push( 'Person', {
+      _id: _id
+    } );
   }
 
   openComments(){

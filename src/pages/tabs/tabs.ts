@@ -21,6 +21,7 @@ export class TabsPage {
   constructor(public navCtrl: NavController, public platform: Platform, public UserService: UserService, public toastCtrl: ToastController) {
     this.pageBack();
     //this.initjp();
+    
   }
   pageBack() {
 

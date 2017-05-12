@@ -54,8 +54,10 @@ export class AnswerPage {
     this.navCtrl.push( 'Comments' );
   }
 
-  pushPersonPage(){
-    this.navCtrl.push( 'Person' );
+  pushPersonPage( _id ){
+    this.navCtrl.push( 'Person',{
+      _id: _id
+    } );
   }
 
   //关注
@@ -65,7 +67,7 @@ export class AnswerPage {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid="+this.data['uid']+"&id="+this._id+"&name="+this.UserService._user.name+"&userimg="+this.UserService._user.userimg, {
+    this.http.post(url, "uid="+this.data['uid']+"&id="+this.UserService._user._id+"&name="+this.UserService._user.name+"&userimg="+this.UserService._user.userimg, {
       headers: headers
     })
       .subscribe((res) => {
@@ -92,7 +94,7 @@ export class AnswerPage {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid="+this.data['uid']+"&id="+this._id+"&name="+this.UserService._user.name+"&type=0"+"&userimg="+this.UserService._user.userimg+"&artid="+this.data['_id']+"&title="+this
+    this.http.post(url, "uid="+this.data['uid']+"&id="+this.UserService._user._id+"&name="+this.UserService._user.name+"&type=0"+"&userimg="+this.UserService._user.userimg+"&artid="+this._id+"&title="+this
     .data['title'], {
       headers: headers
     })

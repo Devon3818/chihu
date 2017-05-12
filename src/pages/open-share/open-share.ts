@@ -78,7 +78,7 @@ export class OpenShare {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid="+this.data['uid']+"&id="+this._id+"&name="+this.UserService._user.name+"&type=2"+"&userimg="+this.UserService._user.userimg+"&artid="+this.data['_id']+"&title="+this
+    this.http.post(url, "uid="+this.data['uid']+"&id="+this.UserService._user._id+"&name="+this.UserService._user.name+"&type=2"+"&userimg="+this.UserService._user.userimg+"&artid="+this._id+"&title="+this
     .data['text'], {
       headers: headers
     })

@@ -49,8 +49,10 @@ export class Attention {
       });
   }
 
-  pushPerson( id ){
-    this.rootNavCtrl.push( 'Person' );
+  pushPerson( _id ){
+    this.rootNavCtrl.push( 'Person', {
+      _id: _id
+    } );
   }
 
 }

@@ -72,5 +72,12 @@ export class Support {
     }
   }
 
+  pushPersonPage( _id ){
+    
+    this.rootNavCtrl.push( 'Person',{
+      _id: _id
+    } );
+  }
+
 
 }

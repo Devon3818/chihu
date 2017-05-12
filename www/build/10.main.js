@@ -121,12 +121,17 @@ var Support = (function () {
                 break;
         }
     };
+    Support.prototype.pushPersonPage = function (_id) {
+        this.rootNavCtrl.push('Person', {
+            _id: _id
+        });
+    };
     return Support;
 }());
 Support = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'page-support',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/support/support.html"*/'<!--\n  Generated template for the Support page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-item *ngFor="let item of items">\n            <ion-avatar item-left>\n                <img [src]="item.userimg">\n            </ion-avatar>\n            <div (click)="open( item.artid, item.type );">\n                <h2>{{item.conttext}}</h2>\n                <p>{{item.title}}</p>\n            </div>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/support/support.html"*/,
+        selector: 'page-support',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/support/support.html"*/'<!--\n  Generated template for the Support page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-item *ngFor="let item of items">\n            <ion-avatar item-left (click)="pushPersonPage( item.id )">\n                <img [src]="item.userimg">\n            </ion-avatar>\n            <div (click)="open( item.artid, item.type );">\n                <h2>{{item.conttext}}</h2>\n                <p>{{item.title}}</p>\n            </div>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/support/support.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
 ], Support);

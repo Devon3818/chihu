@@ -55083,6 +55083,10 @@ page-article .footanimate {
   bottom: -78px;
 }
 
+page-attention ion-list {
+  padding-bottom: 5rem !important;
+}
+
 page-broadcast-page .scroll-content {
   margin-bottom: 0 !important;
 }
@@ -56729,6 +56733,10 @@ page-setting .logout ion-label {
 
 page-support ion-label {
   white-space: inherit !important;
+}
+
+page-support ion-list {
+  padding-bottom: 5rem !important;
 }
 
 .tabs-md .tab-button {

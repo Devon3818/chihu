@@ -1,6 +1,7 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
+import { Headers, Http } from '@angular/http';
 
 /**
  * Generated class for the Person page.
@@ -25,11 +26,36 @@ export class Person {
   opacity = 1;
   name:'';
   userimg:'';
-  
+  _id = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
-    this.name = this.UserService._user.name;
-    this.userimg = this.UserService._user.userimg;
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
+    this.UserService.otherID = null;
+    if (this.navParams.get("_id")) {
+      this._id = this.navParams.get("_id");
+      this.UserService.otherID = this._id;
+      this.getdata();
+    } else {
+      this.name = this.UserService._user.name;
+      this.userimg = this.UserService._user.userimg;
+    }
+    
+  }
+
+  getdata() {
+
+    let url = "http://www.devonhello.com/chihu/getuserdata";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "id=" + this._id+'', {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        this.name = res.json()[0].name;
+        this.userimg = res.json()[0].userimg;
+      });
   }
 
   ionViewDidLoad() {

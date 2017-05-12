@@ -9,6 +9,7 @@ export class UserService {
 
     isopenimg: boolean = false;
     galleryOBJ = null;
+    otherID = null;
 
     public _init: any = {
         name: "吃乎",
