@@ -1,14 +1,14 @@
 webpackJsonp([13],{
 
-/***/ 344:
+/***/ 346:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__perparticular__ = __webpack_require__(400);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerparticularModule", function() { return PerparticularModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__question__ = __webpack_require__(403);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuestionModule", function() { return QuestionModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PerparticularModule = (function () {
-    function PerparticularModule() {
+var QuestionModule = (function () {
+    function QuestionModule() {
     }
-    return PerparticularModule;
+    return QuestionModule;
 }());
-PerparticularModule = __decorate([
+QuestionModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__perparticular__["a" /* Perparticular */],
+            __WEBPACK_IMPORTED_MODULE_2__question__["a" /* Question */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__perparticular__["a" /* Perparticular */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__question__["a" /* Question */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__perparticular__["a" /* Perparticular */]
+            __WEBPACK_IMPORTED_MODULE_2__question__["a" /* Question */]
         ]
     })
-], PerparticularModule);
+], QuestionModule);
 
-//# sourceMappingURL=perparticular.module.js.map
+//# sourceMappingURL=question.module.js.map
 
 /***/ }),
 
-/***/ 400:
+/***/ 403:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_user_service__ = __webpack_require__(245);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(50);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Perparticular; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(245);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Question; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,50 +64,137 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the Perparticular page.
+ * Generated class for the Question page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var Perparticular = (function () {
-    function Perparticular(http, navCtrl, navParams, UserService) {
+var Question = (function () {
+    function Question(http, navCtrl, navParams, ref, UserService) {
         this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.ref = ref;
         this.UserService = UserService;
-        this.user = {};
-        this.user = this.UserService._user;
-        if (this.navParams.data._id) {
-            this._id = this.navParams.data._id;
-        }
-        else {
-            this._id = this.UserService._user._id;
-        }
+        this.title = '很多it大牛在我这个年龄时已经很厉害了？';
+        this.tabanimate = false;
+        this.list = [];
+        this.data = {};
+        this.ishide = true;
+        this._id = this.navParams.get("_id");
         this.getdata();
     }
-    Perparticular.prototype.getdata = function () {
+    Question.prototype.getdata = function () {
         var _this = this;
-        var url = "http://www.devonhello.com/chihu/getuserdata";
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* Headers */]();
+        var url = "http://www.devonhello.com/chihu/question";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         this.http.post(url, "id=" + this._id, {
             headers: headers
         })
             .subscribe(function (res) {
-            _this.user = res.json()[0];
+            //alert(JSON.stringify(res.json()));
+            _this.data = res.json()[0];
+            _this.checkfork();
         });
     };
-    return Perparticular;
+    Question.prototype.getanswer = function () {
+        var _this = this;
+        var url = "http://www.devonhello.com/chihu/answer_list";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.http.post(url, "id=" + this._id, {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            //alert(JSON.stringify(res.json()));
+            _this.list = res.json();
+        });
+    };
+    //检查是否已经关注
+    Question.prototype.checkfork = function () {
+        var _this = this;
+        if (!this.UserService._user._id) {
+            this.navCtrl.push('Login');
+        }
+        else {
+            var url = "http://www.devonhello.com/chihu/checkforkquestion";
+            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
+            headers.append('Content-Type', 'application/x-www-form-urlencoded');
+            this.http.post(url, "artid=" + this._id + "&id=" + this.UserService._user._id, {
+                headers: headers
+            })
+                .subscribe(function (res) {
+                //alert(JSON.stringify(res.json()));
+                if (res.json().length == "0") {
+                    _this.ishide = false;
+                }
+                _this.getanswer();
+            });
+        }
+    };
+    //关注问题
+    Question.prototype.fork = function () {
+        var _this = this;
+        if (!this.UserService._user._id) {
+            this.navCtrl.push('Login');
+            return true;
+        }
+        if (this.ishide) {
+            alert("已关注");
+        }
+        else {
+            var url = "http://www.devonhello.com/chihu/forkquestion";
+            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
+            headers.append('Content-Type', 'application/x-www-form-urlencoded');
+            this.http.post(url, "uid=" + this.data['uid'] + "&artid=" + this._id + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&userimg=" + this.UserService._user.userimg + "&title=" + this.data['title'], {
+                headers: headers
+            })
+                .subscribe(function (res) {
+                //alert(JSON.stringify(res.json()));
+                if (res.json()['result']['ok'] == 1) {
+                    _this.ishide = true;
+                    alert("关注成功");
+                }
+            });
+        }
+    };
+    //打开页面
+    Question.prototype.pushAnswerPage = function (_id) {
+        this.navCtrl.push('AnswerPage', {
+            _id: _id
+        });
+    };
+    Question.prototype.ionViewDidLoad = function () {
+        this.content.enableJsScroll();
+    };
+    Question.prototype.onScroll = function ($event) {
+        var scrollTop = $event.scrollTop;
+        if (scrollTop > 250) {
+            if (!this.tabanimate) {
+                this.tabanimate = true;
+            }
+        }
+        else {
+            this.tabanimate = false;
+        }
+        this.ref.detectChanges();
+    };
+    return Question;
 }());
-Perparticular = __decorate([
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */])
+], Question.prototype, "content", void 0);
+Question = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'page-perparticular',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/perparticular/perparticular.html"*/'<!--\n  Generated template for the Perparticular page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content class="content overflow" id="dv_perpart">\n    <section class="dv_ban_top">\n        <div class="dv_ban_top_div">\n            <p>关注的话题</p>\n            <h2>{{user.forkqus}}</h2>\n        </div>\n        <div class="dv_ban_top_div">\n            <p>我关注的人</p>\n            <h2>{{user.forkuser}}</h2>\n        </div>\n        <div class="dv_ban_top_div">\n            <p>关注我的人</p>\n            <h2>{{user.fork}}</h2>\n        </div>\n        <p>{{user.dec}}</p>\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="eye"></ion-icon>\n                  <div>{{user.work}}</div>\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="text"></ion-icon>\n                  <div>{{user.share}}</div>\n                </button>\n            </ion-col>\n            <ion-col center text-center>\n                <button ion-button>关注</button>\n            </ion-col>\n        </ion-row>\n    </section>\n\n    <ion-list no-border>\n\n        <ion-item>\n            <ion-icon name=\'eye\' item-left color="h"></ion-icon>\n            性别\n            <ion-note item-right>\n                {{user.sex}}\n            </ion-note>\n        </ion-item>\n        <ion-item>\n            <ion-icon name=\'star\' item-left color="h"></ion-icon>\n            积分\n            <ion-note item-right>\n                {{user.integral}}\n            </ion-note>\n        </ion-item>\n        <ion-item>\n            <ion-icon name=\'document\' item-left color="h"></ion-icon>\n            居住地\n            <ion-note item-right>\n                {{user.city}}\n            </ion-note>\n        </ion-item>\n        <ion-item>\n            <ion-icon name=\'time\' item-left color="h"></ion-icon>\n            行业\n            <ion-note item-right>\n                {{user.job}}\n            </ion-note>\n        </ion-item>\n\n\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/perparticular/perparticular.html"*/,
+        selector: 'page-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/question/question.html"*/'<!--\n  Generated template for the Question page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title [class.animate]="tabanimate">\n            {{title}}\n            <p>123 个回答</p>\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="share"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n<ion-content class="content" (ionScroll)="onScroll($event)">\n\n    <section class="dv_top_ban">\n        <!--标签-->\n        <!--<span class="tips">法律</span>\n        <span class="tips">新闻</span>\n        <span class="tips">北京地铁</span>\n        <span class="tips">社会</span>-->\n\n        <h2>{{data.title}}</h2>\n        <p>{{data.text}}</p>\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="eye"></ion-icon>\n                  <div>{{data.fork}}</div>\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="text"></ion-icon>\n                  <div>{{data.answer}}</div>\n                </button>\n            </ion-col>\n            <ion-col center text-center>\n                <button [hidden]="ishide" ion-button (click)="fork();">＋ 关注</button>\n                <button [hidden]="!ishide" color="tabc" ion-button>＋ 关注</button>\n            </ion-col>\n        </ion-row>\n    </section>\n\n    <ion-list>\n        <ion-list-header>\n            {{data.answer}} 个回答\n        </ion-list-header>\n    </ion-list>\n\n    <section class="dv_list">\n        <!--重复-->\n        <section class="dv_item" *ngFor="let item of list">\n            <section class="dv_item_head">\n                <img [src]="item.userimg" />\n                <p>{{item.name}}</p>\n            </section>\n\n            <p (click)="pushAnswerPage( item._id );">{{item.dec}}</p>\n            <section (click)="pushAnswerPage( item._id );" class="dv_item_bottom">\n                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n            </section>\n        </section>\n\n    </section>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/question/question.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */]])
-], Perparticular);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
+], Question);
 
-//# sourceMappingURL=perparticular.js.map
+//# sourceMappingURL=question.js.map
 
 /***/ })
 

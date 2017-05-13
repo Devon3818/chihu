@@ -32,10 +32,8 @@ export class MyWork {
       headers: headers
     })
       .subscribe((res) => {
-        alert(JSON.stringify(res.json()));
-        
+        //alert(JSON.stringify(res.json()));
         this.items = res.json();
-        alert(this.items.length);
       });
   }
 

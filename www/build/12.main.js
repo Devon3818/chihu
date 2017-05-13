@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 346:
+/***/ 347:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__question__ = __webpack_require__(402);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuestionModule", function() { return QuestionModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__regist__ = __webpack_require__(404);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistModule", function() { return RegistModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var QuestionModule = (function () {
-    function QuestionModule() {
+var RegistModule = (function () {
+    function RegistModule() {
     }
-    return QuestionModule;
+    return RegistModule;
 }());
-QuestionModule = __decorate([
+RegistModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__question__["a" /* Question */],
+            __WEBPACK_IMPORTED_MODULE_2__regist__["a" /* Regist */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__question__["a" /* Question */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__regist__["a" /* Regist */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__question__["a" /* Question */]
+            __WEBPACK_IMPORTED_MODULE_2__regist__["a" /* Regist */]
         ]
     })
-], QuestionModule);
+], RegistModule);
 
-//# sourceMappingURL=question.module.js.map
+//# sourceMappingURL=regist.module.js.map
 
 /***/ }),
 
-/***/ 402:
+/***/ 404:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(245);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Question; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_user_service__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(50);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Regist; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,137 +64,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the Question page.
+ * Generated class for the Regist page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var Question = (function () {
-    function Question(http, navCtrl, navParams, ref, UserService) {
-        this.http = http;
+var Regist = (function () {
+    function Regist(navCtrl, navParams, UserService, http) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.ref = ref;
         this.UserService = UserService;
-        this.title = '很多it大牛在我这个年龄时已经很厉害了？';
-        this.tabanimate = false;
-        this.list = [];
-        this.data = {
-            _id: "_id",
-            uid: "uid",
-            name: "Devon2",
-            userimg: "https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100",
-            title: "鱼香肉丝怎么做？",
-            text: "鱼香肉丝怎么做？辣中带酸，酸中带甜，甜中带咸，咸中又带鲜……味道丰富而不杂腻！恰似女儿心，捉摸不透，又飘忽不定，似近又远，偶尔火辣又偶尔羞涩……",
-            time: "10-10",
-        };
-        this.ishide = true;
-        this._id = this.navParams.get("_id");
-        this.getdata();
+        this.http = http;
     }
-    Question.prototype.getdata = function () {
+    Regist.prototype.regist = function () {
         var _this = this;
-        var url = "http://www.devonhello.com/chihu/question";
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.http.post(url, "id=" + this._id, {
-            headers: headers
-        })
-            .subscribe(function (res) {
-            //alert(JSON.stringify(res.json()));
-            _this.data = res.json()[0];
-            _this.checkfork();
-            _this.getanswer();
-        });
-    };
-    Question.prototype.getanswer = function () {
-        var _this = this;
-        var url = "http://www.devonhello.com/chihu/answer_list";
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.http.post(url, "id=" + this._id, {
-            headers: headers
-        })
-            .subscribe(function (res) {
-            //alert(JSON.stringify(res.json()));
-            _this.list = res.json();
-        });
-    };
-    //检查是否已经关注
-    Question.prototype.checkfork = function () {
-        var _this = this;
-        if (!this.UserService._user._id) {
-            this.navCtrl.push('Login');
+        if (!this.name || !this.pass) {
             return true;
         }
-        var url = "http://www.devonhello.com/chihu/checkforkquestion";
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
+        var url = "http://www.devonhello.com/chihu/register";
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.http.post(url, "artid=" + this._id + "&id=" + this.UserService._user._id, {
+        this.http.post(url, "name=" + this.name + "&pass=" + this.pass, {
             headers: headers
         })
             .subscribe(function (res) {
             //alert(JSON.stringify(res.json()));
-            if (res.json().length == "0") {
-                _this.ishide = false;
+            if (res.json()[0]['_id']) {
+                _this.UserService.setUser(res.json()[0]);
+                _this.navCtrl.popToRoot();
             }
         });
     };
-    //关注问题
-    Question.prototype.fork = function () {
-        if (!this.UserService._user._id) {
-            this.navCtrl.push('Login');
-            return true;
-        }
-        var url = "http://www.devonhello.com/chihu/forkquestion";
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.http.post(url, "uid=" + this.data['uid'] + "&artid=" + this._id + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&userimg=" + this.UserService._user.userimg + "&title=" + this.data['title'], {
-            headers: headers
-        })
-            .subscribe(function (res) {
-            //alert(JSON.stringify(res.json()));
-            if (res.json()['result']['ok'] == 1) {
-                alert("关注成功");
-            }
-        });
-    };
-    //打开页面
-    Question.prototype.pushAnswerPage = function (_id) {
-        this.navCtrl.push('AnswerPage', {
-            _id: _id
-        });
-    };
-    Question.prototype.ionViewDidLoad = function () {
-        this.content.enableJsScroll();
-    };
-    Question.prototype.onScroll = function ($event) {
-        var scrollTop = $event.scrollTop;
-        if (scrollTop > 250) {
-            if (!this.tabanimate) {
-                this.tabanimate = true;
-            }
-        }
-        else {
-            this.tabanimate = false;
-        }
-        this.ref.detectChanges();
-    };
-    return Question;
+    return Regist;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */])
-], Question.prototype, "content", void 0);
-Question = __decorate([
+Regist = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'page-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/question/question.html"*/'<!--\n  Generated template for the Question page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title [class.animate]="tabanimate">\n            {{title}}\n            <p>123 个回答</p>\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="share"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n<ion-content class="content" (ionScroll)="onScroll($event)">\n\n    <section class="dv_top_ban">\n        <!--标签-->\n        <!--<span class="tips">法律</span>\n        <span class="tips">新闻</span>\n        <span class="tips">北京地铁</span>\n        <span class="tips">社会</span>-->\n\n        <h2>{{data.title}}</h2>\n        <p>{{data.text}}</p>\n        <ion-row>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="eye"></ion-icon>\n                  <div>{{data.fork}}</div>\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left clear small>\n                  <ion-icon name="text"></ion-icon>\n                  <div>{{data.answer}}</div>\n                </button>\n            </ion-col>\n            <ion-col center text-center>\n                <button [hidden]="ishide" ion-button (click)="fork();">＋ 关注</button>\n                <button [hidden]="!ishide" color="tabc" ion-button>＋ 关注</button>\n            </ion-col>\n        </ion-row>\n    </section>\n\n    <ion-list>\n        <ion-list-header>\n            {{data.answer}} 个回答\n        </ion-list-header>\n    </ion-list>\n\n    <section class="dv_list">\n        <!--重复-->\n        <section class="dv_item" *ngFor="let item of list">\n            <section class="dv_item_head">\n                <img [src]="item.userimg" />\n                <p>{{item.name}}</p>\n            </section>\n\n            <p (click)="pushAnswerPage( item._id );">{{item.dec}}</p>\n            <section (click)="pushAnswerPage( item._id );" class="dv_item_bottom">\n                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n            </section>\n        </section>\n\n    </section>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/question/question.html"*/,
+        selector: 'page-regist',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/regist/regist.html"*/'<!--\n  Generated template for the Login page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>吃乎注册</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <img class="dv_logo" src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n\n    <ion-list>\n\n        <ion-item>\n            <ion-label floating>用户：</ion-label>\n            <ion-input type="text" [(ngModel)]="name"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>密码：</ion-label>\n            <ion-input type="password" [(ngModel)]="pass"></ion-input>\n        </ion-item>\n\n    </ion-list>\n\n    <div padding>\n        <button ion-button color="icon-shop" block (click)="regist();">注册</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/regist/regist.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
-], Question);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]])
+], Regist);
 
-//# sourceMappingURL=question.js.map
+//# sourceMappingURL=regist.js.map
 
 /***/ })
 

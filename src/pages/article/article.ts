@@ -27,10 +27,10 @@ export class Article {
   old_scrollTop = 0;
   pswpElement = null;
   gallery: any = null;
-  itemsimg:any = null;
+  itemsimg: any = null;
   _id;
   uid;
-  ishide:boolean = true;
+  ishide: boolean = true;
   data: any = {};
 
   constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
@@ -38,13 +38,13 @@ export class Article {
     this.getdata();
   }
 
-  getdata(){
+  getdata() {
     let url = "http://www.devonhello.com/chihu/article_dec";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id="+this._id, {
+    this.http.post(url, "id=" + this._id, {
       headers: headers
     })
       .subscribe((res) => {
@@ -58,52 +58,58 @@ export class Article {
   checkfork() {
 
     if (!this.UserService._user._id) {
-          this.navCtrl.push('Login');
-          return true;
-        }
+      this.navCtrl.push('Login');
+    } else {
+      let url = "http://www.devonhello.com/chihu/checkfork";
 
-    let url = "http://www.devonhello.com/chihu/checkfork";
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+      this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id, {
+        headers: headers
+      })
+        .subscribe((res) => {
+          //alert(JSON.stringify(res.json()));
+          if (res.json().length == "0") {
+            this.ishide = false;
+          }
+        });
+    }
 
-    this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id, {
-      headers: headers
-    })
-      .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
-        if(res.json().length == "0"){
-          this.ishide = false;
-        }
-      });
   }
 
   //关注
   fork() {
 
     if (!this.UserService._user._id) {
-          this.navCtrl.push('Login');
-          return true;
-        }
+      this.navCtrl.push('Login');
+      return true;
+    }
 
-    let url = "http://www.devonhello.com/chihu/forkuser";
+    if (this.ishide) {
+      alert("已关注");
+    } else {
+      let url = "http://www.devonhello.com/chihu/forkuser";
 
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&uname=" + this.data['name'] + "&userimg=" + this.UserService._user.userimg + "&uuserimg=" + this.data['userimg'], {
-      headers: headers
-    })
-      .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
-        if (res.json()['result']['ok'] == 1) {
-          alert("关注成功");
-        }
-      });
+      this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&uname=" + this.data['name'] + "&userimg=" + this.UserService._user.userimg + "&uuserimg=" + this.data['userimg'], {
+        headers: headers
+      })
+        .subscribe((res) => {
+          //alert(JSON.stringify(res.json()));
+          if (res.json()['result']['ok'] == 1) {
+            this.ishide = true;
+            alert("关注成功");
+          }
+        });
+    }
+
   }
 
   //感谢
-  thank(){
+  thank() {
     if (!this.UserService._user._id) {
       this.navCtrl.push('Login');
       return true;
@@ -112,19 +118,19 @@ export class Article {
       alert("不能自己感谢自己");
       return true;
     }
-    
+
     let url = "http://www.devonhello.com/chihu/thank";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid="+this.data['uid']+"&id="+this.UserService._user._id+"&name="+this.UserService._user.name+"&type=1"+"&userimg="+this.UserService._user.userimg+"&artid="+this._id+"&title="+this
-    .data['title'], {
-      headers: headers
-    })
+    this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&type=1" + "&userimg=" + this.UserService._user.userimg + "&artid=" + this._id + "&title=" + this
+      .data['title'], {
+        headers: headers
+      })
       .subscribe((res) => {
         //alert(JSON.stringify(res.json()));
-        if(res.json()['result']['ok']==1){
+        if (res.json()['result']['ok'] == 1) {
           alert("感谢成功");
         }
       });
@@ -135,14 +141,14 @@ export class Article {
     this.content.enableJsScroll();
   }
 
-  pushPersonPage( _id ){
-    this.navCtrl.push( 'Person', {
+  pushPersonPage(_id) {
+    this.navCtrl.push('Person', {
       _id: _id
-    } );
+    });
   }
 
-  openComments(){
-    this.navCtrl.push( 'Comments' );
+  openComments() {
+    this.navCtrl.push('Comments');
   }
 
   onScroll($event: any) {
@@ -171,7 +177,7 @@ export class Article {
   }
 
   //查看步骤图
-  pswpElementInit(idx){
+  pswpElementInit(idx) {
     if (this.pswpElement == null) {
       this.pswpElement = document.querySelectorAll('.pswp')[0];
     }
@@ -186,8 +192,8 @@ export class Article {
       index: idx * 1 // start at first slide
     };
     var len = this.data.work.length;
-    
-    for(var i=0; i<len; i++){
+
+    for (var i = 0; i < len; i++) {
       var objs = {};
       objs["src"] = this.data["work"][i]["src"];
       objs["w"] = this.data["work"][i]["width"];
@@ -199,14 +205,14 @@ export class Article {
     // Initializes and opens PhotoSwipe
     this.gallery = new PhotoSwipe(this.pswpElement, PhotoSwipeUI_Default, items, options);
     this.gallery.listen('close', function () {
-      if(_that.UserService.isopenimg){
+      if (_that.UserService.isopenimg) {
         _that.UserService.isopenimg = false;
       }
     });
     this.gallery.init();
     this.UserService.galleryOBJ = this.gallery;
     this.UserService.isopenimg = true;
-    
+
 
 
   }

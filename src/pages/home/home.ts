@@ -53,8 +53,8 @@ export class HomePage {
       });
   }
 
-  push() {
-    this.navCtrl.push('AboutPage');
+  openSearch() {
+    this.navCtrl.push('Search');
   }
 
   ionViewDidLoad() {
