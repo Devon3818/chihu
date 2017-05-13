@@ -47,6 +47,8 @@ FocusQuestionModule = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(245);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FocusQuestion; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -59,6 +61,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
  * Generated class for the FocusQuestion page.
  *
@@ -66,44 +70,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var FocusQuestion = (function () {
-    function FocusQuestion(navCtrl, navParams) {
+    function FocusQuestion(http, navCtrl, navParams, UserService) {
+        this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.items = [
-            'Pokémon Yellow',
-            'Super Metroid',
-            'Mega Man X',
-            'The Legend of Zelda',
-            'Pac-Man',
-            'Super Mario World',
-            'Street Fighter II',
-            'Half Life',
-            'Final Fantasy VII',
-            'Star Fox',
-            'Tetris',
-            'Donkey Kong III',
-            'GoldenEye 007',
-            'Doom',
-            'Fallout',
-            'GTA',
-            'Halo'
-        ];
+        this.UserService = UserService;
+        this.items = [];
         this.rootNavCtrl = navParams.get('rootNavCtrl');
+        this.getdata();
     }
-    FocusQuestion.prototype.pushQuestionPage = function () {
-        this.rootNavCtrl.push('Question');
+    FocusQuestion.prototype.pushQuestionPage = function (_id) {
+        this.rootNavCtrl.push('Question', {
+            _id: _id
+        });
     };
-    FocusQuestion.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad FocusQuestion');
+    //关注问题
+    FocusQuestion.prototype.getdata = function () {
+        var _this = this;
+        var url = "http://www.devonhello.com/chihu/getforkquestion";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.http.post(url, "id=" + this.UserService._user._id, {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            //alert(JSON.stringify(res.json()));
+            _this.items = res.json();
+        });
     };
     return FocusQuestion;
 }());
 FocusQuestion = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'page-focus-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/focus-question/focus-question.html"*/'<!--\n  Generated template for the FocusQuestion page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n    <ion-list inset>\n        <button (click)="pushQuestionPage();" ion-item *ngFor="let item of items">\n    {{ item }}\n  </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/focus-question/focus-question.html"*/,
+        selector: 'page-focus-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/focus-question/focus-question.html"*/'<!--\n  Generated template for the FocusQuestion page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n    <ion-list inset>\n        <button (click)="pushQuestionPage( item.artid );" ion-item *ngFor="let item of items">\n          {{ item.title }}\n        </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/focus-question/focus-question.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
 ], FocusQuestion);
 
 //# sourceMappingURL=focus-question.js.map

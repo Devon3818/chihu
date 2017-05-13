@@ -21,8 +21,8 @@ export class Perparticular {
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.user = this.UserService._user;
-    if (this.UserService.otherID) {
-      this._id = this.UserService.otherID;
+    if (this.navParams.data._id) {
+      this._id = this.navParams.data._id;
     } else {
       this._id = this.UserService._user._id;
     }

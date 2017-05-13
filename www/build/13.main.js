@@ -77,8 +77,8 @@ var Perparticular = (function () {
         this.UserService = UserService;
         this.user = {};
         this.user = this.UserService._user;
-        if (this.UserService.otherID) {
-            this._id = this.UserService.otherID;
+        if (this.navParams.data._id) {
+            this._id = this.navParams.data._id;
         }
         else {
             this._id = this.UserService._user._id;

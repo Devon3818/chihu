@@ -30,6 +30,7 @@ export class Article {
   itemsimg:any = null;
   _id;
   uid;
+  ishide:boolean = true;
   data: any = {};
 
   constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
@@ -49,11 +50,42 @@ export class Article {
       .subscribe((res) => {
         //alert(JSON.stringify(res.json()));
         this.data = res.json()[0];
+        this.checkfork();
+      });
+  }
+
+  //检查是否已经关注
+  checkfork() {
+
+    if (!this.UserService._user._id) {
+          this.navCtrl.push('Login');
+          return true;
+        }
+
+    let url = "http://www.devonhello.com/chihu/checkfork";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        if(res.json().length == "0"){
+          this.ishide = false;
+        }
       });
   }
 
   //关注
   fork() {
+
+    if (!this.UserService._user._id) {
+          this.navCtrl.push('Login');
+          return true;
+        }
+
     let url = "http://www.devonhello.com/chihu/forkuser";
 
     var headers = new Headers();

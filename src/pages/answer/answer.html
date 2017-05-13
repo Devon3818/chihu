@@ -26,14 +26,15 @@
 <ion-content (ionScroll)="onScroll($event)">
 
     <section class="dv_title">
-        <h2>{{data.title}}</h2>
+        <h2 (click)="pushQuestionPage( data.answerid );">{{data.title}}</h2>
         <section class="user">
             <img (click)="pushPersonPage(data.uid);" [src]="data.userimg" />
             <section (click)="pushPersonPage(data.uid);" class="data">
                 <h4>{{data.name}}</h4>
                 <p>发布于：{{data.time}}</p>
             </section>
-            <section class="fork" (click)="fork();">＋ 关注</section>
+            <section [hidden]="ishide" class="fork" (click)="fork();">＋ 关注</section>
+            <section [hidden]="!ishide" class="fork nofork">＋ 关注</section>
         </section>
     </section>
 

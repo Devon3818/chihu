@@ -27,12 +27,14 @@ export class Person {
   name:'';
   userimg:'';
   _id = 0;
+  chatParams = {
+    _id: this._id
+  };
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
-    this.UserService.otherID = null;
     if (this.navParams.get("_id")) {
       this._id = this.navParams.get("_id");
-      this.UserService.otherID = this._id;
+      this.chatParams._id = this._id;
       this.getdata();
     } else {
       this.name = this.UserService._user.name;

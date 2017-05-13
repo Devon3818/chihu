@@ -54944,6 +54944,11 @@ page-answer .dv_title .user .fork {
   top: 5px;
 }
 
+page-answer .dv_title .user .nofork {
+  border: 1px solid #a7a7a7;
+  color: #a7a7a7;
+}
+
 page-answer .dv_content {
   padding: 5%;
   padding-top: 18%;
@@ -55033,6 +55038,11 @@ page-article .user .fork {
   text-align: center;
   position: relative;
   top: 5px;
+}
+
+page-article .user .nofork {
+  border: 1px solid #a7a7a7;
+  color: #a7a7a7;
 }
 
 page-article .dv_content {

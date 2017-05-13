@@ -31,7 +31,8 @@
             <h4>{{data.name}}</h4>
             <p>创建于：{{data.time}}</p>
         </section>
-        <section class="fork" (click)="fork();">＋ 关注</section>
+        <section [hidden]="ishide" class="fork" (click)="fork();">＋ 关注</section>
+        <section [hidden]="!ishide" class="fork nofork">＋ 关注</section>
     </section>
 
     <section class="dv_content">

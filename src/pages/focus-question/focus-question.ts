@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Headers, Http } from '@angular/http';
+import { UserService } from '../../service/user.service';
 
 /**
  * Generated class for the FocusQuestion page.
@@ -16,36 +18,33 @@ export class FocusQuestion {
 
   rootNavCtrl: NavController;
 
-  items = [
-    'Pokémon Yellow',
-    'Super Metroid',
-    'Mega Man X',
-    'The Legend of Zelda',
-    'Pac-Man',
-    'Super Mario World',
-    'Street Fighter II',
-    'Half Life',
-    'Final Fantasy VII',
-    'Star Fox',
-    'Tetris',
-    'Donkey Kong III',
-    'GoldenEye 007',
-    'Doom',
-    'Fallout',
-    'GTA',
-    'Halo'
-  ];
+  items = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
+    this.getdata();
   }
 
-  pushQuestionPage(){
-    this.rootNavCtrl.push( 'Question' );
+  pushQuestionPage( _id ){
+    this.rootNavCtrl.push( 'Question',{
+      _id: _id
+    } );
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FocusQuestion');
+  //关注问题
+  getdata() {
+    let url = "http://www.devonhello.com/chihu/getforkquestion";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "id=" + this.UserService._user._id, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        //alert(JSON.stringify(res.json()));
+        this.items = res.json();
+      });
   }
 
 }

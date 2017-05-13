@@ -1749,10 +1749,12 @@ var Person = (function () {
         this.maxtop = 0;
         this.opacity = 1;
         this._id = 0;
-        this.UserService.otherID = null;
+        this.chatParams = {
+            _id: this._id
+        };
         if (this.navParams.get("_id")) {
             this._id = this.navParams.get("_id");
-            this.UserService.otherID = this._id;
+            this.chatParams._id = this._id;
             this.getdata();
         }
         else {
@@ -1793,7 +1795,7 @@ __decorate([
 Person = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'page-person',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/person/person.html"*/'<!--\n  Generated template for the Person page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar color="bule">\n        <ion-title>{{name}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="text"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content (ionScroll)="onScroll($event)">\n    <section class="dv_top_ban">\n        <div [style.opacity]="opacity">\n            <img [src]="userimg" />\n            <h2>{{name}}</h2>\n        </div>\n    </section>\n\n    <super-tabs height="100%" tabColor="light" toolbarColor="light" toolbarBackground="bule" sliderColor="light">\n        <super-tab [root]="page2" title="详细信息"></super-tab>\n        <super-tab [root]="page1" title="个人主页"></super-tab>\n    </super-tabs>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/person/person.html"*/,
+        selector: 'page-person',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/person/person.html"*/'<!--\n  Generated template for the Person page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar color="bule">\n        <ion-title>{{name}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="text"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content (ionScroll)="onScroll($event)">\n    <section class="dv_top_ban">\n        <div [style.opacity]="opacity">\n            <img [src]="userimg" />\n            <h2>{{name}}</h2>\n        </div>\n    </section>\n\n    <super-tabs height="100%" tabColor="light" toolbarColor="light" toolbarBackground="bule" sliderColor="light">\n        <super-tab [root]="page2" [rootParams]="chatParams" title="详细信息"></super-tab>\n        <super-tab [root]="page1" [rootParams]="chatParams" title="个人主页"></super-tab>\n    </super-tabs>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/person/person.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */]])
 ], Person);
