@@ -18,6 +18,7 @@ export class Attention {
 
   items = [];
   rootNavCtrl: NavController;
+  nomessage:boolean = false;
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
@@ -46,6 +47,9 @@ export class Attention {
       .subscribe((res) => {
         //alert(JSON.stringify(res.json()));
         this.items = res.json();
+        if( res.json().length == '0' ){
+          this.nomessage = true;
+        }
       });
   }
 

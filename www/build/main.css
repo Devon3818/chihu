@@ -55097,6 +55097,13 @@ page-attention ion-list {
   padding-bottom: 5rem !important;
 }
 
+page-attention .nomessage {
+  background-image: url("../assets/icon/nomessage.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
 page-broadcast-page .scroll-content {
   margin-bottom: 0 !important;
 }
@@ -55967,6 +55974,13 @@ page-inform ion-label {
   white-space: inherit !important;
 }
 
+page-inform .nomessage {
+  background-image: url("../assets/icon/nomessage.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
 page-login .dv_logo {
   display: block;
   width: 8rem;
@@ -56747,6 +56761,13 @@ page-support ion-label {
 
 page-support ion-list {
   padding-bottom: 5rem !important;
+}
+
+page-support .nomessage {
+  background-image: url("../assets/icon/nomessage.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 }
 
 .tabs-md .tab-button {

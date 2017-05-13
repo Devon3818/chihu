@@ -2,4 +2,10 @@ page-inform {
     ion-label {
         white-space: inherit !important;
     }
+    .nomessage {
+        background-image: url('../assets/icon/nomessage.png') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
 }

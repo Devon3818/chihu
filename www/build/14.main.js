@@ -81,8 +81,9 @@ var Perparticular = (function () {
         this.user = this.UserService._user;
         if (this.navParams.data._id) {
             this._id = this.navParams.data._id;
-            this.isme = false;
-            this.checkfork();
+            if (this.UserService._user._id && this.navParams.data._id != this.UserService._user._id) {
+                this.isme = false;
+            }
         }
         else {
             this._id = this.UserService._user._id;
@@ -99,6 +100,9 @@ var Perparticular = (function () {
         })
             .subscribe(function (res) {
             _this.user = res.json()[0];
+            if (!_this.isme) {
+                _this.checkfork();
+            }
         });
     };
     //检查是否已经关注
@@ -145,6 +149,20 @@ var Perparticular = (function () {
     };
     //取消关注
     Perparticular.prototype.disfork = function () {
+        var _this = this;
+        var url = "http://www.devonhello.com/chihu/disfork_user";
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.http.post(url, "uid=" + this._id + "&id=" + this.UserService._user._id, {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            //alert(JSON.stringify(res.json()));
+            if (res.json() != '0') {
+                _this.ishide = false;
+                alert("取消关注成功");
+            }
+        });
     };
     return Perparticular;
 }());
