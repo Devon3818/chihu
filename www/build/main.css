@@ -56018,6 +56018,13 @@ page-messages-page ion-note {
   font-size: 1rem !important;
 }
 
+page-messages-page .nomessage {
+  background-image: url("../assets/icon/nomessage.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
 page-more-page .dv_data {
   width: 100%;
   background: #fff;

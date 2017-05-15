@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(408);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__ = __webpack_require__(359);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsModule", function() { return TabsModule; });
@@ -49,7 +49,7 @@ TabsModule = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_toolbar_super_tabs_toolbar__ = __webpack_require__(357);
@@ -94,7 +94,7 @@ var SuperTabs = (function () {
          */
         this.config = {};
         this.tabsPlacement = 'top';
-        this.tabSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* EventEmitter */]();
+        this.tabSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* EventEmitter */]();
         /**
          * @private
          */
@@ -466,38 +466,38 @@ var SuperTabs = (function () {
 }());
 
 SuperTabs.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */], args: [{
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */], args: [{
                 selector: 'super-tabs',
                 template: "\n    <super-tabs-toolbar [tabsPlacement]=\"tabsPlacement\" [hidden]=\"!isToolbarVisible\" [config]=\"config\"\n                        [color]=\"toolbarBackground\"\n                        [tabsColor]=\"toolbarColor\" [indicatorColor]=\"indicatorColor\" [badgeColor]=\"badgeColor\"\n                        [scrollTabs]=\"scrollTabs\"\n                        [selectedTab]=\"selectedTabIndex\"\n                        (tabSelect)=\"onToolbarTabSelect($event)\"></super-tabs-toolbar>\n    <super-tabs-container [config]=\"config\" [tabsCount]=\"_tabs.length\" [selectedTabIndex]=\"selectedTabIndex\"\n                          (tabSelect)=\"onContainerTabSelect($event)\" (onDrag)=\"onDrag($event)\">\n      <ng-content></ng-content>\n    </super-tabs-container>\n  ",
-                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ViewEncapsulation */].None,
-                providers: [{ provide: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* RootNode */], useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* forwardRef */])(function () { return SuperTabs; }) }]
+                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ViewEncapsulation */].None,
+                providers: [{ provide: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* RootNode */], useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* forwardRef */])(function () { return SuperTabs; }) }]
             },] },
 ];
 /** @nocollapse */
 SuperTabs.ctorParameters = function () { return [
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Optional */] },] },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Optional */] },] },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* App */], },
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* ElementRef */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* App */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Renderer2 */], },
     { type: __WEBPACK_IMPORTED_MODULE_5__providers_super_tabs_controller__["a" /* SuperTabsController */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* DeepLinker */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* DeepLinker */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
 ]; };
 SuperTabs.propDecorators = {
-    'toolbarBackground': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'toolbarColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'indicatorColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'badgeColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'id': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'height': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'selectedTabIndex': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'scrollTabs': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabsPlacement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Output */] },],
-    'toolbar': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_3__super_tabs_toolbar_super_tabs_toolbar__["a" /* SuperTabsToolbar */],] },],
-    'tabsContainer': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_4__super_tabs_container_super_tabs_container__["a" /* SuperTabsContainer */],] },],
+    'toolbarBackground': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'toolbarColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'indicatorColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'badgeColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'id': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'height': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'selectedTabIndex': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'scrollTabs': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabsPlacement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Output */] },],
+    'toolbar': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_3__super_tabs_toolbar_super_tabs_toolbar__["a" /* SuperTabsToolbar */],] },],
+    'tabsContainer': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_4__super_tabs_container_super_tabs_container__["a" /* SuperTabsContainer */],] },],
 };
 var superTabsIds = -1;
 //# sourceMappingURL=super-tabs.js.map
@@ -597,8 +597,8 @@ SuperTabsController.ctorParameters = function () { return []; };
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_transitions_transition_controller__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_transitions_transition_controller__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_super_tabs__ = __webpack_require__(353);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTab; });
 var __extends = (this && this.__extends) || (function () {
@@ -712,42 +712,42 @@ var SuperTab = (function (_super) {
         this.setElementStyle('width', width + 'px');
     };
     return SuperTab;
-}(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavControllerBase */]));
+}(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavControllerBase */]));
 
 SuperTab.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */], args: [{
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */], args: [{
                 selector: 'super-tab',
                 template: '<div #viewport></div><div class="nav-decor"></div>',
-                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ViewEncapsulation */].None
+                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ViewEncapsulation */].None
             },] },
 ];
 /** @nocollapse */
 SuperTab.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_3__super_tabs_super_tabs__["a" /* SuperTabs */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* App */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Config */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* Keyboard */], },
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* ElementRef */], },
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */], },
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Renderer */], },
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ComponentFactoryResolver */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* GestureController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* App */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* Config */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* Keyboard */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* NgZone */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Renderer */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ComponentFactoryResolver */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* GestureController */], },
     { type: __WEBPACK_IMPORTED_MODULE_2_ionic_angular_transitions_transition_controller__["a" /* TransitionController */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* ErrorHandler */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* DeepLinker */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Optional */] },] },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* DomController */], },
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* DeepLinker */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], },
 ]; };
 SuperTab.propDecorators = {
-    'title': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'icon': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'root': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'rootParams': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabId': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */], args: ['id',] },],
-    'badge': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'swipeBackEnabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    '_vp': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */], args: ['viewport', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* ViewContainerRef */] },] },],
+    'title': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'icon': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'root': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'rootParams': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabId': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */], args: ['id',] },],
+    'badge': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'swipeBackEnabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    '_vp': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: ['viewport', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* ViewContainerRef */] },] },],
 };
 //# sourceMappingURL=super-tab.js.map
 
@@ -758,7 +758,7 @@ SuperTab.propDecorators = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__super_tabs_pan_gesture__ = __webpack_require__(358);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTabsContainer; });
 
@@ -772,8 +772,8 @@ var SuperTabsContainer = (function () {
         this.domCtrl = domCtrl;
         this.ngZone = ngZone;
         this.tabsCount = 0;
-        this.tabSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* EventEmitter */]();
-        this.onDrag = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* EventEmitter */]();
+        this.tabSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* EventEmitter */]();
+        this.onDrag = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* EventEmitter */]();
         // View bindings
         this.containerPosition = 0;
         this.tabWidth = 0;
@@ -887,27 +887,27 @@ var SuperTabsContainer = (function () {
 }());
 
 SuperTabsContainer.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */], args: [{
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */], args: [{
                 selector: 'super-tabs-container',
                 template: '<div #container><ng-content></ng-content></div>',
-                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ViewEncapsulation */].None
+                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ViewEncapsulation */].None
             },] },
 ];
 /** @nocollapse */
 SuperTabsContainer.ctorParameters = function () { return [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* ElementRef */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Renderer2 */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* DomController */], },
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* NgZone */], },
 ]; };
 SuperTabsContainer.propDecorators = {
-    'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabsCount': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'selectedTabIndex': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Output */] },],
-    'onDrag': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Output */] },],
-    'container': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */], args: ['container',] },],
+    'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabsCount': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'selectedTabIndex': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Output */] },],
+    'onDrag': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Output */] },],
+    'container': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: ['container',] },],
 };
 //# sourceMappingURL=super-tabs-container.js.map
 
@@ -918,7 +918,7 @@ SuperTabsContainer.propDecorators = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__super_tabs_pan_gesture__ = __webpack_require__(358);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTabsToolbar; });
 
@@ -938,7 +938,7 @@ var SuperTabsToolbar = (function () {
         this.selectedTab = 0;
         this.indicatorPosition = 0;
         this.indicatorWidth = 0;
-        this.tabSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* EventEmitter */]();
+        this.tabSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* EventEmitter */]();
         /**
          * @private
          */
@@ -1032,33 +1032,33 @@ var SuperTabsToolbar = (function () {
 }());
 
 SuperTabsToolbar.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */], args: [{
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */], args: [{
                 selector: 'super-tabs-toolbar',
                 template: "\n    <ion-toolbar [color]=\"color\" mode=\"md\" [class.scroll-tabs]=\"scrollTabs\">\n      <div class=\"tab-buttons-container\" #tabButtonsContainer>\n        <div *ngIf=\"tabsPlacement === 'bottom'\" class=\"indicator {{ 'button-md-' + indicatorColor }}\" #indicator></div>\n        <ion-segment [color]=\"tabsColor\" [(ngModel)]=\"selectedTab\" mode=\"md\">\n          <ion-segment-button *ngFor=\"let tab of tabs; let i = index\" [value]=\"i\" (ionSelect)=\"selectedTab !== i && onTabSelect(i)\">\n            <ion-icon *ngIf=\"tab.icon\" [name]=\"tab.icon\"></ion-icon>\n            {{tab.title}}\n            <span [hidden]=\"tab.badge <= 0\" class=\"badge {{ 'badge-md-' + badgeColor }}\">{{tab.badge}}</span>\n          </ion-segment-button>\n        </ion-segment>\n        <div *ngIf=\"tabsPlacement === 'top'\" class=\"indicator {{ 'button-md-' + indicatorColor }}\" #indicator></div>\n      </div>\n    </ion-toolbar>\n  ",
-                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ViewEncapsulation */].None
+                encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ViewEncapsulation */].None
             },] },
 ];
 /** @nocollapse */
 SuperTabsToolbar.ctorParameters = function () { return [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* ElementRef */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Renderer2 */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
 ]; };
 SuperTabsToolbar.propDecorators = {
-    'color': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabsColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'badgeColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'scrollTabs': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'indicatorColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'selectedTab': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabsPlacement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */] },],
-    'tabSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Output */] },],
-    'segmentButtons': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChildren */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* SegmentButton */],] },],
-    'tabButtonsContainer': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */], args: ['tabButtonsContainer',] },],
-    'indicator': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */], args: ['indicator',] },],
-    'segment': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Segment */],] },],
+    'color': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabsColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'badgeColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'scrollTabs': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'indicatorColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'selectedTab': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabsPlacement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
+    'tabSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Output */] },],
+    'segmentButtons': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChildren */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* SegmentButton */],] },],
+    'tabButtonsContainer': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: ['tabButtonsContainer',] },],
+    'indicator': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: ['indicator',] },],
+    'segment': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Segment */],] },],
 };
 //# sourceMappingURL=super-tabs-toolbar.js.map
 
@@ -1183,7 +1183,7 @@ var SuperTabsPanGesture = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_super_tab_super_tab__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_super_tabs_super_tabs__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_super_tabs_controller__ = __webpack_require__(354);
@@ -1712,7 +1712,7 @@ exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_user_service__ = __webpack_require__(245);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1795,14 +1795,14 @@ var TabsPage = TabsPage_1 = (function () {
     return TabsPage;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('myTabs'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Tabs */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])('myTabs'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Tabs */])
 ], TabsPage.prototype, "tabs", void 0);
 TabsPage = TabsPage_1 = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/'<ion-tabs #myTabs color="fff">\n    <ion-tab color="tabc" [root]="tab1Root" tabIcon="list-box"></ion-tab>\n    <ion-tab color="tabc" [root]="tab2Root" tabIcon="aperture"></ion-tab>\n    <ion-tab color="tabc" [root]="tab3Root" tabIcon="notifications"></ion-tab>\n    <ion-tab color="tabc" [root]="tab4Root" tabIcon="chatbubbles"></ion-tab>\n    <ion-tab color="tabc" [root]="tab5Root" tabIcon="list"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/'<ion-tabs #myTabs color="fff">\n    <ion-tab color="tabc" [root]="tab1Root" tabIcon="list-box"></ion-tab>\n    <ion-tab color="tabc" [root]="tab2Root" tabIcon="aperture"></ion-tab>\n    <ion-tab color="tabc" [root]="tab3Root" tabIcon="notifications"></ion-tab>\n    <ion-tab color="tabc" [root]="tab4Root" tabIcon="chatbubbles"></ion-tab>\n    <ion-tab color="tabc" [root]="tab5Root" tabIcon="list"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/tabs/tabs.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* ToastController */]])
 ], TabsPage);
 
 var TabsPage_1;

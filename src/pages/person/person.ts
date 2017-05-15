@@ -20,6 +20,7 @@ export class Person {
 
   page1: any = 'Perhome';
   page2: any = 'Perparticular';
+  isme:boolean = true;
   old_scrollTop = 0;
   maxtop = 0;
   _that;
@@ -32,10 +33,11 @@ export class Person {
   };
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
-    if (this.navParams.get("_id")) {
+    if (this.navParams.get("_id") && this.UserService._user._id && this.navParams.get("_id") != this.UserService._user._id) {
       this._id = this.navParams.get("_id");
       this.chatParams._id = this._id;
       this.getdata();
+      this.isme = false;
     } else {
       this.name = this.UserService._user.name;
       this.userimg = this.UserService._user.userimg;
@@ -60,12 +62,10 @@ export class Person {
       });
   }
 
-  ionViewDidLoad() {
-    this.content.enableJsScroll();
-  }
-
-  ionViewDidEnter(){
-    this.content.enableJsScroll();
+  chart(){
+    this.navCtrl.push('Chat', {
+      _id: this._id
+    })
   }
 
   onScroll($event: any) {

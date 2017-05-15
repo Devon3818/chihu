@@ -41,9 +41,10 @@ export class UserService {
         _that.storage.get('user').then((val) => {
 
             if (val && val._id) {
-                //alert(val.name);
+                alert(val._id);
                 _that._user = val;
-                _that.JPushService.jpush_setAlias( val._id+'' );
+                _that.JPushService.jpush_setAlias(val._id + '');
+                _that.JPushService.JPIMlogin(val._id, val._id);
                 //_that.ImService.gettoken(val._id, val.name);
             } else {
                 alert("未登录");

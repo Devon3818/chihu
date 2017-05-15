@@ -8,8 +8,8 @@
 
     <ion-navbar color="bule">
         <ion-title>{{name}}</ion-title>
-        <ion-buttons end>
-            <button ion-button icon-only>
+        <ion-buttons [hidden]="isme" end>
+            <button (click)="chart();" ion-button icon-only>
               <ion-icon name="text"></ion-icon>
             </button>
         </ion-buttons>

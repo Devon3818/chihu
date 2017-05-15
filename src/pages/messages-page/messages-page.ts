@@ -8,7 +8,7 @@ import { UserService } from '../../service/user.service';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-declare var RongIMClient: any;
+declare var window;
 @IonicPage()
 @Component({
   selector: 'page-messages-page',
@@ -17,15 +17,30 @@ declare var RongIMClient: any;
 export class MessagesPage {
 
   list: any = [];
+  nomessage: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
-    
+
   }
 
-  pushChatPage(targetId, targetName) {
-    alert(targetId);
-    alert(targetName);
-    this.navCtrl.push('Chat');
+  pushChatPage() {
+    this.navCtrl.push('Chat', {
+      _id: 1
+    });
+  }
+
+  getAllMessages() {
+    if (this.UserService._user._id) {
+      var _that = this;
+      window.JMessage.getAllSingleConversation(
+        function (response) {
+          alert( JSON.parse(response).length );
+          alert(response);
+        }, function (errorMsg) {
+          alert(errorMsg);	// 输出错误信息。
+        });
+    }
+
   }
 
   ionViewDidLoad() {
@@ -33,24 +48,9 @@ export class MessagesPage {
   }
 
   ionViewDidEnter() {
-    if(this.UserService._user.id){
-      this.getConversationList();
+    if (this.UserService._user._id) {
+      this.getAllMessages();
     }
   }
-
-  getConversationList() {
-    var _that = this;
-    RongIMClient.getInstance().getConversationList({
-      onSuccess: function (list) {
-        //list 会话列表
-        _that.list = list;
-        alert(JSON.stringify(list));
-      },
-      onError: function (error) {
-        //GetConversationList error
-      }
-    }, null);
-  }
-
 
 }

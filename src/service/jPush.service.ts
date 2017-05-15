@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { ToastController } from 'ionic-angular';
 
 declare var window;
 declare var JPushPlugin;
@@ -8,10 +9,19 @@ export class JPushService {
 
   public headers: Headers;
   isInitJP = false;
+  inRoom = false;
 
-
-  constructor(public http: Http) {
+  constructor(public http: Http, public toastCtrl: ToastController) {
     this.init();
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: '你有一条私信...',
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
   }
 
 
@@ -45,6 +55,47 @@ export class JPushService {
 
   jpush_setAlias(Alias) {
     window.plugins.jPushPlugin.setAlias(Alias);
+  }
+
+  JPIMlogin(username, password) {
+    var _that = this;
+    window.JMessage.login(username + '', password + '',
+      function () {
+        alert("IM登录成功");
+        _that.onReceiveCustomMessage();
+      }, function (errorStr) {
+        alert(errorStr);	// 输出错误信息。
+      });
+  }
+
+  JPIMsendSingleTextMessage(name, content) {
+    window.JMessage.sendSingleTextMessage(name, content, null,
+      function (response) {
+        //var message = JSON.parse(response);
+        alert(JSON.stringify(response));
+      }, function (errorMsg) {
+        alert(errorMsg)	// 输出错误信息。
+      })
+  }
+
+  JPIMsendSingleCustomMessage(username, JsonStr) {
+    window.JMessage.sendSingleCustomMessage(username, JsonStr, null,
+      function (response) {
+        //var message = JSON.parse(response);
+        alert(response);
+      }, function (errorMsg) {
+        alert(errorMsg);	// 输出错误信息。
+      });
+  }
+
+  onReceiveCustomMessage() {
+    var _that = this;
+    document.addEventListener('jmessage.onReceiveCustomMessage', function (msg) {
+      if (!_that.inRoom) {
+        alert("root:" + JSON.stringify(msg));
+        _that.presentToast();
+      }
+    }, false);
   }
 
 }
