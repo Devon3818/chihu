@@ -1,14 +1,14 @@
 webpackJsonp([28],{
 
-/***/ 327:
+/***/ 329:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_question_type__ = __webpack_require__(384);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateQuestionTypeModule", function() { return CreateQuestionTypeModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__focus_question__ = __webpack_require__(387);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FocusQuestionModule", function() { return FocusQuestionModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CreateQuestionTypeModule = (function () {
-    function CreateQuestionTypeModule() {
+var FocusQuestionModule = (function () {
+    function FocusQuestionModule() {
     }
-    return CreateQuestionTypeModule;
+    return FocusQuestionModule;
 }());
-CreateQuestionTypeModule = __decorate([
+FocusQuestionModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__create_question_type__["a" /* CreateQuestionType */],
+            __WEBPACK_IMPORTED_MODULE_2__focus_question__["a" /* FocusQuestion */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_question_type__["a" /* CreateQuestionType */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__focus_question__["a" /* FocusQuestion */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__create_question_type__["a" /* CreateQuestionType */]
+            __WEBPACK_IMPORTED_MODULE_2__focus_question__["a" /* FocusQuestion */]
         ]
     })
-], CreateQuestionTypeModule);
+], FocusQuestionModule);
 
-//# sourceMappingURL=create-question-type.module.js.map
+//# sourceMappingURL=focus-question.module.js.map
 
 /***/ }),
 
-/***/ 384:
+/***/ 387:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateQuestionType; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(244);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FocusQuestion; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,34 +61,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
- * Generated class for the CreateQuestionType page.
+ * Generated class for the FocusQuestion page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var CreateQuestionType = (function () {
-    function CreateQuestionType(navCtrl, navParams) {
+var FocusQuestion = (function () {
+    function FocusQuestion(http, navCtrl, navParams, UserService) {
+        this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.UserService = UserService;
+        this.items = [];
+        this.rootNavCtrl = navParams.get('rootNavCtrl');
+        this.getdata();
     }
-    CreateQuestionType.prototype.next = function () {
-        this.navCtrl.push('CreateQuestionTitle');
+    FocusQuestion.prototype.pushQuestionPage = function (_id) {
+        this.rootNavCtrl.push('Question', {
+            _id: _id
+        });
     };
-    CreateQuestionType.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CreateQuestionType');
+    //关注问题
+    FocusQuestion.prototype.getdata = function () {
+        var _this = this;
+        var url = "http://www.devonhello.com/chihu/getforkquestion";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.http.post(url, "id=" + this.UserService._user._id, {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            //alert(JSON.stringify(res.json()));
+            _this.items = res.json();
+        });
     };
-    return CreateQuestionType;
+    return FocusQuestion;
 }());
-CreateQuestionType = __decorate([
+FocusQuestion = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-create-question-type',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-question-type/create-question-type.html"*/'<!--\n  Generated template for the CreateQuestionType page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>提问</ion-title>\n        <ion-buttons end (click)="next();">\n            <ion-title>下一步</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list-header>\n        问题标签\n    </ion-list-header>\n    <ion-list>\n\n\n        <ion-item>\n            <ion-label>家常菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>快手菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下饭菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>素菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>大鱼大肉</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>下酒菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>小清新</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>创意菜</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>减肥</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>美容</ion-label>\n            <ion-checkbox color="secondary"></ion-checkbox>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-question-type/create-question-type.html"*/,
+        selector: 'page-focus-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/focus-question/focus-question.html"*/'<!--\n  Generated template for the FocusQuestion page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n    <ion-list inset>\n        <button (click)="pushQuestionPage( item.artid );" ion-item *ngFor="let item of items">\n          {{ item.title }}\n        </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/focus-question/focus-question.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], CreateQuestionType);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
+], FocusQuestion);
 
-//# sourceMappingURL=create-question-type.js.map
+//# sourceMappingURL=focus-question.js.map
 
 /***/ })
 

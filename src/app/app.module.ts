@@ -11,7 +11,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { WorkService } from '../service/work_service';
-import { ImService } from '../service/im.service';
 import { UserService } from '../service/user.service';
 import { JPushService } from '../service/jPush.service';
 
@@ -36,7 +35,6 @@ import { JPushService } from '../service/jPush.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WorkService,
-    ImService,
     UserService,
     JPushService,
   ]

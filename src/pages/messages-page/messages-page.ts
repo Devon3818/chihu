@@ -20,7 +20,7 @@ export class MessagesPage {
   nomessage: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
-
+    this.getAllMessages();
   }
 
   pushChatPage() {
@@ -34,8 +34,15 @@ export class MessagesPage {
       var _that = this;
       window.JMessage.getAllSingleConversation(
         function (response) {
-          alert( JSON.parse(response).length );
+          var jpdata = JSON.parse(response),
+              len = jpdata.length;
+          //alert( len );
           alert(response);
+          if( len != '0' ){
+            _that.nomessage = false;
+            _that.list = jpdata;
+          }
+          
         }, function (errorMsg) {
           alert(errorMsg);	// 输出错误信息。
         });

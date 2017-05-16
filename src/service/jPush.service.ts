@@ -10,6 +10,7 @@ export class JPushService {
   public headers: Headers;
   isInitJP = false;
   inRoom = false;
+  msgListTHIS:any = null;
 
   constructor(public http: Http, public toastCtrl: ToastController) {
     this.init();
@@ -63,6 +64,8 @@ export class JPushService {
       function () {
         alert("IM登录成功");
         _that.onReceiveCustomMessage();
+        //_that.updateMyInfo("JOMM");
+        
       }, function (errorStr) {
         alert(errorStr);	// 输出错误信息。
       });
@@ -94,8 +97,34 @@ export class JPushService {
       if (!_that.inRoom) {
         alert("root:" + JSON.stringify(msg));
         _that.presentToast();
+      }else{
+        if(_that.msgListTHIS){
+          _that.msgListTHIS.msgList.push(msg);
+          _that.msgListTHIS.scrollToBottom();
+        }
       }
     }, false);
+  }
+
+  updateMyInfo(yourNickname) {
+    var _that = this;
+    window.JMessage.updateMyInfo('nickname', yourNickname,
+      function () {
+        // 更新成功。
+        alert("更新成功。");
+        _that.updateMyAvatar("https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100");
+      }, function (errorMsg) {
+        console.log(errorMsg);	// 输出错误信息。
+      });
+  }
+
+  updateMyAvatar(avatarFileUrl) {
+    window.JMessage.updateMyAvatar(avatarFileUrl, function () {
+      // 更新成功。
+      alert("更新头像成功。");
+    }, function (errorMsg) {
+      alert(errorMsg);
+    });
   }
 
 }

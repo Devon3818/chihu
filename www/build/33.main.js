@@ -7,8 +7,8 @@ webpackJsonp([33],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__collect_question__ = __webpack_require__(377);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectQuestionModule", function() { return CollectQuestionModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__collect_work__ = __webpack_require__(378);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectWorkModule", function() { return CollectWorkModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CollectQuestionModule = (function () {
-    function CollectQuestionModule() {
+var CollectWorkModule = (function () {
+    function CollectWorkModule() {
     }
-    return CollectQuestionModule;
+    return CollectWorkModule;
 }());
-CollectQuestionModule = __decorate([
+CollectWorkModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__collect_question__["a" /* CollectQuestion */],
+            __WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__collect_question__["a" /* CollectQuestion */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__collect_question__["a" /* CollectQuestion */]
+            __WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */]
         ]
     })
-], CollectQuestionModule);
+], CollectWorkModule);
 
-//# sourceMappingURL=collect-question.module.js.map
+//# sourceMappingURL=collect-work.module.js.map
 
 /***/ }),
 
-/***/ 377:
+/***/ 378:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(245);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CollectQuestion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(244);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CollectWork; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,13 +64,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the CollectQuestion page.
+ * Generated class for the CollectWork page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var CollectQuestion = (function () {
-    function CollectQuestion(http, navCtrl, navParams, UserService) {
+var CollectWork = (function () {
+    function CollectWork(http, navCtrl, navParams, UserService) {
         this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -79,9 +79,9 @@ var CollectQuestion = (function () {
         this.rootNavCtrl = navParams.get('rootNavCtrl');
         this.getdata();
     }
-    CollectQuestion.prototype.getdata = function () {
+    CollectWork.prototype.getdata = function () {
         var _this = this;
-        var url = "http://www.devonhello.com/chihu/my_collect_question";
+        var url = "http://www.devonhello.com/chihu/my_collect_work";
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         this.http.post(url, "id=" + this.UserService._user._id, {
@@ -92,31 +92,25 @@ var CollectQuestion = (function () {
             _this.items = _this.items.concat(res.json());
         });
     };
-    CollectQuestion.prototype.pushQuestionPage = function (_id) {
-        this.rootNavCtrl.push('Question', {
+    CollectWork.prototype.pushArticlePage = function (_id) {
+        this.rootNavCtrl.push('Article', {
             _id: _id
         });
     };
-    //打开页面
-    CollectQuestion.prototype.pushAnswerPage = function (_id) {
-        this.rootNavCtrl.push('AnswerPage', {
-            _id: _id
-        });
+    CollectWork.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CollectWork');
     };
-    CollectQuestion.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CollectQuestion');
-    };
-    return CollectQuestion;
+    return CollectWork;
 }());
-CollectQuestion = __decorate([
+CollectWork = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-collect-question',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-question/collect-question.html"*/'<!--\n  Generated template for the CollectQuestion page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p>{{item.name}} 回答了问题</p>\n        </section>\n        <h6 (click)="pushQuestionPage( item.answerid );">{{item.title}}</h6>\n        <div (click)="pushAnswerPage( item._id );">\n            <p>{{item.dec}}</p>\n            <section class="dv_item_bottom">\n                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n            </section>\n        </div>\n    </section>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-question/collect-question.html"*/,
+        selector: 'page-collect-work',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-work/collect-work.html"*/'<!--\n  Generated template for the CollectWork page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content>\n\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p>{{item.name}} 分享的作品</p>\n        </section>\n        <section (click)="pushArticlePage( item._id );" class="dv_item_banner" [style.background]="\'url(\'+item.workbanner+\')\'"></section>\n        <h6 (click)="pushArticlePage( item._id );">{{item.title}}</h6>\n\n        <p (click)="pushArticlePage( item._id );">{{item.text}}</p>\n        <section class="dv_item_bottom">\n            <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n        </section>\n    </section>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-work/collect-work.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
-], CollectQuestion);
+], CollectWork);
 
-//# sourceMappingURL=collect-question.js.map
+//# sourceMappingURL=collect-work.js.map
 
 /***/ })
 

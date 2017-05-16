@@ -62,6 +62,11 @@ export class AllDiscover {
     });
   }
 
+  //问题列表
+  pushQueList(){
+    this.rootNavCtrl.push('QueList');
+  }
+
   doInfinite(infiniteScroll) {
     //alert('Begin async operation');
 

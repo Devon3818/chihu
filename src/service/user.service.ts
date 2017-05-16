@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { ImService } from './im.service';
 import { JPushService } from './jPush.service';
 import { Platform } from 'ionic-angular';
 
@@ -17,7 +16,7 @@ export class UserService {
     }
     public _user: any;
 
-    constructor(public storage: Storage, public ImService: ImService, public Platform: Platform, public JPushService: JPushService) {
+    constructor(public storage: Storage, public Platform: Platform, public JPushService: JPushService) {
         this._user = this._init;
         this.JPushService.init();
         this.storage.ready().then(() => {

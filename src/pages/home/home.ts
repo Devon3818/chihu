@@ -2,7 +2,6 @@ import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, Content } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Headers, Http } from '@angular/http';
-import { ImService } from '../../service/im.service';
 import { UserService } from '../../service/user.service';
 
 
@@ -33,7 +32,7 @@ export class HomePage {
   items = [];
 
 
-  constructor(public http: Http, public navCtrl: NavController, storage: Storage, public ref: ChangeDetectorRef, public ImService: ImService, public UserService: UserService) {
+  constructor(public http: Http, public navCtrl: NavController, storage: Storage, public ref: ChangeDetectorRef, public UserService: UserService) {
     this._that = this;
     this.getdata();
   }

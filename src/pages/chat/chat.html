@@ -16,16 +16,16 @@
 
     <div class="message-wrap">
 
-        <div *ngFor="let msg of msgList" class="message right">
-            <img class="user-img" alt="" src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-            <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner>
+        <div *ngFor="let msg of msgList" class="message" [class.left]=" msg['direct'] == 'receive' " [class.right]=" msg['direct'] == 'send' ">
+            <img *ngIf="msg['direct'] == 'receive'" class="user-img" alt="" [src]="targuserimg" />
+            <img *ngIf="msg['direct'] != 'receive'" class="user-img" alt="" [src]="myuserimg" />
             <div class="msg-detail">
                 <div class="msg-info">
                     <p>3:15</p>
                 </div>
                 <div class="msg-content">
                     <span class="triangle"></span>
-                    <p class="line-breaker ">cordova CLI: 6.4.0 Ionic Framework Version: 3.0.0 Ionic CLI Version: 2.2.1 Ionic App Lib Version: 2.2.0</p>
+                    <p class="line-breaker ">{{msg['content']['contentStringMap']['cont']}}</p>
                 </div>
             </div>
         </div>

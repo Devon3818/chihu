@@ -64,7 +64,9 @@ export class Person {
 
   chart(){
     this.navCtrl.push('Chat', {
-      _id: this._id
+      _id: this._id,
+      name: this.name,
+      userimg: this.userimg
     })
   }
 
