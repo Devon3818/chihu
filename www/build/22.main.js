@@ -70,9 +70,20 @@ var MessagesPage = (function () {
         this.nomessage = true;
         this.getAllMessages();
     }
-    MessagesPage.prototype.pushChatPage = function () {
+    MessagesPage.prototype.pushChatPage = function (_id, type, idx) {
+        var name, userimg;
+        if (type == 'send') {
+            name = this.list[idx].latestMessage.content.contentStringMap.toUserName;
+            userimg = this.list[idx].latestMessage.content.contentStringMap.targuserimg;
+        }
+        else {
+            name = this.list[idx].latestMessage.content.contentStringMap.name;
+            userimg = this.list[idx].latestMessage.content.contentStringMap.userimg;
+        }
         this.navCtrl.push('Chat', {
-            _id: 1
+            _id: _id,
+            name: name,
+            userimg: userimg
         });
     };
     MessagesPage.prototype.getAllMessages = function () {
@@ -80,8 +91,6 @@ var MessagesPage = (function () {
             var _that = this;
             window.JMessage.getAllSingleConversation(function (response) {
                 var jpdata = JSON.parse(response), len = jpdata.length;
-                //alert( len );
-                alert(response);
                 if (len != '0') {
                     _that.nomessage = false;
                     _that.list = jpdata;
@@ -91,20 +100,15 @@ var MessagesPage = (function () {
             });
         }
     };
-    MessagesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad MessagesPage');
-    };
     MessagesPage.prototype.ionViewDidEnter = function () {
-        if (this.UserService._user._id) {
-            this.getAllMessages();
-        }
+        this.getAllMessages();
     };
     return MessagesPage;
 }());
 MessagesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-messages-page',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/messages-page/messages-page.html"*/'<!--\n  Generated template for the Messages page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title>私信</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content [class.nomessage]="nomessage">\n\n    <ion-list>\n\n        <ion-item (click)="pushChatPage();" *ngFor="let item of list">\n            <ion-avatar item-left>\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">\n            </ion-avatar>\n\n            <h2>devon</h2>\n            <p>text</p>\n            <ion-note class="dv_unreadMessageCount">1</ion-note>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/messages-page/messages-page.html"*/,
+        selector: 'page-messages-page',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/messages-page/messages-page.html"*/'<!--\n  Generated template for the Messages page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title>私信</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content [class.nomessage]="nomessage">\n\n    <ion-list>\n\n        <ion-item (click)="pushChatPage( item.targetId, item.latestMessage[\'direct\'], i );" *ngFor="let item of list; let i=index">\n            <ion-avatar item-left>\n                <img *ngIf="item.latestMessage[\'direct\'] == \'receive\'" [src]="item.latestMessage.content.contentStringMap.userimg">\n                <img *ngIf="item.latestMessage[\'direct\'] == \'send\'" [src]="item.latestMessage.content.contentStringMap.targuserimg">\n            </ion-avatar>\n\n            <h2 *ngIf="item.latestMessage[\'direct\'] == \'receive\'">{{item.latestMessage.content.contentStringMap.name}}</h2>\n            <h2 *ngIf="item.latestMessage[\'direct\'] == \'send\'">{{item.latestMessage.content.contentStringMap.toUserName}}</h2>\n            <p>{{item.latestMessage.content.contentStringMap.cont}}</p>\n            <ion-note item-right>{{item.lastMsgDate | date:\'jm\'}}</ion-note>\n        </ion-item>\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/messages-page/messages-page.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */]])
 ], MessagesPage);

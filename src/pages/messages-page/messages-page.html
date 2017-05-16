@@ -17,14 +17,16 @@
 
     <ion-list>
 
-        <ion-item (click)="pushChatPage();" *ngFor="let item of list">
+        <ion-item (click)="pushChatPage( item.targetId, item.latestMessage['direct'], i );" *ngFor="let item of list; let i=index">
             <ion-avatar item-left>
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100">
+                <img *ngIf="item.latestMessage['direct'] == 'receive'" [src]="item.latestMessage.content.contentStringMap.userimg">
+                <img *ngIf="item.latestMessage['direct'] == 'send'" [src]="item.latestMessage.content.contentStringMap.targuserimg">
             </ion-avatar>
 
-            <h2>devon</h2>
-            <p>text</p>
-            <ion-note class="dv_unreadMessageCount">1</ion-note>
+            <h2 *ngIf="item.latestMessage['direct'] == 'receive'">{{item.latestMessage.content.contentStringMap.name}}</h2>
+            <h2 *ngIf="item.latestMessage['direct'] == 'send'">{{item.latestMessage.content.contentStringMap.toUserName}}</h2>
+            <p>{{item.latestMessage.content.contentStringMap.cont}}</p>
+            <ion-note item-right>{{item.lastMsgDate | date:'jm'}}</ion-note>
         </ion-item>
 
 

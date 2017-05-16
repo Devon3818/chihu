@@ -10,7 +10,7 @@ export class JPushService {
   public headers: Headers;
   isInitJP = false;
   inRoom = false;
-  msgListTHIS:any = null;
+  msgListTHIS: any = null;
 
   constructor(public http: Http, public toastCtrl: ToastController) {
     this.init();
@@ -19,7 +19,7 @@ export class JPushService {
   presentToast() {
     let toast = this.toastCtrl.create({
       message: '你有一条私信...',
-      duration: 3000,
+      duration: 2500,
       position: 'top'
     });
     toast.present();
@@ -64,21 +64,9 @@ export class JPushService {
       function () {
         alert("IM登录成功");
         _that.onReceiveCustomMessage();
-        //_that.updateMyInfo("JOMM");
-        
       }, function (errorStr) {
         alert(errorStr);	// 输出错误信息。
       });
-  }
-
-  JPIMsendSingleTextMessage(name, content) {
-    window.JMessage.sendSingleTextMessage(name, content, null,
-      function (response) {
-        //var message = JSON.parse(response);
-        alert(JSON.stringify(response));
-      }, function (errorMsg) {
-        alert(errorMsg)	// 输出错误信息。
-      })
   }
 
   JPIMsendSingleCustomMessage(username, JsonStr) {
@@ -97,8 +85,8 @@ export class JPushService {
       if (!_that.inRoom) {
         alert("root:" + JSON.stringify(msg));
         _that.presentToast();
-      }else{
-        if(_that.msgListTHIS){
+      } else {
+        if (_that.msgListTHIS) {
           _that.msgListTHIS.msgList.push(msg);
           _that.msgListTHIS.scrollToBottom();
         }
@@ -106,25 +94,5 @@ export class JPushService {
     }, false);
   }
 
-  updateMyInfo(yourNickname) {
-    var _that = this;
-    window.JMessage.updateMyInfo('nickname', yourNickname,
-      function () {
-        // 更新成功。
-        alert("更新成功。");
-        _that.updateMyAvatar("https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100");
-      }, function (errorMsg) {
-        console.log(errorMsg);	// 输出错误信息。
-      });
-  }
-
-  updateMyAvatar(avatarFileUrl) {
-    window.JMessage.updateMyAvatar(avatarFileUrl, function () {
-      // 更新成功。
-      alert("更新头像成功。");
-    }, function (errorMsg) {
-      alert(errorMsg);
-    });
-  }
 
 }
