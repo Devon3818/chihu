@@ -2,8 +2,8 @@
 
 [![release](https://img.shields.io/badge/APP-吃乎-blue.svg)](https://github.com/kongdewen1994/chihu)
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-513752928-red.svg)]()
-[![release](https://img.shields.io/badge/release-1.0.1-blue.svg)](https://github.com/jpush/jpush-phonegap-plugin/releases)
-[![platforms](https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg)](https://github.com/jpush/jpush-phonegap-plugin)
+[![release](https://img.shields.io/badge/release-1.0.1-blue.svg)](https://github.com/kongdewen1994/chihu)
+[![platforms](https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg)](https://github.com/kongdewen1994/chihu)
 [![wx](https://img.shields.io/badge/WeChat-Devon1994-brightgreen.svg)]()
 
 支持 iOS, Android 的 ionic2例子。（ios或许有改动，请自行更改代码，和打包）
