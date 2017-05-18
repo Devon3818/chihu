@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the FocusQuestion page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-focus-question',
@@ -17,7 +11,7 @@ import { UserService } from '../../service/user.service';
 export class FocusQuestion {
 
   rootNavCtrl: NavController;
-
+  //数据存储
   items = [];
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
@@ -25,13 +19,14 @@ export class FocusQuestion {
     this.getdata();
   }
 
-  pushQuestionPage( _id ){
-    this.rootNavCtrl.push( 'Question',{
+  //查看TA的个人主页
+  pushQuestionPage(_id) {
+    this.rootNavCtrl.push('Question', {
       _id: _id
-    } );
+    });
   }
 
-  //关注问题
+  //关注的问题
   getdata() {
     let url = "http://www.devonhello.com/chihu/getforkquestion";
 
@@ -42,7 +37,6 @@ export class FocusQuestion {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.items = res.json();
       });
   }

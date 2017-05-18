@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
+import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the AllDiscover page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 declare var $: any;
 declare var Swiper: any;
 @IonicPage()
@@ -17,17 +12,18 @@ declare var Swiper: any;
 })
 export class AllDiscover {
 
-  oSwiper1: any = null;
-  oSwiper2: any = null;
+  //存储swiper对象
+  oSwiper: any = null;
   rootNavCtrl: NavController;
   //数据
   data: any = [];
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.getdata();
   }
 
+  //获取分享数据
   getdata() {
     let url = "http://www.devonhello.com/chihu/share";
 
@@ -38,40 +34,35 @@ export class AllDiscover {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.data = this.data.concat(res.json());
+        this.UserService.presentLoadingDismiss();
       });
   }
 
   ionViewDidLoad() {
-    this.oSwiper1 = new Swiper('.swiper-container', {
+    this.oSwiper = new Swiper('.swiper-container', {
       loop: true,
       autoplay: 5000,
       autoplayDisableOnInteraction: false,
       // 如果需要分页器
       pagination: '.swiper-pagination',
     });
-
   }
 
   //查看分享
   pushOpenSharePage(_id) {
-
     this.rootNavCtrl.push('OpenShare', {
       _id: _id
     });
   }
 
   //问题列表
-  pushQueList(){
+  pushQueList() {
     this.rootNavCtrl.push('QueList');
   }
 
   doInfinite(infiniteScroll) {
-    //alert('Begin async operation');
-
     setTimeout(() => {
-
       infiniteScroll.complete();
     }, 3000);
   }

@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
 
-/**
- * Generated class for the Perparticular page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-perparticular',
@@ -25,7 +19,7 @@ export class Perparticular {
     this.user = this.UserService._user;
     if (this.navParams.data._id) {
       this._id = this.navParams.data._id;
-      if(this.UserService._user._id && this._id != this.UserService._user._id){
+      if (this.UserService._user._id && this._id != this.UserService._user._id) {
         this.isme = false;
       }
     } else {
@@ -46,8 +40,10 @@ export class Perparticular {
     })
       .subscribe((res) => {
         this.user = res.json()[0];
-        if(!this.isme){
+        if (!this.isme) {
           this.checkfork();
+        } else {
+          this.UserService.presentLoadingDismiss();
         }
       });
   }
@@ -64,10 +60,10 @@ export class Perparticular {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         if (res.json().length != "0") {
           this.ishide = true;
         }
+        this.UserService.presentLoadingDismiss();
       });
   }
 
@@ -80,8 +76,9 @@ export class Perparticular {
     }
 
     if (this.ishide) {
-      alert("已关注");
+      this.UserService.showAlert("已关注");
     } else {
+      this.UserService.presentLoadingDefault();
       let url = "http://www.devonhello.com/chihu/forkuser";
 
       var headers = new Headers();
@@ -91,10 +88,10 @@ export class Perparticular {
         headers: headers
       })
         .subscribe((res) => {
-          //alert(JSON.stringify(res.json()));
           if (res.json()['result']['ok'] == 1) {
             this.ishide = true;
-            alert("关注成功");
+            this.UserService.presentLoadingDismiss();
+            this.UserService.showAlert("关注成功");
           }
         });
     }
@@ -103,7 +100,7 @@ export class Perparticular {
 
   //取消关注
   disfork() {
-
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/disfork_user";
 
     var headers = new Headers();
@@ -113,10 +110,10 @@ export class Perparticular {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         if (res.json() != '0') {
           this.ishide = false;
-          alert("取消关注成功");
+          this.UserService.presentLoadingDismiss();
+          this.UserService.showAlert("取消关注成功");
         }
       });
 

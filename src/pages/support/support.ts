@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the Support page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-support',
@@ -45,7 +39,6 @@ export class Support {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.items = res.json();
         if( res.json().length == '0' ){
           this.nomessage = true;
@@ -54,7 +47,7 @@ export class Support {
   }
 
   open(artid, type) {
-    //alert(type);
+    
     switch (type) {
       case '0':
         this.rootNavCtrl.push('AnswerPage', {

@@ -2,14 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
 import { HttpModule } from '@angular/http';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
-
 import { WorkService } from '../service/work_service';
 import { UserService } from '../service/user.service';
 import { JPushService } from '../service/jPush.service';
@@ -20,8 +16,8 @@ import { JPushService } from '../service/jPush.service';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp,{
-      tabsHideOnSubPages:true
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: true
     }),
     IonicStorageModule.forRoot(),
     HttpModule,
@@ -33,10 +29,10 @@ import { JPushService } from '../service/jPush.service';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     WorkService,
     UserService,
     JPushService,
   ]
 })
-export class AppModule {}
+export class AppModule { }

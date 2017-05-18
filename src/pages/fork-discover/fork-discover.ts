@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
+import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the ForkDiscover page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-fork-discover',
@@ -19,26 +14,24 @@ export class ForkDiscover {
   //数据
   data: any = [];
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.getforkdata();
   }
 
   getforkdata() {
-    var _that = this;
-    
+
     let url = "http://www.devonhello.com/chihu/share";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    
+
     this.http.post(url, "len=1", {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
-        _that.data = res.json();      //now *ngFor is not working
-        //alert(_that.forkdata.length);
+        this.data = res.json();
+        //this.UserService.presentLoadingDismiss();
       });
   }
 

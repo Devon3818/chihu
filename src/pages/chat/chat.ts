@@ -4,12 +4,6 @@ import { Events, Content, TextInput } from 'ionic-angular';
 import { JPushService } from '../../service/jPush.service';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the Chat page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 declare var window;
 @IonicPage()
 @Component({
@@ -21,11 +15,17 @@ export class Chat {
     @ViewChild(Content) content: Content;
     @ViewChild('chat_input') messageInput: TextInput;
 
+    //聊天数据列表
     msgList = [];
+    //输入文本信息
     editorMsg = '';
+    //目标用户吗
     toUserName = "";
+    //目标id
     targid;
+    //目标头像
     targuserimg;
+    //我的头像
     myuserimg;
 
     constructor(
@@ -40,17 +40,20 @@ export class Chat {
         this.toUserName = this.navParams.get('name');
         this.targuserimg = this.navParams.get('userimg');
         this.myuserimg = this.UserService._user.userimg;
+        //设置极光服务属性，目前进入房间单聊
         this.JPushService.inRoom = true;
+        //设置this指向到极光服务
         this.JPushService.msgListTHIS = this;
-        //this.getAllMessages();
     }
 
 
     ionViewWillLeave() {
+        //退出页面，设置极光服务以退出房间，this指向报废
         this.JPushService.inRoom = false;
         this.JPushService.msgListTHIS = null;
     }
 
+    //发送信息
     sendMsg() {
         if (this.editorMsg == '') {
             return true;
@@ -62,44 +65,27 @@ export class Chat {
             'targuserimg': this.targuserimg,
             'cont': this.editorMsg,
         };
-        //this.JPushService.JPIMsendSingleTextMessage("5919672950c7445c1d4b17de","hello jp1");
         this.JPIMsendSingleCustomMessage(this.targid, JSON.stringify(mjson));
         this.editorMsg = '';
     }
 
+    //极光发送自定义信息
     JPIMsendSingleCustomMessage(username, JsonStr) {
         var _that = this;
         window.JMessage.sendSingleCustomMessage(username, JsonStr, null,
             function (response) {
                 var message = JSON.parse(response);
-                //alert(response);
-                //_that.msgList.push(message);
                 _that.pushNewMsg(message);
             }, function (errorMsg) {
                 alert(errorMsg);	// 输出错误信息。
             });
     }
 
+    //推入信息到数据
     pushNewMsg(message) {
         this.msgList.push(message);
-        //this.editorMsg = '';
         this.scrollToBottom();
 
-    }
-
-    getAllMessages() {
-        var _that = this;
-        window.JMessage.getAllMessages('single', this.targid, null,
-            function (response) {
-                var messages = JSON.parse(response);
-                //alert(response);
-                //alert(messages[0]['direct']);
-                //alert(messages[0]['content']['contentStringMap']['cont']);
-                _that.msgList = messages;
-                _that.content.scrollToBottom();
-            }, function (errorMsg) {
-                console.log(errorMsg)	// 输出错误信息。
-            })
     }
 
     scrollToBottom() {

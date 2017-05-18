@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/*
-  Generated class for the Answer page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @IonicPage()
 @Component({
   selector: 'page-answer',
@@ -17,21 +11,25 @@ import { UserService } from '../../service/user.service';
 export class AnswerPage {
 
   @ViewChild(Content) content: Content;
-
+  //头部导航动画class属性控制
   tabanimate: boolean = false;
   old_scrollTop = 0;
-  _that;
+  //头部导航显示
   title = "回答";
+  //数据存储
   data: any = {};
+  //文章id
   _id;
+  //关注隐藏控制属性
   ishide: boolean = true;
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
-    this._that = this;
     this._id = this.navParams.get("_id");
+    this.UserService.presentLoadingDefault();
     this.getdata();
   }
 
+  //获取文章数据
   getdata() {
     let url = "http://www.devonhello.com/chihu/answer_dec";
 
@@ -42,7 +40,6 @@ export class AnswerPage {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.data = res.json()[0];
         this.checkfork();
       });
@@ -52,16 +49,19 @@ export class AnswerPage {
     this.content.enableJsScroll();
   }
 
+  //查看或评论页面
   openComments() {
     this.navCtrl.push('Comments');
   }
 
+  //查看TA的个人主页
   pushPersonPage(_id) {
     this.navCtrl.push('Person', {
       _id: _id
     });
   }
 
+  //查看问题的详细资料
   pushQuestionPage(_id) {
     this.navCtrl.push('Question', {
       _id: _id
@@ -71,9 +71,12 @@ export class AnswerPage {
   //检查是否已经关注
   checkfork() {
 
+    //判断是否登陆
     if (!this.UserService._user._id) {
+      this.UserService.presentLoadingDismiss();
+      //未登录跳转登陆页面，pass
       this.navCtrl.push('Login');
-    } else {
+    } else if( this.UserService._user._id != this.data['uid'] ) {
       let url = "http://www.devonhello.com/chihu/checkfork";
 
       var headers = new Headers();
@@ -83,10 +86,10 @@ export class AnswerPage {
         headers: headers
       })
         .subscribe((res) => {
-          //alert(JSON.stringify(res.json()));
           if (res.json().length == "0") {
             this.ishide = false;
           }
+          this.UserService.presentLoadingDismiss();
         });
     }
 
@@ -94,15 +97,18 @@ export class AnswerPage {
 
   //关注
   fork() {
-
+    
+    //判断是否登陆
     if (!this.UserService._user._id) {
+      //未登录跳转登陆页面，pass
       this.navCtrl.push('Login');
       return true;
     }
 
     if (this.ishide) {
-      alert("已关注");
+      this.UserService.showAlert( "已关注" );
     } else {
+      this.UserService.presentLoadingDefault();
       let url = "http://www.devonhello.com/chihu/forkuser";
 
       var headers = new Headers();
@@ -112,10 +118,10 @@ export class AnswerPage {
         headers: headers
       })
         .subscribe((res) => {
-          //alert(JSON.stringify(res.json()));
           if (res.json()['result']['ok'] == 1) {
             this.ishide = true;
-            alert("关注成功");
+            this.UserService.presentLoadingDismiss();
+            this.UserService.showAlert( "关注成功" );
           }
         });
     }
@@ -124,15 +130,18 @@ export class AnswerPage {
 
   //感谢
   thank() {
+
+    //判断是否登陆
     if (!this.UserService._user._id) {
+      //未登录跳转登陆页面，pass
       this.navCtrl.push('Login');
       return true;
     }
     if (this.UserService._user._id == this.data['uid']) {
-      alert("不能自己感谢自己");
+      this.UserService.showAlert( "不能自己感谢自己" );
       return true;
     }
-
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/thank";
 
     var headers = new Headers();
@@ -143,14 +152,14 @@ export class AnswerPage {
         headers: headers
       })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         if (res.json()['result']['ok'] == 1) {
-          alert("感谢成功");
+          this.UserService.presentLoadingDismiss();
+          this.UserService.showAlert( "感谢成功" );
         }
       });
   }
 
-
+  //滚动监听，改变头部状态栏动画运动
   onScroll($event: any) {
 
     let scrollTop = $event.scrollTop;
@@ -170,6 +179,10 @@ export class AnswerPage {
     }
     this.old_scrollTop = scrollTop;
     this.ref.detectChanges();
+  }
+
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
   }
 
 }

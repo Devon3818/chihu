@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { JPushService } from './jPush.service';
-import { Platform } from 'ionic-angular';
+import { Platform, AlertController, LoadingController } from 'ionic-angular';
+import { Headers, Http } from '@angular/http';
 
 @Injectable()
 export class UserService {
 
     isopenimg: boolean = false;
     galleryOBJ = null;
+    loading: any = null;
+    Version = '';
 
     public _init: any = {
         name: "吃乎",
@@ -16,14 +19,32 @@ export class UserService {
     }
     public _user: any;
 
-    constructor(public storage: Storage, public Platform: Platform, public JPushService: JPushService) {
+    constructor(public http: Http, public storage: Storage, public Platform: Platform, public JPushService: JPushService, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
         this._user = this._init;
         this.JPushService.init();
         this.storage.ready().then(() => {
-
             this.storageGet();
-
         });
+    }
+
+    showAlert(subTitle) {
+        let alert = this.alertCtrl.create({
+            title: '吃乎提示!',
+            subTitle: subTitle,
+            buttons: ['确定']
+        });
+        alert.present();
+    }
+
+    presentLoadingDefault() {
+        this.loading = this.loadingCtrl.create({
+            content: '吃乎正在加载中...'
+        });
+        this.loading.present();
+    }
+
+    presentLoadingDismiss() {
+        this.loading.dismiss();
     }
 
     //更新用户数据,录入缓存
@@ -40,13 +61,13 @@ export class UserService {
         _that.storage.get('user').then((val) => {
 
             if (val && val._id) {
-                alert(val._id);
+                //alert(val._id);
                 _that._user = val;
                 _that.JPushService.jpush_setAlias(val._id + '');
                 _that.JPushService.JPIMlogin(val._id, val._id);
                 //_that.ImService.gettoken(val._id, val.name);
             } else {
-                alert("未登录");
+                //alert("未登录");
             }
 
 
@@ -55,11 +76,9 @@ export class UserService {
 
     //清除缓存
     clearStorage() {
-        //this.ImService.disconnect();
         this.storage.clear();
         this._user = this._init;
         //this.Platform.exitApp();
     }
-
 
 }

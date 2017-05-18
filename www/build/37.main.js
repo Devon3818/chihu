@@ -7,7 +7,7 @@ webpackJsonp([37],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__article__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__article__ = __webpack_require__(376);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArticleModule", function() { return ArticleModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,13 +41,13 @@ ArticleModule = __decorate([
 
 /***/ }),
 
-/***/ 373:
+/***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(244);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Article; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -71,18 +71,26 @@ var Article = (function () {
         this.navParams = navParams;
         this.ref = ref;
         this.UserService = UserService;
+        //头部导航标题
         this.title = '';
+        //底部导航class运动控制属性
         this.tabanimate = false;
+        //头部导航class运动控制属性
         this.tabbule = false;
         this.old_scrollTop = 0;
+        //PhotoSwipeUI 的dom对象存储
         this.pswpElement = null;
+        //PhotoSwipe对象存储
         this.gallery = null;
-        this.itemsimg = null;
+        //是否关注
         this.ishide = true;
+        //数据存储
         this.data = {};
         this._id = this.navParams.get("_id");
+        this.UserService.presentLoadingDefault();
         this.getdata();
     }
+    //获取文章数据
     Article.prototype.getdata = function () {
         var _this = this;
         var url = "http://www.devonhello.com/chihu/article_dec";
@@ -92,7 +100,6 @@ var Article = (function () {
             headers: headers
         })
             .subscribe(function (res) {
-            //alert(JSON.stringify(res.json()));
             _this.data = res.json()[0];
             _this.checkfork();
         });
@@ -101,9 +108,11 @@ var Article = (function () {
     Article.prototype.checkfork = function () {
         var _this = this;
         if (!this.UserService._user._id) {
+            this.UserService.presentLoadingDismiss();
+            //未登录跳转登陆
             this.navCtrl.push('Login');
         }
-        else {
+        else if (this.UserService._user._id != this.data['uid']) {
             var url = "http://www.devonhello.com/chihu/checkfork";
             var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -111,10 +120,10 @@ var Article = (function () {
                 headers: headers
             })
                 .subscribe(function (res) {
-                //alert(JSON.stringify(res.json()));
                 if (res.json().length == "0") {
                     _this.ishide = false;
                 }
+                _this.UserService.presentLoadingDismiss();
             });
         }
     };
@@ -122,13 +131,15 @@ var Article = (function () {
     Article.prototype.fork = function () {
         var _this = this;
         if (!this.UserService._user._id) {
+            //未登录跳转登陆
             this.navCtrl.push('Login');
             return true;
         }
         if (this.ishide) {
-            alert("已关注");
+            this.UserService.showAlert("已关注");
         }
         else {
+            this.UserService.presentLoadingDefault();
             var url = "http://www.devonhello.com/chihu/forkuser";
             var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -136,24 +147,27 @@ var Article = (function () {
                 headers: headers
             })
                 .subscribe(function (res) {
-                //alert(JSON.stringify(res.json()));
                 if (res.json()['result']['ok'] == 1) {
                     _this.ishide = true;
-                    alert("关注成功");
+                    _this.UserService.presentLoadingDismiss();
+                    _this.UserService.showAlert("关注成功");
                 }
             });
         }
     };
     //感谢
     Article.prototype.thank = function () {
+        var _this = this;
         if (!this.UserService._user._id) {
+            //未登录跳转登陆
             this.navCtrl.push('Login');
             return true;
         }
         if (this.UserService._user._id == this.data['uid']) {
-            alert("不能自己感谢自己");
+            this.UserService.showAlert("不能自己感谢自己");
             return true;
         }
+        this.UserService.presentLoadingDefault();
         var url = "http://www.devonhello.com/chihu/thank";
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -162,23 +176,26 @@ var Article = (function () {
             headers: headers
         })
             .subscribe(function (res) {
-            //alert(JSON.stringify(res.json()));
             if (res.json()['result']['ok'] == 1) {
-                alert("感谢成功");
+                _this.UserService.presentLoadingDismiss();
+                _this.UserService.showAlert("感谢成功");
             }
         });
     };
     Article.prototype.ionViewDidLoad = function () {
         this.content.enableJsScroll();
     };
+    //查看TA的个人页面
     Article.prototype.pushPersonPage = function (_id) {
         this.navCtrl.push('Person', {
             _id: _id
         });
     };
+    //查看或评论页面
     Article.prototype.openComments = function () {
         this.navCtrl.push('Comments');
     };
+    //滚动监听
     Article.prototype.onScroll = function ($event) {
         var scrollTop = $event.scrollTop;
         if (scrollTop > 110 && (this.old_scrollTop - scrollTop) < 0) {
@@ -190,7 +207,7 @@ var Article = (function () {
             this.tabanimate = false;
             if (!this.tabbule && scrollTop > 150) {
                 this.tabbule = true;
-                this.title = '家常豆腐';
+                this.title = this.data['title'];
             }
             if (scrollTop <= 150) {
                 this.tabbule = false;
@@ -233,16 +250,19 @@ var Article = (function () {
         this.UserService.galleryOBJ = this.gallery;
         this.UserService.isopenimg = true;
     };
+    Article.prototype.ionViewWillLeave = function () {
+        this.UserService.presentLoadingDismiss();
+    };
     return Article;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* Content */])
 ], Article.prototype, "content", void 0);
 Article = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-article',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/article/article.html"*/'<!--\n  Generated template for the Article page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border [class.animate]="tabanimate">\n\n    <ion-navbar color="tran" [class.bule]="tabbule">\n        <ion-title>{{data.title}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="share"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content (ionScroll)="onScroll($event)">\n    <section class="dv_banner" [style.background]="\'url(\'+data.workbanner+\')\'"></section>\n    <section class="user">\n        <img (click)="pushPersonPage( data.uid );" [src]="data.userimg" />\n        <section (click)="pushPersonPage( data.uid );" class="data">\n            <h4>{{data.name}}</h4>\n            <p>创建于：{{data.time}}</p>\n        </section>\n        <section [hidden]="ishide" class="fork" (click)="fork();">＋ 关注</section>\n        <section [hidden]="!ishide" class="fork nofork">＋ 关注</section>\n    </section>\n\n    <section class="dv_content">\n        <h3>{{data.title}}</h3>\n        <p>{{data.text}}</p>\n        <h6>用料：</h6>\n\n        <ion-row *ngFor="let item of data.food">\n            <ion-col>\n                <div>{{item.name}}</div>\n            </ion-col>\n            <ion-col>\n                <div>{{item.len}}</div>\n            </ion-col>\n        </ion-row>\n\n\n        <h6>做法：</h6>\n        <div *ngFor="let item of data.work; let i=index">\n            <p><span>{{i+1}}：</span>{{item.text}}</p>\n            <section *ngIf="item.src != \'\'" class="dv_imgs" (click)="pswpElementInit(i);" [style.background]="\'url(\'+item.src+\')\'"></section>\n        </div>\n        <h6 *ngIf="data.tip != \'\'">提示：</h6>\n        <section *ngIf="data.tip != \'\'" class="dv_tips">\n            <p>{{data.tip}}</p>\n        </section>\n\n    </section>\n\n</ion-content>\n\n<ion-footer [class.footanimate]="tabanimate">\n    <ion-toolbar color=\'fff\'>\n        <div class="dv_f" (click)="openComments();">\n            <ion-icon name="text"></ion-icon>\n            123\n        </div>\n        <div class="dv_f">\n            <ion-icon name="star-outline"></ion-icon>\n            收藏\n            <!--star-->\n        </div>\n        <div class="dv_f" (click)="thank();">\n            <ion-icon name="heart-outline"></ion-icon>\n            感谢\n            <!--heart-->\n        </div>\n\n    </ion-toolbar>\n\n</ion-footer>\n\n<!-- Root element of PhotoSwipe. Must have class pswp. -->\n<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">\n\n    <!-- Background of PhotoSwipe. \n         It\'s a separate element as animating opacity is faster than rgba(). -->\n    <div class="pswp__bg"></div>\n\n    <!-- Slides wrapper with overflow:hidden. -->\n    <div class="pswp__scroll-wrap">\n\n        <!-- Container that holds slides. \n            PhotoSwipe keeps only 3 of them in the DOM to save memory.\n            Don\'t modify these 3 pswp__item elements, data is added later on. -->\n        <div class="pswp__container">\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n        </div>\n\n        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->\n        <div class="pswp__ui pswp__ui--hidden">\n\n            <div class="pswp__top-bar">\n\n                <!--  Controls are self-explanatory. Order can be changed. -->\n\n                <div class="pswp__counter"></div>\n\n                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>\n\n                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>\n\n                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->\n                <!-- element will get class pswp__preloader--active when preloader is running -->\n                <div class="pswp__preloader">\n                    <div class="pswp__preloader__icn">\n                        <div class="pswp__preloader__cut">\n                            <div class="pswp__preloader__donut"></div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">\n                <div class="pswp__share-tooltip"></div>\n            </div>\n\n            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">\n            </button>\n\n            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">\n            </button>\n\n            <div class="pswp__caption">\n                <div class="pswp__caption__center"></div>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/article/article.html"*/,
+        selector: 'page-article',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/article/article.html"*/'<ion-header no-border [class.animate]="tabanimate">\n\n    <ion-navbar color="tran" [class.bule]="tabbule">\n        <ion-title>{{data.title}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="share"></ion-icon>\n            </button>\n        </ion-buttons>\n        <ion-buttons end>\n            <button ion-button icon-only>\n              <ion-icon name="more"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content (ionScroll)="onScroll($event)">\n    <section class="dv_banner" [style.background]="\'url(\'+data.workbanner+\')\'"></section>\n    <section class="user">\n        <img (click)="pushPersonPage( data.uid );" [src]="data.userimg" />\n        <section (click)="pushPersonPage( data.uid );" class="data">\n            <h4>{{data.name}}</h4>\n            <p>创建于：{{data.time}}</p>\n        </section>\n        <section [hidden]="ishide" class="fork" (click)="fork();">＋ 关注</section>\n        <section [hidden]="!ishide" class="fork nofork">＋ 关注</section>\n    </section>\n\n    <section class="dv_content">\n        <h3>{{data.title}}</h3>\n        <p>{{data.text}}</p>\n        <h6>用料：</h6>\n\n        <ion-row *ngFor="let item of data.food">\n            <ion-col>\n                <div>{{item.name}}</div>\n            </ion-col>\n            <ion-col>\n                <div>{{item.len}}</div>\n            </ion-col>\n        </ion-row>\n\n\n        <h6>做法：</h6>\n        <div *ngFor="let item of data.work; let i=index">\n            <p><span>{{i+1}}：</span>{{item.text}}</p>\n            <section *ngIf="item.src != \'\'" class="dv_imgs" (click)="pswpElementInit(i);" [style.background]="\'url(\'+item.src+\')\'"></section>\n        </div>\n        <h6 *ngIf="data.tip != \'\'">提示：</h6>\n        <section *ngIf="data.tip != \'\'" class="dv_tips">\n            <p>{{data.tip}}</p>\n        </section>\n\n    </section>\n\n</ion-content>\n\n<ion-footer [class.footanimate]="tabanimate">\n    <ion-toolbar color=\'fff\'>\n        <div class="dv_f" (click)="openComments();">\n            <ion-icon name="text"></ion-icon>\n            123\n        </div>\n        <div class="dv_f">\n            <ion-icon name="star-outline"></ion-icon>\n            收藏\n            <!--star-->\n        </div>\n        <div class="dv_f" (click)="thank();">\n            <ion-icon name="heart-outline"></ion-icon>\n            感谢\n            <!--heart-->\n        </div>\n\n    </ion-toolbar>\n\n</ion-footer>\n\n<!-- Root element of PhotoSwipe. Must have class pswp. -->\n<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">\n\n    <!-- Background of PhotoSwipe. \n         It\'s a separate element as animating opacity is faster than rgba(). -->\n    <div class="pswp__bg"></div>\n\n    <!-- Slides wrapper with overflow:hidden. -->\n    <div class="pswp__scroll-wrap">\n\n        <!-- Container that holds slides. \n            PhotoSwipe keeps only 3 of them in the DOM to save memory.\n            Don\'t modify these 3 pswp__item elements, data is added later on. -->\n        <div class="pswp__container">\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n            <div class="pswp__item"></div>\n        </div>\n\n        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->\n        <div class="pswp__ui pswp__ui--hidden">\n\n            <div class="pswp__top-bar">\n\n                <!--  Controls are self-explanatory. Order can be changed. -->\n\n                <div class="pswp__counter"></div>\n\n                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>\n\n                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>\n\n                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->\n                <!-- element will get class pswp__preloader--active when preloader is running -->\n                <div class="pswp__preloader">\n                    <div class="pswp__preloader__icn">\n                        <div class="pswp__preloader__cut">\n                            <div class="pswp__preloader__donut"></div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">\n                <div class="pswp__share-tooltip"></div>\n            </div>\n\n            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">\n            </button>\n\n            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">\n            </button>\n\n            <div class="pswp__caption">\n                <div class="pswp__caption__center"></div>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/article/article.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
 ], Article);

@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the MyShare page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-my-share',
@@ -32,13 +26,8 @@ export class MyShare {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.data = res.json();
       });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MyShare');
   }
 
   //查看分享

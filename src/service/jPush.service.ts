@@ -62,7 +62,7 @@ export class JPushService {
     var _that = this;
     window.JMessage.login(username + '', password + '',
       function () {
-        alert("IM登录成功");
+        //alert("IM登录成功");
         _that.onReceiveCustomMessage();
       }, function (errorStr) {
         alert(errorStr);	// 输出错误信息。
@@ -73,7 +73,7 @@ export class JPushService {
     window.JMessage.sendSingleCustomMessage(username, JsonStr, null,
       function (response) {
         //var message = JSON.parse(response);
-        alert(response);
+        //alert(response);
       }, function (errorMsg) {
         alert(errorMsg);	// 输出错误信息。
       });
@@ -83,7 +83,7 @@ export class JPushService {
     var _that = this;
     document.addEventListener('jmessage.onReceiveCustomMessage', function (msg) {
       if (!_that.inRoom) {
-        alert("root:" + JSON.stringify(msg));
+        //alert("root:" + JSON.stringify(msg));
         _that.presentToast();
       } else {
         if (_that.msgListTHIS) {

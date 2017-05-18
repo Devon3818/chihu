@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { Setting } from './setting';
-import { AppVersion } from '@ionic-native/app-version';
+import { FileOpener } from '@ionic-native/file-opener';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,10 @@ import { AppVersion } from '@ionic-native/app-version';
     Setting
   ],
   providers: [
-    AppVersion
+    FileOpener,
+    Transfer,
+    TransferObject,
+    File
   ]
 })
 export class SettingModule {}

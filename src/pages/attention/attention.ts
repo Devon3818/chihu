@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the Attention page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-attention',
@@ -16,9 +10,11 @@ import { UserService } from '../../service/user.service';
 })
 export class Attention {
 
+  //数据存储
   items = [];
   rootNavCtrl: NavController;
-  nomessage:boolean = false;
+  //是否有消息class控制
+  nomessage: boolean = false;
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
@@ -29,9 +25,11 @@ export class Attention {
     this.getdata();
   }
 
+  //获取数据
   getdata() {
 
     if (!this.UserService._user._id) {
+      //未登录
       this.items = [];
       return true;
     }
@@ -45,14 +43,14 @@ export class Attention {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.items = res.json();
-        if( res.json().length == '0' ){
+        if (res.json().length == '0') {
           this.nomessage = true;
         }
       });
   }
 
+  //查看TA的个人主页
   pushPerson(_id) {
     this.rootNavCtrl.push('Person', {
       _id: _id

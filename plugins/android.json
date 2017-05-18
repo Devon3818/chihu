@@ -59,6 +59,18 @@
         "jmessage-phonegap-plugin": {
             "APP_KEY": "634af50eb57e7339d2dc370b",
             "PACKAGE_NAME": "com.chihu"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.chihu"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.chihu"
+        },
+        "install": {
+            "PACKAGE_NAME": "com.chihu"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.chihu"
         }
     },
     "dependent_plugins": {

@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, Content, Platform } from 'ionic-an
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the OpenShare page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 declare var PhotoSwipe: any;
 declare var PhotoSwipeUI_Default: any;
 @IonicPage()
@@ -22,7 +16,6 @@ export class OpenShare {
 
   title = '';
   tabanimate: boolean = false;
-  _that;
   gallery: any = null;
   pswpElement: any = null;
   data: any = {
@@ -40,10 +33,10 @@ export class OpenShare {
   _id;
 
   constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
-    this._that = this;
     this._id = this.navParams.get('_id');
+    this.UserService.presentLoadingDefault();
     this.getdata();
-    
+
   }
 
   getdata() {
@@ -56,43 +49,43 @@ export class OpenShare {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.data = res.json()[0];
-        this.title = res.json()[0]['name'] + ' 分享了心情'
+        this.title = res.json()[0]['name'] + ' 分享了心情';
+        this.UserService.presentLoadingDismiss();
       });
   }
 
   //点赞
-  like(){
+  like() {
     if (!this.UserService._user._id) {
       this.navCtrl.push('Login');
       return true;
     }
     if (this.UserService._user._id == this.data['uid']) {
-      alert("不能自己感谢自己");
+      this.UserService.showAlert("❌ 抱歉，不能为自己点赞");
       return true;
     }
-    
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/thank";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid="+this.data['uid']+"&id="+this.UserService._user._id+"&name="+this.UserService._user.name+"&type=2"+"&userimg="+this.UserService._user.userimg+"&artid="+this._id+"&title="+this
-    .data['text'], {
-      headers: headers
-    })
+    this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&type=2" + "&userimg=" + this.UserService._user.userimg + "&artid=" + this._id + "&title=" + this
+      .data['text'], {
+        headers: headers
+      })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
-        if(res.json()['result']['ok']==1){
-          alert("感谢成功");
+        if (res.json()['result']['ok'] == 1) {
+          this.UserService.presentLoadingDismiss();
+          this.UserService.showAlert("👍 点赞成功");
         }
       });
   }
 
   //点击图片查看
   pswpElementInit(ind) {
-    
+
     if (this.pswpElement == null) {
       this.pswpElement = document.querySelectorAll('.pswp')[0];
     }
@@ -121,7 +114,7 @@ export class OpenShare {
     // Initializes and opens PhotoSwipe
     this.gallery = new PhotoSwipe(this.pswpElement, PhotoSwipeUI_Default, items, options);
     this.gallery.listen('close', function () {
-      if(_that.UserService.isopenimg){
+      if (_that.UserService.isopenimg) {
         _that.UserService.isopenimg = false;
       }
     });
@@ -148,12 +141,6 @@ export class OpenShare {
     }
 
     this.ref.detectChanges();
-  }
-
-  ionViewDidLeave(){
-    this.plt.registerBackButtonAction(():any =>{
-        return this.navCtrl.pop();
-    },0)
   }
 
 }

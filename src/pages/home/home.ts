@@ -1,10 +1,7 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, Content } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
-
-
 
 @IonicPage()
 @Component({
@@ -20,24 +17,24 @@ export class HomePage {
   spanisload: boolean = false;
   old_scrollTop = 0;
   new_scrollTop = 0;
-  _that;
 
   ontouchstartY = 0;
   ontouchmoveY = 0;
   loadX: any = "-50px";
   checkload = true;
-  itimer:any = null;
+  itimer: any = null;
 
   //数据
   items = [];
 
 
-  constructor(public http: Http, public navCtrl: NavController, storage: Storage, public ref: ChangeDetectorRef, public UserService: UserService) {
-    this._that = this;
+  constructor(public http: Http, public navCtrl: NavController, public ref: ChangeDetectorRef, public UserService: UserService) {
+    this.UserService.presentLoadingDefault();
     this.getdata();
   }
 
-  getdata(){
+  //获取数据
+  getdata() {
     let url = "http://www.devonhello.com/chihu/home";
 
     var headers = new Headers();
@@ -47,8 +44,8 @@ export class HomePage {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.items = this.items.concat(res.json());
+        this.UserService.presentLoadingDismiss();
       });
   }
 
@@ -84,29 +81,29 @@ export class HomePage {
   }
 
   //打开页面
-  pushAnswerPage( _id ) {
-    this.navCtrl.push('AnswerPage',{
+  pushAnswerPage(_id) {
+    this.navCtrl.push('AnswerPage', {
       _id: _id
     });
   }
 
   //打开页面
   pushQuestionPage(_id) {
-    this.navCtrl.push('Question',{
+    this.navCtrl.push('Question', {
       _id: _id
     });
   }
 
   //打开页面
-  pushArticlePage( _id ) {
-    this.navCtrl.push('Article',{
+  pushArticlePage(_id) {
+    this.navCtrl.push('Article', {
       _id: _id
     });
   }
 
   //创建菜谱
   CreateCook() {
-    this.checkLogin( 'CreateCookTitle' )
+    this.checkLogin('CreateCookTitle')
     //this.navCtrl.push('Login');
   }
 
@@ -124,7 +121,7 @@ export class HomePage {
 
   //检查登录状态
   checkLogin(page) {
-    
+
     if (this.UserService._user._id) {
       this.navCtrl.push(page);
     } else {
@@ -178,8 +175,8 @@ export class HomePage {
 
   }
 
-  ionViewDidEnter(){
-    
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
   }
 
 }

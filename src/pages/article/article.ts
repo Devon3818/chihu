@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, Content, Platform } from 'ionic-an
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the Article page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 declare var PhotoSwipe: any;
 declare var PhotoSwipeUI_Default: any;
 declare var Image: any;
@@ -21,23 +15,31 @@ export class Article {
 
   @ViewChild(Content) content: Content;
 
+  //头部导航标题
   title = '';
+  //底部导航class运动控制属性
   tabanimate: boolean = false;
+  //头部导航class运动控制属性
   tabbule: boolean = false;
   old_scrollTop = 0;
+  //PhotoSwipeUI 的dom对象存储
   pswpElement = null;
+  //PhotoSwipe对象存储
   gallery: any = null;
-  itemsimg: any = null;
+  //文章id
   _id;
-  uid;
+  //是否关注
   ishide: boolean = true;
+  //数据存储
   data: any = {};
 
   constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
     this._id = this.navParams.get("_id");
+    this.UserService.presentLoadingDefault();
     this.getdata();
   }
 
+  //获取文章数据
   getdata() {
     let url = "http://www.devonhello.com/chihu/article_dec";
 
@@ -48,7 +50,6 @@ export class Article {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.data = res.json()[0];
         this.checkfork();
       });
@@ -58,8 +59,10 @@ export class Article {
   checkfork() {
 
     if (!this.UserService._user._id) {
+      this.UserService.presentLoadingDismiss();
+      //未登录跳转登陆
       this.navCtrl.push('Login');
-    } else {
+    } else if (this.UserService._user._id != this.data['uid']) {
       let url = "http://www.devonhello.com/chihu/checkfork";
 
       var headers = new Headers();
@@ -69,10 +72,10 @@ export class Article {
         headers: headers
       })
         .subscribe((res) => {
-          //alert(JSON.stringify(res.json()));
           if (res.json().length == "0") {
             this.ishide = false;
           }
+          this.UserService.presentLoadingDismiss();
         });
     }
 
@@ -82,13 +85,15 @@ export class Article {
   fork() {
 
     if (!this.UserService._user._id) {
+      //未登录跳转登陆
       this.navCtrl.push('Login');
       return true;
     }
 
     if (this.ishide) {
-      alert("已关注");
+      this.UserService.showAlert("已关注");
     } else {
+      this.UserService.presentLoadingDefault();
       let url = "http://www.devonhello.com/chihu/forkuser";
 
       var headers = new Headers();
@@ -98,10 +103,10 @@ export class Article {
         headers: headers
       })
         .subscribe((res) => {
-          //alert(JSON.stringify(res.json()));
           if (res.json()['result']['ok'] == 1) {
             this.ishide = true;
-            alert("关注成功");
+            this.UserService.presentLoadingDismiss();
+            this.UserService.showAlert("关注成功");
           }
         });
     }
@@ -111,14 +116,15 @@ export class Article {
   //感谢
   thank() {
     if (!this.UserService._user._id) {
+      //未登录跳转登陆
       this.navCtrl.push('Login');
       return true;
     }
     if (this.UserService._user._id == this.data['uid']) {
-      alert("不能自己感谢自己");
+      this.UserService.showAlert("不能自己感谢自己");
       return true;
     }
-
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/thank";
 
     var headers = new Headers();
@@ -129,9 +135,9 @@ export class Article {
         headers: headers
       })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         if (res.json()['result']['ok'] == 1) {
-          alert("感谢成功");
+          this.UserService.presentLoadingDismiss();
+          this.UserService.showAlert("感谢成功");
         }
       });
   }
@@ -141,16 +147,19 @@ export class Article {
     this.content.enableJsScroll();
   }
 
+  //查看TA的个人页面
   pushPersonPage(_id) {
     this.navCtrl.push('Person', {
       _id: _id
     });
   }
 
+  //查看或评论页面
   openComments() {
     this.navCtrl.push('Comments');
   }
 
+  //滚动监听
   onScroll($event: any) {
 
     let scrollTop = $event.scrollTop;
@@ -165,7 +174,7 @@ export class Article {
       this.tabanimate = false;
       if (!this.tabbule && scrollTop > 150) {
         this.tabbule = true;
-        this.title = '家常豆腐';
+        this.title = this.data['title'];
       }
       if (scrollTop <= 150) {
         this.tabbule = false;
@@ -215,6 +224,10 @@ export class Article {
 
 
 
+  }
+
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
   }
 
 }

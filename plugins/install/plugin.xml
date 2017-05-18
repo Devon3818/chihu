@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="install" version="1.0">
+    <name>install</name>
+    <author>weelion</author>
+    <description>install</description>
+    <keywords>cordova, install</keywords>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/install.js" name="Install">
+        <clobbers target="install" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Install">
+                <param name="android-package" value="so.doo.app.plugins.Install" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        <source-file src="src/android/Install.java" target-dir="src/so/doo/app/plugins" />
+        <source-file src="src/android/InstallUtils.java" target-dir="src/so/doo/app/plugins" />
+    </platform>
+</plugin>

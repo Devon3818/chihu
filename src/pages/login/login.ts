@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
 
-/**
- * Generated class for the Login page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 declare var QQSDK: any;
 @IonicPage()
 @Component({
@@ -24,9 +18,9 @@ export class Login {
 
   }
 
-  login(){
+  login() {
 
-    if(!this.name || !this.pass){
+    if (!this.name || !this.pass) {
       return true;
     }
 
@@ -35,21 +29,20 @@ export class Login {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "name="+this.name + "&pass="+this.pass, {
+    this.http.post(url, "name=" + this.name + "&pass=" + this.pass, {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
-        if(res.json()[0]['_id']){
-          this.UserService.setUser( res.json()[0] );
+        if (res.json()[0]['_id']) {
+          this.UserService.setUser(res.json()[0]);
           this.navCtrl.pop();
         }
       });
   }
 
   //注册
-  regist(){
-    this.navCtrl.push( 'Regist' );
+  regist() {
+    this.navCtrl.push('Regist');
   }
 
   QQinit() {
@@ -66,16 +59,13 @@ export class Login {
 
   QQlogin() {
     var args = { client: '' },
-        _that = this;
+      _that = this;
     args.client = QQSDK.ClientType.QQ;//QQSDK.ClientType.QQ,QQSDK.ClientType.TIM;
     QQSDK.ssoLogin(function (result) {
-      if( result.userid ){
-        alert('token is ' + result.access_token);
-        alert('userid is ' + result.userid);
-        alert('expires_time is ' + new Date(parseInt(result.expires_time)) + ' TimeStamp is ' + result.expires_time);
+      if (result.userid) {
         _that.getQQuser(result.access_token, result.userid);
       }
-  }, function (failReason) {
+    }, function (failReason) {
       alert(failReason);
     }, args);
   }
@@ -92,10 +82,6 @@ export class Login {
         //_that.UserService.setUser( res.json()['nickname'], accessToken, res.json()['figureurl_2'], sex );
       });
 
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Login');
   }
 
 }

@@ -141,5 +141,38 @@
         "variables": {
             "APP_KEY": "634af50eb57e7339d2dc370b"
         }
+    },
+    "cordova-plugin-file-transfer": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-file-transfer"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-file": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-file"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "install": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/weelion/phonegap-plugin-install.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-file-opener2": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-file-opener2@2.0.6"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

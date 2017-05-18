@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
 
-/**
- * Generated class for the Person page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-person',
@@ -21,10 +15,6 @@ export class Person {
   page1: any = 'Perhome';
   page2: any = 'Perparticular';
   isme:boolean = true;
-  old_scrollTop = 0;
-  maxtop = 0;
-  _that;
-  opacity = 1;
   name:'';
   userimg:'';
   _id = 0;
@@ -42,7 +32,7 @@ export class Person {
       this.name = this.UserService._user.name;
       this.userimg = this.UserService._user.userimg;
     }
-    
+    this.UserService.presentLoadingDefault();
   }
 
   getdata() {
@@ -56,7 +46,6 @@ export class Person {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.name = res.json()[0].name;
         this.userimg = res.json()[0].userimg;
       });
@@ -68,14 +57,6 @@ export class Person {
       name: this.name,
       userimg: this.userimg
     })
-  }
-
-  onScroll($event: any) {
-
-    let scrollTop = $event.scrollTop;
-
-    
-    this.ref.detectChanges();
   }
 
 }

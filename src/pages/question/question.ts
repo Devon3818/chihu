@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 import { UserService } from '../../service/user.service';
 
-/**
- * Generated class for the Question page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-question',
@@ -21,7 +15,7 @@ export class Question {
 
   @ViewChild(Content) content: Content;
 
-  title = '很多it大牛在我这个年龄时已经很厉害了？';
+  title = '';
   tabanimate: boolean = false;
   _that;
   list: any = []
@@ -44,8 +38,8 @@ export class Question {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.data = res.json()[0];
+        this.title = this.data['title'];
         this.checkfork();
       });
   }
@@ -60,7 +54,6 @@ export class Question {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.list = res.json();
       });
   }
@@ -80,7 +73,6 @@ export class Question {
         headers: headers
       })
         .subscribe((res) => {
-          //alert(JSON.stringify(res.json()));
           if (res.json().length == "0") {
             this.ishide = false;
           }
@@ -108,7 +100,6 @@ export class Question {
         headers: headers
       })
         .subscribe((res) => {
-          //alert(JSON.stringify(res.json()));
           if (res.json()['result']['ok'] == 1) {
             this.ishide = true;
             alert("关注成功");

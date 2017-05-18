@@ -7,7 +7,7 @@ webpackJsonp([25],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(394);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,15 +41,14 @@ HomeModule = __decorate([
 
 /***/ }),
 
-/***/ 391:
+/***/ 394:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_user_service__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(244);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -64,9 +63,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var HomePage = (function () {
-    function HomePage(http, navCtrl, storage, ref, UserService) {
+    function HomePage(http, navCtrl, ref, UserService) {
         this.http = http;
         this.navCtrl = navCtrl;
         this.ref = ref;
@@ -83,20 +81,21 @@ var HomePage = (function () {
         this.itimer = null;
         //数据
         this.items = [];
-        this._that = this;
+        this.UserService.presentLoadingDefault();
         this.getdata();
     }
+    //获取数据
     HomePage.prototype.getdata = function () {
         var _this = this;
         var url = "http://www.devonhello.com/chihu/home";
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         this.http.post(url, "len=1", {
             headers: headers
         })
             .subscribe(function (res) {
-            //alert(JSON.stringify(res.json()));
             _this.items = _this.items.concat(res.json());
+            _this.UserService.presentLoadingDismiss();
         });
     };
     HomePage.prototype.openSearch = function () {
@@ -204,20 +203,21 @@ var HomePage = (function () {
         }
         this.checkload = false;
     };
-    HomePage.prototype.ionViewDidEnter = function () {
+    HomePage.prototype.ionViewWillLeave = function () {
+        this.UserService.presentLoadingDismiss();
     };
     return HomePage;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Content */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* Content */])
 ], HomePage.prototype, "content", void 0);
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/'<ion-header [class.animate]="tabanimate">\n    <ion-navbar color="bule" (click)="openSearch();">\n\n        <ion-searchbar placeholder="搜索"></ion-searchbar>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="content" (touchend)="ontouchend($event)" (touchmove)="ontouchmove($event)" (touchstart)="ontouchstart($event)" (ionScroll)="onScroll($event)">\n\n    <span class="dv_load" [class.dv_load_tran]="spanisload" [style.top]="loadX">\n        <span class="ouro">\n            <span class="left">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    <span class="right">\n                <span [class.load_move]="isload" class="anim"></span>\n    </span>\n    </span>\n    </span>\n\n    <!--重复-->\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p *ngIf="item.type == \'0\'">{{item.name}} 回答了问题</p>\n            <p *ngIf="item.type == \'1\'">{{item.name}} 分享的作品</p>\n        </section>\n        <section *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id );" class="dv_item_banner" [style.background]="\'url(\'+item.workbanner+\')\'"></section>\n        <h6 *ngIf="item.type == \'0\'" (click)="pushQuestionPage( item.answerid );">{{item.title}}</h6>\n        <h6 *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id );">{{item.title}}</h6>\n        <div *ngIf="item.type == \'0\'" (click)="pushAnswerPage( item._id );">\n            <p>{{item.dec}}</p>\n            <section class="dv_item_bottom">\n                <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n            </section>\n        </div>\n        <p *ngIf="item.type == \'1\'" (click)="pushArticlePage( item._id );">{{item.text}}</p>\n        <section *ngIf="item.type == \'1\'" class="dv_item_bottom">\n            <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n        </section>\n    </section>\n\n    <!--发布按钮-->\n    <ion-fab right bottom edge #327eff>\n        <button ion-fab><ion-icon name="arrow-dropup"></ion-icon></button>\n        <ion-fab-list side="top">\n            <button (click)="CreateQuestion()" ion-fab><ion-icon name="help"></ion-icon></button>\n            <button (click)="CreateShare()" ion-fab><ion-icon name="images"></ion-icon></button>\n            <button (click)="CreateCook()" ion-fab><ion-icon name="clipboard"></ion-icon></button>\n        </ion-fab-list>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_4__service_user_service__["a" /* UserService */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map

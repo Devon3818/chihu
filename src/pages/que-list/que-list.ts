@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 
-/**
- * Generated class for the QueList page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-que-list',
@@ -21,10 +15,6 @@ export class QueList {
     this.getdata();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QueList');
-  }
-
   getdata() {
     let url = "http://www.devonhello.com/chihu/queslist";
 
@@ -35,7 +25,6 @@ export class QueList {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.items = this.items.concat(res.json());
       });
   }

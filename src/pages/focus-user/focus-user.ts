@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
 
-/**
- * Generated class for the FocusUser page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-focus-user',
@@ -16,6 +10,7 @@ import { Headers, Http } from '@angular/http';
 })
 export class FocusUser {
 
+  //数据存储
   items = [];
   rootNavCtrl: NavController;
 
@@ -24,25 +19,26 @@ export class FocusUser {
     this.getdata();
   }
 
-  getdata(){
+  //获取数据
+  getdata() {
     let url = "http://www.devonhello.com/chihu/myfork";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id="+this.UserService._user._id, {
+    this.http.post(url, "id=" + this.UserService._user._id, {
       headers: headers
     })
       .subscribe((res) => {
-        //alert(JSON.stringify(res.json()));
         this.items = res.json();
       });
   }
 
-  pushPersonPage( _id ){
-    this.rootNavCtrl.push( 'Person', {
+  //查看TA的个人主页
+  pushPersonPage(_id) {
+    this.rootNavCtrl.push('Person', {
       _id: _id
-    } );
+    });
   }
 
 }
