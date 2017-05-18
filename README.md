@@ -1,20 +1,18 @@
-# 吃乎 --后续更新
+# 吃乎 / CHIHU
 
-![Example](https://github.com/kongdewen1994/chihu/blob/master/chihu.gif)
+[![release](https://img.shields.io/badge/APP-吃乎-blue.svg)](https://github.com/kongdewen1994/chihu)
+[![QQ Group](https://img.shields.io/badge/QQ%20Group-513752928-red.svg)]()
+[![release](https://img.shields.io/badge/release-1.0.1-blue.svg)](https://github.com/jpush/jpush-phonegap-plugin/releases)
+[![platforms](https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg)](https://github.com/jpush/jpush-phonegap-plugin)
+[![wx](https://img.shields.io/badge/WeChat-Devon1994-brightgreen.svg)]()
 
-To use this project:
+支持 iOS, Android 的 ionic2例子。（ios或许有改动，请自行更改代码，和打包）
+> 作者：Devon。
 
-```shell
+>吃乎1.0.1版本后支持app更新检查。
 
-git clone https://github.com/kongdewen1994/chihu.git
-
-cd chihu
-npm i
-ionic platform add android
-ionic build android
-
-＃＃To ensure normal operation of the project, please install the plugins in plugins directory
-
-```
+## Support
+- QQ 群：513752928
+- QQ ：849996781
 
 APK下载:https://github.com/kongdewen1994/chihu/raw/master/android-debug.apk
