@@ -12,7 +12,7 @@ export class Support {
 
   items = [];
   rootNavCtrl: NavController;
-  nomessage:boolean = false;
+  nomessage:boolean = true;
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
@@ -40,8 +40,8 @@ export class Support {
     })
       .subscribe((res) => {
         this.items = res.json();
-        if( res.json().length == '0' ){
-          this.nomessage = true;
+        if( res.json().length != '0' ){
+          this.nomessage = false;
         }
       });
   }

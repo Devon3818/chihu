@@ -1,13 +1,13 @@
 webpackJsonp([10],{
 
-/***/ 350:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__support__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__support__ = __webpack_require__(409);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportModule", function() { return SupportModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +41,7 @@ SupportModule = __decorate([
 
 /***/ }),
 
-/***/ 411:
+/***/ 409:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70,7 +70,7 @@ var Support = (function () {
         this.navParams = navParams;
         this.UserService = UserService;
         this.items = [];
-        this.nomessage = false;
+        this.nomessage = true;
         this.rootNavCtrl = navParams.get('rootNavCtrl');
         this.getdata();
     }
@@ -91,8 +91,8 @@ var Support = (function () {
         })
             .subscribe(function (res) {
             _this.items = res.json();
-            if (res.json().length == '0') {
-                _this.nomessage = true;
+            if (res.json().length != '0') {
+                _this.nomessage = false;
             }
         });
     };

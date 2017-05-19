@@ -14,7 +14,7 @@ export class Attention {
   items = [];
   rootNavCtrl: NavController;
   //是否有消息class控制
-  nomessage: boolean = false;
+  nomessage: boolean = true;
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
@@ -44,8 +44,8 @@ export class Attention {
     })
       .subscribe((res) => {
         this.items = res.json();
-        if (res.json().length == '0') {
-          this.nomessage = true;
+        if (res.json().length != '0') {
+          this.nomessage = false;
         }
       });
   }

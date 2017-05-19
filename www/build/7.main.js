@@ -1,15 +1,15 @@
 webpackJsonp([7],{
 
-/***/ 327:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_share__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_share__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__ = __webpack_require__(368);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateShareModule", function() { return CreateShareModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -50,7 +50,7 @@ CreateShareModule = __decorate([
 
 /***/ }),
 
-/***/ 369:
+/***/ 368:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -280,7 +280,7 @@ TransferObject = __decorate([
 
 /***/ }),
 
-/***/ 372:
+/***/ 369:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -454,14 +454,16 @@ var Camera = (function (_super) {
 
 /***/ }),
 
-/***/ 388:
+/***/ 386:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_user_service__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(50);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateShare; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -476,35 +478,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the CreateShare page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
+
 var CreateShare = (function () {
-    function CreateShare(transfer, navCtrl, navParams, actionSheetCtrl, camera, alertCtrl) {
+    function CreateShare(http, transfer, navCtrl, navParams, actionSheetCtrl, camera, alertCtrl, UserService) {
+        this.http = http;
         this.transfer = transfer;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.actionSheetCtrl = actionSheetCtrl;
         this.camera = camera;
         this.alertCtrl = alertCtrl;
+        this.UserService = UserService;
         this.ishide = false;
+        this.text = '';
         this.items = [];
+        this.postimg = [];
         this.fileTransfer = this.transfer.create();
     }
     CreateShare.prototype.send = function () {
-        this.navCtrl.popToRoot();
+        if (this.text.length) {
+            this.postdata();
+        }
+        else {
+            this.UserService.showAlert("请说上两句...");
+        }
+    };
+    CreateShare.prototype.postdata = function () {
+        var _this = this;
+        this.UserService.presentLoadingDefault();
+        var url = "http://www.devonhello.com/chihu/send_share";
+        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["c" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.http.post(url, "uid=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&userimg=" + this.UserService._user.userimg + "&img=" + JSON.stringify(this.postimg) + "&text=" + this.text, {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            if (res.json()['result']['ok'] == '1') {
+                _this.UserService.presentLoadingDismiss();
+                _this.navCtrl.pop();
+            }
+        });
     };
     CreateShare.prototype.up = function (path) {
         var _this = this;
+        this.UserService.presentLoadingDefault();
         this.fileTransfer.upload(path, "http://www.devonhello.com/chihu/upload", {})
             .then(function (data) {
             // success
-            alert(JSON.stringify(data));
+            //alert(JSON.stringify(data));
             var idata = JSON.parse(data["response"]);
-            _this.items.push("http://7xp2ia.com1.z0.glb.clouddn.com/" + idata['src']);
+            _this.postimg.push(idata);
+            _this.items.push(idata['src']);
+            _this.UserService.presentLoadingDismiss();
         }, function (err) {
             // error
             alert('err');
@@ -532,7 +558,8 @@ var CreateShare = (function () {
                     text: '确定',
                     handler: function () {
                         _this.items.splice(idx, 1);
-                        if (_this.items.length < 3) {
+                        _this.postimg.splice(idx, 1);
+                        if (_this.items.length < 4) {
                             _this.ishide = false;
                         }
                     }
@@ -584,24 +611,21 @@ var CreateShare = (function () {
             //alert(imageData);
             //_that.items.push(imageData);
             _that.up(imageData);
-            if (_that.items.length >= 3) {
+            if (_that.items.length >= 4) {
                 _that.ishide = true;
             }
         }, function (err) {
             // Handle error
         });
     };
-    CreateShare.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CreateShare');
-    };
     return CreateShare;
 }());
 CreateShare = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-create-share',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/'<!--\n  Generated template for the CreateShare page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>分享</ion-title>\n        <ion-buttons end (click)="send();">\n            <ion-title>发送</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-textarea placeholder="这一刻的想法..."></ion-textarea>\n\n    <div (press)="pressEvent(i)" *ngFor="let item of items; let i=index" class="imgs" [style.background]="\'url(\'+ item +\')\'"></div>\n\n    <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs" [style.background]="\'url(assets/icon/addimg.png)\'"></div>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/,
+        selector: 'page-create-share',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/'<!--\n  Generated template for the CreateShare page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>分享</ion-title>\n        <ion-buttons end (click)="send();">\n            <ion-title>发送</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-textarea [(ngModel)]="text" placeholder="这一刻的想法..."></ion-textarea>\n\n    <div (press)="pressEvent(i)" *ngFor="let item of items; let i=index" class="imgs" [style.background]="\'url(\'+ item +\')\'"></div>\n\n    <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs" [style.background]="\'url(assets/icon/addimg.png)\'"></div>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__["a" /* Transfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__["a" /* Transfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__service_user_service__["a" /* UserService */]])
 ], CreateShare);
 
 //# sourceMappingURL=create-share.js.map

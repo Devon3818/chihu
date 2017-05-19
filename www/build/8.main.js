@@ -7,7 +7,8 @@ webpackJsonp([8],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_cook_data__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_cook_data__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(369);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateCookDataModule", function() { return CreateCookDataModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -15,6 +16,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -33,6 +35,9 @@ CreateCookDataModule = __decorate([
         ],
         exports: [
             __WEBPACK_IMPORTED_MODULE_2__create_cook_data__["a" /* CreateCookData */]
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]
         ]
     })
 ], CreateCookDataModule);
@@ -41,7 +46,7 @@ CreateCookDataModule = __decorate([
 
 /***/ }),
 
-/***/ 372:
+/***/ 369:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -215,14 +220,16 @@ var Camera = (function (_super) {
 
 /***/ }),
 
-/***/ 384:
+/***/ 383:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(369);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_work_service__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_user_service__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(50);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateCookData; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -237,24 +244,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the CreateCookData page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
+
 var CreateCookData = (function () {
-    function CreateCookData(navCtrl, alertCtrl, navParams, camera, actionSheetCtrl, WorkService) {
+    function CreateCookData(http, navCtrl, alertCtrl, navParams, camera, actionSheetCtrl, WorkService, UserService) {
+        this.http = http;
         this.navCtrl = navCtrl;
         this.alertCtrl = alertCtrl;
         this.navParams = navParams;
         this.camera = camera;
         this.actionSheetCtrl = actionSheetCtrl;
         this.WorkService = WorkService;
+        this.UserService = UserService;
         this.title = '';
         this.items = [];
         this.foods = [];
-        this.items2 = [1, 2, 3, 4];
         this.isReordering = false;
         this.sphide = false;
         this.banner = "assets/icon/work_banner.png";
@@ -398,9 +402,6 @@ var CreateCookData = (function () {
             idx: idx
         });
     };
-    CreateCookData.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CreateCookData');
-    };
     return CreateCookData;
 }());
 CreateCookData = __decorate([
@@ -408,7 +409,7 @@ CreateCookData = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
         selector: 'page-create-cook-data',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-data/create-cook-data.html"*/'<!--\n  Generated template for the CreateCookData page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n\n    <ion-navbar>\n        <ion-title>创建菜谱</ion-title>\n        <ion-buttons end>\n            <button (click)="edit()" ion-button icon-only>\n              <ion-icon name="reorder"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n    <section class="work_top">\n        <section (click)="presentActionSheet();" class="work_banner" [style.background]="\'url(\'+ banner +\')\'"></section>\n        <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="写下你的菜谱名吧" />\n    </section>\n    <ion-list-header>\n        心得：\n    </ion-list-header>\n    <ion-textarea placeholder="输入这道美食背后的故事"></ion-textarea>\n    <ion-list-header>\n        用料：\n    </ion-list-header>\n    <section class="dv_food_list">\n        <ion-row (press)="pressEvent(i)" *ngFor="let food of foods; let i=index">\n            <ion-col>\n                <div>北豆腐</div>\n            </ion-col>\n            <ion-col>\n                <div>2块 (大概380g)</div>\n            </ion-col>\n        </ion-row>\n    </section>\n    <br/>\n    <button (click)="showPrompt();" class="dv_button" ion-button round outline>添加材料</button>\n\n    <ion-list>\n        <ion-list-header>做法：（ 点击编辑步骤后，长按可删除 ）</ion-list-header>\n        <ion-item-group [reorder]="isReordering" (ionItemReorder)="reorderItems($event)">\n\n            <div class="sp" [class.sp_hide]="sphide"></div>\n\n            <ion-item (press)="pressEvent(i)" (click)="editItem(i)" *ngFor="let item of items; let i=index">\n\n                <section class="imgs" [style.background]="\'url(\'+ item.imgsrc +\')\'"></section>\n\n                <p>\n                    {{item.text}}\n                </p>\n            </ion-item>\n\n\n        </ion-item-group>\n    </ion-list>\n\n    <ion-grid>\n        <ion-row>\n            <ion-col width-50>\n                <button (click)="addItem();" class="dv_edit_button" ion-button icon-left round outline>\n                    <ion-icon name="star"></ion-icon>\n                    添加步骤\n                </button>\n            </ion-col>\n            <ion-col width-50>\n                <button (click)="edit()" class="dv_edit_button" ion-button icon-left round outline>\n                    <ion-icon name="reorder"></ion-icon>\n                    编辑步骤\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n\n    <ion-list-header>\n        Tip：\n    </ion-list-header>\n    <ion-textarea placeholder="温馨提示"></ion-textarea>\n\n    <button (click)="send();" class="dv_button" ion-button round outline>发布菜谱</button>\n    <br/>\n    <br/>\n    <br/>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-cook-data/create-cook-data.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_3__service_work_service__["a" /* WorkService */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_3__service_work_service__["a" /* WorkService */], __WEBPACK_IMPORTED_MODULE_4__service_user_service__["a" /* UserService */]])
 ], CreateCookData);
 
 //# sourceMappingURL=create-cook-data.js.map

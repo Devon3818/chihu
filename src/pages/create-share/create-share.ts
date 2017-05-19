@@ -2,13 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { UserService } from '../../service/user.service';
+import { Headers, Http } from '@angular/http';
 
-/**
- * Generated class for the CreateShare page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-create-share',
@@ -17,28 +13,56 @@ import { Transfer, TransferObject } from '@ionic-native/transfer';
 export class CreateShare {
 
   ishide = false;
+  text = '';
   items = [];
+  postimg = [];
   fileTransfer: TransferObject;
 
-  constructor(public transfer: Transfer, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, private camera: Camera, public alertCtrl: AlertController) {
+  constructor(public http: Http, public transfer: Transfer, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, private camera: Camera, public alertCtrl: AlertController, public UserService: UserService) {
     this.fileTransfer = this.transfer.create();
   }
 
   send() {
-    this.navCtrl.popToRoot();
+    if (this.text.length) {
+      this.postdata();
+    } else {
+      this.UserService.showAlert("请说上两句...");
+    }
   }
 
-  up(path){
+  postdata() {
+    this.UserService.presentLoadingDefault();
+    let url = "http://www.devonhello.com/chihu/send_share";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "uid=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&userimg=" + this.UserService._user.userimg + "&img=" + JSON.stringify(this.postimg) + "&text=" + this.text, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        if (res.json()['result']['ok'] == '1') {
+          this.UserService.presentLoadingDismiss();
+          this.navCtrl.pop();
+        }
+
+      });
+  }
+
+  up(path) {
+    this.UserService.presentLoadingDefault();
     this.fileTransfer.upload(path, "http://www.devonhello.com/chihu/upload", {})
-   .then((data) => {
-     // success
-     alert(JSON.stringify(data));
-     var idata = JSON.parse(data["response"]);
-     this.items.push( "http://7xp2ia.com1.z0.glb.clouddn.com/"+idata['src'] );
-   }, (err) => {
-     // error
-     alert('err');
-   })
+      .then((data) => {
+        // success
+        //alert(JSON.stringify(data));
+        var idata = JSON.parse(data["response"]);
+        this.postimg.push(idata);
+        this.items.push(idata['src']);
+        this.UserService.presentLoadingDismiss();
+      }, (err) => {
+        // error
+        alert('err');
+      })
   }
 
   //长按删除事件
@@ -63,7 +87,8 @@ export class CreateShare {
           text: '确定',
           handler: () => {
             this.items.splice(idx, 1);
-            if (this.items.length < 3) {
+            this.postimg.splice(idx, 1);
+            if (this.items.length < 4) {
               this.ishide = false;
             }
           }
@@ -117,16 +142,12 @@ export class CreateShare {
       //alert(imageData);
       //_that.items.push(imageData);
       _that.up(imageData);
-      if (_that.items.length >= 3) {
+      if (_that.items.length >= 4) {
         _that.ishide = true;
       }
     }, (err) => {
       // Handle error
     });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateShare');
   }
 
 }

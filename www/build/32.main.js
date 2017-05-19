@@ -1,14 +1,14 @@
 webpackJsonp([32],{
 
-/***/ 322:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comments__ = __webpack_require__(383);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentsModule", function() { return CommentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__collect_work__ = __webpack_require__(380);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectWorkModule", function() { return CollectWorkModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CommentsModule = (function () {
-    function CommentsModule() {
+var CollectWorkModule = (function () {
+    function CollectWorkModule() {
     }
-    return CommentsModule;
+    return CollectWorkModule;
 }());
-CommentsModule = __decorate([
+CollectWorkModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__comments__["a" /* Comments */],
+            __WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comments__["a" /* Comments */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__comments__["a" /* Comments */]
+            __WEBPACK_IMPORTED_MODULE_2__collect_work__["a" /* CollectWork */]
         ]
     })
-], CommentsModule);
+], CollectWorkModule);
 
-//# sourceMappingURL=comments.module.js.map
+//# sourceMappingURL=collect-work.module.js.map
 
 /***/ }),
 
-/***/ 383:
+/***/ 380:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Comments; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_user_service__ = __webpack_require__(244);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CollectWork; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,26 +61,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var Comments = (function () {
-    function Comments(navCtrl, navParams) {
+
+
+var CollectWork = (function () {
+    function CollectWork(http, navCtrl, navParams, UserService) {
+        this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.items = [1, 1, 1];
+        this.UserService = UserService;
+        //数据存储
+        this.items = [];
+        this.rootNavCtrl = navParams.get('rootNavCtrl');
+        this.getdata();
     }
-    Comments.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad Comments');
+    //获取数据
+    CollectWork.prototype.getdata = function () {
+        var _this = this;
+        var url = "http://www.devonhello.com/chihu/my_collect_work";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.http.post(url, "id=" + this.UserService._user._id, {
+            headers: headers
+        })
+            .subscribe(function (res) {
+            _this.items = _this.items.concat(res.json());
+        });
     };
-    return Comments;
+    //查看TA的个人主页
+    CollectWork.prototype.pushArticlePage = function (_id) {
+        this.rootNavCtrl.push('Article', {
+            _id: _id
+        });
+    };
+    return CollectWork;
 }());
-Comments = __decorate([
+CollectWork = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-comments',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/comments/comments.html"*/'<ion-header>\n\n    <ion-navbar color="bule">\n        <ion-title>评论</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n    <section class="dv_list">\n        <!--重复-->\n        <section class="dv_item" *ngFor="let item of items">\n            <section class="dv_item_head">\n                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />\n                <p>Devon</p>\n            </section>\n\n            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>\n            <section class="dv_item_bottom">\n                <p class="dv_fr">会话列表</p>\n                <p class="dv_fl">10-10</p>\n            </section>\n        </section>\n\n    </section>\n\n</ion-content>\n\n<ion-footer no-border>\n    <ion-grid class="input-wrap">\n        <ion-row>\n\n            <ion-col col-10>\n                <ion-textarea #chat_input placeholder="Text Input" [(ngModel)]="editorMsg" (keyup.enter)="sendMsg()" (focus)="scrollToBottom()"></ion-textarea>\n            </ion-col>\n            <ion-col col-2>\n                <button ion-button clear icon-only item-right (click)="sendMsg()">\n          <ion-icon  name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n        </button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-footer>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/comments/comments.html"*/,
+        selector: 'page-collect-work',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-work/collect-work.html"*/'<ion-content>\n\n    <section class="dv_item" *ngFor="let item of items">\n        <section class="dv_item_head">\n            <img [src]="item.userimg" />\n            <p>{{item.name}} 分享的作品</p>\n        </section>\n        <section (click)="pushArticlePage( item._id );" class="dv_item_banner" [style.background]="\'url(\'+item.workbanner+\')\'"></section>\n        <h6 (click)="pushArticlePage( item._id );">{{item.title}}</h6>\n\n        <p (click)="pushArticlePage( item._id );">{{item.text}}</p>\n        <section class="dv_item_bottom">\n            <p>{{item.mark.think}} 感谢 • {{item.mark.collect}} 收藏 • {{item.mark.cont}} 评论</p>\n        </section>\n    </section>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/collect-work/collect-work.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], Comments);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__service_user_service__["a" /* UserService */]])
+], CollectWork);
 
-//# sourceMappingURL=comments.js.map
+//# sourceMappingURL=collect-work.js.map
 
 /***/ })
 

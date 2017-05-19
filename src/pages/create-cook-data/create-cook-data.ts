@@ -2,13 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { WorkService } from '../../service/work_service';
+import { UserService } from '../../service/user.service';
+import { Headers, Http } from '@angular/http';
 
-/**
- * Generated class for the CreateCookData page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-create-cook-data',
@@ -19,17 +15,16 @@ export class CreateCookData {
   title = '';
   items = [];
   foods = [];
-  items2 = [1,2,3,4];
   isReordering: boolean = false;
-  sphide:boolean = false;
+  sphide: boolean = false;
   banner = "assets/icon/work_banner.png";
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public WorkService: WorkService) {
+  constructor(public http: Http, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public WorkService: WorkService, public UserService: UserService) {
     this.title = this.WorkService._title;
     this.init();
   }
 
-  init(){
+  init() {
     this.items = this.WorkService._item;
   }
 
@@ -71,7 +66,7 @@ export class CreateCookData {
         {
           text: '添加',
           handler: data => {
-            this.foods.push(1); 
+            this.foods.push(1);
             //alert(data.name);
             //alert(data.len);
           }
@@ -82,12 +77,12 @@ export class CreateCookData {
   }
 
   //发布
-  send(){
+  send() {
     this.navCtrl.popToRoot();
   }
 
   //长按删除事件
-  pressEvent(idx){
+  pressEvent(idx) {
     //alert(idx);
     this.showConfirm();
   }
@@ -164,21 +159,17 @@ export class CreateCookData {
   }
 
   //添加步骤
-  addItem(){
-    this.navCtrl.push( 'WorkItem', {
+  addItem() {
+    this.navCtrl.push('WorkItem', {
       idx: -1
-    } );
+    });
   }
 
   //修改步骤信息
-  editItem(idx){
-    this.navCtrl.push( 'WorkItem', {
+  editItem(idx) {
+    this.navCtrl.push('WorkItem', {
       idx: idx
-    } );
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateCookData');
+    });
   }
 
 }

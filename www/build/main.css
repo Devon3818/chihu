@@ -55579,10 +55579,6 @@ page-create-question-title textarea {
   height: 15rem !important;
 }
 
-page-create-question-type ion-list-header {
-  border-top: none !important;
-}
-
 page-create-share textarea {
   height: 8rem !important;
 }

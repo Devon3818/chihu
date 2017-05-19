@@ -110,11 +110,11 @@ export class Perparticular {
       headers: headers
     })
       .subscribe((res) => {
-        if (res.json() != '0') {
-          this.ishide = false;
-          this.UserService.presentLoadingDismiss();
-          this.UserService.showAlert("取消关注成功");
-        }
+
+        this.ishide = false;
+        this.UserService.presentLoadingDismiss();
+        this.UserService.showAlert("取消关注成功");
+
       });
 
   }

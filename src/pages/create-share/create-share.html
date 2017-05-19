@@ -17,7 +17,7 @@
 
 
 <ion-content padding>
-    <ion-textarea placeholder="这一刻的想法..."></ion-textarea>
+    <ion-textarea [(ngModel)]="text" placeholder="这一刻的想法..."></ion-textarea>
 
     <div (press)="pressEvent(i)" *ngFor="let item of items; let i=index" class="imgs" [style.background]="'url('+ item +')'"></div>
 
