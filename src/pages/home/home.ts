@@ -109,7 +109,7 @@ export class HomePage {
 
   //提问
   CreateQuestion() {
-    this.checkLogin('CreateQuestionType');
+    this.checkLogin('CreateQuestionTitle');
     //this.navCtrl.push('CreateQuestionType');
   }
 

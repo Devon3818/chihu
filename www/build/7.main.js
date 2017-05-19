@@ -9,6 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_share__ = __webpack_require__(388);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__ = __webpack_require__(369);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateShareModule", function() { return CreateShareModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16,6 +17,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -37,12 +39,244 @@ CreateShareModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__create_share__["a" /* CreateShare */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__["a" /* Transfer */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__["b" /* TransferObject */]
         ]
     })
 ], CreateShareModule);
 
 //# sourceMappingURL=create-share.module.js.map
+
+/***/ }),
+
+/***/ 369:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__ = __webpack_require__(104);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Transfer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return TransferObject; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * @name Transfer
+ *
+ * @description
+ * This plugin allows you to upload and download files.
+ *
+ * @usage
+ * ```typescript
+ * import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
+ * import { File } from '@ionic-native/file';
+ *
+ * constructor(private transfer: Transfer, private file: File) { }
+ *
+ * ...
+ *
+ * const fileTransfer: TransferObject = this.transfer.create();
+ *
+ * // Upload a file:
+ * fileTransfer.upload(..).then(..).catch(..);
+ *
+ * // Download a file:
+ * fileTransfer.download(..).then(..).catch(..);
+ *
+ * // Abort active transfer:
+ * fileTransfer.abort();
+ *
+ * // full example
+ * upload() {
+ *   let options: FileUploadOptions = {
+ *      fileKey: 'file',
+ *      fileName: 'name.jpg',
+ *      headers: {}
+ *      .....
+ *   }
+ *
+ *   fileTransfer.upload('<file path>', '<api endpoint>', options)
+ *    .then((data) => {
+ *      // success
+ *    }, (err) => {
+ *      // error
+ *    })
+ * }
+ **
+ * download() {
+ *   const url = 'http://www.example.com/file.pdf';
+ *   fileTransfer.download(url, this.file.dataDirectory + 'file.pdf').then((entry) => {
+ *     console.log('download complete: ' + entry.toURL());
+ *   }, (error) => {
+ *     // handle error
+ *   });
+ * }
+ *
+ * ```
+ *
+ * To store files in a different/publicly accessible directory, please refer to the following link
+ * https://github.com/apache/cordova-plugin-file#where-to-store-files
+ *
+ * @interfaces
+ * FileUploadOptions
+ * FileUploadResult
+ * FileTransferError
+ * @classes
+ * TransferObject
+ */
+var Transfer = (function (_super) {
+    __extends(Transfer, _super);
+    function Transfer() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        /**
+         * Error code rejected from upload with FileTransferError
+         * Defined in FileTransferError.
+         *      FILE_NOT_FOUND_ERR: 1   Return when file was not found
+         *      INVALID_URL_ERR: 2,     Return when url was invalid
+         *      CONNECTION_ERR: 3,      Return on connection error
+         *      ABORT_ERR: 4,           Return on aborting
+         *      NOT_MODIFIED_ERR: 5     Return on '304 Not Modified' HTTP response
+         * @enum {number}
+         */
+        _this.FileTransferErrorCode = {
+            FILE_NOT_FOUND_ERR: 1,
+            INVALID_URL_ERR: 2,
+            CONNECTION_ERR: 3,
+            ABORT_ERR: 4,
+            NOT_MODIFIED_ERR: 5
+        };
+        return _this;
+    }
+    /**
+     * Creates a new FileTransfer object
+     * @return {TransferObject}
+     */
+    Transfer.prototype.create = function () {
+        return new TransferObject();
+    };
+    return Transfer;
+}(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* IonicNativePlugin */]));
+Transfer.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */] },
+];
+/** @nocollapse */
+Transfer.ctorParameters = function () { return []; };
+Transfer = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+        pluginName: 'FileTransfer',
+        plugin: 'cordova-plugin-file-transfer',
+        pluginRef: 'FileTransfer',
+        repo: 'https://github.com/apache/cordova-plugin-file-transfer'
+    })
+], Transfer);
+
+/**
+ * @hidden
+ */
+var TransferObject = (function () {
+    function TransferObject() {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["e" /* checkAvailability */])('FileTransfer', null, 'FileTransfer') === true) {
+            this._objectInstance = new FileTransfer();
+        }
+    }
+    /**
+     * Sends a file to a server.
+     *
+     * @param {string} fileUrl  Filesystem URL representing the file on the device or a data URI. For backwards compatibility, this can also be the full path of the file on the device.
+     * @param {string} url  URL of the server to receive the file, as encoded by encodeURI().
+     * @param {FileUploadOptions} options  Optional parameters.
+     * @param {boolean} trustAllHosts  Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful since Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.
+     * @returns {Promise<FileUploadResult>} Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
+     */
+    TransferObject.prototype.upload = function (fileUrl, url, options, trustAllHosts) {
+        return;
+    };
+    /**
+     * Downloads a file from server.
+     *
+     * @param {string} source  URL of the server to download the file, as encoded by encodeURI().
+     * @param {stirng} target  Filesystem url representing the file on the device. For backwards compatibility, this can also be the full path of the file on the device.
+     * @param {boolean} trustAllHosts  Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful because Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.
+     * @param {object} Optional parameters, currently only supports headers (such as Authorization (Basic Authentication), etc).
+     * @returns {Promise<any>} Returns a Promise that resolves to a FileEntry object.
+     */
+    TransferObject.prototype.download = function (source, target, trustAllHosts, options) {
+        return;
+    };
+    /**
+     * Registers a listener that gets called whenever a new chunk of data is transferred.
+     * @param listener {function} Listener that takes a progress event.
+     */
+    TransferObject.prototype.onProgress = function (listener) {
+        this._objectInstance.onprogress = listener;
+    };
+    /**
+     * Aborts an in-progress transfer. The onerror callback is passed a FileTransferError
+     * object which has an error code of FileTransferError.ABORT_ERR.
+     */
+    TransferObject.prototype.abort = function () { };
+    return TransferObject;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+        successIndex: 2,
+        errorIndex: 3
+    }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, Object, Boolean]),
+    __metadata("design:returntype", Promise)
+], TransferObject.prototype, "upload", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+        successIndex: 2,
+        errorIndex: 3
+    }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, Boolean, Object]),
+    __metadata("design:returntype", Promise)
+], TransferObject.prototype, "download", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* InstanceCheck */])({ sync: true }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Function]),
+    __metadata("design:returntype", void 0)
+], TransferObject.prototype, "onProgress", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+        sync: true
+    }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], TransferObject.prototype, "abort", null);
+TransferObject = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+        plugin: 'cordova-plugin-file-transfer',
+        pluginName: 'FileTransfer'
+    }),
+    __metadata("design:paramtypes", [])
+], TransferObject);
+
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -227,6 +461,7 @@ var Camera = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__ = __webpack_require__(369);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateShare; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -240,6 +475,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the CreateShare page.
  *
@@ -247,7 +483,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var CreateShare = (function () {
-    function CreateShare(navCtrl, navParams, actionSheetCtrl, camera, alertCtrl) {
+    function CreateShare(transfer, navCtrl, navParams, actionSheetCtrl, camera, alertCtrl) {
+        this.transfer = transfer;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.actionSheetCtrl = actionSheetCtrl;
@@ -255,9 +492,23 @@ var CreateShare = (function () {
         this.alertCtrl = alertCtrl;
         this.ishide = false;
         this.items = [];
+        this.fileTransfer = this.transfer.create();
     }
     CreateShare.prototype.send = function () {
         this.navCtrl.popToRoot();
+    };
+    CreateShare.prototype.up = function (path) {
+        var _this = this;
+        this.fileTransfer.upload(path, "http://www.devonhello.com/chihu/upload", {})
+            .then(function (data) {
+            // success
+            alert(JSON.stringify(data));
+            var idata = JSON.parse(data["response"]);
+            _this.items.push("http://7xp2ia.com1.z0.glb.clouddn.com/" + idata['src']);
+        }, function (err) {
+            // error
+            alert('err');
+        });
     };
     //长按删除事件
     CreateShare.prototype.pressEvent = function (idx) {
@@ -331,7 +582,8 @@ var CreateShare = (function () {
             correctOrientation: true,
         }).then(function (imageData) {
             //alert(imageData);
-            _that.items.push(imageData);
+            //_that.items.push(imageData);
+            _that.up(imageData);
             if (_that.items.length >= 3) {
                 _that.ishide = true;
             }
@@ -349,7 +601,7 @@ CreateShare = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
         selector: 'page-create-share',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/'<!--\n  Generated template for the CreateShare page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>分享</ion-title>\n        <ion-buttons end (click)="send();">\n            <ion-title>发送</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-textarea placeholder="这一刻的想法..."></ion-textarea>\n\n    <div (press)="pressEvent(i)" *ngFor="let item of items; let i=index" class="imgs" [style.background]="\'url(\'+ item +\')\'"></div>\n\n    <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs" [style.background]="\'url(assets/icon/addimg.png)\'"></div>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__["a" /* Transfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */]])
 ], CreateShare);
 
 //# sourceMappingURL=create-share.js.map

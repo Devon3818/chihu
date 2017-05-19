@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
 
 /**
  * Generated class for the CreateShare page.
@@ -17,12 +18,27 @@ export class CreateShare {
 
   ishide = false;
   items = [];
+  fileTransfer: TransferObject;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, private camera: Camera, public alertCtrl: AlertController) {
+  constructor(public transfer: Transfer, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, private camera: Camera, public alertCtrl: AlertController) {
+    this.fileTransfer = this.transfer.create();
   }
 
   send() {
     this.navCtrl.popToRoot();
+  }
+
+  up(path){
+    this.fileTransfer.upload(path, "http://www.devonhello.com/chihu/upload", {})
+   .then((data) => {
+     // success
+     alert(JSON.stringify(data));
+     var idata = JSON.parse(data["response"]);
+     this.items.push( "http://7xp2ia.com1.z0.glb.clouddn.com/"+idata['src'] );
+   }, (err) => {
+     // error
+     alert('err');
+   })
   }
 
   //长按删除事件
@@ -99,7 +115,8 @@ export class CreateShare {
       correctOrientation: true,
     }).then((imageData) => {
       //alert(imageData);
-      _that.items.push(imageData);
+      //_that.items.push(imageData);
+      _that.up(imageData);
       if (_that.items.length >= 3) {
         _that.ishide = true;
       }

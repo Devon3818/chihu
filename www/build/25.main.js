@@ -148,7 +148,7 @@ var HomePage = (function () {
     };
     //提问
     HomePage.prototype.CreateQuestion = function () {
-        this.checkLogin('CreateQuestionType');
+        this.checkLogin('CreateQuestionTitle');
         //this.navCtrl.push('CreateQuestionType');
     };
     //分享
