@@ -4,6 +4,7 @@ import { Camera } from '@ionic-native/camera';
 import { WorkService } from '../../service/work_service';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
 
 @IonicPage()
 @Component({
@@ -13,14 +14,18 @@ import { Headers, Http } from '@angular/http';
 export class CreateCookData {
 
   title = '';
+  text = '';
+  tip = '';
   items = [];
   foods = [];
   isReordering: boolean = false;
   sphide: boolean = false;
   banner = "assets/icon/work_banner.png";
+  fileTransfer: TransferObject;
 
-  constructor(public http: Http, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public WorkService: WorkService, public UserService: UserService) {
+  constructor(public http: Http, public navCtrl: NavController, public transfer: Transfer, public alertCtrl: AlertController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public WorkService: WorkService, public UserService: UserService) {
     this.title = this.WorkService._title;
+    this.fileTransfer = this.transfer.create();
     this.init();
   }
 
@@ -66,7 +71,10 @@ export class CreateCookData {
         {
           text: '添加',
           handler: data => {
-            this.foods.push(1);
+            this.foods.push({
+              name: data.name,
+              len: data.len
+            });
             //alert(data.name);
             //alert(data.len);
           }
@@ -78,31 +86,56 @@ export class CreateCookData {
 
   //发布
   send() {
-    this.navCtrl.popToRoot();
+    if (this.items.length < 1 && this.foods.length < 1 && this.title.length < 1 && this.banner == "assets/icon/work_banner.png") {
+      this.UserService.showAlert("抱歉，请填写完整...");
+    } else {
+      this.postdata();
+    }
+
   }
+
+  postdata() {
+    this.UserService.presentLoadingDefault();
+    let url = "http://www.devonhello.com/chihu/send_article";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "uid=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&userimg=" + this.UserService._user.userimg + "&work=" + JSON.stringify(this.items) + "&text=" + this.text + "&food=" + JSON.stringify(this.foods) + "&workbanner=" + this.banner + "&tip=" + this.tip + "&type=" + "1" + "&title=" + this.title, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        if (res.json()['result']['ok'] == '1') {
+          this.UserService.presentLoadingDismiss();
+          this.navCtrl.popToRoot();
+        }
+
+      });
+  }
+
 
   //长按删除事件
   pressEvent(idx) {
     //alert(idx);
-    this.showConfirm();
+    this.showConfirm(idx);
   }
 
-  //删除步骤／食材提示
-  showConfirm() {
+  //删除提示
+  showConfirm(idx) {
     let confirm = this.alertCtrl.create({
-      title: 'Use this lightsaber?',
-      message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      title: '提示',
+      message: '是否删除此材料?',
       buttons: [
         {
-          text: 'Disagree',
+          text: '在想想',
           handler: () => {
             console.log('Disagree clicked');
           }
         },
         {
-          text: 'Agree',
+          text: '确定',
           handler: () => {
-            console.log('Agree clicked');
+            this.foods.splice(idx, 1);
           }
         }
       ]
@@ -151,11 +184,25 @@ export class CreateCookData {
       sourceType: type,
       correctOrientation: true,
     }).then((imageData) => {
-      //alert(imageData);
-      _that.banner = imageData;
+      this.up(imageData);
     }, (err) => {
       // Handle error
     });
+  }
+
+  up(path) {
+    this.UserService.presentLoadingDefault();
+    this.fileTransfer.upload(path, "http://www.devonhello.com/chihu/upload", {})
+      .then((data) => {
+        // success
+        //alert(JSON.stringify(data));
+        var response = JSON.parse(data["response"]);
+        this.banner = response['src'];
+        this.UserService.presentLoadingDismiss();
+      }, (err) => {
+        // error
+        alert('err');
+      })
   }
 
   //添加步骤

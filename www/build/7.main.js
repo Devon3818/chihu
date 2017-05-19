@@ -1,16 +1,16 @@
 webpackJsonp([7],{
 
-/***/ 326:
+/***/ 351:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_share__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__work_item__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__ = __webpack_require__(368);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateShareModule", function() { return CreateShareModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__ = __webpack_require__(358);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkItemModule", function() { return WorkItemModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,21 +22,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CreateShareModule = (function () {
-    function CreateShareModule() {
+var WorkItemModule = (function () {
+    function WorkItemModule() {
     }
-    return CreateShareModule;
+    return WorkItemModule;
 }());
-CreateShareModule = __decorate([
+WorkItemModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__create_share__["a" /* CreateShare */],
+            __WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_share__["a" /* CreateShare */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__create_share__["a" /* CreateShare */]
+            __WEBPACK_IMPORTED_MODULE_2__work_item__["a" /* WorkItem */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
@@ -44,13 +44,13 @@ CreateShareModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__["b" /* TransferObject */]
         ]
     })
-], CreateShareModule);
+], WorkItemModule);
 
-//# sourceMappingURL=create-share.module.js.map
+//# sourceMappingURL=work-item.module.js.map
 
 /***/ }),
 
-/***/ 368:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -181,7 +181,7 @@ Transfer.decorators = [
 /** @nocollapse */
 Transfer.ctorParameters = function () { return []; };
 Transfer = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* Plugin */])({
         pluginName: 'FileTransfer',
         plugin: 'cordova-plugin-file-transfer',
         pluginRef: 'FileTransfer',
@@ -194,7 +194,7 @@ Transfer = __decorate([
  */
 var TransferObject = (function () {
     function TransferObject() {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["e" /* checkAvailability */])('FileTransfer', null, 'FileTransfer') === true) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* checkAvailability */])('FileTransfer', null, 'FileTransfer') === true) {
             this._objectInstance = new FileTransfer();
         }
     }
@@ -237,7 +237,7 @@ var TransferObject = (function () {
     return TransferObject;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* CordovaInstance */])({
         successIndex: 2,
         errorIndex: 3
     }),
@@ -246,7 +246,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TransferObject.prototype, "upload", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* CordovaInstance */])({
         successIndex: 2,
         errorIndex: 3
     }),
@@ -255,13 +255,13 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TransferObject.prototype, "download", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* InstanceCheck */])({ sync: true }),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["e" /* InstanceCheck */])({ sync: true }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Function]),
     __metadata("design:returntype", void 0)
 ], TransferObject.prototype, "onProgress", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* CordovaInstance */])({
         sync: true
     }),
     __metadata("design:type", Function),
@@ -269,7 +269,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TransferObject.prototype, "abort", null);
 TransferObject = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* Plugin */])({
         plugin: 'cordova-plugin-file-transfer',
         pluginName: 'FileTransfer'
     }),
@@ -423,7 +423,7 @@ var Camera = (function (_super) {
     /** @nocollapse */
     Camera.ctorParameters = function () { return []; };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* Cordova */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* Cordova */])({
             callbackOrder: 'reverse'
         }), 
         __metadata('design:type', Function), 
@@ -431,7 +431,7 @@ var Camera = (function (_super) {
         __metadata('design:returntype', Promise)
     ], Camera.prototype, "getPicture", null);
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* Cordova */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* Cordova */])({
             platforms: ['iOS']
         }), 
         __metadata('design:type', Function), 
@@ -439,7 +439,7 @@ var Camera = (function (_super) {
         __metadata('design:returntype', Promise)
     ], Camera.prototype, "cleanup", null);
     Camera = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* Plugin */])({
             pluginName: 'Camera',
             plugin: 'cordova-plugin-camera',
             pluginRef: 'navigator.camera',
@@ -454,17 +454,18 @@ var Camera = (function (_super) {
 
 /***/ }),
 
-/***/ 386:
+/***/ 411:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__ = __webpack_require__(368);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_user_service__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(50);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateShare; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_work_service__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_transfer__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__service_user_service__ = __webpack_require__(244);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkItem; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -480,8 +481,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var CreateShare = (function () {
-    function CreateShare(http, transfer, navCtrl, navParams, actionSheetCtrl, camera, alertCtrl, UserService) {
+
+var WorkItem = (function () {
+    function WorkItem(http, transfer, navCtrl, navParams, actionSheetCtrl, camera, alertCtrl, UserService, WorkService) {
         this.http = http;
         this.transfer = transfer;
         this.navCtrl = navCtrl;
@@ -490,85 +492,31 @@ var CreateShare = (function () {
         this.camera = camera;
         this.alertCtrl = alertCtrl;
         this.UserService = UserService;
-        this.ishide = false;
+        this.WorkService = WorkService;
+        this.idx = 0;
+        this.banner = 'assets/icon/work_item.png';
         this.text = '';
-        this.items = [];
-        this.postimg = [];
+        this.idata = {
+            width: '',
+            src: '',
+            text: '',
+            height: ''
+        };
+        this.idx = this.navParams.get('idx');
         this.fileTransfer = this.transfer.create();
+        if (this.idx != -1) {
+            this.banner = this.WorkService._item[this.idx]['src'];
+            this.text = this.WorkService._item[this.idx]['text'];
+        }
     }
-    CreateShare.prototype.send = function () {
+    WorkItem.prototype.send = function () {
         if (this.text.length) {
-            this.postdata();
+            this.idata.text = this.text;
+            this.WorkService._item.push(this.idata);
+            this.navCtrl.pop();
         }
-        else {
-            this.UserService.showAlert("请说上两句...");
-        }
     };
-    CreateShare.prototype.postdata = function () {
-        var _this = this;
-        this.UserService.presentLoadingDefault();
-        var url = "http://www.devonhello.com/chihu/send_share";
-        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["c" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.http.post(url, "uid=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&userimg=" + this.UserService._user.userimg + "&img=" + JSON.stringify(this.postimg) + "&text=" + this.text, {
-            headers: headers
-        })
-            .subscribe(function (res) {
-            if (res.json()['result']['ok'] == '1') {
-                _this.UserService.presentLoadingDismiss();
-                _this.navCtrl.pop();
-            }
-        });
-    };
-    CreateShare.prototype.up = function (path) {
-        var _this = this;
-        this.UserService.presentLoadingDefault();
-        this.fileTransfer.upload(path, "http://www.devonhello.com/chihu/upload", {})
-            .then(function (data) {
-            // success
-            //alert(JSON.stringify(data));
-            var idata = JSON.parse(data["response"]);
-            _this.postimg.push(idata);
-            _this.items.push(idata['src']);
-            _this.UserService.presentLoadingDismiss();
-        }, function (err) {
-            // error
-            alert('err');
-        });
-    };
-    //长按删除事件
-    CreateShare.prototype.pressEvent = function (idx) {
-        //alert(idx);
-        this.showConfirm(idx);
-    };
-    //删除提示
-    CreateShare.prototype.showConfirm = function (idx) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: '提示',
-            message: '是否删除此照片?',
-            buttons: [
-                {
-                    text: '在想想',
-                    handler: function () {
-                        console.log('Disagree clicked');
-                    }
-                },
-                {
-                    text: '确定',
-                    handler: function () {
-                        _this.items.splice(idx, 1);
-                        _this.postimg.splice(idx, 1);
-                        if (_this.items.length < 4) {
-                            _this.ishide = false;
-                        }
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    CreateShare.prototype.presentActionSheet = function () {
+    WorkItem.prototype.presentActionSheet = function () {
         var _this = this;
         var actionSheet = this.actionSheetCtrl.create({
             title: '图片来源',
@@ -600,7 +548,8 @@ var CreateShare = (function () {
         actionSheet.present();
     };
     //成品图片
-    CreateShare.prototype.seleImgType = function (type) {
+    WorkItem.prototype.seleImgType = function (type) {
+        var _this = this;
         var _that = this;
         this.camera.getPicture({
             quality: 90,
@@ -608,27 +557,42 @@ var CreateShare = (function () {
             sourceType: type,
             correctOrientation: true,
         }).then(function (imageData) {
-            //alert(imageData);
-            //_that.items.push(imageData);
-            _that.up(imageData);
-            if (_that.items.length >= 4) {
-                _that.ishide = true;
-            }
+            _this.up(imageData);
         }, function (err) {
             // Handle error
         });
     };
-    return CreateShare;
+    WorkItem.prototype.up = function (path) {
+        var _this = this;
+        this.UserService.presentLoadingDefault();
+        this.fileTransfer.upload(path, "http://www.devonhello.com/chihu/upload", {})
+            .then(function (data) {
+            // success
+            //alert(JSON.stringify(data));
+            var response = JSON.parse(data["response"]);
+            _this.idata.width = response['width'];
+            _this.idata.height = response['height'];
+            _this.idata.src = response['src'];
+            _this.banner = _this.idata.src;
+            //this.postimg.push(idata);
+            //this.items.push(idata['src']);
+            _this.UserService.presentLoadingDismiss();
+        }, function (err) {
+            // error
+            alert('err');
+        });
+    };
+    return WorkItem;
 }());
-CreateShare = __decorate([
+WorkItem = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-create-share',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/'<!--\n  Generated template for the CreateShare page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>分享</ion-title>\n        <ion-buttons end (click)="send();">\n            <ion-title>发送</ion-title>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-textarea [(ngModel)]="text" placeholder="这一刻的想法..."></ion-textarea>\n\n    <div (press)="pressEvent(i)" *ngFor="let item of items; let i=index" class="imgs" [style.background]="\'url(\'+ item +\')\'"></div>\n\n    <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs" [style.background]="\'url(assets/icon/addimg.png)\'"></div>\n\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/create-share/create-share.html"*/,
+        selector: 'page-work-item',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/work-item/work-item.html"*/'<ion-header>\n\n    <ion-navbar>\n        <ion-title>步骤详情</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <section class="work_top">\n        <section (click)="presentActionSheet();" class="work_banner" [style.background]="\'url(\'+ banner +\')\'"></section>\n        <ion-textarea [(ngModel)]="text" placeholder="输入这道美食的详细步骤"></ion-textarea>\n    </section>\n    <br/>\n    <br/>\n    <button (click)="send();" class="dv_button" ion-button icon-left round outline>确定</button>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/work-item/work-item.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_transfer__["a" /* Transfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__service_user_service__["a" /* UserService */]])
-], CreateShare);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_transfer__["a" /* Transfer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ActionSheetController */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* AlertController */], __WEBPACK_IMPORTED_MODULE_6__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__service_work_service__["a" /* WorkService */]])
+], WorkItem);
 
-//# sourceMappingURL=create-share.js.map
+//# sourceMappingURL=work-item.js.map
 
 /***/ })
 

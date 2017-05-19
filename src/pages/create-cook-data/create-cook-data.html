@@ -27,17 +27,17 @@
     <ion-list-header>
         心得：
     </ion-list-header>
-    <ion-textarea placeholder="输入这道美食背后的故事"></ion-textarea>
+    <ion-textarea [(ngModel)]="text" placeholder="输入这道美食背后的故事"></ion-textarea>
     <ion-list-header>
         用料：
     </ion-list-header>
     <section class="dv_food_list">
         <ion-row (press)="pressEvent(i)" *ngFor="let food of foods; let i=index">
             <ion-col>
-                <div>北豆腐</div>
+                <div>{{food.name}}</div>
             </ion-col>
             <ion-col>
-                <div>2块 (大概380g)</div>
+                <div>{{food.len}}</div>
             </ion-col>
         </ion-row>
     </section>
@@ -52,7 +52,7 @@
 
             <ion-item (press)="pressEvent(i)" (click)="editItem(i)" *ngFor="let item of items; let i=index">
 
-                <section class="imgs" [style.background]="'url('+ item.imgsrc +')'"></section>
+                <section *ngIf="item.src != ''" class="imgs" [style.background]="'url('+ item.src +')'"></section>
 
                 <p>
                     {{item.text}}
@@ -83,7 +83,7 @@
     <ion-list-header>
         Tip：
     </ion-list-header>
-    <ion-textarea placeholder="温馨提示"></ion-textarea>
+    <ion-textarea [(ngModel)]="tip" placeholder="温馨提示"></ion-textarea>
 
     <button (click)="send();" class="dv_button" ion-button round outline>发布菜谱</button>
     <br/>

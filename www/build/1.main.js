@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__person__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic2_super_tabs__ = __webpack_require__(359);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PersonModule", function() { return PersonModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58,9 +58,9 @@ PersonModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_super_tabs_controller__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent__ = __webpack_require__(245);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_fromEvent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__ = __webpack_require__(363);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuperTabs; });
 
@@ -471,19 +471,19 @@ SuperTabs.decorators = [
                 selector: 'super-tabs',
                 template: "\n    <super-tabs-toolbar [tabsPlacement]=\"tabsPlacement\" [hidden]=\"!isToolbarVisible\" [config]=\"config\"\n                        [color]=\"toolbarBackground\"\n                        [tabsColor]=\"toolbarColor\" [indicatorColor]=\"indicatorColor\" [badgeColor]=\"badgeColor\"\n                        [scrollTabs]=\"scrollTabs\"\n                        [selectedTab]=\"selectedTabIndex\"\n                        (tabSelect)=\"onToolbarTabSelect($event)\"></super-tabs-toolbar>\n    <super-tabs-container [config]=\"config\" [tabsCount]=\"_tabs.length\" [selectedTabIndex]=\"selectedTabIndex\"\n                          (tabSelect)=\"onContainerTabSelect($event)\" (onDrag)=\"onDrag($event)\">\n      <ng-content></ng-content>\n    </super-tabs-container>\n  ",
                 encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ViewEncapsulation */].None,
-                providers: [{ provide: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* RootNode */], useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* forwardRef */])(function () { return SuperTabs; }) }]
+                providers: [{ provide: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* RootNode */], useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* forwardRef */])(function () { return SuperTabs; }) }]
             },] },
 ];
 /** @nocollapse */
 SuperTabs.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* App */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* App */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Renderer2 */], },
     { type: __WEBPACK_IMPORTED_MODULE_5__providers_super_tabs_controller__["a" /* SuperTabsController */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* DeepLinker */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* DeepLinker */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* DomController */], },
 ]; };
 SuperTabs.propDecorators = {
     'toolbarBackground': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
@@ -713,7 +713,7 @@ var SuperTab = (function (_super) {
         this.setElementStyle('width', width + 'px');
     };
     return SuperTab;
-}(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavControllerBase */]));
+}(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavControllerBase */]));
 
 SuperTab.decorators = [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */], args: [{
@@ -725,19 +725,19 @@ SuperTab.decorators = [
 /** @nocollapse */
 SuperTab.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_3__super_tabs_super_tabs__["a" /* SuperTabs */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* App */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* Config */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* Keyboard */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* App */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* Config */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Keyboard */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* NgZone */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Renderer */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ComponentFactoryResolver */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* GestureController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* GestureController */], },
     { type: __WEBPACK_IMPORTED_MODULE_2_ionic_angular_transitions_transition_controller__["a" /* TransitionController */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* ErrorHandler */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* DeepLinker */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* DeepLinker */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Optional */] },] },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* DomController */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* ChangeDetectorRef */], },
 ]; };
 SuperTab.propDecorators = {
@@ -898,8 +898,8 @@ SuperTabsContainer.decorators = [
 SuperTabsContainer.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Renderer2 */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* DomController */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* NgZone */], },
 ]; };
 SuperTabsContainer.propDecorators = {
@@ -1042,9 +1042,9 @@ SuperTabsToolbar.decorators = [
 /** @nocollapse */
 SuperTabsToolbar.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Renderer2 */], },
-    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* DomController */], },
+    { type: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* DomController */], },
 ]; };
 SuperTabsToolbar.propDecorators = {
     'color': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
@@ -1056,10 +1056,10 @@ SuperTabsToolbar.propDecorators = {
     'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
     'tabsPlacement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */] },],
     'tabSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Output */] },],
-    'segmentButtons': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChildren */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* SegmentButton */],] },],
+    'segmentButtons': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChildren */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* SegmentButton */],] },],
     'tabButtonsContainer': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: ['tabButtonsContainer',] },],
     'indicator': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: ['indicator',] },],
-    'segment': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Segment */],] },],
+    'segment': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Segment */],] },],
 };
 //# sourceMappingURL=super-tabs-toolbar.js.map
 
@@ -1159,7 +1159,7 @@ var SuperTabsPanGesture = (function () {
 
 /***/ }),
 
-/***/ 358:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1169,7 +1169,7 @@ var SuperTabsPanGesture = (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_super_tabs_controller__ = __webpack_require__(353);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_module__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__super_tabs_module__ = __webpack_require__(360);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__super_tabs_module__["a"]; });
 
 
@@ -1179,7 +1179,7 @@ var SuperTabsPanGesture = (function () {
 
 /***/ }),
 
-/***/ 359:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1235,7 +1235,7 @@ SuperTabsModule.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 360:
+/***/ 361:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1291,7 +1291,7 @@ exports.Scheduler = Scheduler;
 
 /***/ }),
 
-/***/ 361:
+/***/ 362:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1303,19 +1303,19 @@ Observable_1.Observable.merge = merge_1.merge;
 
 /***/ }),
 
-/***/ 362:
+/***/ 363:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(11);
-var debounceTime_1 = __webpack_require__(363);
+var debounceTime_1 = __webpack_require__(364);
 Observable_1.Observable.prototype.debounceTime = debounceTime_1.debounceTime;
 //# sourceMappingURL=debounceTime.js.map
 
 /***/ }),
 
-/***/ 363:
+/***/ 364:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1326,7 +1326,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(31);
-var async_1 = __webpack_require__(367);
+var async_1 = __webpack_require__(368);
 /**
  * Emits a value from the source Observable only after a particular time span
  * has passed without another source emission.
@@ -1438,7 +1438,7 @@ function dispatchNext(subscriber) {
 
 /***/ }),
 
-/***/ 364:
+/***/ 365:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1489,7 +1489,7 @@ exports.Action = Action;
 
 /***/ }),
 
-/***/ 365:
+/***/ 366:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1500,7 +1500,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var root_1 = __webpack_require__(32);
-var Action_1 = __webpack_require__(364);
+var Action_1 = __webpack_require__(365);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -1638,7 +1638,7 @@ exports.AsyncAction = AsyncAction;
 
 /***/ }),
 
-/***/ 366:
+/***/ 367:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1648,7 +1648,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Scheduler_1 = __webpack_require__(360);
+var Scheduler_1 = __webpack_require__(361);
 var AsyncScheduler = (function (_super) {
     __extends(AsyncScheduler, _super);
     function AsyncScheduler() {
@@ -1696,13 +1696,13 @@ exports.AsyncScheduler = AsyncScheduler;
 
 /***/ }),
 
-/***/ 367:
+/***/ 368:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var AsyncAction_1 = __webpack_require__(365);
-var AsyncScheduler_1 = __webpack_require__(366);
+var AsyncAction_1 = __webpack_require__(366);
+var AsyncScheduler_1 = __webpack_require__(367);
 exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
 //# sourceMappingURL=async.js.map
 
@@ -1779,8 +1779,8 @@ var Person = (function () {
     return Person;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* Content */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* Content */])
 ], Person.prototype, "content", void 0);
 Person = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),

@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__setting__ = __webpack_require__(408);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_file_opener__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_transfer__ = __webpack_require__(358);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(371);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingModule", function() { return SettingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -53,7 +53,7 @@ SettingModule = __decorate([
 
 /***/ }),
 
-/***/ 368:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -184,7 +184,7 @@ Transfer.decorators = [
 /** @nocollapse */
 Transfer.ctorParameters = function () { return []; };
 Transfer = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* Plugin */])({
         pluginName: 'FileTransfer',
         plugin: 'cordova-plugin-file-transfer',
         pluginRef: 'FileTransfer',
@@ -197,7 +197,7 @@ Transfer = __decorate([
  */
 var TransferObject = (function () {
     function TransferObject() {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["e" /* checkAvailability */])('FileTransfer', null, 'FileTransfer') === true) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* checkAvailability */])('FileTransfer', null, 'FileTransfer') === true) {
             this._objectInstance = new FileTransfer();
         }
     }
@@ -240,7 +240,7 @@ var TransferObject = (function () {
     return TransferObject;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* CordovaInstance */])({
         successIndex: 2,
         errorIndex: 3
     }),
@@ -249,7 +249,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TransferObject.prototype, "upload", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* CordovaInstance */])({
         successIndex: 2,
         errorIndex: 3
     }),
@@ -258,13 +258,13 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TransferObject.prototype, "download", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* InstanceCheck */])({ sync: true }),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["e" /* InstanceCheck */])({ sync: true }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Function]),
     __metadata("design:returntype", void 0)
 ], TransferObject.prototype, "onProgress", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* CordovaInstance */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* CordovaInstance */])({
         sync: true
     }),
     __metadata("design:type", Function),
@@ -272,7 +272,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TransferObject.prototype, "abort", null);
 TransferObject = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* Plugin */])({
         plugin: 'cordova-plugin-file-transfer',
         pluginName: 'FileTransfer'
     }),
@@ -362,7 +362,7 @@ FileOpener.decorators = [
 /** @nocollapse */
 FileOpener.ctorParameters = function () { return []; };
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* Cordova */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* Cordova */])({
         callbackStyle: 'object',
         successName: 'success',
         errorName: 'error'
@@ -372,7 +372,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FileOpener.prototype, "open", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* Cordova */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* Cordova */])({
         callbackStyle: 'object',
         successName: 'success',
         errorName: 'error'
@@ -382,7 +382,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FileOpener.prototype, "uninstall", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* Cordova */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["f" /* Cordova */])({
         callbackStyle: 'object',
         successName: 'success',
         errorName: 'error'
@@ -392,7 +392,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FileOpener.prototype, "appIsInstalled", null);
 FileOpener = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* Plugin */])({
         pluginName: 'FileOpener',
         plugin: 'cordova-plugin-file-opener2',
         pluginRef: 'cordova.plugins.fileOpener2',
@@ -1158,193 +1158,193 @@ File.decorators = [
 /** @nocollapse */
 File.ctorParameters = function () { return []; };
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "applicationDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "applicationStorageDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "dataDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "cacheDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "externalApplicationStorageDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "externalDataDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "externalCacheDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "externalRootDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "tempDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "syncedDataDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "documentsDirectory", void 0);
 __decorate([
-    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* CordovaProperty */],
+    __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["g" /* CordovaProperty */],
     __metadata("design:type", String)
 ], File.prototype, "sharedDirectory", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], File.prototype, "getFreeDiskSpace", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "checkDir", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, Boolean]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "createDir", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "removeDir", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "moveDir", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "copyDir", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "listDir", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "removeRecursively", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "checkFile", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, Boolean]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "createFile", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "removeFile", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, Object, Object]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "writeFile", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, Object]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "writeExistingFile", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "readAsText", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "readAsDataURL", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "readAsBinaryString", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "readAsArrayBuffer", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "moveFile", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, String, String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "copyFile", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "resolveLocalFilesystemUrl", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "resolveDirectoryUrl", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, String, Object]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "getDirectory", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* CordovaCheck */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["h" /* CordovaCheck */])(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, String, Object]),
     __metadata("design:returntype", Promise)
 ], File.prototype, "getFile", null);
 File = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["b" /* Plugin */])({
         pluginName: 'File',
         plugin: 'cordova-plugin-file',
         pluginRef: 'cordova.file',
@@ -1366,7 +1366,7 @@ File = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_user_service__ = __webpack_require__(244);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_opener__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_transfer__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_transfer__ = __webpack_require__(358);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_file__ = __webpack_require__(371);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Setting; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1477,7 +1477,7 @@ Setting = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
         selector: 'page-setting',template:/*ion-inline-start:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/setting/setting.html"*/'<ion-header>\n\n    <ion-navbar color=\'bule\'>\n        <ion-title>设置</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <ion-list>\n        <ion-item>清除缓存</ion-item>\n        <ion-item>\n            当前版本\n            <ion-note item-right>\n                {{Version}}\n            </ion-note>\n        </ion-item>\n        <ion-item (click)="getAppVersion();">检查更新</ion-item>\n        <ion-item>意见反馈</ion-item>\n        <ion-item>关于吃乎</ion-item>\n        <ion-item [hidden]="ishide" class="logout" (click)="out();">退出账号</ion-item>\n\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/apple/Documents/ionic2/3.0.1/chihu/src/pages/setting/setting.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_file_opener__["a" /* FileOpener */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_transfer__["a" /* Transfer */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* AlertController */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_file__["a" /* File */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_file_opener__["a" /* FileOpener */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_transfer__["a" /* Transfer */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* AlertController */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_file__["a" /* File */]])
 ], Setting);
 
 //# sourceMappingURL=setting.js.map
