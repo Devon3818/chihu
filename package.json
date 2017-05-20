@@ -28,6 +28,7 @@
     "@ionic-native/splash-screen": "3.4.2",
     "@ionic-native/status-bar": "3.4.2",
     "@ionic-native/transfer": "^3.9.2",
+    "@ionic-native/video-player": "^3.10.0",
     "@ionic/storage": "^2.0.1",
     "ionic-angular": "3.0.1",
     "ionic2-jpush": "0.0.5",

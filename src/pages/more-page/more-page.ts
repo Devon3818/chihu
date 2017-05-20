@@ -59,6 +59,10 @@ export class MorePage {
     this.navCtrl.push( 'Setting' );
   }
 
+  pushMyAnswerPage(){
+    this.checkLogin( 'MyAnswer' );
+  }
+
   clear(){
     this.UserService.clearStorage();
     alert("清除用户缓存成功！");

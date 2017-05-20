@@ -32,6 +32,8 @@ export class Article {
   ishide: boolean = true;
   //数据存储
   data: any = {};
+  iscoll: boolean = false;
+  isthank: boolean = false;
 
   constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
     this._id = this.navParams.get("_id");
@@ -51,18 +53,16 @@ export class Article {
     })
       .subscribe((res) => {
         this.data = res.json()[0];
-        this.checkfork();
+        if (this.UserService._user._id) {
+          this.checkfork();
+        }
       });
   }
 
   //检查是否已经关注
   checkfork() {
 
-    if (!this.UserService._user._id) {
-      this.UserService.presentLoadingDismiss();
-      //未登录跳转登陆
-      this.navCtrl.push('Login');
-    } else if (this.UserService._user._id != this.data['uid']) {
+    if (this.UserService._user._id != this.data['uid']) {
       let url = "http://www.devonhello.com/chihu/checkfork";
 
       var headers = new Headers();
@@ -75,8 +75,10 @@ export class Article {
           if (res.json().length == "0") {
             this.ishide = false;
           }
-          this.UserService.presentLoadingDismiss();
+          this.checkcoll();
         });
+    } else {
+      this.UserService.presentLoadingDismiss();
     }
 
   }
@@ -121,7 +123,7 @@ export class Article {
       return true;
     }
     if (this.UserService._user._id == this.data['uid']) {
-      this.UserService.showAlert("不能自己感谢自己");
+      this.UserService.showAlert("无需感谢自己");
       return true;
     }
     this.UserService.presentLoadingDefault();
@@ -137,6 +139,7 @@ export class Article {
       .subscribe((res) => {
         if (res.json()['result']['ok'] == 1) {
           this.UserService.presentLoadingDismiss();
+          this.isthank = true;
           this.UserService.showAlert("感谢成功");
         }
       });
@@ -165,8 +168,69 @@ export class Article {
       .subscribe((res) => {
         if (res.json()['result']['ok'] == 1) {
           this.UserService.presentLoadingDismiss();
+          this.iscoll = true;
           this.UserService.showAlert("收藏成功");
         }
+      });
+  }
+
+  //检查是否已经关注
+  checkthank() {
+
+    let url = "http://www.devonhello.com/chihu/checkthank";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "artid=" + this.data['_id'] + "&id=" + this.UserService._user._id, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        if (res.json().length != "0") {
+          this.isthank = true;
+        }
+        this.UserService.presentLoadingDismiss();
+      });
+
+
+  }
+
+  //检查是否已经收藏
+  checkcoll() {
+
+    let url = "http://www.devonhello.com/chihu/checkcollart";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "artid=" + this.data['_id'] + "&uid=" + this.UserService._user._id + "&type=1", {
+      headers: headers
+    })
+      .subscribe((res) => {
+        if (res.json().length != "0") {
+          this.iscoll = true;
+        }
+        this.checkthank();
+      });
+
+
+  }
+
+  discollect() {
+    this.UserService.presentLoadingDefault();
+    let url = "http://www.devonhello.com/chihu/discoll_article";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "artid=" + this._id + "&uid=" + this.UserService._user._id + "&type=1", {
+      headers: headers
+    })
+      .subscribe((res) => {
+        this.iscoll = false;
+        this.UserService.presentLoadingDismiss();
+        this.UserService.showAlert("取消收藏成功");
+
       });
   }
 

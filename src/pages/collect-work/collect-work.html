@@ -5,10 +5,10 @@
             <img [src]="item.userimg" />
             <p>{{item.name}} 分享的作品</p>
         </section>
-        <section (click)="pushArticlePage( item._id );" class="dv_item_banner" [style.background]="'url('+item.workbanner+')'"></section>
-        <h6 (click)="pushArticlePage( item._id );">{{item.title}}</h6>
+        <section (click)="pushArticlePage( item.artid );" class="dv_item_banner" [style.background]="'url('+item.workbanner+')'"></section>
+        <h6 (click)="pushArticlePage( item.artid );">{{item.title}}</h6>
 
-        <p (click)="pushArticlePage( item._id );">{{item.text}}</p>
+        <p (click)="pushArticlePage( item.artid );">{{item.text}}</p>
 
     </section>
 

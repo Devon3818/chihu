@@ -22,6 +22,8 @@ export class AnswerPage {
   _id;
   //关注隐藏控制属性
   ishide: boolean = true;
+  iscoll: boolean = false;
+  isthank: boolean = false;
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
     this._id = this.navParams.get("_id");
@@ -41,7 +43,9 @@ export class AnswerPage {
     })
       .subscribe((res) => {
         this.data = res.json()[0];
-        this.checkfork();
+        if (this.UserService._user._id) {
+          this.checkfork();
+        }
       });
   }
 
@@ -70,13 +74,7 @@ export class AnswerPage {
 
   //检查是否已经关注
   checkfork() {
-
-    //判断是否登陆
-    if (!this.UserService._user._id) {
-      this.UserService.presentLoadingDismiss();
-      //未登录跳转登陆页面，pass
-      this.navCtrl.push('Login');
-    } else if( this.UserService._user._id != this.data['uid'] ) {
+    if (this.UserService._user._id != this.data['uid']) {
       let url = "http://www.devonhello.com/chihu/checkfork";
 
       var headers = new Headers();
@@ -89,15 +87,59 @@ export class AnswerPage {
           if (res.json().length == "0") {
             this.ishide = false;
           }
-          this.UserService.presentLoadingDismiss();
+          this.checkcoll();
         });
+    }else{
+      this.UserService.presentLoadingDismiss();
     }
+
+  }
+
+  //检查是否已经收藏
+  checkcoll() {
+
+    let url = "http://www.devonhello.com/chihu/checkcollart";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "artid=" + this.data['_id'] + "&uid=" + this.UserService._user._id + "&type=0", {
+      headers: headers
+    })
+      .subscribe((res) => {
+        if (res.json().length != "0") {
+          this.iscoll = true;
+        }
+        this.checkthank();
+      });
+
+
+  }
+
+  //检查是否已经关注
+  checkthank() {
+
+    let url = "http://www.devonhello.com/chihu/checkthank";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "artid=" + this.data['_id'] + "&id=" + this.UserService._user._id, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        if (res.json().length != "0") {
+          this.isthank = true;
+        }
+        this.UserService.presentLoadingDismiss();
+      });
+
 
   }
 
   //关注
   fork() {
-    
+
     //判断是否登陆
     if (!this.UserService._user._id) {
       //未登录跳转登陆页面，pass
@@ -106,7 +148,7 @@ export class AnswerPage {
     }
 
     if (this.ishide) {
-      this.UserService.showAlert( "已关注" );
+      this.UserService.showAlert("已关注");
     } else {
       this.UserService.presentLoadingDefault();
       let url = "http://www.devonhello.com/chihu/forkuser";
@@ -121,7 +163,7 @@ export class AnswerPage {
           if (res.json()['result']['ok'] == 1) {
             this.ishide = true;
             this.UserService.presentLoadingDismiss();
-            this.UserService.showAlert( "关注成功" );
+            this.UserService.showAlert("关注成功");
           }
         });
     }
@@ -151,8 +193,27 @@ export class AnswerPage {
       .subscribe((res) => {
         if (res.json()['result']['ok'] == 1) {
           this.UserService.presentLoadingDismiss();
+          this.iscoll = true;
           this.UserService.showAlert("收藏成功");
         }
+      });
+  }
+
+  discollect() {
+    this.UserService.presentLoadingDefault();
+    let url = "http://www.devonhello.com/chihu/discoll_article";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "artid=" + this._id + "&uid=" + this.UserService._user._id + "&type=0", {
+      headers: headers
+    })
+      .subscribe((res) => {
+        this.iscoll = false;
+        this.UserService.presentLoadingDismiss();
+        this.UserService.showAlert("取消收藏成功");
+
       });
   }
 
@@ -166,7 +227,7 @@ export class AnswerPage {
       return true;
     }
     if (this.UserService._user._id == this.data['uid']) {
-      this.UserService.showAlert( "不能自己感谢自己" );
+      this.UserService.showAlert("无需感谢自己");
       return true;
     }
     this.UserService.presentLoadingDefault();
@@ -182,7 +243,8 @@ export class AnswerPage {
       .subscribe((res) => {
         if (res.json()['result']['ok'] == 1) {
           this.UserService.presentLoadingDismiss();
-          this.UserService.showAlert( "感谢成功" );
+          this.isthank = true;
+          this.UserService.showAlert("感谢成功");
         }
       });
   }

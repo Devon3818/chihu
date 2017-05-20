@@ -52,6 +52,20 @@ export class JPushService {
       })
 
     }
+
+    if (window.plugins && window.plugins.NativeAudio) {
+
+      // Preload audio resources 
+      window.plugins.NativeAudio.preloadComplex('music', 'lolo.aac', 1, 1, 0, function (msg) {
+      }, function (msg) {
+        //alert('error: ' + msg);
+      });
+      
+    }
+  }
+
+  play() {
+    window.plugins.NativeAudio.play('music');
   }
 
   jpush_setAlias(Alias) {
@@ -91,6 +105,7 @@ export class JPushService {
           _that.msgListTHIS.scrollToBottom();
         }
       }
+      _that.play();
     }, false);
   }
 
