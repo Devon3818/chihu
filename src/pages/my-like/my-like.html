@@ -1,0 +1,31 @@
+<ion-header no-border>
+
+    <ion-navbar color="bule">
+        <ion-title>我点赞的</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <section class="dv_hot_q dv_hot_w">
+
+        <!--重复-->
+        <section *ngFor="let item of data" class="dv_item" (click)="pushOpenSharePage( item.artid );">
+            <section class="dv_item_head">
+                <img [src]="item.userimg" />
+                <p>{{item.name}} 分享了心情</p>
+                <span class="time">{{item.time}}</span>
+            </section>
+
+            <section class="wrap">
+                <div *ngFor="let item2 of item.img" class="imgs" [style.background]="'url('+item2.src+')'"></div>
+            </section>
+
+            <p>{{item.text}}</p>
+        </section>
+
+    </section>
+
+</ion-content>

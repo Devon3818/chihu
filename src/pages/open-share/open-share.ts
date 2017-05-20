@@ -25,12 +25,11 @@ export class OpenShare {
     userimg: '',
     time: '',
     mark: { like: 0, cont: 0 },
-    img: [
-
-    ],
+    img: [],
     text: ''
   };
   _id;
+  islike: boolean = false;
 
   constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
     this._id = this.navParams.get('_id');
@@ -51,8 +50,36 @@ export class OpenShare {
       .subscribe((res) => {
         this.data = res.json()[0];
         this.title = res.json()[0]['name'] + ' 分享了心情';
-        this.UserService.presentLoadingDismiss();
+        if (this.UserService._user._id) {
+          this.checklike();
+        } else {
+          this.UserService.presentLoadingDismiss();
+        }
+
       });
+  }
+
+  //检查是否已经点赞
+  checklike() {
+    if (this.UserService._user._id != this.data['uid']) {
+      let url = "http://www.devonhello.com/chihu/checkcollshare";
+
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id + "&artid=" + this.data['_id'], {
+        headers: headers
+      })
+        .subscribe((res) => {
+          if (res.json().length != "0") {
+            this.islike = true;
+          }
+          this.UserService.presentLoadingDismiss();
+        });
+    } else {
+      this.UserService.presentLoadingDismiss();
+    }
+
   }
 
   //点赞
@@ -72,14 +99,33 @@ export class OpenShare {
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
     this.http.post(url, "uid=" + this.data['uid'] + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&type=2" + "&userimg=" + this.UserService._user.userimg + "&artid=" + this._id + "&title=" + this
-      .data['text'], {
+      .data['text'] + "&isshow=" + this.data['isshow'] + "&targetuserimg=" + this.data['userimg'] + "&time=" + this.data['time'] + "&targetname=" + this.data['name'] + "&img=" + JSON.stringify(this.data['img']), {
         headers: headers
       })
       .subscribe((res) => {
         if (res.json()['result']['ok'] == 1) {
           this.UserService.presentLoadingDismiss();
+          this.islike = true;
           this.UserService.showAlert("👍 点赞成功");
         }
+      });
+  }
+
+  dislike() {
+    this.UserService.presentLoadingDefault();
+    let url = "http://www.devonhello.com/chihu/discoll_share";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "artid=" + this._id + "&id=" + this.UserService._user._id + "&uid=" + this.data['uid'], {
+      headers: headers
+    })
+      .subscribe((res) => {
+        this.islike = false;
+        this.UserService.presentLoadingDismiss();
+        this.UserService.showAlert("取消点赞成功");
+
       });
   }
 

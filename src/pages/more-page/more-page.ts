@@ -63,6 +63,10 @@ export class MorePage {
     this.checkLogin( 'MyAnswer' );
   }
 
+  pushMyLikePage(){
+    this.checkLogin( 'MyLike' );
+  }
+
   clear(){
     this.UserService.clearStorage();
     alert("清除用户缓存成功！");
