@@ -129,6 +129,13 @@ export class OpenShare {
       });
   }
 
+  //查看TA的个人主页
+  pushPersonPage(_id) {
+    this.navCtrl.push('Person', {
+      _id: _id
+    });
+  }
+
   //点击图片查看
   pswpElementInit(ind) {
 

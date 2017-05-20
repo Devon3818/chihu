@@ -1,11 +1,16 @@
 page-fork-discover {
     ion-content {
-        background-color: #f2f4f7 !important;
+        background-color: #fff !important;
         height: 130% !important;
     }
+    .nomessage {
+        background-image: url('../assets/icon/nomessage.png') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
     .dv_hot_q {
-        margin-bottom: 12px;
-        box-shadow: 0 1px 4px #c4c6c8;
+        padding-bottom: 6rem;
         background: #fff;
     }
     .dv_item {

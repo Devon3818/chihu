@@ -16,22 +16,30 @@ export class ForkDiscover {
 
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
-    this.getforkdata();
+    if(this.UserService._user._id){
+      this.getforkdata();
+    }else{
+      //this.UserService.showAlert("抱歉，请登陆");
+    }
   }
 
   getforkdata() {
 
-    let url = "http://www.devonhello.com/chihu/share";
+    let url = "http://www.devonhello.com/chihu/getmyforkshare";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "len=1", {
+    this.http.post(url, "id="+this.UserService._user._id, {
       headers: headers
     })
       .subscribe((res) => {
-        this.data = res.json();
-        //this.UserService.presentLoadingDismiss();
+        if(res.json()!='0'){
+          this.data = res.json();
+        }else{
+          //this.UserService.showAlert("抱歉，没有任何分享的数据");
+        }
+
       });
   }
 

@@ -27,7 +27,7 @@
     <section class="dv_top_ban">
 
         <section class="dv_item_2">
-            <section class="dv_item_head">
+            <section class="dv_item_head" (click)="pushPersonPage(data.uid);">
                 <img [src]="data.userimg" />
                 <p>{{data.name}} 分享了心情</p>
                 <span class="time">{{data.time}}</span>
