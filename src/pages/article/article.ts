@@ -142,6 +142,34 @@ export class Article {
       });
   }
 
+  //收藏
+  collect() {
+    if (!this.UserService._user._id) {
+      //未登录跳转登陆
+      this.navCtrl.push('Login');
+      return true;
+    }
+    if (this.UserService._user._id == this.data['uid']) {
+      this.UserService.showAlert("无需收藏自己的作品");
+      return true;
+    }
+    this.UserService.presentLoadingDefault();
+    let url = "http://www.devonhello.com/chihu/coll_article";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "_id=" + this.data['_id'] + "&uid=" + this.UserService._user._id + "&name=" + this.data['name'] + "&type=1" + "&userimg=" + this.data['userimg'] + "&title=" + this.data['title'] + "&text=" + this.data['text'] + "&workbanner=" + this.data['workbanner'], {
+      headers: headers
+    })
+      .subscribe((res) => {
+        if (res.json()['result']['ok'] == 1) {
+          this.UserService.presentLoadingDismiss();
+          this.UserService.showAlert("收藏成功");
+        }
+      });
+  }
+
 
   ionViewDidLoad() {
     this.content.enableJsScroll();

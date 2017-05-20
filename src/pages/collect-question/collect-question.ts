@@ -26,7 +26,7 @@ export class CollectQuestion {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id=" + this.UserService._user._id, {
+    this.http.post(url, "id=" + this.UserService._user._id + "&type=0", {
       headers: headers
     })
       .subscribe((res) => {
