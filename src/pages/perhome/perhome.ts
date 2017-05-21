@@ -13,6 +13,7 @@ export class Perhome {
   items:any = [];
   rootNavCtrl: NavController;
   tar:any = '';
+  ishide:boolean = true;
 
   constructor(
     public http: Http,
@@ -36,7 +37,10 @@ export class Perhome {
       headers: headers
     })
       .subscribe((res) => {
-        this.items = this.items.concat(res.json());
+        if( res.json().length > 0 ){
+          this.ishide = false;
+          this.items = this.items.concat(res.json());
+        }
       });
   }
 

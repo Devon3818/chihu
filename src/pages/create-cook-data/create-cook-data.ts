@@ -111,7 +111,7 @@ export class CreateCookData {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&userimg=" + this.UserService._user.userimg + "&work=" + JSON.stringify(this.items) + "&text=" + this.text + "&food=" + JSON.stringify(this.foods) + "&workbanner=" + this.banner + "&tip=" + this.tip + "&type=" + "1" + "&title=" + this.title, {
+    this.http.post(url, "uid=" + this.UserService._user._id + "&name=" + this.UserService._user.nickname + "&userimg=" + this.UserService._user.userimg + "&work=" + JSON.stringify(this.items) + "&text=" + this.text + "&food=" + JSON.stringify(this.foods) + "&workbanner=" + this.banner + "&tip=" + this.tip + "&type=" + "1" + "&title=" + this.title, {
       headers: headers
     })
       .subscribe((res) => {

@@ -21,7 +21,7 @@ export class MorePage {
   }
 
   init(){
-    this.name = this.UserService._user.name;
+    this.name = this.UserService._user.nickname;
     this.mimg = this.UserService._user.userimg;
   }
 

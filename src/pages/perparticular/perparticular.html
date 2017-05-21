@@ -29,7 +29,7 @@
             <ion-col center text-center>
                 <button [hidden]="isme || ishide" (click)="fork();" ion-button>关注</button>
                 <button [hidden]="isme || !ishide" (click)="disfork();" ion-button>取消关注</button>
-                <button [hidden]="!isme" ion-button>编辑</button>
+                <button [hidden]="!isme" (click)="baseic();" ion-button>编辑</button>
             </ion-col>
         </ion-row>
     </section>
@@ -54,14 +54,14 @@
             <ion-icon name='document' item-left color="h"></ion-icon>
             居住地
             <ion-note item-right>
-                {{user.city}}
+                {{user.city==''?'❌':city}}
             </ion-note>
         </ion-item>
         <ion-item>
             <ion-icon name='time' item-left color="h"></ion-icon>
             行业
             <ion-note item-right>
-                {{user.job}}
+                {{user.job==''?'❌':job}}
             </ion-note>
         </ion-item>
 

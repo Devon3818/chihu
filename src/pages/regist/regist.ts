@@ -11,8 +11,9 @@ declare var window;
 })
 export class Regist {
 
-  name: '';
-  pass: '';
+  name:any = '';
+  nickname:any = '';
+  pass:any = '';
   userdata: any = null;
 
   constructor(
@@ -36,6 +37,7 @@ export class Regist {
         function () {
           // 注册成功。
           _that.UserService.setUser(_that.userdata);
+          _that.UserService.presentLoadingDismiss();
           _that.navCtrl.popToRoot();
         }, function (errorStr) {
           alert(errorStr);	// 输出错误信息。
@@ -44,8 +46,9 @@ export class Regist {
   }
 
   regist() {
-
-    if (!this.name || !this.pass) {
+    this.UserService.presentLoadingDefault();
+    if ( this.name.length < 1 || this.pass.length < 1 || this.nickname.length < 1 ) {
+      this.UserService.presentLoadingDismiss();
       return true;
     }
 
@@ -54,13 +57,16 @@ export class Regist {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "name=" + this.name + "&pass=" + this.pass, {
+    this.http.post(url, "name=" + this.name + "&pass=" + this.pass + "&nickname=" + this.nickname, {
       headers: headers
     })
       .subscribe((res) => {
         if (res.json()[0]['_id']) {
           this.userdata = res.json()[0];
           this.registJP();
+        }else{
+          this.UserService.presentLoadingDismiss();
+          this.UserService.showAlert("注册失败，账号可能已存在");
         }
       });
   }

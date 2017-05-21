@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { UserService } from '../../service/user.service';
 import { Headers, Http } from '@angular/http';
 
@@ -20,14 +20,15 @@ export class Perparticular {
     public http: Http,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public UserService: UserService
+    public UserService: UserService,
+    public modalCtrl: ModalController
   ) {
     this.user = this.UserService._user;
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this._id = this.navParams.data._id;
     if (this.UserService._user._id && this._id == this.UserService._user._id) {
       this.isme = true;
-    }else{
+    } else {
       this.isme = false;
       this.ishide = false;
     }
@@ -91,7 +92,7 @@ export class Perparticular {
       var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.post(url, "uid=" + this._id + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.name + "&uname=" + this.user['name'] + "&userimg=" + this.UserService._user.userimg + "&uuserimg=" + this.user['userimg'], {
+      this.http.post(url, "uid=" + this._id + "&id=" + this.UserService._user._id + "&name=" + this.UserService._user.nickname + "&uname=" + this.user['name'] + "&userimg=" + this.UserService._user.userimg + "&uuserimg=" + this.user['userimg'], {
         headers: headers
       })
         .subscribe((res) => {
@@ -124,6 +125,11 @@ export class Perparticular {
 
       });
 
+  }
+
+  baseic() {
+    let modal = this.modalCtrl.create('MyBasic');
+    modal.present();
   }
 
 }

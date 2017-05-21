@@ -13,7 +13,7 @@ export class UserService {
     Version = '';
 
     public _init: any = {
-        name: "吃乎",
+        nickname: "吃乎",
         userimg: "https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100",
         _id: null,
     }

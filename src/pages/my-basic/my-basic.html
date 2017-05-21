@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar color="bule">
+        <ion-title>
+            编辑信息
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">取消</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            头像:
+            <ion-avatar item-right>
+                <img [src]="img">
+            </ion-avatar>
+        </ion-item>
+        <ion-item>
+            昵称:
+            <ion-note item-right>
+                {{name}}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            性别:
+            <ion-note item-right>
+                {{sex=='0'?'男':'女'}}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            城市:
+            <ion-note item-right>
+                {{city==''?'❌':city}}
+            </ion-note>
+        </ion-item>
+        <ion-item no-lines (click)="doRadio();">
+            行业:
+            <ion-note item-right>
+                {{job==''?'❌':job}}
+            </ion-note>
+        </ion-item>
+        <ion-list-header>
+            个性签名
+        </ion-list-header>
+
+        <ion-textarea [(ngModel)]="dec" placeholder="个性签名..."></ion-textarea>
+
+    </ion-list>
+    <button ion-button full (click)="save();">保存</button>
+</ion-content>

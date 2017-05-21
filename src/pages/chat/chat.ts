@@ -59,7 +59,7 @@ export class Chat {
             return true;
         }
         var mjson = {
-            'name': this.UserService._user.name,
+            'name': this.UserService._user.nickname,
             'userimg': this.myuserimg,
             'toUserName': this.toUserName,
             'targuserimg': this.targuserimg,

@@ -31,8 +31,4 @@ export class CreateCookTitle {
     this.navCtrl.push('CreateCookData');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateCookTitle');
-  }
-
 }

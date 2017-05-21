@@ -39,7 +39,7 @@ export class Person {
     } else {
       this.chatParams._id = this.UserService._user._id;
       this.chatParams.tar = '我';
-      this.name = this.UserService._user.name;
+      this.name = this.UserService._user.nickname;
       this.userimg = this.UserService._user.userimg;
     }
 
