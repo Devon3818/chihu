@@ -20,7 +20,7 @@
             <h2 *ngIf="item.latestMessage['direct'] == 'receive'">{{item.latestMessage.content.contentStringMap.name}}</h2>
             <h2 *ngIf="item.latestMessage['direct'] == 'send'">{{item.latestMessage.content.contentStringMap.toUserName}}</h2>
             <p>{{item.latestMessage.content.contentStringMap.cont}}</p>
-            <ion-note item-right>{{item.lastMsgDate | date:'jm'}}</ion-note>
+            <ion-note item-right>{{item.lastMsgDate | date}}</ion-note>
         </ion-item>
 
 

@@ -17,14 +17,18 @@ export class CreateCookTitle {
 
   title = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public WorkService: WorkService) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public WorkService: WorkService
+  ) {
   }
 
   //继续
-  next(){
+  next() {
     this.WorkService._title = this.title;
     //alert(this.WorkService._title);
-    this.navCtrl.push( 'CreateCookData' );
+    this.navCtrl.push('CreateCookData');
   }
 
   ionViewDidLoad() {

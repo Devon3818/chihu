@@ -14,17 +14,24 @@ export class Perparticular {
   ishide: boolean = false;
   isme: boolean = true;
   _id;
+  rootNavCtrl: NavController;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public UserService: UserService
+  ) {
     this.user = this.UserService._user;
-    if (this.navParams.data._id) {
-      this._id = this.navParams.data._id;
-      if (this.UserService._user._id && this._id != this.UserService._user._id) {
-        this.isme = false;
-      }
-    } else {
-      this._id = this.UserService._user._id;
+    this.rootNavCtrl = navParams.get('rootNavCtrl');
+    this._id = this.navParams.data._id;
+    if (this.UserService._user._id && this._id == this.UserService._user._id) {
+      this.isme = true;
+    }else{
+      this.isme = false;
+      this.ishide = false;
     }
+
     this.getdata();
   }
 
@@ -40,7 +47,7 @@ export class Perparticular {
     })
       .subscribe((res) => {
         this.user = res.json()[0];
-        if (!this.isme) {
+        if (this.UserService._user._id) {
           this.checkfork();
         } else {
           this.UserService.presentLoadingDismiss();
@@ -71,7 +78,7 @@ export class Perparticular {
   fork() {
 
     if (!this.UserService._user._id) {
-      this.navCtrl.push('Login');
+      this.rootNavCtrl.push('Login');
       return true;
     }
 

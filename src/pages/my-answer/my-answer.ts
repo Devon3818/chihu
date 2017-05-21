@@ -12,23 +12,36 @@ export class MyAnswer {
 
   //数据存储
   items = [];
+  uid: any;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public UserService: UserService
+  ) {
+    if (this.navParams.get('id')) {
+      this.uid = this.navParams.get('id');
+    } else {
+      this.uid = this.UserService._user._id;
+    }
     this.getdata();
   }
 
   //获取数据
   getdata() {
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/my_answer";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id=" + this.UserService._user._id, {
+    this.http.post(url, "id=" + this.uid, {
       headers: headers
     })
       .subscribe((res) => {
         this.items = this.items.concat(res.json());
+        this.UserService.presentLoadingDismiss();
       });
   }
 

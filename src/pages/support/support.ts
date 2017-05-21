@@ -14,7 +14,12 @@ export class Support {
   rootNavCtrl: NavController;
   nomessage:boolean = true;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService
+    ) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.getdata();
   }

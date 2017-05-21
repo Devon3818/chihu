@@ -58,7 +58,8 @@ page-perhome {
         .dv_item_banner {
             width: 100%;
             height: 150px;
-            background-size: cover;
+            background-size: cover !important;
+            background-position: center center !important;
             margin-top: 6px;
         }
         .dv_item_bottom {

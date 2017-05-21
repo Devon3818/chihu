@@ -30,7 +30,7 @@
             <section class="dv_item_head" (click)="pushPersonPage(data.uid);">
                 <img [src]="data.userimg" />
                 <p>{{data.name}} 分享了心情</p>
-                <span class="time">{{data.time}}</span>
+                <span class="time">{{data.time | date}}</span>
             </section>
 
             <section class="wrap">

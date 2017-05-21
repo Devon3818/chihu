@@ -9,8 +9,8 @@
 
 <ion-content>
     <super-tabs height="100%" selectedTabIndex="0" tabColor="light" toolbarColor="light" indicatorColor="light" toolbarBackground="bule" sliderColor="light">
-        <super-tab [root]="page1" title="关注的问题"></super-tab>
-        <super-tab [root]="page2" title="关注的人"></super-tab>
+        <super-tab [root]="page1" [rootParams]="chatParams" title="关注的问题"></super-tab>
+        <super-tab [root]="page2" [rootParams]="chatParams" title="关注的人"></super-tab>
 
     </super-tabs>
 </ion-content>

@@ -12,8 +12,10 @@ export class BroadcastPage {
   page2: any = 'Support';
   page3: any = 'Attention';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BroadcastPage');

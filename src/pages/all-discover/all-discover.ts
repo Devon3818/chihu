@@ -18,7 +18,12 @@ export class AllDiscover {
   //数据
   data: any = [];
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public UserService: UserService
+  ) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.getdata();
   }
@@ -59,6 +64,18 @@ export class AllDiscover {
   //问题列表
   pushQueList() {
     this.rootNavCtrl.push('QueList');
+  }
+
+  pushHotWork() {
+    this.rootNavCtrl.push('HotWork');
+  }
+
+  pushHotAnswer() {
+    this.rootNavCtrl.push('HotAnswer');
+  }
+
+  pushHotShare() {
+    this.rootNavCtrl.push('HotShare');
   }
 
   doInfinite(infiniteScroll) {

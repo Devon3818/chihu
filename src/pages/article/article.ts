@@ -35,7 +35,14 @@ export class Article {
   iscoll: boolean = false;
   isthank: boolean = false;
 
-  constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
+  constructor(
+    public plt: Platform,
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ref: ChangeDetectorRef,
+    public UserService: UserService
+  ) {
     this._id = this.navParams.get("_id");
     this.UserService.presentLoadingDefault();
     this.getdata();
@@ -55,6 +62,8 @@ export class Article {
         this.data = res.json()[0];
         if (this.UserService._user._id) {
           this.checkfork();
+        }else{
+          this.UserService.presentLoadingDismiss();
         }
       });
   }

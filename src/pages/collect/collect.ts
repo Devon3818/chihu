@@ -11,7 +11,10 @@ export class Collect {
   page1: any = 'CollectQuestion';
   page2: any = 'CollectWork';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
   }
 
 }

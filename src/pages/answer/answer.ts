@@ -25,7 +25,13 @@ export class AnswerPage {
   iscoll: boolean = false;
   isthank: boolean = false;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ref: ChangeDetectorRef,
+    public UserService: UserService
+  ) {
     this._id = this.navParams.get("_id");
     this.UserService.presentLoadingDefault();
     this.getdata();
@@ -45,6 +51,8 @@ export class AnswerPage {
         this.data = res.json()[0];
         if (this.UserService._user._id) {
           this.checkfork();
+        }else{
+          this.UserService.presentLoadingDismiss();
         }
       });
   }
@@ -89,7 +97,7 @@ export class AnswerPage {
           }
           this.checkcoll();
         });
-    }else{
+    } else {
       this.UserService.presentLoadingDismiss();
     }
 

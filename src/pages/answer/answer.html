@@ -25,7 +25,7 @@
             <img (click)="pushPersonPage(data.uid);" [src]="data.userimg" />
             <section (click)="pushPersonPage(data.uid);" class="data">
                 <h4>{{data.name}}</h4>
-                <p>发布于：{{data.time}}</p>
+                <p>发布于：{{data.time | date}}</p>
             </section>
             <section [hidden]="ishide" class="fork" (click)="fork();">＋ 关注</section>
             <section [hidden]="!ishide" class="fork nofork">＋ 关注</section>

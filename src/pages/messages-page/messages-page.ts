@@ -13,7 +13,11 @@ export class MessagesPage {
   list: any = [];
   nomessage: boolean = true;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService
+    ) {
     this.getAllMessages();
   }
 

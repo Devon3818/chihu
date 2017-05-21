@@ -13,7 +13,12 @@ export class Inform {
   items = [];
   nomessage:boolean = true;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService
+    ) {
   }
 
 }

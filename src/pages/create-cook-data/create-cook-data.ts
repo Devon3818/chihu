@@ -23,7 +23,17 @@ export class CreateCookData {
   banner = "assets/icon/work_banner.png";
   fileTransfer: TransferObject;
 
-  constructor(public http: Http, public navCtrl: NavController, public transfer: Transfer, public alertCtrl: AlertController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public WorkService: WorkService, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public transfer: Transfer,
+    public alertCtrl: AlertController,
+    public navParams: NavParams,
+    private camera: Camera,
+    public actionSheetCtrl: ActionSheetController,
+    public WorkService: WorkService,
+    public UserService: UserService
+  ) {
     this.title = this.WorkService._title;
     this.fileTransfer = this.transfer.create();
     this.init();

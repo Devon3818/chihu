@@ -14,11 +14,16 @@ export class ForkDiscover {
   //数据
   data: any = [];
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public UserService: UserService
+  ) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
-    if(this.UserService._user._id){
+    if (this.UserService._user._id) {
       this.getforkdata();
-    }else{
+    } else {
       //this.UserService.showAlert("抱歉，请登陆");
     }
   }
@@ -30,13 +35,13 @@ export class ForkDiscover {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id="+this.UserService._user._id, {
+    this.http.post(url, "id=" + this.UserService._user._id, {
       headers: headers
     })
       .subscribe((res) => {
-        if(res.json()!='0'){
+        if (res.json() != '0') {
           this.data = res.json();
-        }else{
+        } else {
           //this.UserService.showAlert("抱歉，没有任何分享的数据");
         }
 

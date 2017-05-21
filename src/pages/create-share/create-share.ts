@@ -18,7 +18,16 @@ export class CreateShare {
   postimg = [];
   fileTransfer: TransferObject;
 
-  constructor(public http: Http, public transfer: Transfer, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, private camera: Camera, public alertCtrl: AlertController, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public transfer: Transfer,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public actionSheetCtrl: ActionSheetController,
+    private camera: Camera,
+    public alertCtrl: AlertController,
+    public UserService: UserService
+  ) {
     this.fileTransfer = this.transfer.create();
   }
 

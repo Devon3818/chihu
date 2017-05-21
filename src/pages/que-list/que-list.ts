@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
+import { UserService } from '../../service/user.service';
 
 @IonicPage()
 @Component({
@@ -11,11 +12,17 @@ export class QueList {
 
   items = [];
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public http: Http, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService
+    ) {
     this.getdata();
   }
 
   getdata() {
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/queslist";
 
     var headers = new Headers();
@@ -26,6 +33,7 @@ export class QueList {
     })
       .subscribe((res) => {
         this.items = this.items.concat(res.json());
+        this.UserService.presentLoadingDismiss();
       });
   }
 

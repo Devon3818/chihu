@@ -14,7 +14,8 @@ page-all-discover {
         font-size: 25px;
         color: #fff;
         .swiper-slide {
-            background-size: cover;
+            background-size: cover !important;
+            background-position: center center !important;
         }
     }
     .swiper-container2 {

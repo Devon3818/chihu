@@ -12,7 +12,9 @@ export class DiscoverPage {
   page1: any = 'AllDiscover';
   page2: any = 'ForkDiscover';
 
-  constructor(public UserService: UserService) {
+  constructor(
+    public UserService: UserService
+  ) {
     this.UserService.presentLoadingDefault();
   }
 

@@ -19,7 +19,12 @@ export class CreateQuestionTitle {
   title = '';
   text = '';
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public UserService: UserService
+  ) {
   }
 
   send() {

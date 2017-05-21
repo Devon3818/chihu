@@ -14,24 +14,35 @@ export class Person {
 
   page1: any = 'Perhome';
   page2: any = 'Perparticular';
-  isme:boolean = true;
-  name:'';
-  userimg:'';
+  isme: boolean = true;
+  name: '';
+  userimg: '';
   _id = 0;
   chatParams = {
-    _id: this._id
+    _id: this._id,
+    tar: null
   };
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
-    if (this.navParams.get("_id") && this.UserService._user._id && this.navParams.get("_id") != this.UserService._user._id) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ref: ChangeDetectorRef,
+    public UserService: UserService
+  ) {
+    if (this.navParams.get("_id")) {
       this._id = this.navParams.get("_id");
       this.chatParams._id = this._id;
+      this.chatParams.tar = 'TA';
       this.getdata();
       this.isme = false;
     } else {
+      this.chatParams._id = this.UserService._user._id;
+      this.chatParams.tar = '我';
       this.name = this.UserService._user.name;
       this.userimg = this.UserService._user.userimg;
     }
+
     this.UserService.presentLoadingDefault();
   }
 
@@ -42,7 +53,7 @@ export class Person {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id=" + this._id+'', {
+    this.http.post(url, "id=" + this._id + '', {
       headers: headers
     })
       .subscribe((res) => {
@@ -51,7 +62,7 @@ export class Person {
       });
   }
 
-  chart(){
+  chart() {
     this.navCtrl.push('Chat', {
       _id: this._id,
       name: this.name,

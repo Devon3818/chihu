@@ -6,18 +6,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="content" (touchend)="ontouchend($event)" (touchmove)="ontouchmove($event)" (touchstart)="ontouchstart($event)" (ionScroll)="onScroll($event)">
-
-    <span class="dv_load" [class.dv_load_tran]="spanisload" [style.top]="loadX">
-        <span class="ouro">
-            <span class="left">
-                <span [class.load_move]="isload" class="anim"></span>
-    </span>
-    <span class="right">
-                <span [class.load_move]="isload" class="anim"></span>
-    </span>
-    </span>
-    </span>
+<ion-content class="content" (ionScroll)="onScroll($event)">
 
     <!--重复-->
     <section class="dv_item" *ngFor="let item of items">

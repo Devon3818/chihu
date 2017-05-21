@@ -12,11 +12,17 @@ export class MyLike {
 
   data: any = [];
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService
+    ) {
     this.getdata();
   }
 
   getdata() {
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/my_collect_share";
 
     var headers = new Headers();
@@ -27,6 +33,7 @@ export class MyLike {
     })
       .subscribe((res) => {
         this.data = res.json();
+        this.UserService.presentLoadingDismiss();
       });
   }
 

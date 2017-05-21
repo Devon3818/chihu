@@ -8,9 +8,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Comments {
 
-  items = [1,1,1];
+  items = [1, 1, 1];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {

@@ -14,7 +14,12 @@ export class Login {
   name: '';
   pass: '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService, public http: Http) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService, 
+    public http: Http
+    ) {
 
   }
 

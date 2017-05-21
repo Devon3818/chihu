@@ -12,7 +12,11 @@ export class MorePage {
   name:any='';
   mimg:any='';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService
+    ) {
     this.init();
   }
 

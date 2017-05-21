@@ -16,7 +16,12 @@ export class Attention {
   //是否有消息class控制
   nomessage: boolean = true;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public UserService: UserService
+  ) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.getdata();
   }

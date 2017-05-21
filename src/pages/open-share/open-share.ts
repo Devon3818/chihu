@@ -31,7 +31,14 @@ export class OpenShare {
   _id;
   islike: boolean = false;
 
-  constructor(public plt: Platform, public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
+  constructor(
+    public plt: Platform, 
+    public http: Http, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public ref: ChangeDetectorRef, 
+    public UserService: UserService
+    ) {
     this._id = this.navParams.get('_id');
     this.UserService.presentLoadingDefault();
     this.getdata();

@@ -13,9 +13,16 @@ export class FocusQuestion {
   rootNavCtrl: NavController;
   //数据存储
   items = [];
+  id: any;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public UserService: UserService
+  ) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
+    this.id = this.navParams.data._id;
     this.getdata();
   }
 
@@ -33,7 +40,7 @@ export class FocusQuestion {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "id=" + this.UserService._user._id, {
+    this.http.post(url, "id=" + this.id, {
       headers: headers
     })
       .subscribe((res) => {

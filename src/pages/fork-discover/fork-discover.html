@@ -7,7 +7,7 @@
             <section class="dv_item_head">
                 <img [src]="item.userimg" />
                 <p>{{item.name}} 分享了心情</p>
-                <span class="time">{{item.time}}</span>
+                <span class="time">{{item.time | date}}</span>
             </section>
 
             <section class="wrap">

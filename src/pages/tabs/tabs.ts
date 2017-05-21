@@ -28,7 +28,18 @@ export class TabsPage {
   tab4Root: any = 'MessagesPage';
   tab5Root: any = 'MorePage';
 
-  constructor(public fileOpener: FileOpener, public transfer: Transfer, public http: Http, public navCtrl: NavController, public platform: Platform, public UserService: UserService, public toastCtrl: ToastController, public appVersion: AppVersion, public alertCtrl: AlertController, public file: File) {
+  constructor(
+    public fileOpener: FileOpener, 
+    public transfer: Transfer, 
+    public http: Http, 
+    public navCtrl: NavController, 
+    public platform: Platform, 
+    public UserService: UserService, 
+    public toastCtrl: ToastController, 
+    public appVersion: AppVersion, 
+    public alertCtrl: AlertController, 
+    public file: File
+    ) {
     this.pageBack();
     appVersion.getVersionNumber().then((version) => {
       this.UserService.Version = version;

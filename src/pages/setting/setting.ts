@@ -19,7 +19,16 @@ export class Setting {
 
   fileTransfer: TransferObject;
 
-  constructor(public fileOpener: FileOpener, public transfer: Transfer, public http: Http,public navCtrl: NavController, public navParams: NavParams, public UserService: UserService, public alertCtrl: AlertController, public file: File) {
+  constructor(
+    public fileOpener: FileOpener, 
+    public transfer: Transfer, 
+    public http: Http,
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public UserService: UserService, 
+    public alertCtrl: AlertController, 
+    public file: File
+    ) {
     this.Version = this.UserService.Version;
     if(this.UserService._user._id){
       this.ishide = false;

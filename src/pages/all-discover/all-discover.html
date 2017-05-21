@@ -2,10 +2,11 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
 
-            <div class="swiper-slide" style="background: url('http://s2.cdn.xiachufang.com/5545a57208d411e7947d0242ac110002_1080w_808h.jpg?imageView2/1/w/490/h/260/interlace/1/q/90') no-repeat center"></div>
-            <div class="swiper-slide" style="background: url('http://s2.cdn.xiachufang.com/d93388e0234611e7947d0242ac110002_3264w_2176h.jpg?imageView2/1/w/490/h/260/interlace/1/q/90') no-repeat center"></div>
-            <div class="swiper-slide" style="background: url('http://s1.cdn.xiachufang.com/b69e09c6881f11e6b87c0242ac110003_600w_600h.jpg@2o_50sh_1pr_1l_490w_260h_1c_1e_90q_1wh') no-repeat center"></div>
-            <div class="swiper-slide" style="background: url('http://s2.cdn.xiachufang.com/bbfd36ca235c11e7bc9d0242ac110002_6000w_4000h.jpg?imageView2/1/w/490/h/260/interlace/1/q/90') no-repeat center"></div>
+            <div class="swiper-slide" style="background: url('http://7xp2ia.com1.z0.glb.clouddn.com/banner5.png')"></div>
+            <div class="swiper-slide" style="background: url('http://7xp2ia.com1.z0.glb.clouddn.com/banner2.png')"></div>
+            <div class="swiper-slide" style="background: url('http://7xp2ia.com1.z0.glb.clouddn.com/banner3.png')"></div>
+            <div class="swiper-slide" style="background: url('http://7xp2ia.com1.z0.glb.clouddn.com/banner4.png')"></div>
+            <div class="swiper-slide" style="background: url('http://7xp2ia.com1.z0.glb.clouddn.com/banner1.png')"></div>
 
         </div>
         <!-- 如果需要分页器 -->
@@ -17,17 +18,17 @@
             <i class="iconfont icon-document" color="icon-telephone"></i>
             <p>问题列表</p>
         </div>
-        <div class="dv_items">
+        <div class="dv_items" (click)="pushHotWork();">
             <i class="iconfont icon-notebook" color="icon-notebook"></i>
-            <p>文章</p>
+            <p>热门作品</p>
         </div>
-        <div class="dv_items">
+        <div class="dv_items" (click)="pushHotAnswer();">
             <i class="iconfont icon-basket" color="icon-shop"></i>
-            <p>商城</p>
+            <p>精品回答</p>
         </div>
-        <div class="dv_items">
+        <div class="dv_items" (click)="pushHotShare();">
             <i class="iconfont icon-trophy" color="icon-pencil"></i>
-            <p>活动</p>
+            <p>人气分享</p>
         </div>
     </section>
 
@@ -47,7 +48,7 @@
             <section class="dv_item_head">
                 <img [src]="item.userimg" />
                 <p>{{item.name}} 分享了心情</p>
-                <span class="time">{{item.time}}</span>
+                <span class="time">{{item.time | date}}</span>
             </section>
 
             <section class="wrap">

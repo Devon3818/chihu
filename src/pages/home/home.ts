@@ -13,28 +13,25 @@ export class HomePage {
   @ViewChild(Content) content: Content;
 
   tabanimate: boolean = false;
-  isload: boolean = false;
   spanisload: boolean = false;
   old_scrollTop = 0;
   new_scrollTop = 0;
 
-  ontouchstartY = 0;
-  ontouchmoveY = 0;
-  loadX: any = "-50px";
-  checkload = true;
-  itimer: any = null;
-
   //数据
   items = [];
 
-
-  constructor(public http: Http, public navCtrl: NavController, public ref: ChangeDetectorRef, public UserService: UserService) {
-    this.UserService.presentLoadingDefault();
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public ref: ChangeDetectorRef,
+    public UserService: UserService
+  ) {
     this.getdata();
   }
 
   //获取数据
   getdata() {
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/home";
 
     var headers = new Headers();
@@ -59,14 +56,7 @@ export class HomePage {
 
   onScroll($event: any) {
 
-    this.isload = false;
-    this.loadX = "-50px";
-
-    let scrollTop = $event.scrollTop;
-    console.log($event.scrollTop);
-    if ($event.scrollTop == 0 && !this.checkload) {
-      this.checkload = true;
-    }
+    var scrollTop = $event.scrollTop;
 
     if (scrollTop > 50 && (this.old_scrollTop - scrollTop) < 0) {
       if (!this.tabanimate) {
@@ -135,44 +125,6 @@ export class HomePage {
 
       infiniteScroll.complete();
     }, 3000);
-  }
-
-  ontouchstart($event: any) {
-    //console.log($event.touches[0].clientY);
-    clearTimeout(this.itimer);
-    this.ontouchstartY = $event.touches[0].clientY;
-    this.spanisload = false;
-
-  }
-
-  ontouchmove($event: any) {
-    if (!this.checkload && this.old_scrollTop != 0) {
-      return false;
-    }
-    this.ontouchmoveY = Math.floor($event.touches[0].clientY - this.ontouchstartY);
-
-    if (this.ontouchmoveY >= 105) {
-      this.ontouchmoveY = 105;
-    }
-    this.loadX = this.ontouchmoveY + 'px';
-  }
-
-  ontouchend($event: any) {
-    this.isload = true;
-    this.spanisload = true;
-    var _that = this;
-
-    if (this.ontouchmoveY >= 105) {
-      this.itimer = setTimeout(() => {
-        _that.isload = false;
-        _that.loadX = "-50px";
-      }, 5000);
-    } else {
-      _that.isload = false;
-      _that.loadX = "-50px";
-    }
-    this.checkload = false;
-
   }
 
   ionViewWillLeave() {

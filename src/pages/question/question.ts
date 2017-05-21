@@ -23,12 +23,19 @@ export class Question {
   _id;
   ishide: boolean = true;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public UserService: UserService) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ref: ChangeDetectorRef,
+    public UserService: UserService
+  ) {
     this._id = this.navParams.get("_id");
     this.getdata();
   }
 
   getdata() {
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/question";
 
     var headers = new Headers();
@@ -55,15 +62,14 @@ export class Question {
     })
       .subscribe((res) => {
         this.list = res.json();
+        this.UserService.presentLoadingDismiss();
       });
   }
 
   //检查是否已经关注
   checkfork() {
 
-    if (!this.UserService._user._id) {
-      this.navCtrl.push('Login');
-    } else {
+    if (this.UserService._user._id) {
       let url = "http://www.devonhello.com/chihu/checkforkquestion";
 
       var headers = new Headers();
@@ -78,6 +84,8 @@ export class Question {
           }
           this.getanswer();
         });
+    }else{
+      this.getanswer();
     }
   }
 
@@ -91,6 +99,7 @@ export class Question {
     if (this.ishide) {
       alert("已关注");
     } else {
+      this.UserService.presentLoadingDefault();
       let url = "http://www.devonhello.com/chihu/forkquestion";
 
       var headers = new Headers();
@@ -102,6 +111,7 @@ export class Question {
         .subscribe((res) => {
           if (res.json()['result']['ok'] == 1) {
             this.ishide = true;
+            this.UserService.presentLoadingDismiss();
             alert("关注成功");
           }
 
