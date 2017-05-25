@@ -58,7 +58,7 @@
                 <button [hidden]="!islike" ion-button outline (click)="dislike();">取消点赞</button>
             </ion-col>
             <ion-col center text-center>
-                <button ion-button outline>评论</button>
+                <button ion-button outline (click)="sendComment( '@作者', 0 );">评论</button>
             </ion-col>
         </ion-row>
     </section>
@@ -71,137 +71,19 @@
 
     <section class="dv_list">
         <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
+        <section class="dv_item" *ngFor="let item of items">
+            <section class="dv_item_head" (click)="pushPersonPage( item.uid );">
+                <img [src]="item.userimg" />
+                <p>{{item.name}}</p>
             </section>
 
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
+            <p>{{item.text}}</p>
             <section class="dv_item_bottom">
-                <p>会话列表</p>
+                <p class="fl">{{item.time | date }}</p>
+                <p class="fr mess" (click)="openComments( item._id );">回复&nbsp;&nbsp;{{item.commarr.length=='0'?'':item.commarr.length}}</p>
             </section>
         </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
 
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
-        <!--重复-->
-        <section class="dv_item">
-            <section class="dv_item_head">
-                <img src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
-                <p>Devon</p>
-            </section>
-
-            <p>我该怎么做才能变成他们那样的人，我该怎么做才能变成他们那样的人。</p>
-            <section class="dv_item_bottom">
-                <p>会话列表</p>
-            </section>
-        </section>
     </section>
 
 </ion-content>

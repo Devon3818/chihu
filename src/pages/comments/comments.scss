@@ -4,6 +4,10 @@ page-comments {
     ion-content .scroll-content {
         background-color: #f5f5f5;
     }
+    ion-list-header,
+    ion-list {
+        margin-bottom: 0 !important;
+    }
     ion-footer {
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
         background-color: #fff;
@@ -74,17 +78,21 @@ page-comments {
         }
         .dv_item_bottom {
             line-height: 36px;
-            color: #c8ced1;
-            width: 100%;
             overflow: hidden;
+            color: #c8ced1;
             p {
                 line-height: 38px;
             }
-            .dv_fl {
+            .fl {
                 float: left;
             }
-            .dv_fr {
+            .fr {
                 float: right;
+            }
+            .mess {
+                color: #298cde;
+                display: block;
+                padding: 0 8px;
             }
         }
     }

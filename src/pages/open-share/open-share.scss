@@ -106,13 +106,6 @@ page-open-share {
                     line-height: 38px;
                 }
             }
-            .dv_item_bottom {
-                line-height: 36px;
-                color: #c8ced1;
-                p {
-                    line-height: 38px;
-                }
-            }
         }
     }
     .item {
@@ -181,9 +174,21 @@ page-open-share {
         }
         .dv_item_bottom {
             line-height: 36px;
+            overflow: hidden;
             color: #c8ced1;
             p {
                 line-height: 38px;
+            }
+            .fl {
+                float: left;
+            }
+            .fr {
+                float: right;
+            }
+            .mess {
+                color: #298cde;
+                display: block;
+                padding: 0 8px;
             }
         }
     }

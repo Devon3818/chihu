@@ -30,15 +30,16 @@ export class OpenShare {
   };
   _id;
   islike: boolean = false;
+  items = [];
 
   constructor(
-    public plt: Platform, 
-    public http: Http, 
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public ref: ChangeDetectorRef, 
+    public plt: Platform,
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ref: ChangeDetectorRef,
     public UserService: UserService
-    ) {
+  ) {
     this._id = this.navParams.get('_id');
     this.UserService.presentLoadingDefault();
     this.getdata();
@@ -60,7 +61,7 @@ export class OpenShare {
         if (this.UserService._user._id) {
           this.checklike();
         } else {
-          this.UserService.presentLoadingDismiss();
+          this.getComment();
         }
 
       });
@@ -81,10 +82,10 @@ export class OpenShare {
           if (res.json().length != "0") {
             this.islike = true;
           }
-          this.UserService.presentLoadingDismiss();
+          this.getComment();
         });
     } else {
-      this.UserService.presentLoadingDismiss();
+      this.getComment();
     }
 
   }
@@ -134,6 +135,48 @@ export class OpenShare {
         this.UserService.showAlert("取消点赞成功");
 
       });
+  }
+
+  ionViewDidEnter() {
+    this.getComment();
+  }
+
+  //获取评论
+  getComment() {
+
+    let url = "http://www.devonhello.com/chihu/get_comment";
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post(url, "&artid=" + this._id, {
+      headers: headers
+    })
+      .subscribe((res) => {
+        this.items = res.json();
+        this.UserService.presentLoadingDismiss();
+      });
+  }
+
+  //评论
+  sendComment(pl, comid) {
+    if (!this.UserService._user._id) {
+      this.navCtrl.push('Login');
+      return true;
+    }
+    this.navCtrl.push('SendComment', {
+      pl: pl,
+      artid: this.data['_id'],
+      comid: comid,
+      type: 3
+    });
+  }
+
+  //评论回复列表
+  openComments(id) {
+    this.navCtrl.push('Comments', {
+      id: id
+    });
   }
 
   //查看TA的个人主页
