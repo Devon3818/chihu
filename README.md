@@ -16,5 +16,7 @@
 - QQ 群：513752928
 - QQ ：849996781
 
-手机真机APK下载:https://github.com/kongdewen1994/chihu/raw/master/android-debug.apk
-电脑模拟器APK下载:https://github.com/kongdewen1994/chihu/raw/master/android-x86-debug.apk
+## Download
+- 手机版：https://github.com/kongdewen1994/chihu/raw/master/android-debug.apk
+- 模拟器：https://github.com/kongdewen1994/chihu/raw/master/android-x86-debug.apk
+
