@@ -14,6 +14,7 @@ export class Comments {
   id;
   data: any = {};
   ishide: boolean = true;
+  type;
 
   constructor(
     public navCtrl: NavController,
@@ -22,6 +23,7 @@ export class Comments {
     public UserService: UserService
   ) {
     this.id = this.navParams.get('id');
+    this.type = this.navParams.get('type');
     this.getComment();
   }
 
@@ -37,7 +39,7 @@ export class Comments {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "&id=" + this.id, {
+    this.http.post(url, "&id=" + this.id + "&type=" + this.type, {
       headers: headers
     })
       .subscribe((res) => {
@@ -64,7 +66,7 @@ export class Comments {
       pl: pl,
       artid: this.data['artid'],
       comid: comid,
-      type: 3,
+      type: this.type,
       targetname: targetname,
       targetid: targetid,
       _id: _id,

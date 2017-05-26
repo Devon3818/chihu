@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar color="bule">
-        <ion-title>评论</ion-title>
+        <ion-title>评论详情</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -30,7 +30,7 @@
     </section>
     <ion-list [hidden]="ishide">
         <ion-list-header>
-            评论列表 ⬇️️️⬇️️️⬇️️️
+            回复列表 ⬇️️️⬇️️️⬇️️️
         </ion-list-header>
     </ion-list>
     <section class="dv_list">
@@ -41,7 +41,7 @@
                 <p>{{item.name}}</p>
             </section>
 
-            <p>{{item.text}}<span *ngIf="item.reply && item.reply != ''"> // <a href="javascript:;" (click)="pushPersonPage( item.targetid );">{{item.targetname}}</a>: {{item.reply}}</span></p>
+            <p>{{item.text}}<span *ngIf="item.reply && item.reply != ''"> //@ <a href="javascript:;" (click)="pushPersonPage( item.targetid );">{{item.targetname}}</a>: {{item.reply}}</span></p>
             <section class="dv_item_bottom">
                 <p class="fl">{{item.time | date }}</p>
                 <p class="fr mess" (click)="sendComment( '@'+item.name, data._id, item.name, item.uid, data._id, item.text );">回复</p>

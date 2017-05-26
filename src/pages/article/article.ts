@@ -34,6 +34,7 @@ export class Article {
   data: any = {};
   iscoll: boolean = false;
   isthank: boolean = false;
+  conts = 0;
 
   constructor(
     public plt: Platform,
@@ -60,6 +61,8 @@ export class Article {
     })
       .subscribe((res) => {
         this.data = res.json()[0];
+        this.conts = this.data.mark.cont;
+        
         if (this.UserService._user._id) {
           this.checkfork();
         }else{
@@ -256,8 +259,13 @@ export class Article {
   }
 
   //查看或评论页面
-  openComments() {
-    this.navCtrl.push('Comments');
+  openComments( type, name, uid, _id ) {
+    this.navCtrl.push('CommentsList',{
+      type: type,
+      _id: _id,
+      name: name,
+      uid: uid
+    });
   }
 
   //滚动监听

@@ -60,9 +60,9 @@
 
 <ion-footer [class.footanimate]="tabanimate">
     <ion-toolbar color='fff'>
-        <div class="dv_f" (click)="openComments();">
+        <div class="dv_f" (click)="openComments( 1, data.name, data.uid, data._id );">
             <ion-icon name="text"></ion-icon>
-            123
+            {{conts}}
         </div>
         <div [hidden]="iscoll" class="dv_f" (click)="collect();">
             <ion-icon name="star-outline"></ion-icon>

@@ -50,13 +50,14 @@ export class SendComment {
   }
 
   postdata() {
+    
     this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/send_comment";
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "uid=" + this.UserService._user._id + "&userimg=" + this.UserService._user.userimg + "&name=" + this.UserService._user.nickname + "&artid=" + this.artid + "&type=" + this.type + "&text=" + this.text, {
+    this.http.post(url, "uid=" + this.UserService._user._id + "&userimg=" + this.UserService._user.userimg + "&name=" + this.UserService._user.nickname + "&artid=" + this.artid + "&type=" + this.type + "&text=" + this.text + "&targetid=" + this.targetid, {
       headers: headers
     })
       .subscribe((res) => {

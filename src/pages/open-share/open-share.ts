@@ -149,7 +149,7 @@ export class OpenShare {
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post(url, "&artid=" + this._id, {
+    this.http.post(url, "&artid=" + this._id + "&type=3", {
       headers: headers
     })
       .subscribe((res) => {
@@ -168,14 +168,16 @@ export class OpenShare {
       pl: pl,
       artid: this.data['_id'],
       comid: comid,
-      type: 3
+      type: 3,
+      targetid: this.data['uid']
     });
   }
 
   //评论回复列表
   openComments(id) {
     this.navCtrl.push('Comments', {
-      id: id
+      id: id,
+      type: 3
     });
   }
 

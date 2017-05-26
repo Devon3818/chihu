@@ -24,6 +24,7 @@ export class AnswerPage {
   ishide: boolean = true;
   iscoll: boolean = false;
   isthank: boolean = false;
+  conts = 0;
 
   constructor(
     public http: Http,
@@ -49,6 +50,7 @@ export class AnswerPage {
     })
       .subscribe((res) => {
         this.data = res.json()[0];
+        this.conts = this.data.mark.cont;
         if (this.UserService._user._id) {
           this.checkfork();
         }else{
@@ -59,11 +61,6 @@ export class AnswerPage {
 
   ionViewDidLoad() {
     this.content.enableJsScroll();
-  }
-
-  //查看或评论页面
-  openComments() {
-    this.navCtrl.push('Comments');
   }
 
   //查看TA的个人主页
@@ -255,6 +252,16 @@ export class AnswerPage {
           this.UserService.showAlert("感谢成功");
         }
       });
+  }
+
+  //查看或评论页面
+  openComments( type, name, uid, _id ) {
+    this.navCtrl.push('CommentsList',{
+      type: type,
+      _id: _id,
+      name: name,
+      uid: uid
+    });
   }
 
   //滚动监听，改变头部状态栏动画运动

@@ -58,7 +58,7 @@
                 <button [hidden]="!islike" ion-button outline (click)="dislike();">取消点赞</button>
             </ion-col>
             <ion-col center text-center>
-                <button ion-button outline (click)="sendComment( '@作者', 0 );">评论</button>
+                <button ion-button outline (click)="sendComment( '@'+data.name, 0 );">评论</button>
             </ion-col>
         </ion-row>
     </section>

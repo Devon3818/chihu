@@ -1,0 +1,49 @@
+<ion-header>
+
+    <ion-navbar color="bule">
+        <ion-title>评论列表</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            {{items.length}} 个评论
+        </ion-list-header>
+    </ion-list>
+
+    <section class="dv_list">
+        <!--重复-->
+        <section class="dv_item" *ngFor="let item of items">
+            <section class="dv_item_head" (click)="pushPersonPage( item.uid );">
+                <img [src]="item.userimg" />
+                <p>{{item.name}}</p>
+            </section>
+
+            <p>{{item.text}}</p>
+            <section class="dv_item_bottom">
+                <p class="fl">{{item.time | date }}</p>
+                <p class="fr mess" (click)="openComments( item._id );">回复&nbsp;&nbsp;{{item.commarr.length=='0'?'':item.commarr.length}}</p>
+            </section>
+        </section>
+
+    </section>
+</ion-content>
+
+<ion-footer no-border (click)="sendComment( '@'+name, 0 )">
+    <ion-grid class="input-wrap">
+        <ion-row>
+
+            <ion-col col-10>
+                <ion-textarea #chat_input disabled='true' placeholder="我要评论..."></ion-textarea>
+            </ion-col>
+            <ion-col col-2>
+                <button ion-button clear icon-only item-right>
+                    <ion-icon  name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>
