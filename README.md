@@ -1,18 +1,34 @@
-# 吃乎 / CHIHU
-
 <p align="center"><a href="" target="_blank"><img width="100"src="https://github.com/kongdewen1994/chihu/blob/master/resources/android/icon/drawable-xxhdpi-icon.png"></a></p>
 
-[![release](https://img.shields.io/badge/APP-吃乎-blue.svg)](https://github.com/kongdewen1994/chihu)
-[![QQ Group](https://img.shields.io/badge/QQ%20Group-513752928-red.svg)]()
-[![Beta](https://img.shields.io/badge/Beta-1.1.0-blue.svg)](https://github.com/kongdewen1994/chihu)
-[![release](https://img.shields.io/badge/ionic2-3.0.1-blue.svg)](https://github.com/kongdewen1994/chihu)
-[![platforms](https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg)](https://github.com/kongdewen1994/chihu)
-[![wx](https://img.shields.io/badge/WeChat-Devon1994-brightgreen.svg)]()
+<p align="center">
+  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/APP-吃乎-blue.svg" alt=""></a>
+  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/QQ%20Group-513752928-red.svg" alt=""></a>
+  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/Beta-1.1.0-blue.svg" alt=""></a>
+  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/ionic2-3.0.1-blue.svg" alt=""></a>
+  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg" alt=""></a>
+  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/WeChat-Devon1994-brightgreen.svg" alt=""></a>
+  
+</p>
+
+
+# 吃乎 / CHIHU
+
 
 支持 iOS, Android 的 ionic2例子。（ios或许有改动，请自行更改代码，和打包）
 > 作者：Devon。
 
 >吃乎1.0.1版本后支持app更新检查。
+
+>本人想换工作，有意请联系QQ：849996781
+
+
+<br/>
+
+<p align="center"><a href="" target="_blank"><img width="278"src="https://github.com/kongdewen1994/chihu/blob/master/test/Screenshot_20170528-171033.png"></a>
+<a href="" target="_blank"><img width="278"src="https://github.com/kongdewen1994/chihu/blob/master/test/Screenshot_20170528-171404.png"></a>
+<a href="" target="_blank"><img width="278"src="https://github.com/kongdewen1994/chihu/blob/master/test/Screenshot_20170528-171432.png"></a>
+</p>
+
 
 ## Support
 - QQ 群：513752928
