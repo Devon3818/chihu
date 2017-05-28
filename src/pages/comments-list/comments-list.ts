@@ -15,6 +15,7 @@ export class CommentsList {
   name;
   uid;
   items = [];
+  isget = false;
 
   constructor(
     public navCtrl: NavController,
@@ -26,13 +27,12 @@ export class CommentsList {
     this.type = this.navParams.get('type');
     this.name = this.navParams.get('name');
     this.uid = this.navParams.get('uid');
+    this.UserService.presentLoadingDefault();
     this.getComment();
   }
 
   //获取评论
   getComment() {
-
-    this.UserService.presentLoadingDefault();
 
     let url = "http://www.devonhello.com/chihu/get_comment";
 
@@ -43,13 +43,16 @@ export class CommentsList {
       headers: headers
     })
       .subscribe((res) => {
-        this.items = res.json();
         this.UserService.presentLoadingDismiss();
+        this.items = res.json();
+        this.isget = true;
       });
   }
 
   ionViewDidEnter() {
-    this.getComment();
+    if(this.isget){
+      this.getComment();
+    }
   }
 
   //评论
@@ -82,6 +85,10 @@ export class CommentsList {
     this.navCtrl.push('Person', {
       _id: _id
     });
+  }
+
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
   }
 
 }

@@ -148,4 +148,19 @@ export class Question {
     this.ref.detectChanges();
   }
 
+  add(){
+    if(!this.UserService._user._id){
+      this.navCtrl.push('Login');
+      return true;
+    }
+    this.navCtrl.push('SendAnswer',{
+      id: this._id,
+      title: this.title
+    });
+  }
+
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

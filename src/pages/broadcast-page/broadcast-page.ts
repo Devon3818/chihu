@@ -17,8 +17,5 @@ export class BroadcastPage {
     public navParams: NavParams
   ) { }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BroadcastPage');
-  }
 
 }

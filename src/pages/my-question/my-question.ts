@@ -50,4 +50,8 @@ export class MyQuestion {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

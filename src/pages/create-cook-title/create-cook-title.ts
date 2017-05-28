@@ -30,5 +30,6 @@ export class CreateCookTitle {
     //alert(this.WorkService._title);
     this.navCtrl.push('CreateCookData');
   }
+  
 
 }

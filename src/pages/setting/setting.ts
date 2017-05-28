@@ -108,4 +108,8 @@ export class Setting {
     alert.present();
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

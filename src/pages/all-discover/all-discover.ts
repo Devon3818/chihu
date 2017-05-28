@@ -84,4 +84,8 @@ export class AllDiscover {
     }, 3000);
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

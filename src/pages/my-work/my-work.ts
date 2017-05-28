@@ -49,4 +49,8 @@ export class MyWork {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

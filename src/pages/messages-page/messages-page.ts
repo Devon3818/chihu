@@ -63,4 +63,8 @@ export class MessagesPage {
     this.getAllMessages();
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

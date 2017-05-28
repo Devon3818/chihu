@@ -59,4 +59,8 @@ export class MyAnswer {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

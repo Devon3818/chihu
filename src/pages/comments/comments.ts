@@ -81,5 +81,8 @@ export class Comments {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
 
 }

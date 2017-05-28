@@ -248,4 +248,8 @@ export class OpenShare {
     this.ref.detectChanges();
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

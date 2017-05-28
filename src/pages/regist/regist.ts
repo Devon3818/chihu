@@ -71,4 +71,8 @@ export class Regist {
       });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

@@ -46,4 +46,8 @@ export class HotShare {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

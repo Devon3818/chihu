@@ -1,8 +1,10 @@
 # 吃乎 / CHIHU
 
+<p align="center"><a href="" target="_blank"><img width="100"src="https://github.com/kongdewen1994/chihu/blob/master/resources/android/icon/drawable-xxhdpi-icon.png"></a></p>
+
 [![release](https://img.shields.io/badge/APP-吃乎-blue.svg)](https://github.com/kongdewen1994/chihu)
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-513752928-red.svg)]()
-[![Beta](https://img.shields.io/badge/Beta-1.0.9-blue.svg)](https://github.com/kongdewen1994/chihu)
+[![Beta](https://img.shields.io/badge/Beta-1.1.0-blue.svg)](https://github.com/kongdewen1994/chihu)
 [![release](https://img.shields.io/badge/ionic2-3.0.1-blue.svg)](https://github.com/kongdewen1994/chihu)
 [![platforms](https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg)](https://github.com/kongdewen1994/chihu)
 [![wx](https://img.shields.io/badge/WeChat-Devon1994-brightgreen.svg)]()

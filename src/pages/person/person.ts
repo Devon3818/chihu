@@ -70,4 +70,8 @@ export class Person {
     })
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

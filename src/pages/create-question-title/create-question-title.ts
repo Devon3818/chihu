@@ -48,5 +48,9 @@ export class CreateQuestionTitle {
       });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 
 }

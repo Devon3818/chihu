@@ -26,6 +26,7 @@ export class CollectQuestion {
 
   //获取数据
   getdata() {
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/my_collect_question";
 
     var headers = new Headers();
@@ -35,6 +36,7 @@ export class CollectQuestion {
       headers: headers
     })
       .subscribe((res) => {
+        this.UserService.presentLoadingDismiss();
         this.items = this.items.concat(res.json());
       });
   }
@@ -51,6 +53,10 @@ export class CollectQuestion {
     this.rootNavCtrl.push('AnswerPage', {
       _id: _id
     });
+  }
+
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
   }
 
 }

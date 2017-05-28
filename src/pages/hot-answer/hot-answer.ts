@@ -53,4 +53,8 @@ export class HotAnswer {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

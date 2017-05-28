@@ -43,4 +43,8 @@ export class HotWork {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

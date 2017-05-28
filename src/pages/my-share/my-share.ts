@@ -52,4 +52,8 @@ export class MyShare {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

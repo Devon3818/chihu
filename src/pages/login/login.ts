@@ -89,4 +89,8 @@ export class Login {
 
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

@@ -29,4 +29,8 @@ export class Focus {
     }
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

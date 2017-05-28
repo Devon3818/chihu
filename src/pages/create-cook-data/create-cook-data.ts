@@ -229,4 +229,8 @@ export class CreateCookData {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

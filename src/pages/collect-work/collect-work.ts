@@ -46,4 +46,8 @@ export class CollectWork {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }

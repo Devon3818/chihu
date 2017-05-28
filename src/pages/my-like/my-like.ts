@@ -45,5 +45,9 @@ export class MyLike {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 
 }

@@ -1,0 +1,20 @@
+<ion-header>
+
+    <ion-navbar color="bule">
+        <ion-title>回答问题</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            输入详细内容
+        </ion-list-header>
+
+        <ion-textarea [(ngModel)]="text" placeholder="我想说的..."></ion-textarea>
+
+    </ion-list>
+    <button ion-button full (click)="save();">发送</button>
+</ion-content>

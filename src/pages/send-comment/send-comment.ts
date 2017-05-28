@@ -61,9 +61,8 @@ export class SendComment {
       headers: headers
     })
       .subscribe((res) => {
-        
+        this.UserService.presentLoadingDismiss();
         if (res.json()['result']['ok'] == 1) {
-          this.UserService.presentLoadingDismiss();
           this.navCtrl.pop();
         }
       });
@@ -88,6 +87,10 @@ export class SendComment {
           this.navCtrl.pop();
         }
       });
+  }
+
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
   }
 
 }

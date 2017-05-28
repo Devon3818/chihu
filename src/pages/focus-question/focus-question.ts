@@ -35,6 +35,7 @@ export class FocusQuestion {
 
   //关注的问题
   getdata() {
+    this.UserService.presentLoadingDefault();
     let url = "http://www.devonhello.com/chihu/getforkquestion";
 
     var headers = new Headers();
@@ -44,6 +45,7 @@ export class FocusQuestion {
       headers: headers
     })
       .subscribe((res) => {
+        this.UserService.presentLoadingDismiss();
         this.items = res.json();
       });
   }

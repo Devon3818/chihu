@@ -159,4 +159,8 @@ export class CreateShare {
     });
   }
 
+  ionViewWillLeave() {
+    this.UserService.presentLoadingDismiss();
+  }
+
 }
