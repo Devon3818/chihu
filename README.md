@@ -15,6 +15,10 @@
 
 
 支持 iOS, Android 的 ionic2例子。（ios或许有改动，请自行更改代码，和打包）
+<br/>
+<br/>
+🎉🎉🎉🎉🎉  <a href="https://github.com/kongdewen1994/chihu2/blob/master/README.md">「吃乎2」 正在内测，更快，更小，组件化</a>
+<br/>
 > 作者：Devon。
 
 >吃乎1.0.1版本后支持app更新检查。
