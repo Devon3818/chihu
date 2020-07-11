@@ -1,12 +1,12 @@
-<p align="center"><a href="" target="_blank"><img width="100"src="https://github.com/kongdewen1994/chihu/blob/master/resources/android/icon/drawable-xxhdpi-icon.png"></a></p>
+<p align="center"><a href="" target="_blank"><img width="100"src="https://github.com/Devon3818/chihu/blob/master/resources/android/icon/drawable-xxhdpi-icon.png"></a></p>
 
 <p align="center">
-  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/APP-吃乎-blue.svg" alt=""></a>
-  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/QQ%20Group-513752928-red.svg" alt=""></a>
-  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/Beta-1.1.0-blue.svg" alt=""></a>
-  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/ionic2-3.0.1-blue.svg" alt=""></a>
-  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg" alt=""></a>
-  <a href="https://github.com/kongdewen1994/chihu"><img src="https://img.shields.io/badge/WeChat-Devon1994-brightgreen.svg" alt=""></a>
+  <a href="https://github.com/Devon3818/chihu"><img src="https://img.shields.io/badge/APP-吃乎-blue.svg" alt=""></a>
+  <a href="https://github.com/Devon3818/chihu"><img src="https://img.shields.io/badge/QQ%20Group-513752928-red.svg" alt=""></a>
+  <a href="https://github.com/Devon3818/chihu"><img src="https://img.shields.io/badge/Beta-1.1.0-blue.svg" alt=""></a>
+  <a href="https://github.com/Devon3818/chihu"><img src="https://img.shields.io/badge/ionic2-3.0.1-blue.svg" alt=""></a>
+  <a href="https://github.com/Devon3818/chihu"><img src="https://img.shields.io/badge/platforms-iOS%7CAndroid-lightgrey.svg" alt=""></a>
+  <a href="https://github.com/Devon3818/chihu"><img src="https://img.shields.io/badge/WeChat-Devon1994-brightgreen.svg" alt=""></a>
   
 </p>
 
@@ -40,9 +40,9 @@
 
 <br/>
 
-<p align="center"><a href="" target="_blank"><img width="278"src="https://github.com/kongdewen1994/chihu/blob/master/test/Screenshot_20170528-171033.png"></a>
-<a href="" target="_blank"><img width="278"src="https://github.com/kongdewen1994/chihu/blob/master/test/Screenshot_20170528-171404.png"></a>
-<a href="" target="_blank"><img width="278"src="https://github.com/kongdewen1994/chihu/blob/master/test/Screenshot_20170528-171432.png"></a>
+<p align="center"><a href="" target="_blank"><img width="278"src="https://github.com/Devon3818/chihu/blob/master/test/Screenshot_20170528-171033.png"></a>
+<a href="" target="_blank"><img width="278"src="https://github.com/Devon3818/chihu/blob/master/test/Screenshot_20170528-171404.png"></a>
+<a href="" target="_blank"><img width="278"src="https://github.com/Devon3818/chihu/blob/master/test/Screenshot_20170528-171432.png"></a>
 </p>
 
 
@@ -51,8 +51,8 @@
 - QQ ：849996781
 
 ## Download
-- 手机版：https://github.com/kongdewen1994/chihu/raw/master/android-debug.apk
-- 模拟器：https://github.com/kongdewen1994/chihu/raw/master/android-x86-debug.apk
+- 手机版：https://github.com/Devon3818/chihu/raw/master/android-debug.apk
+- 模拟器：https://github.com/Devon3818/chihu/raw/master/android-x86-debug.apk
 
 ## 事件
 - 2017-6-19数据库异常，数据库丢失，呵呵呵，无奈（可能是mongodb的bug）
